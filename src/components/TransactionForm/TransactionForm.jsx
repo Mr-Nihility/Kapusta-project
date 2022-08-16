@@ -59,51 +59,52 @@ export const TransactionForm = () => {
           onChange={onChange}
         />
         <div className={styles.wrapper}>
-          <select
-            className={styles.selected}
-            required
-            value={category}
-            onChange={onChange}
-            name="category"
-            placeholder="Product category"
+        <select
+          className={styles.selected}
+          required
+          value={category}
+          onChange={onChange}
+          name="category"
+          placeholder="Product category"
+        >
+         
+          <option disabled selected hidden value="">
+            Product category
+          </option>
+          <option className={styles.placeholder} value="Транспорт">
+            Transport
+          </option>
+          <option className={styles.placeholder} value="Продукты">
+            Products
+          </option>
+          <option className={styles.placeholder} value="Здоровье">
+            Health
+          </option>
+          <option className={styles.placeholder} value="Развлечения">
+            Entertainment
+          </option>
+          <option className={styles.placeholder} value="Всё для дома">
+            Housing
+          </option>
+          <option className={styles.placeholder} value="Technique">
+            Technique
+          </option>
+          <option
+            className={styles.placeholder}
+            value="Communal, communication"
           >
-            <option disabled selected hidden value="">
-              Product category
-            </option>
-            <option className={styles.placeholder} value="Транспорт">
-              Transport
-            </option>
-            <option className={styles.placeholder} value="Продукты">
-              Products
-            </option>
-            <option className={styles.placeholder} value="Здоровье">
-              Health
-            </option>
-            <option className={styles.placeholder} value="Развлечения">
-              Entertainment
-            </option>
-            <option className={styles.placeholder} value="Всё для дома">
-              Housing
-            </option>
-            <option className={styles.placeholder} value="Technique">
-              Technique
-            </option>
-            <option
-              className={styles.placeholder}
-              value="Communal, communication"
-            >
-              Communal, communication
-            </option>
-            <option className={styles.placeholder} value="Sports, hobbies">
-              Sports, hobbies
-            </option>
-            <option className={styles.placeholder} value="Образование">
-              Education
-            </option>
-            <option className={styles.placeholder} value="Прочее">
-              Other
-            </option>
-          </select>
+            Communal, communication
+          </option>
+          <option className={styles.placeholder} value="Sports, hobbies">
+            Sports, hobbies
+          </option>
+          <option className={styles.placeholder} value="Образование">
+            Education
+          </option>
+          <option className={styles.placeholder} value="Прочее">
+            Other
+          </option>
+        </select>
         </div>
         {/* <svg className={styles.icon} width="15" height="10" fill='black'>
                 <use href={`${svg}#icon-arrow-to-down`}  ></use>
