@@ -19,7 +19,7 @@ export const Balance = () => {
 
   const handleClick = event => {
     event.preventDefault();
-    dispatch(newBalanceThunk(name));
+    dispatch(newBalanceThunk({ newBalance: name }));
   };
   return (
     <>
