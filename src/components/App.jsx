@@ -1,16 +1,21 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { getCurrentUser } from 'redux/auth/auth-operations';
+import { getIsLogged, getSid } from 'redux/auth/auth-selectors';
+import { Modal } from 'pages/SignIn';
+
+import { Main } from 'pages/Main';
+
 export const App = () => {
-  return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
-  );
+  const dispatch = useDispatch();
+
+  const isLogged = useSelector(getIsLogged);
+
+  const sid = useSelector(getSid);
+
+  useEffect(() => {
+    dispatch(getCurrentUser());
+  }, [dispatch]);
+
+  return <div>{!isLogged ? <Modal /> : <Main />}</div>;
 };

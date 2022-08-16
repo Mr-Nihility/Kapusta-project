@@ -1,0 +1,73 @@
+import axios from 'axios';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+
+axios.defaults.baseURL = 'https://kapusta-backend.goit.global';
+
+export const tokenAuth = {
+  set(token) {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  },
+  unset() {
+    axios.defaults.headers.common.Authorization = '';
+  },
+};
+
+export const signIn = createAsyncThunk('auth/register', credentials => {
+  axios
+    .post('/auth/register', credentials)
+    .then(() => {
+      axios
+        .post('/auth/login', credentials)
+        .then(({ data }) => {
+          tokenAuth.set(data.accessToken);
+          return data;
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    })
+    .catch(error => {
+      console.log(error);
+    });
+});
+
+export const logIn = createAsyncThunk('auth/login', async credentials => {
+  try {
+    const { data } = await axios.post('/auth/login', credentials);
+
+    tokenAuth.set(data.accessToken);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+export const logOut = createAsyncThunk('auth/logout', async credentials => {
+  try {
+    await axios.post('/auth/logout', credentials);
+    tokenAuth.unset();
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+export const getCurrentUser = createAsyncThunk(
+  'auth/refresh',
+  async (_, { getState, rejectWithValue }) => {
+    const state = getState();
+    const sid = state.auth.sid;
+    const refreshToken = state.auth.refreshToken;
+
+    if (!sid) {
+      return rejectWithValue('error');
+    }
+    tokenAuth.set(refreshToken);
+    try {
+      const { data } = await axios.post('/auth/refresh', { sid });
+      tokenAuth.set(data.newAccessToken);
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
