@@ -1,8 +1,6 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { logIn, signIn } from 'redux/auth/auth-operations';
-import { getIsLogged } from 'redux/auth/auth-selectors';
-import { Main } from './Main';
 
 import styles from './SignIn.module.css';
 
