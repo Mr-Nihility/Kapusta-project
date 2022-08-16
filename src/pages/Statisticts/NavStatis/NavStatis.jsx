@@ -9,7 +9,7 @@ export const NavStatis = () => {
             <svg className={Style.button_goHomeSvg}>
               <use
                 className={Style.button_goHomeUse}
-                href="../../svg/svg-icon-project/symbol-defs.svg#icon-long-arrow-left"
+                href="../../../svg/symbol-defs-statistic.svg#icon-long-arrow-left"
               />
             </svg>
           </span>
@@ -27,14 +27,14 @@ export const NavStatis = () => {
             <svg className={Style.month_switchSvg}>
               <use
                 className={Style.month_switchUse}
-                href='../../svg/svg-icon-project/symbol-defs.svg#icon-arrow-left'//https://polyakovdmitriy.ru/svg-v-react/
+                href='../../../svg/symbol-defs-statistic.svg#icon-arrow-left'//https://polyakovdmitriy.ru/svg-v-react/
               />
             </svg>
             November 2019
             <svg className={Style.month_switchSvg}>
               <use
                 className={Style.month_switchUse}
-                href="../../svg/svg-icon-project/symbol-defs.svg#icon-arrow-right"
+                href="../../../svg/symbol-defs-statistic.svg#icon-arrow-right"
               />
             </svg>
           </p>
