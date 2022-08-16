@@ -3,7 +3,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
 }
 .btn {
   display: flex;
@@ -32,6 +31,7 @@
   background-color: #e0e5eb;
 }
 .text {
+  margin-left: 13px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
