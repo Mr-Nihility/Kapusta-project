@@ -20,11 +20,11 @@ const persistConfigAuth = {
   whitelist: ['accessToken', 'refreshToken', 'sid', 'userData'],
 };
 
-const persistConfigTransaction= {
-  key: 'transaction',
-  storage,
-  // whitelist: ['accessToken', 'refreshToken', 'sid', 'userData'],
-};
+// const persistConfigTransaction= {
+//   key: 'transaction',
+//   storage,
+//   // whitelist: ['accessToken', 'refreshToken', 'sid', 'userData'],
+// };
 
 const store = configureStore({
   reducer: {
