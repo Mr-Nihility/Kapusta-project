@@ -6,18 +6,15 @@ import LogoKapusta from './images/LogoKapusta.png';
 export const MainContainer = () => {
   return (
     <div className={styles.Container}>
-      <div className={styles.Fon}>
-        <img src={Rectangle} alt="Fon" width="100%" />
-        <div className={styles.FonNuts}>
-          <img src={NutsFon} alt="" width="100%" />
-        </div>
-        <div className={styles.LogoKapusta}>
-          <img src={LogoKapusta} alt="" width="100%" />
-        </div>
-      </div>
-      <div className={styles.Nutsmini}>
-        <img src={Nutsmini} alt="" />
-      </div>
+      <img className={styles.Fon} src={Rectangle} alt="Fon" width="100%" />
+      <img className={styles.FonNuts} src={NutsFon} alt="" width="100%" />
+      <img
+        className={styles.LogoKapusta}
+        src={LogoKapusta}
+        alt=""
+        width="100%"
+      />
+      <img src={Nutsmini} alt="" className={styles.Nutsmini} />
     </div>
   );
 };
