@@ -1,4 +1,8 @@
 import { useState } from 'react';
+
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 import styles from '../TransactionForm/TransactionForm.module.css';
 import {
   addExpenseTransaction,
@@ -8,19 +12,27 @@ import { useDispatch } from 'react-redux';
 // import svg from '../../images/svg-icon-project/symbol-defs.svg'
 // import saa from '../../images/svg-icon-project.svg'
 export const TransactionForm = () => {
+  // const myDate =new Date()
+  
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
   const [amount, setAmount] = useState('');
-
+  const [date, setDate] = useState(null)
   const dispatch = useDispatch();
-
+  console.log(date)
+// const onChangeDate=(Date)=>{
+  
+//    setDate(Date)
+// }
   const onSubmit = evt => {
+    
     evt.preventDefault();
+    
     dispatch(
       addExpenseTransaction({
         description: description,
         amount: amount,
-        date: '2020-12-31',
+        date: date,
         category: category,
       })
     );
@@ -45,10 +57,14 @@ export const TransactionForm = () => {
         return '';
     }
   };
-
+  
   return (
     <>
       <form className={styles.form} onSubmit={onSubmit}>
+      {/* <DatePicker dateFormat='yyyy/MM/dd'  selected={date} maxDate={new Date()} onChange={date=>setDate(date)}/> */}
+        
+      <input max={new Date()} type="date"
+      onChange={e=>setDate(e.target.value)} />
         <input
           className={styles.description}
           required
@@ -68,7 +84,7 @@ export const TransactionForm = () => {
           placeholder="Product category"
         >
          
-          <option disabled selected hidden value="">
+          <option disabled  hidden value="">
             Product category
           </option>
           <option className={styles.placeholder} value="Транспорт">

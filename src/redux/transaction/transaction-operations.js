@@ -55,6 +55,10 @@ export const addIncomeTransaction= createAsyncThunk(
 
     }
 )
+
+
+
+
 // export const deleteTrancaction = createAsyncThunk(
 //     'trancaction/deleteTrancaction',
 
