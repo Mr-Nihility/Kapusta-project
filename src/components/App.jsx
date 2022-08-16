@@ -5,7 +5,7 @@ import { getIsLogged } from 'redux/auth/auth-selectors';
 import { Modal } from 'pages/SignIn';
 
 import { MainContainer } from './MainContainer/MainContainer';
-
+import { Route, Routes } from 'react-router-dom';
 import { Main } from 'pages/Main';
 import SharedLayout from 'pages/SharedLayout';
 
@@ -18,8 +18,64 @@ export const App = () => {
     dispatch(getCurrentUser());
   }, [dispatch]);
 
-  
-  return <div> <SharedLayout/>{!isLogged ? <Modal /> : <Main />}
-  <MainContainer /></div>;
+  return (
+    <>
+      <div>
+        <Routes>
+          <Route path="/kapusta-project/" element={<SharedLayout />}>
+            <Route index element={''} />
+          </Route>
+        </Routes>
 
+        {!isLogged ? <Modal /> : <Main />}
+        <MainContainer />
+      </div>
+    </>
+  );
 };
+
+/**
+ * 
+ * 
+ *  <Routes>
+            <Route path="/goit-react-hw-08-phonebook/" element={<LayOut />}>
+              <Route index element={<HomeView />} />
+              <Route
+                path="register"
+                element={
+                  <PublicRoute>
+                    <RegistrationView />
+                  </PublicRoute>
+                }
+              >
+              </Route>
+              <Route
+                path="login"
+                element={
+                  <PublicRoute>
+                    <LoginView />
+                  </PublicRoute>
+                }
+              ></Route>
+              <Route
+                path="contacts"
+                element={
+                  <PrivateRoute>
+                    <ContactsView />
+                  </PrivateRoute>
+                }
+              >
+                <Route
+                  path="add"
+                  element={
+                    <Container title="Add contact">
+                      <Form />
+                    </Container>
+                  }
+                ></Route>
+                <Route path="search" element={<Filter />}></Route>
+              </Route>
+            </Route>
+            <Route path="*" element={<NotFound />}></Route>
+          </Routes>
+ */
