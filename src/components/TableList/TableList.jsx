@@ -38,7 +38,22 @@ const Tablelist = () => {
             </tbody>
           </table>
         </div>
-        <div className={s.summary_wrapper}></div>
+        <div className={s.summary_wrapper}>
+          <table className={s.summary_table}>
+            <caption className={s.summary_head}>Summary</caption>
+
+            <tbody className={s.summary_tbody}>
+              <tr>
+                <td className={s.summary_td1}>NOVEMBER</td>
+                <td className={s.summary_td2}>200</td>
+              </tr>
+              <tr>
+                <td className={s.summary_td1}>JUNE</td>
+                <td className={s.summary_td2}>20000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </>
   );
