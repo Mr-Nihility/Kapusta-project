@@ -1,0 +1,15 @@
+.list {
+  list-style: none;
+}
+.link_report,
+.link_tab {
+  text-decoration: none;
+  width: 60px;
+  height: 40px;
+}
+
+.link:hover {
+  color: brown;
+  background-color: blueviolet;
+  text-decoration: none;
+}
