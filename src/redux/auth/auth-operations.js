@@ -13,10 +13,10 @@ export const tokenAuth = {
 };
 
 export const signIn = createAsyncThunk('auth/register', credentials => {
-  axios
+  return axios
     .post('/auth/register', credentials)
     .then(() => {
-      axios
+      return axios
         .post('/auth/login', credentials)
         .then(({ data }) => {
           tokenAuth.set(data.accessToken);
