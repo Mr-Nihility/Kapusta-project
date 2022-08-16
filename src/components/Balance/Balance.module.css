@@ -1,0 +1,61 @@
+.form {
+  background-image: url(../../background/bkgd_desktop.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 48px;
+}
+.label {
+  display: flex;
+  color: #52555f;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+  text-align: center;
+  align-items: center;
+}
+.input {
+  position: relative;
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  border-radius: 16px;
+  width: 125px;
+  color: #000000;
+  text-align: center;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+/* 
+.label::after {
+  content: 'UAH';
+  text-align: center;
+  left: 30px;
+  color: #000000;
+} */
+
+.button {
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  border-radius: 16px;
+  color: #52555f;
+  text-align: center;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 6px;
+  padding-right: 6px;
+}

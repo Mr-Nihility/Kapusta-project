@@ -5,6 +5,8 @@ import { logIn, signIn } from 'redux/auth/auth-operations';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 
+import { ReactComponent as GoogleIcon } from '../images/google/google-icon.svg';
+
 import styles from './SignIn.module.css';
 import { TextField } from 'components/SignIn/TextField';
 
@@ -52,32 +54,41 @@ export const Modal = () => {
 
   return (
     <>
-      <div>
-        <Formik
-          initialValues={{
-            email: '',
-            password: '',
-          }}
-          validationSchema={validate}
-        >
-          {formik => (
-            <div>
-              <Form className={styles.form} onChange={handleChange}>
-                <TextField label="Email" name="email" type="email" />
-                <TextField label="Password" name="password" type="password" />
-                <div className={styles.buttons}>
-                  <button onClick={handleLogIn} className={styles.btn}>
-                    Log in
-                  </button>
-                  <button onClick={handleSignIn} className={styles.btn}>
-                    Sign in
-                  </button>
-                </div>
-              </Form>
-            </div>
-          )}
-        </Formik>
-        {/* <form onSubmit={handleSignIn} className={styles.form}>
+      <Formik
+        initialValues={{
+          email: '',
+          password: '',
+        }}
+        validationSchema={validate}
+      >
+        {formik => (
+          <div className={styles.formWrapper}>
+            <Form className={styles.form} onChange={handleChange}>
+              <p>You can log in with your Google Account:</p>
+              <div className={styles.googleBtnWrapper}>
+                <button className={styles.googleBtn}>
+                  <GoogleIcon />
+                  Google
+                </button>
+              </div>
+
+              <p>Or log in using an email and password, after registering:</p>
+
+              <TextField label="Email:" name="email" type="email" />
+              <TextField label="Password:" name="password" type="password" />
+              <div className={styles.buttons}>
+                <button onClick={handleLogIn} className={styles.btn}>
+                  Log in
+                </button>
+                <button onClick={handleSignIn} className={styles.btn}>
+                  Registration
+                </button>
+              </div>
+            </Form>
+          </div>
+        )}
+      </Formik>
+      {/* <form onSubmit={handleSignIn} className={styles.form}>
           <input
             className={styles.input}
             type="text"
@@ -101,7 +112,6 @@ export const Modal = () => {
             </button>
           </div>
         </form> */}
-      </div>
     </>
   );
 };
