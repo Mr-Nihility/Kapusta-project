@@ -24,7 +24,8 @@
     border-radius: 16px 0px 0px 0px;
   }
   .description:focus{
-    outline: 2px solid#e2e4ed;
+    background-color: #f8faff;
+    outline: 1px solid#e2e4ed;
   
   }
 
@@ -34,7 +35,7 @@
     -moz-appearance: none;
     -webkit-appearance: none;
   color: #c7ccdc;
-  height: 41px;
+  height: 35px;
   width: 170px;
   border-top: 2px solid #f5f6fb;
   border-bottom: 2px solid #f5f6fb;
@@ -52,7 +53,8 @@
     background-image: url('../../images/svg-icon-project/symbol-defs.svg#icon-arrow-to-down'); */
 /* } */ 
 .selected:focus{
-    outline: 2px solid#e2e4ed;
+    background-color: #f8faff;
+    outline: 1px solid#e2e4ed;
 
 }
 .amount {
@@ -62,13 +64,14 @@
   justify-content: space-between;
   color: #c7ccdc;
   width: 120px;
-  padding-left: 80px;
+  padding-left: 40px;
   height: 35px;
   border: 2px solid #f6f7fc;
   border-radius: 0px 16px 16px 0px;
 }
 .amount:focus {
-    outline: 2px solid#e2e4ed;
+    background-color: #f8faff;
+    outline: 1px solid#e2e4ed;
     /* outline: none; */
   }
 

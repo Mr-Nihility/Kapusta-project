@@ -106,9 +106,9 @@ export const TransactionForm = () => {
           </option>
         </select>
         </div>
-        <svg className={styles.icon} width="15" height="10" fill='black'>
+        {/* <svg className={styles.icon} width="15" height="10" fill='black'>
                 <use href={`${svg}#icon-arrow-to-down`}  ></use>
-              </svg>
+              </svg> */}
         <input
           className={styles.amount}
           required

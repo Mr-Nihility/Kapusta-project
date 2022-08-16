@@ -12,7 +12,7 @@ export const Main = () => {
   return (
     <div>
       <TransactionForm/>
-      <h2>Hello {emailToShow}! </h2>
+      
     </div>
   );
 };
