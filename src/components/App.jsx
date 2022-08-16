@@ -18,8 +18,19 @@ export const App = () => {
     dispatch(getCurrentUser());
   }, [dispatch]);
 
+<<<<<<< Updated upstream
   
   return <div> <SharedLayout/>{!isLogged ? <Modal /> : <Main />}
   <MainContainer /></div>;
 
+=======
+  return (
+    <div>
+      <SharedLayout />
+      {!isLogged ? <Modal /> : <Main />}
+      <MainContainer />
+      <Tablelist />
+    </div>
+  );
+>>>>>>> Stashed changes
 };
