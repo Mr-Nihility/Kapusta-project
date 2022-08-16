@@ -10,6 +10,10 @@ export const TextField = ({ label, ...props }) => {
         {label}
       </label>
       <input
+        style={{
+          borderRadius: '30px',
+          padding: '10px 0px 10px 22px',
+        }}
         className={`form-control shadow-none ${
           meta.touched && meta.error && 'is-invalid'
         }`}
