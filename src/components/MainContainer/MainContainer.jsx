@@ -4,9 +4,9 @@ import NutsFon from './images/NutsFon.png';
 import Nutsmini from './images/Nutsmini.png';
 import LogoKapusta from './images/LogoKapusta.png';
 import { useSelector } from 'react-redux';
-// import { getToken } from 'redux/auth/auth-selectors';
+import { getSuccessToken } from 'redux/auth/auth-selectors';
 export const MainContainer = () => {
-  const inAuth = useSelector(state => state.auth.accessToken);
+  const inAuth = useSelector(getSuccessToken);
   console.log(inAuth);
   return inAuth ? (
     <>
