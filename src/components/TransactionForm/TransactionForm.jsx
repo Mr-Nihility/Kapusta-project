@@ -5,7 +5,7 @@ import {
   fetchExpenceTransaction,
 } from 'redux/transaction/transaction-operations';
 import { useDispatch } from 'react-redux';
-import svg from '../../images/svg-icon-project/symbol-defs.svg'
+// import svg from '../../images/svg-icon-project/symbol-defs.svg'
 // import saa from '../../images/svg-icon-project.svg'
 export const TransactionForm = () => {
   const [description, setDescription] = useState('');

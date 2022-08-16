@@ -8,7 +8,7 @@ import { TransactionForm } from 'components/TransactionForm/TransactionForm';
 
 export const Main = () => {
   const emailToShow = useSelector(getUserEmail);
-  console.log(emailToShow);
+  
   return (
     <div>
       <TransactionForm/>
