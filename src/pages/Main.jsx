@@ -7,7 +7,7 @@ export const Main = () => {
   console.log(emailToShow);
   return (
     <div>
-      <TransactionForm></TransactionForm>
+      <TransactionForm/>
       <h2>Hello {emailToShow}! </h2>
     </div>
   );

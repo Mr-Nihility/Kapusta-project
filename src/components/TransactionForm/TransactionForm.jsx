@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import styles from '../TransactionForm/TransactionForm.module.css'
 export const TransactionForm = () => {
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
@@ -14,14 +14,11 @@ export const TransactionForm = () => {
   };
 
   const onChange = ({ target: { name, value } }) => {
-    
     switch (name) {
       case 'description':
         setDescription(value);
         break;
       case 'category':
-        // console.log(name);
-        // console.log(value);
         setCategory(value);
         break;
       case 'price':
@@ -34,27 +31,42 @@ export const TransactionForm = () => {
 
   return (
     <>
-      <form onSubmit={onSubmit}>
+      <form className={styles.form} onSubmit={onSubmit}>
         <input
+          required
           name="description"
           value={description}
           type="text"
           placeholder="Product description"
           onChange={onChange}
         />
-        <select value={category} onChange={onChange} name="category" placeholder="Product category">
+        <select
+          required
+          value={category}
+          onChange={onChange}
+          name="category"
+          placeholder="Product category"
+        >
+          <option disabled selected hidden value="">
+            Product category
+          </option>
           <option value="Transport">Transport</option>
           <option value="Products">Products</option>
-          <option value="Health">Health</option>
+          <option selected value="Health">
+            Health
+          </option>
           <option value="Entertainment">Entertainment</option>
           <option value="Housing">Housing</option>
           <option value="Technique">Technique</option>
-          <option value="Communal, communication">Communal, communication</option>
+          <option value="Communal, communication">
+            Communal, communication
+          </option>
           <option value="Sports, hobbies">Sports, hobbies</option>
           <option value="Education">Education</option>
           <option value="Other">Other</option>
         </select>
         <input
+          required
           name="price"
           value={price}
           type="text"
