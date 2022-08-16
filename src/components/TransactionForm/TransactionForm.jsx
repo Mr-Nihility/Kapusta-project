@@ -1,16 +1,33 @@
 import { useState } from 'react';
-import styles from '../TransactionForm/TransactionForm.module.css'
+import styles from '../TransactionForm/TransactionForm.module.css';
+import {
+  addExpenseTransaction,
+  fetchExpenceTransaction,
+} from 'redux/transaction/transaction-operations';
+import { useDispatch } from 'react-redux';
+import svg from '../../images/svg-icon-project/symbol-defs.svg'
+// import saa from '../../images/svg-icon-project.svg'
 export const TransactionForm = () => {
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
-  const [price, setPrice] = useState('');
+  const [amount, setAmount] = useState('');
+
+  const dispatch = useDispatch();
 
   const onSubmit = evt => {
     evt.preventDefault();
-    console.log(description, category, price);
+    dispatch(
+      addExpenseTransaction({
+        description: description,
+        amount: amount,
+        date: '2020-12-31',
+        category: category,
+      })
+    );
+    console.log(dispatch(fetchExpenceTransaction()));
     setDescription('');
     setCategory('');
-    setPrice('');
+    setAmount('');
   };
 
   const onChange = ({ target: { name, value } }) => {
@@ -21,8 +38,8 @@ export const TransactionForm = () => {
       case 'category':
         setCategory(value);
         break;
-      case 'price':
-        setPrice(value);
+      case 'amount':
+        setAmount(value);
         break;
       default:
         return '';
@@ -33,6 +50,7 @@ export const TransactionForm = () => {
     <>
       <form className={styles.form} onSubmit={onSubmit}>
         <input
+          className={styles.description}
           required
           name="description"
           value={description}
@@ -40,47 +58,77 @@ export const TransactionForm = () => {
           placeholder="Product description"
           onChange={onChange}
         />
+        <div className={styles.wrapper}>
         <select
+          className={styles.selected}
           required
           value={category}
           onChange={onChange}
           name="category"
           placeholder="Product category"
         >
+         
           <option disabled selected hidden value="">
             Product category
           </option>
-          <option value="Transport">Transport</option>
-          <option value="Products">Products</option>
-          <option selected value="Health">
+          <option className={styles.placeholder} value="Транспорт">
+            Transport
+          </option>
+          <option className={styles.placeholder} value="Продукты">
+            Products
+          </option>
+          <option className={styles.placeholder} value="Здоровье">
             Health
           </option>
-          <option value="Entertainment">Entertainment</option>
-          <option value="Housing">Housing</option>
-          <option value="Technique">Technique</option>
-          <option value="Communal, communication">
+          <option className={styles.placeholder} value="Развлечения">
+            Entertainment
+          </option>
+          <option className={styles.placeholder} value="Всё для дома">
+            Housing
+          </option>
+          <option className={styles.placeholder} value="Technique">
+            Technique
+          </option>
+          <option
+            className={styles.placeholder}
+            value="Communal, communication"
+          >
             Communal, communication
           </option>
-          <option value="Sports, hobbies">Sports, hobbies</option>
-          <option value="Education">Education</option>
-          <option value="Other">Other</option>
+          <option className={styles.placeholder} value="Sports, hobbies">
+            Sports, hobbies
+          </option>
+          <option className={styles.placeholder} value="Образование">
+            Education
+          </option>
+          <option className={styles.placeholder} value="Прочее">
+            Other
+          </option>
         </select>
+        </div>
+        <svg className={styles.icon} width="15" height="10" fill='black'>
+                <use href={`${svg}#icon-arrow-to-down`}  ></use>
+              </svg>
         <input
+          className={styles.amount}
           required
-          name="price"
-          value={price}
+          name="amount"
+          value={amount}
           type="text"
           placeholder="0,00"
           onChange={onChange}
         />
 
-        <button type="submit">INPUT</button>
+        <button className={styles.inputBtn} type="submit">
+          INPUT
+        </button>
         <button
+          className={styles.clearBtn}
           type="button"
           onClick={() => {
             setDescription('');
             setCategory('');
-            setPrice('');
+            setAmount('');
           }}
         >
           CLEAR
