@@ -8,6 +8,7 @@ import { MainContainer } from './MainContainer/MainContainer';
 import { Route, Routes } from 'react-router-dom';
 import { Main } from 'pages/Main';
 import SharedLayout from 'pages/SharedLayout';
+import Tablelist from './TableList/TableList';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -27,7 +28,9 @@ export const App = () => {
           </Route>
         </Routes>
 
+
         {!isLogged ? <Modal /> : <Main />}
+        <Tablelist />
         <MainContainer />
       </div>
     </>
