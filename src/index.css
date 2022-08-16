@@ -17,3 +17,9 @@ code {
 h1 {
   margin: 0;
 }
+
+.error {
+  position: absolute;
+  color: red;
+  font-size: 12px;
+}

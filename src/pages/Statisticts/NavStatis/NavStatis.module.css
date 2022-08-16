@@ -1,0 +1,89 @@
+p {
+	margin: 0;
+	padding: 0;
+}
+.topСontainer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 32px;
+}
+
+.button_goHome {
+	margin-right: 250px;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 1.2;
+	letter-spacing: 0.04em;
+	text-decoration: none;
+	color: rgba(82, 85, 95, 0.7);
+}
+.button_goHomeSvg {
+	display: block;
+	height: 12px;
+	width: 18px;
+	margin-right: 19px;
+}
+.button_goHomeUse {
+	height: 12px;
+	width: 18px;
+}
+.infoForUserBalance {
+	display: flex;
+	align-items: center;
+	margin-right: 214px;
+}
+.textBalance {
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 1.2;	
+	color: rgba(82, 85, 95, 0.7);
+}
+
+.button_confirm {
+	width: 125px;
+	height: 44px;
+	padding: 12px 20px;
+	border: 2px solid #FFFFFF;
+	border-radius: 16px;
+}
+.span_balance {
+	margin-right: 16px;
+	margin-left: 20px;
+	font-weight: 700;
+	font-size: 12px;
+	line-height: 1.2;	
+	width: 125px;
+	height: 44px;
+	padding: 12px 20px;
+	border: 2px solid #FFFFFF;
+	border-radius: 16px;
+}
+
+.month_switch {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.month_switchText {
+	margin-bottom: 5px;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 1.2;
+	color: rgba(82, 85, 95, 0.7);
+}
+.month_switchTextBig {
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 1.1;
+	color: #000000;
+}
+
+.month_switchSvg {
+	height: 10px;
+	width: 4px;
+}
+.month_switchUse {
+	height: 10px;
+	width: 4px;
+}
