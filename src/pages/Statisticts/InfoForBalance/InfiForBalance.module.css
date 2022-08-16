@@ -1,0 +1,45 @@
+.Сontainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 32px;
+	height: 50px;
+	box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+	border-radius: 30px;
+	position: relative;
+}
+.textSpent {
+	font-weight: 700;
+	font-size: 14px;
+	font-weight: 1.1;
+	color: #52555F;
+	margin-right: 40px;
+}
+.textEarned {
+	font-weight: 700;
+	font-size: 14px;
+	font-weight: 1.1;
+	color: #52555F;
+}
+.text_spentMoney {
+	font-weight: 700;
+	font-size: 14px;
+	font-weight: 1.1;
+	color: #E53935;
+	margin-left: 15px;
+}
+.text_earnedMoney {
+	font-weight: 700;
+	font-size: 14px;
+	font-weight: 1.1;
+	color: #407946;
+	margin-left: 15px;
+}
+.decor {
+	position: absolute;
+	border: 1px solid #E0E5EB;
+	height: 36px;
+	width: 1px;
+	top: 0px;
+	left: 190px;
+}
