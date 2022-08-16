@@ -7,7 +7,7 @@ const Tablelist = () => {
     <>
       <div className={s.table_container}>
         <div className={s.table_wrapper}>
-          <table classname={s.table}>
+          <table className={s.table}>
             <thead className={s.table_thead}>
               <tr>
                 <th className={s.table_th1}>Date</th>
