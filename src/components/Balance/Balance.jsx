@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { newBalanceThunk } from 'redux/transaction/transaction-operations';
 
 import styles from './Balance.module.css';
 
@@ -6,14 +8,13 @@ export default function Balance() {
   const [balance, setBalance] = useState(() => {
     return JSON.parse(window.localStorage.getItem('balance')) ?? '';
   });
-
+  console.log(balance);
+  const dispatch = useDispatch();
   useEffect(() => {
     window.localStorage.setItem('balance', JSON.stringify(balance));
   }, [balance]);
 
   const addBalance = () => {
-    setBalance(prevState => balance);
-
     if (balance === '0') {
       alert(
         'Hello! To get started, enter the current balance of your account!'
@@ -27,7 +28,8 @@ export default function Balance() {
 
     switch (name) {
       case 'balance':
-        setBalance(value);
+        console.log({ value });
+        setBalance(5);
         break;
 
       default:
@@ -37,16 +39,16 @@ export default function Balance() {
 
   const onSubmit = event => {
     event.preventDefault();
-
+    dispatch(newBalanceThunk({ newBalance: balance }));
     addBalance(balance);
   };
 
-  console.log(
-    new Intl.NumberFormat('de-DE', {
-      style: 'currency',
-      currency: 'UAH',
-    }).format(balance)
-  );
+  const balanseView = new Intl.NumberFormat('de-DE', {
+    style: 'currency',
+    currency: 'UAH',
+  }).format(balance);
+  console.log(balanseView);
+
   return (
     <>
       <form className={styles.form} onSubmit={onSubmit}>
@@ -54,9 +56,9 @@ export default function Balance() {
           Balance:
           <input
             className={styles.input}
-            type="number"
+            type="text"
             name="balance"
-            value={balance}
+            value={`${balanseView}`}
             min="00.00"
             max="10000000.00"
             step="0.01"
