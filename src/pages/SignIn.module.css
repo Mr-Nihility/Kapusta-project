@@ -1,14 +1,13 @@
 .form {
   display: flex;
   flex-direction: column;
-
+  gap: 20px;
   width: 50%;
 }
 
-.input {
+/* .input {
   padding: 10px 5px;
-}
-
+} */
 .buttons {
   margin-top: 10px;
   display: flex;
