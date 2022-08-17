@@ -13,21 +13,21 @@ export const tokenAuth = {
 };
 
 export const signIn = createAsyncThunk('auth/register', credentials => {
-  axios
+  return axios
     .post('/auth/register', credentials)
     .then(() => {
-      axios
+      return axios
         .post('/auth/login', credentials)
         .then(({ data }) => {
           tokenAuth.set(data.accessToken);
           return data;
         })
         .catch(error => {
-          console.log(error);
+          console.log(error.response.data.message);
         });
     })
     .catch(error => {
-      console.log(error);
+      console.log(error.response.data.message);
     });
 });
 
@@ -38,16 +38,16 @@ export const logIn = createAsyncThunk('auth/login', async credentials => {
     tokenAuth.set(data.accessToken);
     return data;
   } catch (error) {
-    console.log(error);
+    console.log(error.response.data.message);
   }
 });
 
-export const logOut = createAsyncThunk('auth/logout', async credentials => {
+export const logOut = createAsyncThunk('auth/logout', async () => {
   try {
-    await axios.post('/auth/logout', credentials);
+    await axios.post('/auth/logout');
     tokenAuth.unset();
   } catch (error) {
-    console.log(error);
+    console.log(error.response.data.message);
   }
 });
 
@@ -67,7 +67,9 @@ export const getCurrentUser = createAsyncThunk(
       tokenAuth.set(data.newAccessToken);
       return data;
     } catch (error) {
-      console.log(error);
+      console.log(error.response.data.message);
     }
   }
 );
+
+

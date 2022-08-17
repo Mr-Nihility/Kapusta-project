@@ -7,6 +7,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  font-family: 'Roboto', sans-serif;
 }
 
 code {
@@ -14,6 +16,13 @@ code {
     monospace;
 }
 
-h1 {
+h1,
+p {
   margin: 0;
+}
+
+.error {
+  position: absolute;
+  color: red;
+  font-size: 12px;
 }

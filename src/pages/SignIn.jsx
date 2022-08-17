@@ -2,13 +2,26 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn, signIn } from 'redux/auth/auth-operations';
 
+import { Formik, Form } from 'formik';
+import * as Yup from 'yup';
+
+import { ReactComponent as GoogleIcon } from '../images/google/google-icon.svg';
+
 import styles from './SignIn.module.css';
+import { TextField } from 'components/SignIn/TextField';
 
 export const Modal = () => {
   const dispatch = useDispatch();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const validate = Yup.object({
+    email: Yup.string().email('Email is invalid').required('Email is required'),
+    password: Yup.string()
+      .min(6, 'Password must be at least 6 charaters')
+      .required('Password is required'),
+  });
 
   const handleChange = evt => {
     switch (evt.target.name) {
@@ -41,8 +54,41 @@ export const Modal = () => {
 
   return (
     <>
-      <div>
-        <form onSubmit={handleSignIn} className={styles.form}>
+      <Formik
+        initialValues={{
+          email: '',
+          password: '',
+        }}
+        validationSchema={validate}
+      >
+        {formik => (
+          <div className={styles.formWrapper}>
+            <Form className={styles.form} onChange={handleChange}>
+              <p>You can log in with your Google Account:</p>
+              <div className={styles.googleBtnWrapper}>
+                <button className={styles.googleBtn}>
+                  <GoogleIcon />
+                  Google
+                </button>
+              </div>
+
+              <p>Or log in using an email and password, after registering:</p>
+
+              <TextField label="Email:" name="email" type="email" />
+              <TextField label="Password:" name="password" type="password" />
+              <div className={styles.buttons}>
+                <button onClick={handleLogIn} className={styles.btn}>
+                  Log in
+                </button>
+                <button onClick={handleSignIn} className={styles.btn}>
+                  Registration
+                </button>
+              </div>
+            </Form>
+          </div>
+        )}
+      </Formik>
+      {/* <form onSubmit={handleSignIn} className={styles.form}>
           <input
             className={styles.input}
             type="text"
@@ -65,8 +111,7 @@ export const Modal = () => {
               Sign in
             </button>
           </div>
-        </form>
-      </div>
+        </form> */}
     </>
   );
 };
