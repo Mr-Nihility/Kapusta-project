@@ -1,8 +1,9 @@
 import { useState } from 'react';
 
 // import DatePicker from 'react-datepicker';
-
+import { getExpence } from 'redux/transaction/transactions-selectors';
 import 'react-datepicker/dist/react-datepicker.css';
+import { useSelector } from 'react-redux';
 // import { getExpanses } from 'redux/transaction/transaction-operations';
 import styles from '../TransactionForm/TransactionForm.module.css';
 
@@ -11,7 +12,7 @@ import styles from '../TransactionForm/TransactionForm.module.css';
 // import saa from '../../images/svg-icon-project.svg'
 export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
   // const myDate =new Date()
-
+const expence =useSelector(getExpence)
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
   const [amount, setAmount] = useState(0);
@@ -26,7 +27,7 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
   //    setDate(Date)
   // }
   const handlerSubmit = evt => {
-    
+    console.log(expence);
     
     evt.preventDefault();
     onSubmit({ description, category, amount, date });
