@@ -24,7 +24,8 @@ export const TransactionForm = () => {
   
 //    setDate(Date)
 // }
-  const onSubmit = evt => {
+  const onSubmit = evt => { 
+    
     
     evt.preventDefault();
     
