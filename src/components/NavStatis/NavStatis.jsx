@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import React from 'react';
 import BalancePage from '../Balance/Balance';
 import { Icons } from '../../components/Icons/Icons';
-// import { getDataTransaction } from 'redux/transaction/transaction-operations';
-// import { useDispatch } from 'react-redux';
+import { getDataTransaction } from '../../redux/reports/reports-operations';
+import { useDispatch } from 'react-redux';
 // import { useEffect } from 'react';
 // import { useState } from 'react';
 
 export const NavStatis = () => {
-	// const dispatch = useDispatch()
+	const dispatch = useDispatch()
 	// const [ data, setData ] = useState(null);
 	// useEffect(() => {
 		// setData(dispatch(getDataTransaction()))
@@ -18,8 +18,9 @@ export const NavStatis = () => {
 			// 	setData(data)
 			// })
 	// }, []);
-	// console.log(data);
-  
+	const data = dispatch(getDataTransaction())
+	console.log(data);
+
 	return (
     <>
       <div className={Style.topСontainer}>
