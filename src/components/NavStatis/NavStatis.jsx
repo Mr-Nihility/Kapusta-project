@@ -6,7 +6,9 @@ import { useDispatch } from 'react-redux';
 import { Icons } from '../../components/Icons/Icons';
 import { Balance } from '../Balance/Balance';
 import { useState } from 'react';
+import { monthMas } from '../Month/Month'
 // import { useEffect } from 'react';
+
 
 export const NavStatis = () => {
 	const [dateNow, setDateNow] = useState(null);
@@ -19,14 +21,19 @@ export const NavStatis = () => {
 		setYear(date.slice(6,10));
 		setDateNow(`${year}-${month}`);
 	}
-	
-	const dispatch = useDispatch();
-	console.log(month);
-	console.log(year);
+	// const a = month - 1;
+	// const CurrentMonth = ( monthMas, month ) => {
+	// 	return monthMas.map((element, index) => {
+	// 		if(index === month) {
+	// 			setMonthNew(element);
+	// 			return;
+	// 		}
+	// 	});
+	// }
+	// CurrentMonth(monthMas, a);
 
-	console.log(dateNow);
+	const dispatch = useDispatch();
 	const data = dispatch(getDataTransaction(`${year}-${month}`));
-	console.log(data);
 
   return (
     <>
@@ -41,7 +48,7 @@ export const NavStatis = () => {
               height="12"
             />
           </div>
-          Main page
+        Main page
         </Link>
         <div className={Style.infoForUserBalance}>
 					<Balance />
