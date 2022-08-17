@@ -1,6 +1,6 @@
 import s from './TableList.module.css';
 import {
-  getExpence,
+  getExpenceList,
   //   getIncome,
 } from 'redux/transaction/transactions-selectors';
 import { useSelector } from 'react-redux';
@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 // import { TransactionForm } from 'components/TransactionForm/TransactionForm';
 
 const Tablelist = () => {
-  const isExpense = useSelector(getExpence);
+  const isExpense = useSelector(getExpenceList);
   //   const isIncome = useSelector(getIncome);
   console.log(isExpense);
   return (
