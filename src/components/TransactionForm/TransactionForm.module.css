@@ -3,8 +3,8 @@
 .form {
     
   padding: 25px;
-  font-family: 'Roboto';
-  font-style: normal;
+  /* font-family: 'Roboto';
+  font-style: normal; */
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
@@ -87,23 +87,29 @@
 }
 
 .inputBtn {
-  cursor: pointer;
-  height: 44px;
-  width: 136px;
-  color: white;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 14px;
-  /* padding: 17px 37px; */
-  background: #ff751d;
-  border-radius: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    height: 44px;
+    width: 136px;
+    border: 2px solid #f6f7fc;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    /* padding: 17px 37px; */
+    background: white;
+    border-radius: 16px;
+    
   margin-left: 32px;
-  border: none;
+ 
 }
 .inputBtn:hover {
-  color: black;
-  background-color: white;
-  border: 2px solid #f6f7fc;
+    color: white;
+    background-color: #ff751d;
+    border: 2px solid ;
 }
 .clearBtn {
   cursor: pointer;

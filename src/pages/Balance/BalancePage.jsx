@@ -1,4 +1,4 @@
-import Balance from 'components/Balance/Balance';
+import { Balance } from 'components/Balance/Balance';
 import { Outlet } from 'react-router';
 
 import { Navigation } from 'components/Navigation/Navigation';
