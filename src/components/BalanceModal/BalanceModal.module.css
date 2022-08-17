@@ -1,0 +1,28 @@
+.background {
+  position: absolute;
+  z-index: 100;
+  width: 288px;
+  height: 152px;
+  padding: 45px;
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  background-color: #031634;
+  border-radius: 30px;
+  transform: translate(-138px, 53px);
+}
+.background::before {
+  content: 'Hel';
+  color: #031634;
+  display: block;
+  z-index: 1000;
+  width: 40px;
+  height: 40px;
+  background-color: #031634;
+  transform: rotate(133deg);
+  position: absolute;
+  top: -10px;
+}
