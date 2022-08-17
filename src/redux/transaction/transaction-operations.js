@@ -22,7 +22,7 @@ export const addExpanses = createAsyncThunk(
         '/transaction/expense',
         trancactionItem
       );
-      return data;
+      return data; //{newBalance:"ajefhapof",transaction:{asdjpadfhpaiefghpeghwpejghpwegjp}}
     } catch (error) {
       return rejectedWithValue(error);
     }

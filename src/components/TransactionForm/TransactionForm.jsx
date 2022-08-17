@@ -18,12 +18,12 @@ export const TransactionForm = ({engCategoty, rCategory}) => {
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
   const [amount, setAmount] = useState('');
-  // const [date, setDate] = useState(null);
-  const [month, setMonth] = useState('');
-  const [day, setDay] = useState('');
-  const [year, setYear] = useState('');
+  const [date, setDate] = useState(null);
+  // const [month, setMonth] = useState('');
+  // const [day, setDay] = useState('');
+  // const [year, setYear] = useState('');
   const dispatch = useDispatch();
-  console.log(year, month, day );
+  // console.log(year, month, day );
   // const onChangeDate=(Date)=>{
 
   //    setDate(Date)
@@ -35,9 +35,10 @@ export const TransactionForm = ({engCategoty, rCategory}) => {
       addExpanses({
         description: description,
         amount: amount,
-        date: '2022-08-16',
-        // year+'-'+month+'-'+day,
-        category: "wsdfsr",
+
+        date: String(date),
+        category: category,
+
       })
     );
     console.log(dispatch(getExpanses()));
@@ -65,7 +66,7 @@ export const TransactionForm = ({engCategoty, rCategory}) => {
   return (
     <>
       <form className={styles.form} onSubmit={onSubmit}>
-        <DatePicker
+        {/* <DatePicker
           dateFormat="yyyy/dd/MM"
           selected={new Date()}
           maxDate={new Date()}
@@ -75,10 +76,10 @@ export const TransactionForm = ({engCategoty, rCategory}) => {
             setDay(date.getDay())
             setMonth(date.getMonth())
           }}
-        />
+        /> */}
 
-        {/* <input max={new Date()} type="date"
-      onChange={e=>setDate(e.target.value)} /> */}
+        <input max={new Date()} type="date"
+      onChange={e=>setDate(e.target.value)} />
         <input
           className={styles.description}
           required

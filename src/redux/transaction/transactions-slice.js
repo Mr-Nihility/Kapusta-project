@@ -8,16 +8,15 @@ import {
 } from './transaction-operations';
 
 const initialState = {
-  transaction: {
-    expenses: {
-      expenses: [],
-      monthsStats: {},
-    },
-    income: {
-      income: [],
-      monthsStats: {},
-    },
+  expenses: {
+    expenses: [],
+    monthsStats: {},
   },
+  income: {
+    income: [],
+    monthsStats: {},
+  },
+
   loading: false,
 };
 
@@ -29,8 +28,8 @@ const transaction = createSlice({
       state.loading = true;
     },
     [addExpanses.fulfilled]: (state, { payload }) => {
-      state.expenses.expenses = payload.expenses;
-      state.expenses.monthsStats = payload.monthsStats;
+      state.expenses.expenses.push(payload.transaction);
+      state.useData.balance = payload.newBalance;
       state.loading = false;
     },
     [addExpanses.rejected]: (state, _) => {
@@ -38,8 +37,8 @@ const transaction = createSlice({
     },
 
     [addIncome.fulfilled]: (state, { payload }) => {
-      state.income.income = payload.income;
-      state.income.monthsStats = payload.monthsStats;
+      state.income.income.push(payload.transaction);
+      state.useData.balance = payload.newBalance;
       state.loading = false;
     },
     [addIncome.pending]: (state, _) => {
