@@ -1,13 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
-
+import {
+  addExpanses,
+  addIncome,
+} from 'redux/transaction/transaction-operations';
 import { signIn, logIn, logOut, getCurrentUser } from './auth-operations';
 
-import { newBalanceThunk } from 'redux/transaction/transaction-operations';
+import { newBalance } from 'redux/transaction/transaction-operations';
 
 const initialState = {
   userData: {
     email: '',
-    balance: '',
+    balance: 0.0,
     id: '',
     transactions: [],
   },
@@ -51,8 +54,14 @@ const authSlice = createSlice({
       state.refreshToken = '';
       state.accessToken = '';
     },
-    [newBalanceThunk.fulfilled]: (state, { payload }) => {
+    [newBalance.fulfilled]: (state, { payload }) => {
       state.userData.balance = Number(payload.newBalance);
+    },
+    [addExpanses.fulfilled]: (state, { payload }) => {
+      state.userData.balance = payload.newBalance;
+    },
+    [addIncome.fulfilled]: (state, { payload }) => {
+      state.userData.balance = payload.newBalance;
     },
   },
 });

@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const fetchExpenceTransaction = createAsyncThunk(
-  'transaction/fetchExpenseTransactions', //под капотом создаст статусы
+export const getExpanses = createAsyncThunk(
+  'transaction/getExpanses', //под капотом создаст статусы
   async (_, { rejectedWithValue }) => {
     try {
       const { data } = await axios.get('/transaction/expense');
@@ -14,22 +14,22 @@ export const fetchExpenceTransaction = createAsyncThunk(
   }
 );
 
-export const addExpenseTransaction = createAsyncThunk(
-  'trancaction/addExpenseTransaction',
+export const addExpanses = createAsyncThunk(
+  'trancaction/addExpanses',
   async (trancactionItem, { rejectedWithValue }) => {
     try {
       const { data } = await axios.post(
         '/transaction/expense',
         trancactionItem
       );
-      return data;
+      return data; //{newBalance:"ajefhapof",transaction:{asdjpadfhpaiefghpeghwpejghpwegjp}}
     } catch (error) {
       return rejectedWithValue(error);
     }
   }
 );
-export const fetchIncomeTransaction = createAsyncThunk(
-  'transaction/fetchIncomeTransaction', //под капотом создаст статусы
+export const getIncome = createAsyncThunk(
+  'transaction/getIncome', //под капотом создаст статусы
   async (_, { rejectedWithValue }) => {
     try {
       const { data } = await axios.get('/transaction/income');
@@ -41,8 +41,8 @@ export const fetchIncomeTransaction = createAsyncThunk(
   }
 );
 
-export const addIncomeTransaction = createAsyncThunk(
-  'trancaction/addIncomeTransaction',
+export const addIncome = createAsyncThunk(
+  'trancaction/addIncome',
   async (trancactionItem, { rejectedWithValue }) => {
     try {
       const { data } = await axios.post('/transaction/income', trancactionItem);
@@ -51,21 +51,16 @@ export const addIncomeTransaction = createAsyncThunk(
       return rejectedWithValue(error);
     }
   }
-)
+);
 
-
-
-
-
-export const newBalanceThunk = createAsyncThunk(
-  'balance/new',
+export const newBalance = createAsyncThunk(
+  'balance/newBalance',
   async newBalance => {
     const { data } = await axios.patch('/user/balance', newBalance);
-    console.log(data);
+
     return data;
   }
 );
-
 
 // export const deleteTrancaction = createAsyncThunk(
 //     'trancaction/deleteTrancaction',
