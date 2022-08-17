@@ -23,11 +23,11 @@ export const signIn = createAsyncThunk('auth/register', credentials => {
           return data;
         })
         .catch(error => {
-          console.log(error);
+          console.log(error.response.data.message);
         });
     })
     .catch(error => {
-      console.log(error);
+      console.log(error.response.data.message);
     });
 });
 
@@ -38,7 +38,7 @@ export const logIn = createAsyncThunk('auth/login', async credentials => {
     tokenAuth.set(data.accessToken);
     return data;
   } catch (error) {
-    console.log(error);
+    console.log(error.response.data.message);
   }
 });
 
@@ -47,7 +47,7 @@ export const logOut = createAsyncThunk('auth/logout', async () => {
     await axios.post('/auth/logout');
     tokenAuth.unset();
   } catch (error) {
-    console.log(error);
+    console.log(error.response.data.message);
   }
 });
 
@@ -67,7 +67,9 @@ export const getCurrentUser = createAsyncThunk(
       tokenAuth.set(data.newAccessToken);
       return data;
     } catch (error) {
-      console.log(error);
+      console.log(error.response.data.message);
     }
   }
 );
+
+
