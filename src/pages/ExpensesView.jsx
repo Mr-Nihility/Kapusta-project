@@ -2,7 +2,7 @@ import Tablelist from 'components/TableList/TableList';
 import { TransactionForm } from 'components/TransactionForm/TransactionForm';
 
 import { useDispatch } from 'react-redux';
-import { addExpanses, getExpanses } from 'redux/transaction/transaction-operations';
+import { addExpanses } from 'redux/transaction/transaction-operations';
 
 import BalancePage from './Balance/BalancePage';
 export default function ExpensesView() {

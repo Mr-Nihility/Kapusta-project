@@ -1,7 +1,7 @@
 import s from './TableList.module.css';
 import { getExpence } from 'redux/transaction/transactions-selectors';
 
-import { TransactionForm } from 'components/TransactionForm/TransactionForm';
+// import { TransactionForm } from 'components/TransactionForm/TransactionForm';
 import { useSelector } from 'react-redux';
 
 const Tablelist = () => {
