@@ -29,7 +29,7 @@ const persistConfigAuth = {
 const store = configureStore({
   reducer: {
     auth: persistReducer(persistConfigAuth, authReducer),
-    transaction: transactionsReducer,
+    transactions: transactionsReducer,
   },
 
   middleware: getDefaultMiddleware({
