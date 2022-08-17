@@ -1,9 +1,6 @@
 import { useState } from 'react';
-
 // import DatePicker from 'react-datepicker';
-
 import 'react-datepicker/dist/react-datepicker.css';
-// import { getExpanses } from 'redux/transaction/transaction-operations';
 import styles from '../TransactionForm/TransactionForm.module.css';
 
 
@@ -99,7 +96,7 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
 
             {engCategory.map((el, i) => {
               return (
-                <option key={i} className={styles.placeholder} value={rCategory[i]}>
+                <option key={i} className={styles.placeholder} value={rCategory&&rCategory[i]}>
                   {el}
                 </option>
               );

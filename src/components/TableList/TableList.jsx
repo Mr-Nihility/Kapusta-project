@@ -1,16 +1,24 @@
 import s from './TableList.module.css';
+
 import {
   getExpence,
   //   getIncome,
 } from 'redux/transaction/transactions-selectors';
 
+
+
+
 // import { TransactionForm } from 'components/TransactionForm/TransactionForm';
-import { useSelector } from 'react-redux';
+
 
 const Tablelist = () => {
+
   const isExpense = useSelector(getExpence);
   //   const isIncome = useSelector(getIncome);
   console.log(isExpense);
+
+  
+
   return (
     <>
       {/* <TransactionForm /> */}

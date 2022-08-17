@@ -4,9 +4,8 @@ import LogoKapusta from './images/LogoKapusta.png';
 import { useSelector } from 'react-redux';
 import { getSuccessToken } from 'redux/auth/auth-selectors';
 export const MainContainer = ({ children }) => {
-  const inAuth = useSelector(getSuccessToken);
-  console.log(inAuth);
-  return inAuth ? (
+  const hasToken = useSelector(getSuccessToken);
+  return hasToken ? (
     <>
       <div className={styles.Container2}>
         {children}
