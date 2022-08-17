@@ -51,7 +51,11 @@ export const addIncomeTransaction = createAsyncThunk(
       return rejectedWithValue(error);
     }
   }
-);
+)
+
+
+
+
 
 export const newBalanceThunk = createAsyncThunk(
   'balance/new',
@@ -61,6 +65,7 @@ export const newBalanceThunk = createAsyncThunk(
     return data;
   }
 );
+
 
 // export const deleteTrancaction = createAsyncThunk(
 //     'trancaction/deleteTrancaction',
