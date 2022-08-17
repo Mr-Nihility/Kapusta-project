@@ -7,7 +7,7 @@ export default function ReportView() {
     <div>
       ReportView
       <BalancePage />
-      <Chart />
+      <Chart></Chart>
     </div>
   );
 }
