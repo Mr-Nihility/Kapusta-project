@@ -13,6 +13,7 @@ export default function IncomeView() {
   const getInputs = (description, amount, category) => {
     return {description, amount, category};
   };
+  
   return (
     <div>
       <TransactionForm

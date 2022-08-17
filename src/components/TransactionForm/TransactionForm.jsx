@@ -4,20 +4,27 @@ import { useState } from 'react';
 
 import 'react-datepicker/dist/react-datepicker.css';
 import styles from '../TransactionForm/TransactionForm.module.css';
-import {
-  addExpanses,
-  getExpanses,
-} from 'redux/transaction/transaction-operations';
 import { useDispatch } from 'react-redux';
+import getStoredState from 'redux-persist/es/getStoredState';
 
 // import svg from '../../images/svg-icon-project/symbol-defs.svg'
 // import saa from '../../images/svg-icon-project.svg'
-export const TransactionForm = ({engCategoty, rCategory}) => {
+export const TransactionForm = ({
+  engCategory,
+  rCategory,
+  onSubmit,
+  getInputs,
+  getDate,
+  onChange,
+  description,
+  category,
+  amount,
+}) => {
   // const myDate =new Date()
 
-  const [description, setDescription] = useState('');
-  const [category, setCategory] = useState('');
-  const [amount, setAmount] = useState('');
+  // const [description, setDescription] = useState('');
+  // const [category, setCategory] = useState('');
+  // const [amount, setAmount] = useState('');
   const [date, setDate] = useState(null);
   // const [month, setMonth] = useState('');
   // const [day, setDay] = useState('');
@@ -28,40 +35,44 @@ export const TransactionForm = ({engCategoty, rCategory}) => {
 
   //    setDate(Date)
   // }
-  const onSubmit = evt => {
-    evt.preventDefault();
+  // const onSubmit = evt => {
+  //   evt.preventDefault();
 
-    dispatch(
-      addExpanses({
-        description: description,
-        amount: amount,
+  //   dispatch(
+  //     addExpanses({
+  //       description: description,
+  //       amount: amount,
 
-        date: String(date),
-        category: category,
+  //       date: String(date),
+  //       category: category,
 
-      })
-    );
-    console.log(dispatch(getExpanses()));
-    setDescription('');
-    setCategory('');
-    setAmount('');
-  };
+  //     })
+  //   );
+  //   console.log(dispatch(getExpanses()));
+  //   setDescription('');
+  //   setCategory('');
+  //   setAmount('');
+  // };
 
-  const onChange = ({ target: { name, value } }) => {
-    switch (name) {
-      case 'description':
-        setDescription(value);
-        break;
-      case 'category':
-        setCategory(value);
-        break;
-      case 'amount':
-        setAmount(value);
-        break;
-      default:
-        return '';
-    }
-  };
+  // getInputs(description,
+  //   category,
+  //   amount)
+  // const onChange = ({ target: { name, value } }) => {
+  //   switch (name) {
+  //     case 'description':
+  //       setDescription(value);
+  //       break;
+  //     case 'category':
+  //       setCategory(value);
+  //       break;
+  //     case 'amount':
+  //       setAmount(value);
+  //       break;
+  //     default:
+  //       return '';
+  //   }
+  //   // getDate(date)
+  // };
 
   return (
     <>
@@ -78,8 +89,11 @@ export const TransactionForm = ({engCategoty, rCategory}) => {
           }}
         /> */}
 
-        <input max={new Date()} type="date"
-      onChange={e=>setDate(e.target.value)} />
+        <input
+          max={new Date()}
+          type="date"
+          onChange={e => setDate(e.target.value)}
+        />
         <input
           className={styles.description}
           required
@@ -101,8 +115,8 @@ export const TransactionForm = ({engCategoty, rCategory}) => {
             <option disabled hidden value="">
               Product category
             </option>
-            <option className={styles.placeholder} value="Транспорт"> 
-             {/* className={styles.placeholder} */}
+            <option className={styles.placeholder} value="Транспорт">
+              {/* className={styles.placeholder} */}
               Transport
             </option>
             <option className={styles.placeholder} value="Продукты">
@@ -120,10 +134,7 @@ export const TransactionForm = ({engCategoty, rCategory}) => {
             <option className={styles.placeholder} value="Техника">
               Technique
             </option>
-            <option
-              className={styles.placeholder}
-              value="Коммуналка и связь"
-            >
+            <option className={styles.placeholder} value="Коммуналка и связь">
               Communal, communication
             </option>
             <option className={styles.placeholder} value="Спорт и хобби">
@@ -157,9 +168,9 @@ export const TransactionForm = ({engCategoty, rCategory}) => {
           className={styles.clearBtn}
           type="button"
           onClick={() => {
-            setDescription('');
-            setCategory('');
-            setAmount('');
+            // setDescription('');
+            // setCategory('');
+            // setAmount('');
           }}
         >
           CLEAR
