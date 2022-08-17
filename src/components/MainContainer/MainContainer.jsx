@@ -5,12 +5,13 @@ import Nutsmini from './images/Nutsmini.png';
 import LogoKapusta from './images/LogoKapusta.png';
 import { useSelector } from 'react-redux';
 import { getSuccessToken } from 'redux/auth/auth-selectors';
-export const MainContainer = () => {
+export const MainContainer = ({ children }) => {
   const inAuth = useSelector(getSuccessToken);
   console.log(inAuth);
   return inAuth ? (
     <>
       <div className={styles.Container}>
+        {children}
         <img className={styles.Fon} src={Rectangle} alt="Fon" width="100%" />
         <img
           className={styles.FonNutsInAuth}
@@ -22,6 +23,7 @@ export const MainContainer = () => {
     </>
   ) : (
     <div className={styles.Container}>
+      {children}
       <img className={styles.Fon} src={Rectangle} alt="Fon" width="100%" />
       <img className={styles.FonNuts} src={NutsFon} alt="" width="100%" />
 
@@ -31,6 +33,7 @@ export const MainContainer = () => {
         alt=""
         width="100%"
       />
+
       <img src={Nutsmini} alt="" className={styles.Nutsmini} />
     </div>
   );

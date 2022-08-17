@@ -9,7 +9,7 @@ export const Navigation = () => {
       <ul className={styles.list}>
         <li className={styles.link}>
           <NavLink
-            to="/reports"
+            to="/kapusta-project/reports"
             state={location}
             className={styles.link_report}
           >
@@ -17,12 +17,20 @@ export const Navigation = () => {
           </NavLink>
         </li>
         <li className={styles.link}>
-          <NavLink to="/expenses" state={location} className={styles.link_tab}>
+          <NavLink
+            to="/kapusta-project/expenses"
+            state={location}
+            className={styles.link_tab}
+          >
             Expenses
           </NavLink>
         </li>
         <li className={styles.link}>
-          <NavLink to="/income" state={location} className={styles.link_tab}>
+          <NavLink
+            to="/kapusta-project/income"
+            state={location}
+            className={styles.link_tab}
+          >
             Income
           </NavLink>
         </li>

@@ -1,10 +1,12 @@
 import s from './TableList.module.css';
 
 import 'react-datepicker/dist/react-datepicker.css';
+import { TransactionForm } from 'components/TransactionForm/TransactionForm';
 
 const Tablelist = () => {
   return (
     <>
+      <TransactionForm />
       <div className={s.table_container}>
         <div className={s.table_wrapper}>
           <table className={s.table}>

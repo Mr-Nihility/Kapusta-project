@@ -5,12 +5,13 @@ import { logIn, signIn } from 'redux/auth/auth-operations';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 
-import { ReactComponent as GoogleIcon } from '../images/google/google-icon.svg';
+import { ReactComponent as GoogleIcon } from '../../images/google/google-icon.svg';
 
-import styles from './SignIn.module.css';
+import styles from './SignInView.module.css';
 import { TextField } from 'components/SignIn/TextField';
+//-------------------------------------------------------------------------------//
 
-export const Modal = () => {
+export const SignInView = () => {
   const dispatch = useDispatch();
 
   const [email, setEmail] = useState('');
