@@ -2,16 +2,15 @@ import Tablelist from 'components/TableList/TableList';
 import React from 'react';
 import BalancePage from './Balance/BalancePage';
 import { TransactionForm } from 'components/TransactionForm/TransactionForm';
+import { addIncome } from 'redux/transaction/transaction-operations';
+import { useDispatch } from 'react-redux';
 export default function IncomeView() {
-  const rCategory = ['Зп', 'Доп.доходы'];
+  const rCategory = ['З/П', 'Доп. доход'];
   const engCategory = ['salary', 'additional income'];
-
-  const onSubmit = evt => {};
-  const getDate = (year, month, day) => {
-    return year + '-' + month + '-' + day;
-  };
-  const getInputs = (description, amount, category) => {
-    return {description, amount, category};
+  const dispatch = useDispatch();
+  const onSubmit = data => {
+    console.log(data);
+    dispatch(addIncome(data));
   };
   
   return (
@@ -20,8 +19,7 @@ export default function IncomeView() {
         rCategory={rCategory}
         onSubmit={onSubmit}
         engCategory={engCategory}
-        getIngo={getDate}
-        getInputs={getInputs}
+       
       />
       <BalancePage />
       <Tablelist />
