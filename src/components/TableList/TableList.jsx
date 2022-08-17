@@ -10,6 +10,7 @@ import { useSelector } from 'react-redux';
 const Tablelist = () => {
   const isExpense = useSelector(getExpenceList);
   //   const isIncome = useSelector(getIncome);
+  
   console.log(isExpense);
   return (
     <>
@@ -26,9 +27,9 @@ const Tablelist = () => {
               </tr>
             </thead>
             <tbody className={s.table_tbody}>
-              {isExpense.map(el => {
+              {isExpense.map((el, i) => {
                 return (
-                  <tr key={el.id}>
+                  <tr key={i}>
                     <td className={s.date_td1}>{el.date}</td>
                     <td className={s.description_td2}>{el.description}</td>
                     <td className={s.category_td3}>{el.category}</td>
