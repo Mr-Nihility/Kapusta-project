@@ -31,7 +31,7 @@ export const TransactionForm = () => {
       addExpanses({
         description: description,
         amount: amount,
-        date: date,
+        date: String(date),
         category: category,
       })
     );
