@@ -112,11 +112,15 @@ export const TransactionForm = ({
             name="category"
             placeholder="Product category"
           >
+            {/* <option className={styles.placeholder} value="Транспорт">
+              
+              Transport
+            </option> */}
             <option disabled hidden value="">
               Product category
             </option>
             <option className={styles.placeholder} value="Транспорт">
-              {/* className={styles.placeholder} */}
+              
               Transport
             </option>
             <option className={styles.placeholder} value="Продукты">

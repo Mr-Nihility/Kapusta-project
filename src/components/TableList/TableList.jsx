@@ -9,7 +9,7 @@ const Tablelist = () => {
   console.log(expense);
   return (
     <>
-      <TransactionForm />
+      {/* <TransactionForm /> */}
       <div className={s.table_container}>
         <div className={s.table_wrapper}>
           <table className={s.table}>
