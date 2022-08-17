@@ -1,8 +1,15 @@
 .table_wrapper {
   overflow: scroll;
+  /* margin-left: 91px; */
 }
 .table_container {
   display: flex;
+  background-color: #ffffff;
+
+  margin-left: 90px;
+}
+.table_thead {
+  background-color: #f5f6fb;
 }
 
 table {
@@ -15,11 +22,16 @@ table {
   border-left: 1px solid #f5f6fb;
   border-right: 1px solid #f5f6fb;
   border-bottom: 1px solid #f5f6fb;
+  background-color: #ffffff;
+}
+
+.table_tr {
+  border: 1px solid #f5f6fb;
 }
 .table_th1 {
   padding: 13px 0 13px 28px;
   width: 92px;
-  border-radius: 30px 0 0 0;
+  border-radius: 30px 0 30px 0;
   text-align: start;
   font-family: 'Roboto';
   font-style: normal;
