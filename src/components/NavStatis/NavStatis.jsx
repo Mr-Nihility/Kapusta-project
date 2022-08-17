@@ -17,11 +17,15 @@ export const NavStatis = () => {
 		let date = new Date().toLocaleDateString();
 		setMonth(date.slice(3,5));
 		setYear(date.slice(6,10));
-		setDateNow(year + '-' + month);
+		setDateNow(`${year}-${month}`);
 	}
 	
 	const dispatch = useDispatch();
-	const data = dispatch(getDataTransaction(dateNow));
+	console.log(month);
+	console.log(year);
+
+	console.log(dateNow);
+	const data = dispatch(getDataTransaction(`${year}-${month}`));
 	console.log(data);
 
   return (
