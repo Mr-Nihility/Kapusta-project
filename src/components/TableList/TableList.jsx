@@ -1,7 +1,7 @@
 import s from './TableList.module.css';
 import { getExpence } from 'redux/transaction/transactions-selectors';
 
-import { TransactionForm } from 'components/TransactionForm/TransactionForm';
+// import { TransactionForm } from 'components/TransactionForm/TransactionForm';
 import { useSelector } from 'react-redux';
 
 const Tablelist = () => {
@@ -9,7 +9,7 @@ const Tablelist = () => {
   console.log(expense);
   return (
     <>
-      <TransactionForm />
+      {/* <TransactionForm /> */}
       <div className={s.table_container}>
         <div className={s.table_wrapper}>
           <table className={s.table}>
