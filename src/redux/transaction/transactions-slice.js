@@ -13,7 +13,7 @@ const initialState = {
     monthsStats: {},
   },
   income: {
-    income: [],
+    income: [], 
     monthsStats: {},
   },
 
@@ -29,6 +29,7 @@ const transaction = createSlice({
     },
     [addExpanses.fulfilled]: (state, { payload }) => {
       state.expenses.expenses.push(payload.transaction);
+      
       //   state.auth.useData.balance = payload.newBalance;
       state.loading = false;
     },
