@@ -10,11 +10,12 @@ import {
   addExpanses,
   getExpanses,
 } from 'redux/transaction/transaction-operations';
-import { getExpenceList } from 'redux/transaction/transactions-selectors';
+import { getExpenceList, getExpenseMonth } from 'redux/transaction/transactions-selectors';
 
 import BalancePage from './Balance/BalancePage';
 export default function ExpensesView() {
   // const rCategory = [
+  
   //   'Транспорт',
   //   'Продукты',
   //   'Здоровье',
@@ -26,6 +27,8 @@ export default function ExpensesView() {
   //   'Образование',
   //   'Прочее',
   // ];
+  const stats=useSelector(getExpenseMonth)
+  
   const engCategory = [
     'Products',
     'Alcohol',
@@ -66,7 +69,7 @@ export default function ExpensesView() {
         onSubmit={onSubmit}
       />
       <BalancePage />
-      <Tablelist list={expenceArr} />
+      <Tablelist stats={stats} list={expenceArr} />
     </div>
   );
 }
