@@ -29,7 +29,7 @@ const transaction = createSlice({
     },
     [addExpanses.fulfilled]: (state, { payload }) => {
       state.expenses.expenses.push(payload.transaction);
-      state.useData.balance = payload.newBalance;
+      //   state.auth.useData.balance = payload.newBalance;
       state.loading = false;
     },
     [addExpanses.rejected]: (state, _) => {
@@ -38,7 +38,7 @@ const transaction = createSlice({
 
     [addIncome.fulfilled]: (state, { payload }) => {
       state.income.income.push(payload.transaction);
-      state.useData.balance = payload.newBalance;
+      //   state.useData.balance = payload.newBalance;
       state.loading = false;
     },
     [addIncome.pending]: (state, _) => {

@@ -1,5 +1,5 @@
 .form {
-  background-image: url(../../background/bkgd_desktop.png);
+  background-image: url(../../images/background/bkgd_desktop.png);
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
@@ -35,10 +35,6 @@
   font-size: 12px;
   line-height: 14px;
   text-align: center;
-  /* padding-top: 12px;
-  padding-bottom: 12px;
-  padding-left: 6px;
-  padding-right: 6px; */
 }
 .input {
   border: none;
@@ -48,6 +44,9 @@
   padding-bottom: 12px;
   padding-left: 6px;
   padding-right: 6px;
+
+  margin-left: 20px;
+
   outline: none;
   font-weight: 700;
   font-size: 12px;
