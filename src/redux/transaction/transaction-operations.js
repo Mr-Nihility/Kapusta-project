@@ -51,21 +51,16 @@ export const addIncomeTransaction = createAsyncThunk(
       return rejectedWithValue(error);
     }
   }
-)
-
-
-
-
+);
 
 export const newBalanceThunk = createAsyncThunk(
   'balance/new',
   async newBalance => {
     const { data } = await axios.patch('/user/balance', newBalance);
-    // console.log(data);
+
     return data;
   }
 );
-
 
 // export const deleteTrancaction = createAsyncThunk(
 //     'trancaction/deleteTrancaction',
