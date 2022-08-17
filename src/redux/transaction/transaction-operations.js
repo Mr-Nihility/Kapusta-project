@@ -57,7 +57,7 @@ export const newBalanceThunk = createAsyncThunk(
   'balance/new',
   async newBalance => {
     const { data } = await axios.patch('/user/balance', newBalance);
-    console.log(data);
+    // console.log(data);
     return data;
   }
 );

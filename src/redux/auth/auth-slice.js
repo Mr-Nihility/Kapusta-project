@@ -7,7 +7,7 @@ import { newBalanceThunk } from 'redux/transaction/transaction-operations';
 const initialState = {
   userData: {
     email: '',
-    balance: '',
+    balance: 0.0,
     id: '',
     transactions: [],
   },

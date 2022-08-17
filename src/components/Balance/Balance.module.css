@@ -19,18 +19,30 @@
   text-align: center;
   align-items: center;
 }
-.input {
+.inputWraper {
+  display: flex;
   position: relative;
+  align-items: center;
   background-color: transparent;
   border: 2px solid #ffffff;
   border-radius: 16px;
-  width: 125px;
+  /* width: 125px; */
   color: #000000;
   text-align: center;
+  /* padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 6px;
+  padding-right: 6px; */
+}
+.input {
+  border: none;
+  background-color: transparent;
+  width: 70px;
   padding-top: 12px;
   padding-bottom: 12px;
   padding-left: 6px;
   padding-right: 6px;
+  outline: none;
 }
 /* 
 .label::after {
