@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import {
   getExpanses,
   addExpanses,
-  getIncome,
+  fetchIncome,
   addIncome,
   // newBalance,
 } from './transaction-operations';
@@ -60,15 +60,15 @@ const transaction = createSlice({
       state.loading = false;
     },
 
-    [getIncome.fulfilled]: (state, { payload }) => {
-      state.income.income = payload.income;
+    [fetchIncome.fulfilled]: (state, { payload }) => {
+      state.income.income = payload.incomes;
       state.income.monthsStats = payload.monthsStats;
       state.loading = false;
     },
-    [getIncome.pending]: (state, _) => {
+    [fetchIncome.pending]: (state, _) => {
       state.loading = true;
     },
-    [getIncome.rejected]: (state, _) => {
+    [fetchIncome.rejected]: (state, _) => {
       state.loading = false;
     },
     //   [newBalance.fulfilled]: (state, { payload }) => {
