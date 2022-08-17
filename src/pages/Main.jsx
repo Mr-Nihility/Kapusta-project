@@ -1,7 +1,7 @@
 
 import BalancePage from './Balance/BalancePage';
 
-import { TransactionForm } from 'components/TransactionForm/TransactionForm';
+// import { TransactionForm } from 'components/TransactionForm/TransactionForm';
 
 
 export const Main = () => {
@@ -10,7 +10,7 @@ export const Main = () => {
 
       <BalancePage />
 
-      <TransactionForm />
+      {/* <TransactionForm /> */}
 
     </div>
   );
