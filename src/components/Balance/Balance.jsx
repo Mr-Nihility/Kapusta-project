@@ -1,5 +1,4 @@
 import BalanceModal from 'components/BalanceModal/BalanceModal';
-
 // import { useDispatch, useSelector } from 'react-redux';
 // import { newBalance } from '../../redux/transaction/transaction-operations';
 // import { getStartBalance } from 'redux/auth/auth-selectors';
