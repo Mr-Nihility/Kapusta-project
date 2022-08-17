@@ -14,10 +14,8 @@ import { getIsLogged } from 'redux/auth/auth-selectors';
 export default function IncomeView() {
   const rCategory = ['З/П', 'Доп. доход'];
   const engCategory = ['salary', 'additional income'];
-
   const dispatch = useDispatch();
   const incomeArr = useSelector(getIncomeList);
-  console.log(incomeArr);
   const isLog = useSelector(getIsLogged);
 
   useEffect(() => {
