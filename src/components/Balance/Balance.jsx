@@ -1,26 +1,14 @@
-import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { newBalanceThunk } from 'redux/transaction/transaction-operations';
+import { getStartBalance } from 'redux/auth/auth-selectors';
 
 import styles from './Balance.module.css';
 
-export default function Balance() {
-  const [balance, setBalance] = useState(() => {
-    return JSON.parse(window.localStorage.getItem('balance')) ?? '';
-  });
-  console.log(balance);
+export const Balance = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    window.localStorage.setItem('balance', JSON.stringify(balance));
-  }, [balance]);
-
-  const addBalance = () => {
-    if (balance === '0') {
-      alert(
-        'Hello! To get started, enter the current balance of your account!'
-      );
-    }
-  };
+  const [balance, setBalance] = useState();
+  const balanceEl = useSelector(getStartBalance);
 
   const handleChange = event => {
     console.log(event.target);
@@ -28,8 +16,7 @@ export default function Balance() {
 
     switch (name) {
       case 'balance':
-        console.log({ value });
-        setBalance(5);
+        setBalance(value);
         break;
 
       default:
@@ -40,32 +27,28 @@ export default function Balance() {
   const onSubmit = event => {
     event.preventDefault();
     dispatch(newBalanceThunk({ newBalance: balance }));
-    addBalance(balance);
   };
-
-  const balanseView = new Intl.NumberFormat('de-DE', {
-    style: 'currency',
-    currency: 'UAH',
-  }).format(balance);
-  console.log(balanseView);
 
   return (
     <>
       <form className={styles.form} onSubmit={onSubmit}>
         <label className={styles.label}>
           Balance:
-          <input
-            className={styles.input}
-            type="text"
-            name="balance"
-            value={`${balanseView}`}
-            min="00.00"
-            max="10000000.00"
-            step="0.01"
-            required
-            placeholder="UAH"
-            onChange={handleChange}
-          />
+          <div className={styles.inputWraper}>
+            <input
+              className={styles.input}
+              type="number"
+              name="balance"
+              value={balance || balanceEl || ''}
+              min="00.00"
+              max="10000000.00"
+              step="0.01"
+              required
+              placeholder="00.00"
+              onChange={handleChange}
+            />
+            <p>UAH</p>
+          </div>
         </label>
 
         <button className={styles.button} type="submit">
@@ -74,4 +57,4 @@ export default function Balance() {
       </form>
     </>
   );
-}
+};
