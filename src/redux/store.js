@@ -2,6 +2,8 @@ import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import transactionsReducer from './transaction/transactions-slice';
 import authReducer from './auth/auth-slice';
 import storage from 'redux-persist/lib/storage';
+import categoriesReducer from './categories/catrgories-slice';
+//--------------------------------------------------------------------------//
 
 import {
   persistStore,
@@ -30,6 +32,7 @@ const store = configureStore({
   reducer: {
     auth: persistReducer(persistConfigAuth, authReducer),
     transactions: transactionsReducer,
+    categories: categoriesReducer,
   },
 
   middleware: getDefaultMiddleware({
