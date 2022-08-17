@@ -5,8 +5,8 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import styles from '../TransactionForm/TransactionForm.module.css';
 import {
-  addExpenseTransaction,
-  fetchExpenceTransaction,
+  addExpanses,
+  getExpanses,
 } from 'redux/transaction/transaction-operations';
 import { useDispatch } from 'react-redux';
 
@@ -32,7 +32,7 @@ export const TransactionForm = ({engCategoty, rCategory}) => {
     evt.preventDefault();
 
     dispatch(
-      addExpenseTransaction({
+      addExpanses({
         description: description,
         amount: amount,
         date: '2022-08-16',
@@ -40,7 +40,7 @@ export const TransactionForm = ({engCategoty, rCategory}) => {
         category: "wsdfsr",
       })
     );
-    console.log(dispatch(fetchExpenceTransaction()));
+    console.log(dispatch(getExpanses()));
     setDescription('');
     setCategory('');
     setAmount('');

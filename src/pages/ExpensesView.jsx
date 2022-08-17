@@ -2,7 +2,7 @@ import Tablelist from 'components/TableList/TableList';
 import { TransactionForm } from 'components/TransactionForm/TransactionForm';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { addExpenseTransaction } from 'redux/transaction/transaction-operations';
+import { addExpanses } from 'redux/transaction/transaction-operations';
 import BalancePage from './Balance/BalancePage';
 export default function ExpensesView() {
 const rCategory = [
@@ -43,7 +43,7 @@ const onSubmit = evt => {
   evt.preventDefault();
 
   dispatch(
-    addExpenseTransaction({
+    addExpanses({
       description: getInputs().description,
       amount: getInputs().amount,
       date: '2022-08-16',
