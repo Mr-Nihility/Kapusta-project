@@ -1,12 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
-  fetchExpenceTransaction,
-  addExpenseTransaction,
-  fetchIncomeTransaction,
-  addIncomeTransaction,
-  newBalanceThunk,
+  getExpanses,
+  addExpanses,
+  getIncome,
+  addIncome,
+  // newBalance,
 } from './transaction-operations';
-import { combineReducers } from '@reduxjs/toolkit';
 
 const initialState = {
   transaction: {
@@ -19,58 +18,68 @@ const initialState = {
       monthsStats: {},
     },
   },
+  loading: false,
 };
 
 const transaction = createSlice({
   name: 'transactions',
   initialState,
   extraReducers: {
-    [addExpenseTransaction.fulfilled]: (state, { payload }) => {
+    [addExpanses.pending]: (state, _) => {
+      state.loading = true;
+    },
+    [addExpanses.fulfilled]: (state, { payload }) => {
       state.expenses.expenses = payload.expenses;
       state.expenses.monthsStats = payload.monthsStats;
+      state.loading = false;
+    },
+    [addExpanses.rejected]: (state, _) => {
+      state.loading = false;
     },
 
-    [addIncomeTransaction.fulfilled]: (state, { payload }) => {
+    [addIncome.fulfilled]: (state, { payload }) => {
       state.income.income = payload.income;
       state.income.monthsStats = payload.monthsStats;
+      state.loading = false;
     },
-    [fetchExpenceTransaction.fulfilled]: (state, { payload }) => {
+    [addIncome.pending]: (state, _) => {
+      state.loading = true;
+    },
+    [addIncome.rejected]: (state, _) => {
+      state.loading = false;
+    },
+
+    [getExpanses.fulfilled]: (state, { payload }) => {
       state.expenses.expenses = payload.expenses;
       state.expenses.monthsStats = payload.monthsStats;
+      state.loading = false;
+    },
+    [getExpanses.pending]: (state, _) => {
+      state.loading = true;
+    },
+    [getExpanses.rejected]: (state, _) => {
+      state.loading = false;
     },
 
-    [fetchIncomeTransaction.fulfilled]: (state, { payload }) => {
+    [getIncome.fulfilled]: (state, { payload }) => {
       state.income.income = payload.income;
       state.income.monthsStats = payload.monthsStats;
+      state.loading = false;
     },
-    [newBalanceThunk.fulfilled]: (state, { payload }) => {
-      state.newBalance = payload.newBalance;
+    [getIncome.pending]: (state, _) => {
+      state.loading = true;
     },
+    [getIncome.rejected]: (state, _) => {
+      state.loading = false;
+    },
+    //   [newBalance.fulfilled]: (state, { payload }) => {
+    //     state.newBalance = Number(payload.newBalance);
+    //     state.loading = false;
+    //   },
+    //   [newBalance.pending]: (state, _) => (state.loading = true),
+
+    //   [newBalance.rejected]: (state, _) => (state.loading = false),
   },
 });
 
-const loading = createSlice({
-  name: 'loading',
-  initialState: {
-    loading: false,
-  },
-  extraReducers: {
-    [fetchExpenceTransaction.pending]: (state, { payload }) => true,
-    [fetchExpenceTransaction.fulfilled]: (state, { payload }) => false,
-    [fetchExpenceTransaction.rejected]: (state, { payload }) => false,
-    [fetchIncomeTransaction.pending]: (state, { payload }) => true,
-    [fetchIncomeTransaction.fulfilled]: (state, { payload }) => false,
-    [fetchIncomeTransaction.rejected]: (state, { payload }) => false,
-    [addExpenseTransaction.pending]: (state, { payload }) => true,
-    [addExpenseTransaction.fulfilled]: (state, { payload }) => false,
-    [addExpenseTransaction.rejected]: (state, { payload }) => false,
-    [addIncomeTransaction.pending]: (state, { payload }) => true,
-    [addIncomeTransaction.fulfilled]: (state, { payload }) => false,
-    [addIncomeTransaction.rejected]: (state, { payload }) => false,
-    [newBalanceThunk.pending]: (state, { payload }) => true,
-    [newBalanceThunk.fulfilled]: (state, { payload }) => false,
-    [newBalanceThunk.rejected]: (state, { payload }) => false,
-  },
-});
-
-export default combineReducers({ transaction, loading });
+export default transaction.reducer;

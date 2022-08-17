@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { newBalanceThunk } from 'redux/transaction/transaction-operations';
+import { newBalance } from '../../redux/transaction/transaction-operations';
 import { getStartBalance } from 'redux/auth/auth-selectors';
 
 import styles from './Balance.module.css';
@@ -26,7 +26,7 @@ export const Balance = () => {
 
   const onSubmit = event => {
     event.preventDefault();
-    dispatch(newBalanceThunk({ newBalance: balance }));
+    dispatch(newBalance({ newBalance: balance }));
   };
 
   return (

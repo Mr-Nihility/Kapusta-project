@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { signIn, logIn, logOut, getCurrentUser } from './auth-operations';
 
-import { newBalanceThunk } from 'redux/transaction/transaction-operations';
+import { newBalance } from 'redux/transaction/transaction-operations';
 
 const initialState = {
   userData: {
@@ -51,7 +51,7 @@ const authSlice = createSlice({
       state.refreshToken = '';
       state.accessToken = '';
     },
-    [newBalanceThunk.fulfilled]: (state, { payload }) => {
+    [newBalance.fulfilled]: (state, { payload }) => {
       state.userData.balance = Number(payload.newBalance);
     },
   },
