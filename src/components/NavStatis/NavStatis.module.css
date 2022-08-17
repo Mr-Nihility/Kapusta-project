@@ -28,21 +28,13 @@ p {
 	align-items: center;
 	margin-right: 214px;
 }
-.textBalance {
+/* .textBalance {
 	font-weight: 500;
 	font-size: 12px;
 	line-height: 1.2;	
 	color: rgba(82, 85, 95, 0.7);
-}
-
-.button_confirm {
-	width: 125px;
-	height: 44px;
-	padding: 12px 20px;
-	border: 2px solid #FFFFFF;
-	border-radius: 16px;
-}
-.span_balance {
+} */
+/* .span_balance {
 	margin-right: 16px;
 	margin-left: 20px;
 	font-weight: 700;
@@ -53,7 +45,15 @@ p {
 	padding: 12px 20px;
 	border: 2px solid #FFFFFF;
 	border-radius: 16px;
-}
+} */
+/* .button_confirm {
+	width: 125px;
+	height: 44px;
+	padding: 12px 20px;
+	border: 2px solid #FFFFFF;
+	border-radius: 16px;
+} */
+
 
 .month_switch {
 	display: flex;
