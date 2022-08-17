@@ -66,18 +66,6 @@ export const newBalanceThunk = createAsyncThunk(
   }
 );
 
-export const getDataTransaction = createAsyncThunk(
-  'trancaction/getDataTransaction',
-  async (trancactionItem, { rejectedWithValue }) => {
-    try {
-      const { data } = await axios.get('/transaction/period-data', trancactionItem);
-      return data;
-    } catch (error) {
-      return rejectedWithValue(error);
-    }
-  }
-)
-
 // export const deleteTrancaction = createAsyncThunk(
 //     'trancaction/deleteTrancaction',
 

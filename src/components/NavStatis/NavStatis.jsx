@@ -9,11 +9,18 @@ import { Icons } from '../../components/Icons/Icons';
 // import { useState } from 'react';
 
 export const NavStatis = () => {
-	// const dispath = useDispatch();
-	// const data = dispath(getDataTransaction())
+	// const dispatch = useDispatch()
+	// const [ data, setData ] = useState(null);
+	// useEffect(() => {
+		// setData(dispatch(getDataTransaction()))
+			// .then(response => JSON.parse(response))
+			// .then(data => {
+			// 	setData(data)
+			// })
+	// }, []);
 	// console.log(data);
-	
-  return (
+  
+	return (
     <>
       <div className={Style.topСontainer}>
         <Link to="/kapusta-project/expenses" className={Style.button_goHome}>
