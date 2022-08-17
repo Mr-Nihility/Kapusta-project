@@ -24,7 +24,9 @@ export const App = () => {
       return;
     }
     dispatch(getCurrentUser());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, []);
 
   return (

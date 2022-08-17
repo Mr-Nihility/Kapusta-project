@@ -1,44 +1,40 @@
 import { useState } from 'react';
 
-// import DatePicker from "react-datepicker";
+// import DatePicker from 'react-datepicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
+// import { getExpanses } from 'redux/transaction/transaction-operations';
 import styles from '../TransactionForm/TransactionForm.module.css';
-import {
-  addExpanses,
-  getExpanses,
-} from 'redux/transaction/transaction-operations';
-import { useDispatch } from 'react-redux';
+
+
 // import svg from '../../images/svg-icon-project/symbol-defs.svg'
 // import saa from '../../images/svg-icon-project.svg'
-export const TransactionForm = () => {
+export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
   // const myDate =new Date()
 
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
-  const [amount, setAmount] = useState('');
+  const [amount, setAmount] = useState(0);
   const [date, setDate] = useState(null);
-  const dispatch = useDispatch();
-  console.log(date);
+  // const [month, setMonth] = useState('');
+  // const [day, setDay] = useState('');
+  // const [year, setYear] = useState('');
+  // const dispatch = useDispatch();
+  // console.log(year, month, day );
   // const onChangeDate=(Date)=>{
 
   //    setDate(Date)
   // }
-  const onSubmit = evt => {
+  const handlerSubmit = evt => {
+    
+    
     evt.preventDefault();
-
-    dispatch(
-      addExpanses({
-        description: description,
-        amount: amount,
-        date: String(date),
-        category: category,
-      })
-    );
-    console.log(dispatch(getExpanses()));
+    onSubmit({ description, category, amount, date });
     setDescription('');
     setCategory('');
     setAmount('');
+   
+    
   };
 
   const onChange = ({ target: { name, value } }) => {
@@ -50,22 +46,34 @@ export const TransactionForm = () => {
         setCategory(value);
         break;
       case 'amount':
-        setAmount(value);
+        setAmount(Number(value));
         break;
       default:
         return '';
     }
+    // getDate(date)
   };
 
   return (
     <>
-      <form className={styles.form} onSubmit={onSubmit}>
-        {/* <DatePicker dateFormat='yyyy/MM/dd'  selected={date} maxDate={new Date()} onChange={date=>setDate(date)}/> */}
+      <form className={styles.form} onSubmit={handlerSubmit}>
+        {/* <DatePicker
+          dateFormat="yyyy/dd/MM"
+          // selected={new Date()}
+          maxDate={new Date()}
+          onChange={date => {
+            // setDate(date)
+            setYear(date.getFullYear());
+            setDay(date.getDay())
+            setMonth(date.getMonth())
+          }}
+        /> */}
 
         <input
           max={new Date()}
           type="date"
           onChange={e => setDate(e.target.value)}
+          required
         />
         <input
           className={styles.description}
@@ -88,39 +96,14 @@ export const TransactionForm = () => {
             <option disabled hidden value="">
               Product category
             </option>
-            <option className={styles.placeholder} value="Транспорт">
-              Transport
-            </option>
-            <option className={styles.placeholder} value="Продукты">
-              Products
-            </option>
-            <option className={styles.placeholder} value="Здоровье">
-              Health
-            </option>
-            <option className={styles.placeholder} value="Развлечения">
-              Entertainment
-            </option>
-            <option className={styles.placeholder} value="Всё для дома">
-              Housing
-            </option>
-            <option className={styles.placeholder} value="Technique">
-              Technique
-            </option>
-            <option
-              className={styles.placeholder}
-              value="Communal, communication"
-            >
-              Communal, communication
-            </option>
-            <option className={styles.placeholder} value="Sports, hobbies">
-              Sports, hobbies
-            </option>
-            <option className={styles.placeholder} value="Образование">
-              Education
-            </option>
-            <option className={styles.placeholder} value="Прочее">
-              Other
-            </option>
+
+            {engCategory.map((el, i) => {
+              return (
+                <option key={i} className={styles.placeholder} value={rCategory[i]}>
+                  {el}
+                </option>
+              );
+            })}
           </select>
         </div>
         {/* <svg className={styles.icon} width="15" height="10" fill='black'>
@@ -143,9 +126,9 @@ export const TransactionForm = () => {
           className={styles.clearBtn}
           type="button"
           onClick={() => {
-            setDescription('');
-            setCategory('');
-            setAmount('');
+            // setDescription('');
+            // setCategory('');
+            // setAmount('');
           }}
         >
           CLEAR
