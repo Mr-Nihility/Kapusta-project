@@ -1,10 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getCurrentUser } from 'redux/auth/auth-operations';
-
-import { Modal } from 'pages/SignIn';
-import BalancePage from 'pages/Balance/BalancePage';
-
+// import { getIsLogged } from 'redux/auth/auth-selectors';
 import { SignInView } from '../pages/SignInView/SignInView';
 // import BalancePage from 'pages/Balance/BalancePage';
 
@@ -26,21 +23,6 @@ export const App = () => {
 
   return (
     <>
-      <div>
-        <Routes>
-          <Route path="/kapusta-project/" element={<SharedLayout />}>
-            <Route index element={<Modal />} />
-            <Route path="/kapusta-project/balance" element={<BalancePage />}>
-              <Route path={'expenses'} element={''} />
-            </Route>
-          </Route>
-        </Routes>
-        <BalancePage />
-        {/* {isLogged ? : <Main />} */}
-        <Tablelist />
-        <MainContainer />
-      </div>
-      =======
       <Routes>
         <Route path="/kapusta-project/" element={<SharedLayout />}>
           <Route
@@ -77,7 +59,6 @@ export const App = () => {
           />
         </Route>
       </Routes>
-      >>>>>>> dev
     </>
   );
 };

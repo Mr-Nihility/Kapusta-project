@@ -7,7 +7,7 @@ import BalanceModal from 'components/BalanceModal/BalanceModal';
 import styles from './Balance.module.css';
 
 // export default function Balance() {
-//   const [showModal, setShowModal] = useState(false);
+
 //   const [balance, setBalance] = useState(() => {
 //     return JSON.parse(window.localStorage.getItem('balance')) ?? '';
 //   });
@@ -32,9 +32,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { newBalance } from 'redux/transaction/transaction-operations';
 import { getStartBalance } from 'redux/auth/auth-selectors';
 
-import styles from './Balance.module.css';
-
 export const Balance = () => {
+  const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const [balance, setBalance] = useState();
   const balanceEl = useSelector(getStartBalance);
