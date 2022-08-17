@@ -4,4 +4,3 @@ export const getUserEmail = state => state.auth.userData.email;
 export const getSid = state => state.auth.sid;
 export const getSuccessToken = state => state.auth.accessToken;
 export const getStartBalance = state => state.auth.userData.balance;
-console.log(getStartBalance);
