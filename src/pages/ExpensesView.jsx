@@ -11,9 +11,13 @@ import {
   getExpanses,
 } from 'redux/transaction/transaction-operations';
 import { getExpenceList } from 'redux/transaction/transactions-selectors';
-
+import { getExpenseMonth } from 'redux/transaction/transactions-selectors';
 import BalancePage from './Balance/BalancePage';
+
 export default function ExpensesView() {
+  const monthList = useSelector(getExpenseMonth);
+  console.log(monthList);
+
   // const rCategory = [
   //   'Транспорт',
   //   'Продукты',

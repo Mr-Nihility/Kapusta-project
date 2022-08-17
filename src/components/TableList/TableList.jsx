@@ -1,16 +1,6 @@
 import s from './TableList.module.css';
-import {
-  getExpenceList,
-  //   getIncome,
-} from 'redux/transaction/transactions-selectors';
-import { useSelector } from 'react-redux';
 
-// import { TransactionForm } from 'components/TransactionForm/TransactionForm';
-
-const Tablelist = () => {
-  const isExpense = useSelector(getExpenceList);
-  //   const isIncome = useSelector(getIncome);
-  console.log(isExpense);
+const Tablelist = ({ list }) => {
   return (
     <>
       {/* <TransactionForm /> */}
@@ -26,9 +16,9 @@ const Tablelist = () => {
               </tr>
             </thead>
             <tbody className={s.table_tbody}>
-              {isExpense.map(el => {
+              {list.map((el, i) => {
                 return (
-                  <tr key={el.id}>
+                  <tr key={i}>
                     <td className={s.date_td1}>{el.date}</td>
                     <td className={s.description_td2}>{el.description}</td>
                     <td className={s.category_td3}>{el.category}</td>

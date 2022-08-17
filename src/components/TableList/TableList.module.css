@@ -8,6 +8,7 @@
 table {
   table-layout: fixed;
   max-width: 746px;
+
   border-collapse: collapse;
   overflow: scroll;
 }
@@ -82,6 +83,7 @@ table {
   line-height: 1.16;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  background-color: #ffff;
 }
 
 .description_td2 {
@@ -93,6 +95,7 @@ table {
   line-height: 1.16;
   letter-spacing: 0.04em;
   color: #52555f;
+  background-color: #ffff;
 }
 .category_td3 {
   padding: 13px 0 13px 5px;
@@ -104,6 +107,7 @@ table {
   letter-spacing: 0.04em;
   text-align: center;
   color: #52555f;
+  background-color: #ffff;
 }
 .summ_td4 {
   padding: 13px 0 13px 5px;
@@ -115,6 +119,7 @@ table {
   text-align: center;
   letter-spacing: 0.04em;
   color: #407946;
+  background-color: #ffff;
 }
 /* ======SUMMARY====== */
 .summary_wrapper {
