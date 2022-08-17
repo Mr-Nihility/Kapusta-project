@@ -37,6 +37,7 @@ export const Balance = () => {
   //     currency: 'UAH',
   //   }).format(balance)
   // );
+
   const handleToggleModal = () => {
     setShowModal(!showModal);
   };
@@ -65,7 +66,7 @@ export const Balance = () => {
         <button className={styles.button} type="submit">
           CONFIRM
         </button>
-        {balance === 0 && (
+        {balance === '0' && (
           <BalanceModal show={showModal} close={handleToggleModal} />
         )}
       </form>
