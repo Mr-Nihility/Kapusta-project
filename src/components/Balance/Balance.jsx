@@ -1,8 +1,10 @@
+import BalanceModal from 'components/BalanceModal/BalanceModal';
 import { useState, useEffect } from 'react';
 
 import styles from './Balance.module.css';
 
 export default function Balance() {
+  const [showModal, setShowModal] = useState(false);
   const [balance, setBalance] = useState(() => {
     return JSON.parse(window.localStorage.getItem('balance')) ?? '';
   });
@@ -47,6 +49,10 @@ export default function Balance() {
       currency: 'UAH',
     }).format(balance)
   );
+  const handleToggleModal = () => {
+    setShowModal(!showModal);
+  };
+
   return (
     <>
       <form className={styles.form} onSubmit={onSubmit}>
@@ -68,6 +74,7 @@ export default function Balance() {
 
         <button className={styles.button} type="submit">
           CONFIRM
+          <BalanceModal show={showModal} close={handleToggleModal} />
         </button>
       </form>
     </>

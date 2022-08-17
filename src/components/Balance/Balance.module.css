@@ -1,5 +1,5 @@
 .form {
-  background-image: url(../../background/bkgd_desktop.png);
+  background-image: url(../../images/background/bkgd_desktop.png);
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
@@ -31,6 +31,7 @@
   padding-bottom: 12px;
   padding-left: 6px;
   padding-right: 6px;
+  margin-left: 20px;
 }
 /* 
 .label::after {
