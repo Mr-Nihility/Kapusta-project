@@ -6,7 +6,7 @@ export const getExpanses = createAsyncThunk(
   async (_, { rejectedWithValue }) => {
     try {
       const { data } = await axios.get('/transaction/expense');
-      
+
       return data;
     } catch (error) {
       return rejectedWithValue(error);
@@ -28,7 +28,7 @@ export const addExpanses = createAsyncThunk(
     }
   }
 );
-export const getIncome = createAsyncThunk(
+export const fetchIncome = createAsyncThunk(
   'transaction/getIncome', //под капотом создаст статусы
   async (_, { rejectedWithValue }) => {
     try {
