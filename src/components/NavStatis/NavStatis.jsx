@@ -1,13 +1,19 @@
 import Style from './NavStatis.module.css';
 import { Link } from 'react-router-dom';
 import React from 'react';
-
+import { getDataTransaction } from '../../redux/reports/reports-operations';
+import { useDispatch } from 'react-redux';
 import { Icons } from '../../components/Icons/Icons';
+import { Balance } from '../Balance/Balance';
 export const NavStatis = () => {
+	const dispatch = useDispatch();
+	const data = dispatch(getDataTransaction())
+	console.log(data);
+
   return (
     <>
       <div className={Style.topСontainer}>
-        <Link to="/" className={Style.button_goHome}>
+        <Link to="/kapusta-project/expenses" className={Style.button_goHome}>
           <div className={Style.button_goHomeArrow}>
             <Icons
               name="long-arrow-left"
@@ -20,10 +26,7 @@ export const NavStatis = () => {
           Main page
         </Link>
         <div className={Style.infoForUserBalance}>
-          <p className={Style.textBalance}>
-            Balance: <span className={Style.span_balance}>55 000.00 грн</span>
-          </p>
-          <button className={Style.button_confirm}>CONFIRM</button>
+					<Balance />
         </div>
         <div className={Style.month_switch}>
           <p className={Style.month_switchText}>Current period:</p>
