@@ -3,9 +3,9 @@ import {
   getExpence,
   //   getIncome,
 } from 'redux/transaction/transactions-selectors';
+import { useSelector } from 'react-redux';
 
 // import { TransactionForm } from 'components/TransactionForm/TransactionForm';
-import { useSelector } from 'react-redux';
 
 const Tablelist = () => {
   const isExpense = useSelector(getExpence);
@@ -61,7 +61,7 @@ const Tablelist = () => {
 };
 
 export default Tablelist;
-
+//////test//////
 /* <div className={s.table_container}>
   <div className={s.table_wrapper}>
     <table className={s.table}>
