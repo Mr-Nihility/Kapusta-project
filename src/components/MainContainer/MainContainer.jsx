@@ -1,7 +1,5 @@
 import styles from './MainContainer.module.css';
-import Rectangle from './images/Rectangle.png';
-import NutsFon from './images/NutsFon.png';
-import Nutsmini from './images/Nutsmini.png';
+
 import LogoKapusta from './images/LogoKapusta.png';
 import { useSelector } from 'react-redux';
 import { getSuccessToken } from 'redux/auth/auth-selectors';
