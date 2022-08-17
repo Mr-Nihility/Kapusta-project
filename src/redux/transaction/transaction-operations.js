@@ -28,7 +28,7 @@ export const addExpanses = createAsyncThunk(
     }
   }
 );
-export const getIncome = createAsyncThunk(
+export const fetchIncome = createAsyncThunk(
   'transaction/getIncome', //под капотом создаст статусы
   async (_, { rejectedWithValue }) => {
     try {
