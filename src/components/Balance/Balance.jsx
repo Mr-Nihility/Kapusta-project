@@ -1,39 +1,12 @@
-import BalanceModal from 'components/BalanceModal/BalanceModal';
-
-// import { useDispatch, useSelector } from 'react-redux';
-// import { newBalance } from '../../redux/transaction/transaction-operations';
-// import { getStartBalance } from 'redux/auth/auth-selectors';
-
+// import BalanceModal from 'components/BalanceModal/BalanceModal';
 import styles from './Balance.module.css';
-
-// export default function Balance() {
-
-//   const [balance, setBalance] = useState(() => {
-//     return JSON.parse(window.localStorage.getItem('balance')) ?? '';
-//   });
-
-//   useEffect(() => {
-//     window.localStorage.setItem('balance', JSON.stringify(balance));
-//   }, [balance]);
-
-//   const addBalance = () => {
-//     setBalance(prevState => balance);
-
-//     if (balance === '0') {
-//       alert(
-//         'Hello! To get started, enter the current balance of your account!'
-//       );
-//     }
-//   };
-
-// <<<<<<< HEAD
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { newBalance } from 'redux/transaction/transaction-operations';
 import { getStartBalance } from 'redux/auth/auth-selectors';
-
+//----------------------------------------------------------------------------//
 export const Balance = () => {
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const [balance, setBalance] = useState();
   const balanceEl = useSelector(getStartBalance);
@@ -57,15 +30,15 @@ export const Balance = () => {
     dispatch(newBalance({ newBalance: balance }));
   };
 
-  console.log(
-    new Intl.NumberFormat('de-DE', {
-      style: 'currency',
-      currency: 'UAH',
-    }).format(balance)
-  );
-  const handleToggleModal = () => {
-    setShowModal(!showModal);
-  };
+  // console.log(
+  //   new Intl.NumberFormat('de-DE', {
+  //     style: 'currency',
+  //     currency: 'UAH',
+  //   }).format(balance)
+  // );
+  // const handleToggleModal = () => {
+  //   setShowModal(!showModal);
+  // };
 
   return (
     <>
@@ -91,7 +64,7 @@ export const Balance = () => {
 
         <button className={styles.button} type="submit">
           CONFIRM
-          <BalanceModal show={showModal} close={handleToggleModal} />
+          {/* <BalanceModal show={showModal} close={handleToggleModal} /> */}
         </button>
       </form>
     </>

@@ -11,7 +11,7 @@ export const Navigation = () => {
       <ul className={styles.list}>
         <li className={styles.link_btn_report}>
           <NavLink
-            to="/reports"
+            to="/kapusta-project/reports"
             state={location}
             className={styles.link_report}
           >
@@ -22,7 +22,7 @@ export const Navigation = () => {
         <div className={styles.btn_overlap}>
           <li className={styles.link_btn}>
             <NavLink
-              to="/expenses"
+              to="/kapusta-project/expenses"
               state={location}
               className={styles.link_tab}
             >
@@ -31,7 +31,7 @@ export const Navigation = () => {
           </li>
           <li className={styles.link_btn}>
             <NavLink
-              to="/income"
+              to="/kapusta-project/income"
               state={location}
               className={styles.link_tab_inc}
             >
