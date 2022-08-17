@@ -4,7 +4,7 @@ import { getCurrentUser } from 'redux/auth/auth-operations';
 // import { getIsLogged } from 'redux/auth/auth-selectors';
 import { SignInView } from '../pages/SignInView/SignInView';
 // import BalancePage from 'pages/Balance/BalancePage';
-import { MainContainer } from './MainContainer/MainContainer';
+
 import { Route, Routes } from 'react-router-dom';
 // import { Main } from 'pages/Main';
 import SharedLayout from 'pages/SharedLayout';
@@ -23,44 +23,42 @@ export const App = () => {
 
   return (
     <>
-      <MainContainer>
-        <Routes>
-          <Route path="/kapusta-project/" element={<SharedLayout />}>
-            <Route
-              index
-              element={
-                <PublicRoute>
-                  <SignInView />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path={'expenses'}
-              element={
-                <PrivateRoute>
-                  <ExpensesView />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path={'income'}
-              element={
-                <PrivateRoute>
-                  <IncomeView />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path={'reports'}
-              element={
-                <PrivateRoute>
-                  <ReportView />
-                </PrivateRoute>
-              }
-            />
-          </Route>
-        </Routes>
-      </MainContainer>
+      <Routes>
+        <Route path="/kapusta-project/" element={<SharedLayout />}>
+          <Route
+            index
+            element={
+              <PublicRoute>
+                <SignInView />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path={'expenses'}
+            element={
+              <PrivateRoute>
+                <ExpensesView />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path={'income'}
+            element={
+              <PrivateRoute>
+                <IncomeView />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path={'reports'}
+            element={
+              <PrivateRoute>
+                <ReportView />
+              </PrivateRoute>
+            }
+          />
+        </Route>
+      </Routes>
     </>
   );
 };
