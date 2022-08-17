@@ -5,8 +5,12 @@ import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { getExpansesCategories } from 'redux/categories/catrgories-operation';
-import { addExpanses, getExpanses } from 'redux/transaction/transaction-operations';
-import { getExpence } from 'redux/transaction/transactions-selectors';
+import { getCategoriesExpanses } from 'redux/categories/catrgories-selectors';
+import {
+  addExpanses,
+  getExpanses,
+} from 'redux/transaction/transaction-operations';
+// import { getExpence } from 'redux/transaction/transactions-selectors';
 
 import BalancePage from './Balance/BalancePage';
 export default function ExpensesView() {
@@ -23,10 +27,12 @@ export default function ExpensesView() {
   //   'Прочее',
   // ];
   const engCategory = [
-    'Transport',
+    
     'Products',
-    'Health',
+    'Alcohol',
     'Entertainment',
+    'Health',
+    'Transport',
     'Housing',
     'Technique',
     'Communal, communication',
@@ -36,25 +42,23 @@ export default function ExpensesView() {
   ];
 
   const dispatch = useDispatch();
-  
-  const rCategory = useSelector(getExpansesCategories);
-  useEffect(()=>{
-    dispatch(getExpanses())
-    dispatch(getExpansesCategories())
-  },[]) 
-console.log(rCategory);
+  // const expence =useSelector(getExpence)
+  const lllCategory = useSelector(getCategoriesExpanses);
+  console.log(lllCategory);
+  useEffect(() => {
+    dispatch(getExpanses());
+    dispatch(getExpansesCategories());
+  }, []);
 
   const onSubmit = data => {
-    
     dispatch(addExpanses(data));
-    
   };
 
   return (
     <div>
       <TransactionForm
         engCategory={engCategory}
-        rCategory={rCategory}
+        rCategory={lllCategory}
         onSubmit={onSubmit}
       />
       <BalancePage />
