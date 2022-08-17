@@ -1,7 +1,7 @@
 import s from './TableList.module.css';
 import {
   getExpence,
-  getIncome,
+  //   getIncome,
 } from 'redux/transaction/transactions-selectors';
 
 // import { TransactionForm } from 'components/TransactionForm/TransactionForm';
@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 
 const Tablelist = () => {
   const isExpense = useSelector(getExpence);
-  const isIncome = useSelector(getIncome);
+  //   const isIncome = useSelector(getIncome);
   console.log(isExpense);
   return (
     <>
@@ -62,8 +62,7 @@ const Tablelist = () => {
 
 export default Tablelist;
 
-{
-  /* <div className={s.table_container}>
+/* <div className={s.table_container}>
   <div className={s.table_wrapper}>
     <table className={s.table}>
       <thead className={s.table_thead}>
@@ -113,4 +112,3 @@ export default Tablelist;
     </table>
   </div>
 </div>; */
-}
