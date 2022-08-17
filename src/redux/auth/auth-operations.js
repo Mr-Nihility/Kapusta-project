@@ -56,18 +56,21 @@ export const getCurrentUser = createAsyncThunk(
   async (_, { getState, rejectWithValue }) => {
     const state = getState();
     const sid = state.auth.sid;
-    const refreshToken = state.auth.refreshToken;
+    
 
     if (!sid) {
       return rejectWithValue('error');
     }
+    const refreshToken = state.auth.refreshToken;
     tokenAuth.set(refreshToken);
     try {
       const { data } = await axios.post('/auth/refresh', { sid });
       tokenAuth.set(data.newAccessToken);
       return data;
     } catch (error) {
-      console.log(error.response.data.message);
+      //  console.log(error.response.data.message);
+      return rejectWithValue('error');
+     
     }
   }
 );

@@ -53,6 +53,7 @@ const authSlice = createSlice({
     [getCurrentUser.rejected]: (state, _) => {
       state.refreshToken = '';
       state.accessToken = '';
+      state.isLogged = false;
     },
     [newBalance.fulfilled]: (state, { payload }) => {
       state.userData.balance = Number(payload.newBalance);
