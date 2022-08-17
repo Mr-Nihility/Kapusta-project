@@ -9,7 +9,6 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-// import faker from 'faker';
 import styles from './Chart.module.css';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 // Chart.register(ChartDataLabels);
