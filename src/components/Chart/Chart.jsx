@@ -23,67 +23,6 @@ ChartJS.register(
   Legend
 );
 
-export const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      display: false,
-    },
-    title: {
-      display: true,
-      text: '',
-      padding: 0,
-      weight: 'bold',
-      color: '#00325c',
-      font: {
-        size: 13,
-      },
-      align: 'start',
-    },
-    datalabels: {
-      display: true,
-      color: 'black',
-      align: 'end',
-      labels: {
-        title: {
-          font: {
-            weight: 'bold',
-          },
-        },
-        value: {
-          color: 'black',
-        },
-      },
-    },
-  },
-  scales: {
-    x: {
-      display: true,
-      grid: {
-        color: 'transparent',
-      },
-      ticks: {
-        color: '#gold',
-        font: {
-          size: 12,
-          lineHeight: 1.17,
-        },
-      },
-    },
-    y: {
-      grid: {
-        drawBorder: false,
-      },
-      display: true,
-      ticks: {
-        font: {
-          size: 0,
-        },
-      },
-    },
-  },
-};
-
 // const options = {
 //   maintainAspectRatio: false,
 //   scales: {
@@ -141,6 +80,75 @@ export const options = {
 //   },
 // };
 
+export const options = {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: 'bottom',
+      display: false,
+    },
+    title: {
+      display: true,
+      text: '',
+      padding: 0,
+      weight: 'bold',
+      color: '#00325c',
+      font: {
+        size: 13,
+      },
+      align: 'start',
+    },
+    datalabels: {
+      anchor: 'end',
+      offset: -20,
+      align: 'end',
+      padding: 25,
+      display: true,
+      color: 'black',
+      labels: {
+        title: {
+          font: {
+            weight: 'bold',
+          },
+        },
+        value: {
+          color: 'black',
+        },
+      },
+    },
+  },
+  scales: {
+    x: {
+      display: true,
+      grid: {
+        color: 'transparent',
+      },
+      ticks: {
+        maxRotation: 0,
+        minRotation: 0,
+        autoSkip: false,
+        font: {
+          size: 12,
+          lineHeight: 1.17,
+        },
+      },
+    },
+    y: {
+      grid: {
+        color: '#F5F6FB',
+        lineWidth: 2,
+        drawBorder: false,
+      },
+      display: true,
+      ticks: {
+        font: {
+          size: 0,
+        },
+      },
+    },
+  },
+};
+
 const labels = [
   'Продукты',
   'Алкоголь',
@@ -160,28 +168,14 @@ export const data = {
   datasets: [
     {
       label: 'Dataset 1',
-      data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12],
+      data: [15, 32, 43, 64, 45, 6, 7, 88, 9, 10, 12],
       backgroundColor: [' #FF751D', '#FFDAC0', '#FFDAC0'],
       borderRadius: 10,
       barThickness: 38,
+      barScale: 2,
     },
   ],
 };
-
-// const data = {
-//   labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Apr', 'Apr', 'Apr', 'Apr', 'May'],
-//   datasets: [
-//     {
-//       label: 'Avg interest by month',
-//       data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
-//       fill: false,
-//       backgroundColor: 'transparent',
-//       borderColor: '#06a1e1',
-//       tension: 0.1,
-//       borderWidth: 4,
-//     },
-//   ],
-// };
 
 export function Chart() {
   return (
