@@ -1,8 +1,8 @@
 // import Style from './Statisticts.module.css'
-import { NavStatis } from './NavStatis/NavStatis'
-import { InfoForBalance } from './InfoForBalance/InfoForBalance'
-import { SpendingMoneyStatisticts } from './SpendingMoneyStatisticts/SpendingMonStat'
-import { StatistictsSchedule } from './StatistictsSchedule/StactistictsSchedule'
+import { NavStatis } from '../../components/NavStatis/NavStatis'
+import { InfoForBalance } from '../../components/InfoForBalance/InfoForBalance'
+import { SpendingMoneyStatisticts } from '../../components/SpendingMoneyStatisticts/SpendingMonStat'
+import { StatistictsSchedule } from '../../components/StatistictsSchedule/StactistictsSchedule'
 export const Statisticts = () => {
 	return (
 		<>
