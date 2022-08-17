@@ -5,9 +5,23 @@ import { getDataTransaction } from '../../redux/reports/reports-operations';
 import { useDispatch } from 'react-redux';
 import { Icons } from '../../components/Icons/Icons';
 import { Balance } from '../Balance/Balance';
+import { useState } from 'react';
+// import { useEffect } from 'react';
+
 export const NavStatis = () => {
+	const [dateNow, setDateNow] = useState(null);
+	const [month, setMonth] = useState('');
+	const [year, setYear] = useState('');
+
+	if(dateNow === null) {
+		let date = new Date().toLocaleDateString();
+		setMonth(date.slice(3,5));
+		setYear(date.slice(6,10));
+		setDateNow(year + '-' + month);
+	}
+	
 	const dispatch = useDispatch();
-	const data = dispatch(getDataTransaction())
+	const data = dispatch(getDataTransaction(dateNow));
 	console.log(data);
 
   return (
@@ -38,7 +52,7 @@ export const NavStatis = () => {
               width="4"
               height="10"
             />
-            <p className={Style.month_switchTextBig}>November 2019</p>
+            <p className={Style.month_switchTextBig}>{year}</p>
             <Icons
               name="arrow-right"
               className="Style.month_switchSvgRight"
