@@ -76,9 +76,11 @@
   color: red;
   font-size: 15px;
   border: 2px solid #f6f7fc;
+  height: 25px;
 }
 .placeholder:hover{
   background-color: #ff751d;
+
 }
 
 .placeholder::selection {
