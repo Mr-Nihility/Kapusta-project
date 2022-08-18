@@ -1,5 +1,7 @@
 .table_container {
   display: flex;
+
+  justify-content: center;
 }
 .table_wrapper {
   overflow: auto;
@@ -21,10 +23,7 @@ table {
   border-collapse: collapse;
   overflow: scroll;
 }
-.table_thead {
-  position: sticky;
-  top: 0;
-}
+
 .btn_delete {
 }
 
@@ -32,6 +31,8 @@ table {
   border-left: 2px solid #f5f6fb;
   border-right: 2px solid #f5f6fb;
   border-bottom: 2px solid #f5f6fb;
+
+  border-radius: 30px;
 }
 
 .date_td1 {
@@ -94,10 +95,17 @@ table {
   color: #407946;
 }
 
+.table_thead {
+  position: sticky;
+  top: 0;
+
+  background: #f5f6fb;
+}
+
 .table_th1 {
   padding: 13px 0 13px 28px;
   width: 92px;
-  border-radius: 30px 0 0 0;
+
   text-align: start;
   font-family: 'Roboto';
   font-style: normal;
@@ -107,20 +115,18 @@ table {
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #000000;
-  background: #f5f6fb;
 }
 .table_th2 {
   width: 245px;
   padding: 13px 0 13px 10px;
   text-align: start;
-  font-family: 'Roboto';
-  font-style: normal;
+
+  color: black;
   font-weight: 700;
   font-size: 12px;
   line-height: 1.16;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  background: #f5f6fb;
 }
 .table_th3 {
   width: 145px;
@@ -134,13 +140,12 @@ table {
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #000000;
-  background: #f5f6fb;
 }
 .table_th4 {
   width: 213px;
   padding: 13px 0 13px 10px;
   text-align: center;
-  border-radius: 0 30px 0 0;
+
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
@@ -149,7 +154,16 @@ table {
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #000000;
-  background: #f5f6fb;
+}
+
+.table_th5 {
+  width: 70px;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #000000;
 }
 
 /* ======SUMMARY====== */
@@ -209,3 +223,17 @@ table {
   background: #f5f6fb;
   color: #52555f;
 }
+
+/* .svg {
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svg:hover {
+  cursor: pointer;
+
+  background-color: #f2f5fc;
+} */

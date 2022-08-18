@@ -1,15 +1,11 @@
-// import { useDispatch } from 'react-redux';
-// import { deleteTrancaction } from 'redux/transaction/transaction-operations';
 import s from './TableList.module.css';
-
+import vvv from '../../images/svg-icon-project/symbol-defs.svg';
 const Tablelist = ({ stats, list, type = false, delTrans }) => {
   const month = Object.keys(stats);
   const monthValues = Object.values(stats);
 
-  // const dispatch = useDispatch();
   const onDelete = id => {
     delTrans(id);
-    // dispatch(deleteTrancaction(id));
   };
   return (
     <>
@@ -22,6 +18,7 @@ const Tablelist = ({ stats, list, type = false, delTrans }) => {
                 <th className={s.table_th2}>Description</th>
                 <th className={s.table_th3}>Category</th>
                 <th className={s.table_th4}>Summ</th>
+                <th className={s.table_th5}></th>
               </tr>
             </thead>
             <tbody className={s.table_tbody}>
@@ -36,13 +33,18 @@ const Tablelist = ({ stats, list, type = false, delTrans }) => {
                     <td className={type ? s.expense : s.income}>
                       {el.amount} грн.
                     </td>
-                    <td>
-                      <input
+                    <td className={s.date_td1}>
+                      {/* <input
                         value="del"
                         className={s.btn_delete}
                         type="button"
                         onClick={() => onDelete(el._id)}
-                      />
+                      /> */}
+                      {/* <div className={s.svg}> */}
+                      <svg width="17" height="17">
+                        <use href={vvv + '#icon-trash-can'}></use>
+                      </svg>
+                      {/* </div> */}
                     </td>
                   </tr>
                 );
