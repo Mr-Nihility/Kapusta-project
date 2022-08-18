@@ -1,11 +1,9 @@
 import { nanoid } from 'nanoid';
-import { getExpenceList } from 'redux/transaction/transactions-selectors';
-import { useSelector } from 'react-redux';
+
 import s from './TableList.module.css';
 // import { deleteTrancaction } from 'redux/transaction/transaction-operations';
 
-const Tablelist = ({ stats }) => {
-  const isExpense = useSelector(getExpenceList);
+const Tablelist = ({ stats, list }) => {
   const month = Object.keys(stats);
   const monthValues = Object.values(stats);
   //   const id = nanoid();
@@ -27,7 +25,7 @@ const Tablelist = ({ stats }) => {
               </tr>
             </thead>
             <tbody className={s.table_tbody}>
-              {isExpense.map(el => {
+              {list.map(el => {
                 return (
                   <tr key={nanoid()}>
                     <td className={s.date_td1}>{el.date}</td>
