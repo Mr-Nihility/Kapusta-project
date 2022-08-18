@@ -4,6 +4,7 @@ import BalancePage from './Balance/BalancePage';
 import { TransactionForm } from 'components/TransactionForm/TransactionForm';
 import {
   addIncome,
+  deleteTrancaction,
   fetchIncome,
 } from 'redux/transaction/transaction-operations';
 import {
@@ -12,28 +13,33 @@ import {
 } from 'redux/transaction/transactions-selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { getIncomeCategories } from 'redux/categories/catrgories-operation';
-import { getIsLogged } from 'redux/auth/auth-selectors';
+import { getIsLogged, getStartBalance } from 'redux/auth/auth-selectors';
 //------------------------------------------------------------------------------------//
 export default function IncomeView() {
   const rCategory = ['З/П', 'Доп. доход'];
   const engCategory = ['salary', 'additional income'];
   const dispatch = useDispatch();
   const incomeArr = useSelector(getIncomeList);
-
+  const bal = useSelector(getStartBalance);
   const isLog = useSelector(getIsLogged);
 
   const stats = useSelector(getIncomeMonth);
 
   useEffect(() => {
+    console.log('render');
     if (!isLog) {
       return;
     }
     dispatch(getIncomeCategories());
     dispatch(fetchIncome());
-  }, [dispatch, isLog]);
+  }, [dispatch, isLog, bal]);
 
   const onSubmit = data => {
     dispatch(addIncome(data));
+  };
+
+  const deleteItem = id => {
+    dispatch(deleteTrancaction(id));
   };
 
   return (
@@ -44,7 +50,7 @@ export default function IncomeView() {
         engCategory={engCategory}
       />
       <BalancePage />
-      <Tablelist stats={stats} list={incomeArr}/>
+      <Tablelist stats={stats} list={incomeArr} delTrans={deleteItem} />
     </div>
   );
 }
