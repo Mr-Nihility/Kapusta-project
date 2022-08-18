@@ -35,7 +35,7 @@ export default function UserInfo() {
           }}
           size={32}
           fgColor={'#000000'}
-          color={['#F5F6FA']}
+          color={'#F5F6FA'}
           round={true}
           name={email}
         />

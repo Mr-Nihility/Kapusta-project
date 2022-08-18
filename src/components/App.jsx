@@ -9,7 +9,7 @@ import { Route, Routes } from 'react-router-dom';
 // import { Main } from 'pages/Main';
 import SharedLayout from 'pages/SharedLayout';
 import ExpensesView from 'pages/ExpensesView';
-import ReportView from 'pages/ReportView';
+import { ReportView } from 'pages/ReportView';
 import IncomeView from 'pages/IncomeView';
 // import Tablelist from './TableList/TableList';
 import PublicRoute from './PublicRoute/PublicRoute';

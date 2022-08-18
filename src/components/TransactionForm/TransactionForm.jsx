@@ -5,8 +5,10 @@ import styles from '../TransactionForm/TransactionForm.module.css';
 import * as Yup from 'yup';
 import { Formik, Form, Field } from 'formik';
 import svg from '../../images/svg-icon-project/symbol-defs.svg';
-import { CustomSelect } from './CustomSelect';
+
 // import saa from '../../images/svg-icon-project.svg';
+//----------------------------------------------------------------------------//
+
 export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
   const [date, setDate] = useState(new Date());
 
