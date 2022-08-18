@@ -24,7 +24,11 @@ export const Navigation = () => {
             <NavLink
               to="/kapusta-project/expenses"
               state={location}
-              className={styles.link_tab}
+              className={({ isActive }) =>
+                isActive
+                  ? `${styles.link_tab} ${styles.active}`
+                  : `${styles.link_tab}`
+              }
             >
               Expenses
             </NavLink>
@@ -33,7 +37,11 @@ export const Navigation = () => {
             <NavLink
               to="/kapusta-project/income"
               state={location}
-              className={styles.link_tab_inc}
+              className={({ isActive }) =>
+                isActive
+                  ? `${styles.link_tab_inc} ${styles.active}`
+                  : `${styles.link_tab_inc}`
+              }
             >
               Income
             </NavLink>

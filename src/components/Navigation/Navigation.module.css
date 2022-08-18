@@ -73,3 +73,9 @@
   left: 0;
   /* position: absolute; */
 }
+
+.link_tab.active,
+.link_tab_inc.active {
+  color: #ff751d;
+  background-color: #52555f;
+}
