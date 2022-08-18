@@ -25,7 +25,6 @@ const Tablelist = ({ stats, list, type = false }) => {
             </thead>
             <tbody className={s.table_tbody}>
               {list.map(el => {
-                console.log(el);
                 return (
                   <tr key={el._id} id={el._id}>
                     <td className={s.date_td1}>{el.date}</td>
