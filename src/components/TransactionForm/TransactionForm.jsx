@@ -48,6 +48,7 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
         {({ errors, touched }) => (
           <Form className={styles.form} onSubmit={handlerSubmit}>
             <DatePicker
+              dropdownMode="select"
               name="date"
               dateFormat="yyyy.MM.dd"
               selected={date}
