@@ -13,7 +13,10 @@
   background-color: white;
   max-width: 1115px;
 }
-
+.select_lib{
+  color: #fa6b12;
+  
+}
 .description {
   color: #c7ccdc;
   padding-left: 20px;
