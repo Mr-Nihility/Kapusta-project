@@ -1,6 +1,6 @@
 import Style from './SpendingMonStat.module.css';
 import { Icons } from '../../components/Icons/Icons';
-
+// import 
 export const SpendingMoneyStatisticts = () => {
   return (
     <>

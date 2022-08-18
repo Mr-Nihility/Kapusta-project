@@ -1,14 +1,15 @@
-import { useDispatch } from 'react-redux';
-import { deleteTrancaction } from 'redux/transaction/transaction-operations';
+// import { useDispatch } from 'react-redux';
+// import { deleteTrancaction } from 'redux/transaction/transaction-operations';
 import s from './TableList.module.css';
 
-const Tablelist = ({ stats, list, type = false }) => {
+const Tablelist = ({ stats, list, type = false, delTrans }) => {
   const month = Object.keys(stats);
   const monthValues = Object.values(stats);
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const onDelete = id => {
-    dispatch(deleteTrancaction(id));
+    delTrans(id);
+    // dispatch(deleteTrancaction(id));
   };
   return (
     <>
@@ -25,7 +26,6 @@ const Tablelist = ({ stats, list, type = false }) => {
             </thead>
             <tbody className={s.table_tbody}>
               {list.map(el => {
-                console.log(el);
                 return (
                   <tr key={el._id} id={el._id}>
                     <td className={s.date_td1}>{el.date}</td>
