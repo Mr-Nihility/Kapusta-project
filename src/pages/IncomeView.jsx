@@ -69,7 +69,12 @@ export default function IncomeView() {
           engCategory={engCategory}
         />
 
-        <Tablelist stats={stats} list={incomeArr} delTrans={deleteItem} />
+        <Tablelist
+          stats={stats}
+          list={incomeArr}
+          delTrans={deleteItem}
+          categorys={ruCategory}
+        />
       </div>
     </div>
   );
