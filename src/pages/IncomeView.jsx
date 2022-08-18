@@ -14,17 +14,18 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { getIncomeCategories } from 'redux/categories/catrgories-operation';
 import { getIsLogged, getStartBalance } from 'redux/auth/auth-selectors';
+import { getCategoriesIncome } from 'redux/categories/catrgories-selectors';
 //------------------------------------------------------------------------------------//
 export default function IncomeView() {
-  const rCategory = ['З/П', 'Доп. доход'];
   const engCategory = ['salary', 'additional income'];
+  const ruCategory = useSelector(getCategoriesIncome);
   const dispatch = useDispatch();
   const incomeArr = useSelector(getIncomeList);
   const bal = useSelector(getStartBalance);
   const isLog = useSelector(getIsLogged);
 
   const stats = useSelector(getIncomeMonth);
-
+  console.log(ruCategory);
   useEffect(() => {
     console.log('render');
     if (!isLog) {
@@ -45,7 +46,7 @@ export default function IncomeView() {
   return (
     <div>
       <TransactionForm
-        rCategory={rCategory}
+        rCategory={ruCategory}
         onSubmit={onSubmit}
         engCategory={engCategory}
       />

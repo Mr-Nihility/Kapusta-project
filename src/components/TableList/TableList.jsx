@@ -26,6 +26,7 @@ const Tablelist = ({ stats, list, type = false, delTrans }) => {
             </thead>
             <tbody className={s.table_tbody}>
               {list.map(el => {
+                
                 return (
                   <tr key={el._id} id={el._id}>
                     <td className={s.date_td1}>{el.date}</td>
@@ -55,12 +56,13 @@ const Tablelist = ({ stats, list, type = false, delTrans }) => {
 
             <tbody className={s.summary_tbody}>
               {month.map((el, i) => {
+                if(monthValues[i]!=='N/A'){
                 return (
                   <tr key={i}>
                     <td className={s.summary_td1}>{el}</td>
                     <td className={s.summary_td2}>{monthValues[i]}</td>
                   </tr>
-                );
+                )}
               })}
             </tbody>
           </table>
