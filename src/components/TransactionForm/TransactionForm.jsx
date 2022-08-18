@@ -4,8 +4,8 @@ import 'react-datepicker/dist/react-datepicker.css';
 import styles from '../TransactionForm/TransactionForm.module.css';
 import * as Yup from 'yup';
 import { Formik, Form, Field } from 'formik';
-// import svg from '../../images/svg-icon-project/symbol-defs.svg'
-// import saa from '../../images/svg-icon-project.svg'
+import svg from '../../images/svg-icon-project/symbol-defs.svg';
+// import saa from '../../images/svg-icon-project.svg';
 export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
   const [date, setDate] = useState(new Date());
 
@@ -19,7 +19,7 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
     onSubmit({
       description: description.value,
       category: category.value,
-      amount: amount.value,
+      amount: Number(amount.value),
       date,
     });
     evt.target.reset();
@@ -47,36 +47,28 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
       >
         {({ errors, touched }) => (
           <Form className={styles.form} onSubmit={handlerSubmit}>
-            <DatePicker
-              name="date"
-              dateFormat="yyyy.MM.dd"
-              selected={date}
-              // maxDate={new Date()}
-              onChange={changeDate => {
-                setDate(changeDate);
-              }}
-            />
-            {/* <label className={styles.label}>
-              <Field
-                max={new Date()}
-                type="date"
+            <label className={styles.label}>
+              <svg className={styles.iconCalendar} width="20" height="20">
+                <use href={`${svg}#icon-calendar`}></use>
+              </svg>
+              <DatePicker
+                className={styles.date}
                 name="date"
-                // onChange={e => setDate(e.target.value)}
-                // required
+                dateFormat="yyyy.MM.dd"
+                selected={date}
+                // maxDate={new Date()}
+                onChange={changeDate => {
+                  setDate(changeDate);
+                }}
               />
-              {errors.date && touched.date && (
-                <span className={styles.errorMessage}>{errors.date}</span>
-              )}
-            </label> */}
+            </label>
+
             <label className={styles.label}>
               <Field
                 className={styles.description}
-                // required
                 name="description"
-                // value={description}
                 type="text"
                 placeholder="Product description"
-                // onChange={onChange}
               />
               {errors.description && touched.description && (
                 <span className={styles.errorMessage}>
@@ -88,9 +80,6 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
             <div className={styles.wrapper}>
               <select
                 className={styles.selected}
-                // required
-                // value={category}
-                // onChange={onChange}
                 name="category"
                 placeholder="Product category"
               >
@@ -110,19 +99,20 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
                   );
                 })}
               </select>
+              <svg className={styles.icon} width="15" height="10">
+                <use href={`${svg}#icon-arrow-to-down`}></use>
+              </svg>
             </div>
-            {/* <svg className={styles.icon} width="15" height="10" fill='black'>
-                <use href={`${svg}#icon-arrow-to-down`}  ></use>
-              </svg> */}
+
             <label className={styles.label}>
+              <svg className={styles.iconCalculator} width="20" height="20">
+                <use href={`${svg}#icon-calculator`}></use>
+              </svg>
               <Field
                 className={styles.amount}
-                // required
                 name="amount"
-                // value={amount}
                 type="text"
                 placeholder="0,00"
-                // onChange={onChange}
               />
               {errors.amount && touched.amount && (
                 <span className={styles.errorMessage}>{errors.amount}</span>
@@ -136,9 +126,7 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
               className={styles.clearBtn}
               type="button"
               onClick={() => {
-                // setDescription('');
-                // setCategory('');
-                // setAmount('');
+                setDate(new Date());
               }}
             >
               CLEAR
