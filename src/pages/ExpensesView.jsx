@@ -1,4 +1,4 @@
-import Navigation from 'components/Navigation/Navigation';
+import { ReportBtn } from 'components/ReportBtn/ReportBtn';
 import Tablelist from 'components/TableList/TableList';
 import { TransactionForm } from 'components/TransactionForm/TransactionForm';
 import { useEffect } from 'react';
@@ -19,19 +19,6 @@ import {
 
 import BalancePage from './Balance/BalancePage';
 export default function ExpensesView() {
-  // const rCategory = [
-
-  //   'Транспорт',
-  //   'Продукты',
-  //   'Здоровье',
-  //   'Развлечения',
-  //   'Всё для дома',
-  //   'Техника',
-  //   'Коммуналка и связь',
-  //   'Спорт и хобби',
-  //   'Образование',
-  //   'Прочее',
-  // ];
   const stats = useSelector(getExpenseMonth);
 
   const engCategory = [
@@ -71,20 +58,35 @@ export default function ExpensesView() {
   };
 
   return (
-    <div>
+    <div className="wrap">
+      <ReportBtn />
       <BalancePage />
-      <TransactionForm
-        engCategory={engCategory}
-        rCategory={categoriesExpanses}
-        onSubmit={onSubmit}
-      />
-      <Navigation />
-      <Tablelist
-        stats={stats}
-        list={expenceArr}
-        type={true}
-        delTrans={deleteItem}
-      />
+
+      <div
+        className="kek"
+        style={{
+          maxWidth: '1098px',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          padding: '32px 32px 61px 32px',
+          backgroundColor: '#ffffff',
+          boxShadow: '0px 10px 60px rgba(170, 178, 197, 0.2)',
+          borderRadius: '0px 30px 30px 30px',
+        }}
+      >
+        <TransactionForm
+          engCategory={engCategory}
+          rCategory={categoriesExpanses}
+          onSubmit={onSubmit}
+        />
+
+        <Tablelist
+          stats={stats}
+          list={expenceArr}
+          type={true}
+          delTrans={deleteItem}
+        />
+      </div>
     </div>
   );
 }
