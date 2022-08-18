@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -11,7 +11,10 @@ import {
 import { Bar } from 'react-chartjs-2';
 import styles from './Chart.module.css';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-// Chart.register(ChartDataLabels);
+import { useDispatch, useSelector } from 'react-redux';
+import { getExpenceList } from 'redux/transaction/transactions-selectors';
+import { getSuccessToken } from 'redux/auth/auth-selectors';
+import { getExpanses } from 'redux/transaction/transaction-operations';
 
 ChartJS.register(
   ChartDataLabels,
@@ -23,167 +26,102 @@ ChartJS.register(
   Legend
 );
 
-export const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      display: false,
-    },
-    title: {
-      display: true,
-      text: '',
-      padding: 0,
-      weight: 'bold',
-      color: '#00325c',
-      font: {
-        size: 13,
+export const Chart = () => {
+  const expence = useSelector(getExpenceList);
+  const dispatch = useDispatch();
+
+  const token = useSelector(getSuccessToken);
+
+  useEffect(() => {
+    if (!token) {
+      return;
+    }
+    dispatch(getExpanses());
+  }, [dispatch, token]);
+
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'bottom',
+        display: false,
       },
-      align: 'start',
-    },
-    datalabels: {
-      display: true,
-      color: 'black',
-      align: 'end',
-      labels: {
-        title: {
-          font: {
-            weight: 'bold',
+      title: {
+        display: true,
+        text: '',
+        padding: 1,
+        weight: 'bold',
+        color: '#00325c',
+        font: {
+          size: 13,
+        },
+        align: 'start',
+      },
+      datalabels: {
+        anchor: 'end',
+        offset: -20,
+        align: 'end',
+        padding: 25,
+        display: true,
+        color: 'black',
+        labels: {
+          title: {
+            font: {
+              weight: 'bold',
+            },
+          },
+          value: {
+            color: 'black',
           },
         },
-        value: {
-          color: 'black',
+      },
+    },
+    scales: {
+      x: {
+        display: true,
+        grid: {
+          color: 'transparent',
+        },
+        ticks: {
+          maxRotation: 0,
+          minRotation: 0,
+          autoSkip: false,
+          font: {
+            size: 12,
+            lineHeight: 1.17,
+          },
+        },
+      },
+      y: {
+        grid: {
+          color: '#F5F6FB',
+          lineWidth: 2,
+          drawBorder: false,
+        },
+        display: true,
+        ticks: {
+          font: {
+            size: 0,
+          },
         },
       },
     },
-  },
-  scales: {
-    x: {
-      display: true,
-      grid: {
-        color: 'transparent',
+  };
+
+  const data = {
+    labels: expence.map(el => el.description),
+    datasets: [
+      {
+        label: 'Dataset 1',
+        data: expence.map(el => el.amount),
+        backgroundColor: [' #FF751D', '#FFDAC0', '#FFDAC0'],
+        borderRadius: 10,
+        barThickness: 38,
+        barScale: 2,
       },
-      ticks: {
-        color: '#gold',
-        font: {
-          size: 12,
-          lineHeight: 1.17,
-        },
-      },
-    },
-    y: {
-      grid: {
-        drawBorder: false,
-      },
-      display: true,
-      ticks: {
-        font: {
-          size: 0,
-        },
-      },
-    },
-  },
-};
+    ],
+  };
 
-// const options = {
-//   maintainAspectRatio: false,
-//   scales: {
-//     x: {
-//       grid: {
-//         display: false,
-//       },
-//     },
-//     y: {
-//       display: false,
-//       grid: {
-//         display: false,
-//       },
-//     },
-//   },
-//   plugins: {
-//     legend: {
-//       display: false,
-//     },
-//     title: {
-//       display: true,
-//       text: 'Avg interest by month (days)',
-//       padding: {
-//         bottom: 30,
-//       },
-//       weight: 'bold',
-//       color: '#00325c',
-//       font: {
-//         size: 13,
-//       },
-//       align: 'start',
-//     },
-//     datalabels: {
-//       display: true,
-//       color: 'black',
-//       align: 'end',
-//       padding: {
-//         right: 2,
-//       },
-//       labels: {
-//         padding: { top: 10 },
-//         title: {
-//           font: {
-//             weight: 'bold',
-//           },
-//         },
-//         value: {
-//           color: 'green',
-//         },
-//       },
-//       formatter: function (value) {
-//         return '\n' + value;
-//       },
-//     },
-//   },
-// };
-
-const labels = [
-  'Продукты',
-  'Алкоголь',
-  'Развлечения',
-  'Здоровье',
-  'Транспорт',
-  'Всё',
-  'Техника',
-  'Коммун',
-  'Спорт',
-  'Образование',
-  'Прочее',
-];
-
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Dataset 1',
-      data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12],
-      backgroundColor: [' #FF751D', '#FFDAC0', '#FFDAC0'],
-      borderRadius: 10,
-      barThickness: 38,
-    },
-  ],
-};
-
-// const data = {
-//   labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Apr', 'Apr', 'Apr', 'Apr', 'May'],
-//   datasets: [
-//     {
-//       label: 'Avg interest by month',
-//       data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
-//       fill: false,
-//       backgroundColor: 'transparent',
-//       borderColor: '#06a1e1',
-//       tension: 0.1,
-//       borderWidth: 4,
-//     },
-//   ],
-// };
-
-export function Chart() {
   return (
     <div className={styles.chartWrapper}>
       <div className={styles.chartContainer}>
@@ -191,4 +129,4 @@ export function Chart() {
       </div>
     </div>
   );
-}
+};
