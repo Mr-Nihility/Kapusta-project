@@ -1,4 +1,3 @@
-import { render } from '@testing-library/react';
 import Style from './ReportsItemsCard.mpdule.css';
 // import { Icons } from 'components/Icons/Icons';
 export const ReportsItemsCard = ({total, category, id}) => {
