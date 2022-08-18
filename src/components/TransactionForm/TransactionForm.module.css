@@ -73,8 +73,14 @@
 }
 
 .placeholder {
+  color: red;
   font-size: 15px;
+  border: 2px solid #f6f7fc;
 }
+.placeholder:hover{
+  background-color: #ff751d;
+}
+
 .placeholder::selection {
   background-color: orange;
   margin: 3px 0;
