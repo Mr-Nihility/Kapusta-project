@@ -12,7 +12,7 @@
 }
 
 .chartContainer {
-  /* max-width: 760px; */
+  max-width: 760px;
   display: flex;
   justify-content: center;
   margin-left: auto;
