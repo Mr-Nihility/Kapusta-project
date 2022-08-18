@@ -4,15 +4,15 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { newBalance } from 'redux/transaction/transaction-operations';
 import { getStartBalance } from 'redux/auth/auth-selectors';
+import BalanceModal from 'components/BalanceModal/BalanceModal';
 //----------------------------------------------------------------------------//
 export const Balance = () => {
-  // const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const [balance, setBalance] = useState();
   const balanceEl = useSelector(getStartBalance);
 
   const handleChange = event => {
-    console.log(event.target);
     const { name, value } = event.target;
 
     switch (name) {
@@ -30,15 +30,18 @@ export const Balance = () => {
     dispatch(newBalance({ newBalance: balance }));
   };
 
+  // console.log(typeof balance);
+
   // console.log(
   //   new Intl.NumberFormat('de-DE', {
   //     style: 'currency',
   //     currency: 'UAH',
   //   }).format(balance)
   // );
-  // const handleToggleModal = () => {
-  //   setShowModal(!showModal);
-  // };
+
+  const handleToggleModal = () => {
+    setShowModal(!showModal);
+  };
 
   return (
     <>
@@ -61,11 +64,12 @@ export const Balance = () => {
             <p>UAH</p>
           </div>
         </label>
-
         <button className={styles.button} type="submit">
           CONFIRM
-          {/* <BalanceModal show={showModal} close={handleToggleModal} /> */}
         </button>
+        {balance === '0' && (
+          <BalanceModal onshow={showModal} onclose={handleToggleModal} />
+        )}
       </form>
     </>
   );

@@ -6,7 +6,8 @@ import {
 import { signIn, logIn, logOut, getCurrentUser } from './auth-operations';
 
 import { newBalance } from 'redux/transaction/transaction-operations';
-
+import { deleteTrancaction } from 'redux/transaction/transaction-operations';
+////-------------------------------------------------------------------------------------------//
 const initialState = {
   userData: {
     email: '',
@@ -30,6 +31,7 @@ const authSlice = createSlice({
       state.accessToken = payload.accessToken;
       state.refreshToken = payload.refreshToken;
       state.sid = payload.sid;
+      // state.firtLoad= true
     },
     [logIn.fulfilled]: (state, { payload }) => {
       state.accessToken = payload.accessToken;
@@ -57,11 +59,15 @@ const authSlice = createSlice({
     },
     [newBalance.fulfilled]: (state, { payload }) => {
       state.userData.balance = Number(payload.newBalance);
+      //state.firstLoad= false
     },
     [addExpanses.fulfilled]: (state, { payload }) => {
       state.userData.balance = payload.newBalance;
     },
     [addIncome.fulfilled]: (state, { payload }) => {
+      state.userData.balance = payload.newBalance;
+    },
+    [deleteTrancaction.fulfilled]: (state, { payload }) => {
       state.userData.balance = payload.newBalance;
     },
   },

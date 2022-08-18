@@ -6,7 +6,7 @@ export const getExpanses = createAsyncThunk(
   async (_, { rejectedWithValue }) => {
     try {
       const { data } = await axios.get('/transaction/expense');
-      console.log(data);
+
       return data;
     } catch (error) {
       return rejectedWithValue(error);
@@ -28,7 +28,7 @@ export const addExpanses = createAsyncThunk(
     }
   }
 );
-export const getIncome = createAsyncThunk(
+export const fetchIncome = createAsyncThunk(
   'transaction/getIncome', //под капотом создаст статусы
   async (_, { rejectedWithValue }) => {
     try {
@@ -62,17 +62,29 @@ export const newBalance = createAsyncThunk(
   }
 );
 
-// export const deleteTrancaction = createAsyncThunk(
-//     'trancaction/deleteTrancaction',
+export const getExpansesMonthsOperation = createAsyncThunk(
+  'trancaction/getExpansesMonths',
 
-//     async (id, { rejectedWithValue }) => {
-//         try {
-//             await axios.delete(`/trancaction/${id}`)
-//             return id
-//         } catch (error) {
-//             return rejectedWithValue(error)
-//         }
+  async (date, { rejectedWithValue }) => {
+    try {
+      const { data } = await axios.get(`/transaction/period-data`, date);
+      console.log(data);
+      return data;
+    } catch (error) {
+      return rejectedWithValue(error);
+    }
+  }
+);
 
-//     }
+export const deleteTrancaction = createAsyncThunk(
+  'trancaction/deleteTrancaction',
 
-// )
+  async (id, { rejectedWithValue }) => {
+    try {
+     const {data}= await axios.delete(`/transaction/${id}`);
+      return data;
+    } catch (error) {
+      return rejectedWithValue(error);
+    }
+  }
+);

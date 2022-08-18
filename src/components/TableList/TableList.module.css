@@ -1,21 +1,99 @@
-.table_wrapper {
-  overflow: scroll;
-}
 .table_container {
   display: flex;
+}
+.table_wrapper {
+  overflow: auto;
+  height: 377px;
+}
+.table_wrapper::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+.table_wrapper::-webkit-scrollbar-thumb {
+  background-color: #f67300;
+  border-radius: 20px;
 }
 
 table {
   table-layout: fixed;
   max-width: 746px;
+
   border-collapse: collapse;
   overflow: scroll;
 }
-.table_tbody {
-  border-left: 1px solid #f5f6fb;
-  border-right: 1px solid #f5f6fb;
-  border-bottom: 1px solid #f5f6fb;
+.table_thead {
+  position: sticky;
+  top: 0;
 }
+.btn_delete {
+}
+
+.table_tbody {
+  border-left: 2px solid #f5f6fb;
+  border-right: 2px solid #f5f6fb;
+  border-bottom: 2px solid #f5f6fb;
+}
+
+.date_td1 {
+  padding: 13px 0 13px 20px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background-color: #ffff;
+  border-top: 2px solid #f5f6fb;
+}
+.description_td2 {
+  padding: 13px 0 13px 10px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.04em;
+  color: #52555f;
+  background-color: #ffff;
+  border-top: 2px solid #f5f6fb;
+}
+.category_td3 {
+  padding: 13px 0 13px 5px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: #52555f;
+  background-color: #ffff;
+  border-top: 2px solid #f5f6fb;
+}
+.summ_td4,
+.expense,
+.income {
+  padding: 13px 0 13px 5px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.16;
+  text-align: center;
+  letter-spacing: 0.04em;
+
+  background-color: #ffff;
+  border-top: 2px solid #f5f6fb;
+}
+
+.expense {
+  color: red;
+}
+.income {
+  color: #407946;
+}
+
 .table_th1 {
   padding: 13px 0 13px 28px;
   width: 92px;
@@ -73,49 +151,7 @@ table {
   color: #000000;
   background: #f5f6fb;
 }
-.date_td1 {
-  padding: 13px 0 13px 20px;
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.16;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
 
-.description_td2 {
-  padding: 13px 0 13px 5px;
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.16;
-  letter-spacing: 0.04em;
-  color: #52555f;
-}
-.category_td3 {
-  padding: 13px 0 13px 5px;
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.16;
-  letter-spacing: 0.04em;
-  text-align: center;
-  color: #52555f;
-}
-.summ_td4 {
-  padding: 13px 0 13px 5px;
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 1.16;
-  text-align: center;
-  letter-spacing: 0.04em;
-  color: #407946;
-}
 /* ======SUMMARY====== */
 .summary_wrapper {
   margin-left: 75px;
