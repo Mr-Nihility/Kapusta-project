@@ -49,7 +49,7 @@ export const Chart = () => {
       title: {
         display: true,
         text: '',
-        padding: 1,
+        padding: 2,
         weight: 'bold',
         color: '#00325c',
         font: {
