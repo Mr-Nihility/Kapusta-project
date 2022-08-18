@@ -19,7 +19,7 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
     onSubmit({
       description: description.value,
       category: category.value,
-      amount: amount.value,
+      amount: Number(amount.value),
       date,
     });
     evt.target.reset();
