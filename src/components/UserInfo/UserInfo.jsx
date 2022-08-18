@@ -31,7 +31,8 @@ export default function UserInfo() {
       <div className={styles.wrapper}>
         <Avatar
           size={32}
-          // fgColor={'#52555F'}
+          fgColor={'#000000'}
+          color={['#F5F6FA']}
           round={true}
           name={email}
         />
