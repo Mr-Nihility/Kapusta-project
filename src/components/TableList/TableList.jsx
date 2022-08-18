@@ -1,13 +1,26 @@
 import s from './TableList.module.css';
+import { useState } from 'react';
 import vvv from '../../images/svg-icon-project/symbol-defs.svg';
+import { ConfirmationModal } from 'components/ConfirmationModal/ConfirmationModal';
 
 const Tablelist = ({ stats, list, type = false, delTrans }) => {
   const month = Object.keys(stats);
   const monthValues = Object.values(stats);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const onDelete = id => {
     delTrans(id);
+    setIsModalOpen(false);
   };
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div>
       <div className={s.table_container}>
@@ -39,11 +52,19 @@ const Tablelist = ({ stats, list, type = false, delTrans }) => {
                         <svg
                           width="17"
                           height="17"
-                          onClick={() => onDelete(el._id)}
+                          onClick={handleOpenModal}
                           type="button"
                         >
                           <use href={vvv + '#icon-trash-can'}></use>
                         </svg>
+
+                        {isModalOpen && (
+                          <ConfirmationModal
+                            onSubmit={() => onDelete(el._id)}
+                            onClose={handleCloseModal}
+                            title="Are you sure?"
+                          />
+                        )}
                       </div>
                     </td>
                   </tr>
