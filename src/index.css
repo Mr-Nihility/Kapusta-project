@@ -5,11 +5,14 @@
   --main-color: #ffffff;
   --secondary-color: #f5f6fb;
   --accent-color: #ff751d;
+  --accent-pale-color: #ffdac0;
 
-  --main-text-color: #000000;
-  --secondary-text-color: #52555f;
-  --expense-text-color: #e7192e;
-  --income-text-color: #407946;
+  --main-text: #000000;
+  --secondary-text: #52555f;
+  --accent-pale-text: rgba(82, 85, 95, 0.7);
+  --inputs-text: #c7ccdc;
+  --expenses-text: #e7192e;
+  --income-text: #407946;
 }
 
 body {
