@@ -5,7 +5,6 @@ import { Statisticts } from './Statisticts/Statisticts';
 export default function ReportView() {
   return (
     <div>
-      <BalancePage />
 			<Statisticts />
       <Chart></Chart>
     </div>
