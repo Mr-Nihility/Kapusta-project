@@ -1,3 +1,4 @@
+import Navigation from 'components/Navigation/Navigation';
 import Tablelist from 'components/TableList/TableList';
 import { TransactionForm } from 'components/TransactionForm/TransactionForm';
 import { useEffect } from 'react';
@@ -71,12 +72,13 @@ export default function ExpensesView() {
 
   return (
     <div>
+      <BalancePage />
       <TransactionForm
         engCategory={engCategory}
         rCategory={categoriesExpanses}
         onSubmit={onSubmit}
       />
-      <BalancePage />
+      <Navigation />
       <Tablelist
         stats={stats}
         list={expenceArr}
