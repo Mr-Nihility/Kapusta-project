@@ -1,11 +1,9 @@
-import { Chart } from 'components/Chart/Chart';
 import React from 'react';
 import { Statisticts } from './Statisticts/Statisticts';
-export default function ReportView() {
+export const ReportView = () => {
   return (
     <div>
-			<Statisticts />
-      <Chart></Chart>
+      <Statisticts />
     </div>
   );
-}
+};
