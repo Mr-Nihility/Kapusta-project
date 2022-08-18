@@ -12,9 +12,9 @@ import { Bar } from 'react-chartjs-2';
 import styles from './Chart.module.css';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { useDispatch, useSelector } from 'react-redux';
-import { getExpenceList } from 'redux/transaction/transactions-selectors';
 import { getSuccessToken } from 'redux/auth/auth-selectors';
 import { getExpanses } from 'redux/transaction/transaction-operations';
+import { expensesDataSelector } from 'redux/reports/reports-selector';
 
 ChartJS.register(
   ChartDataLabels,
@@ -27,8 +27,20 @@ ChartJS.register(
 );
 
 export const Chart = () => {
-  const expence = useSelector(getExpenceList);
   const dispatch = useDispatch();
+
+  const expensesData = useSelector(expensesDataSelector);
+
+  console.log(expensesData);
+
+  const expenseDataValue = Object.values(expensesData);
+
+  const lol = expenseDataValue.map(item => Object.keys(item));
+  const loll = expenseDataValue.map(item => Object.values(item));
+
+  expenseDataValue.map(item => {
+    return console.log(expenseDataValue[0]);
+  });
 
   const token = useSelector(getSuccessToken);
 
@@ -112,11 +124,11 @@ export const Chart = () => {
   };
 
   const data = {
-    labels: expence.map(el => el.description),
+    labels: lol[0],
     datasets: [
       {
         label: 'Dataset 1',
-        data: expence.map(el => el.amount),
+        data: loll[0],
         backgroundColor: [' #FF751D', '#FFDAC0', '#FFDAC0'],
         borderRadius: 10,
         maxBarThickness: 38,
