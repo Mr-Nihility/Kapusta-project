@@ -85,6 +85,7 @@ export default function ExpensesView() {
           list={expenceArr}
           type={true}
           delTrans={deleteItem}
+          categorys={categoriesExpanses}
         />
       </div>
     </div>

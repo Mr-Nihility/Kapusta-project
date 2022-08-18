@@ -3,10 +3,13 @@ import { useState } from 'react';
 import vvv from '../../images/svg-icon-project/symbol-defs.svg';
 import { ConfirmationModal } from 'components/ConfirmationModal/ConfirmationModal';
 
-const Tablelist = ({ stats, list, type = false, delTrans }) => {
+const Tablelist = ({ stats, list, type = false, delTrans, categorys }) => {
   const month = Object.keys(stats);
+
   const monthValues = Object.values(stats);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
+
 
   const onDelete = id => {
     delTrans(id);
@@ -45,6 +48,7 @@ const Tablelist = ({ stats, list, type = false, delTrans }) => {
                     <td className={s.category_td3}>{el.category}</td>
 
                     <td className={type ? s.expense : s.income}>
+                      {categorys.length > 2 && <span>-</span>}
                       {el.amount} грн.
                     </td>
                     <td className={s.date_td1}>
