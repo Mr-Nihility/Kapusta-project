@@ -111,7 +111,7 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
               <Field
                 className={styles.amount}
                 name="amount"
-                type="text"
+                type="number"
                 placeholder="0,00"
               />
               {errors.amount && touched.amount && (
