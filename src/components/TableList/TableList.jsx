@@ -55,6 +55,7 @@ const Tablelist = ({ stats, list, type = false, delTrans }) => {
             <caption className={s.summary_head}>Summary</caption>
 
             <tbody className={s.summary_tbody}>
+               {/* eslint-disable-next-line array-callback-return */}
               {month.map((el, i) => {
                 if(monthValues[i]!=='N/A'){
                 return (
