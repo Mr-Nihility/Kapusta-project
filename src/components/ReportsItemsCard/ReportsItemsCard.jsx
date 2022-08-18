@@ -5,7 +5,9 @@ import { useState } from 'react';
 export const ReportsItemsCard = ({total, category, id}) => {
 	const [idEl, setIdEl] =useState('');
 	const [categoryEl, setCategoryEl] =useState('');
-	
+	console.log(idEl);
+	console.log(categoryEl);
+
   const handelClickOnCategory = (id, category ) => {
 		console.log(id, category);
 		setIdEl(id);
