@@ -23,7 +23,6 @@ const Tablelist = ({ stats, list, type = false, delTrans }) => {
             </thead>
             <tbody className={s.table_tbody}>
               {list.map(el => {
-                
                 return (
                   <tr key={el._id} id={el._id}>
                     <td className={s.date_td1}>{el.date}</td>
@@ -40,11 +39,11 @@ const Tablelist = ({ stats, list, type = false, delTrans }) => {
                         type="button"
                         onClick={() => onDelete(el._id)}
                       /> */}
-                      {/* <div className={s.svg}> */}
-                      <svg width="17" height="17">
-                        <use href={vvv + '#icon-trash-can'}></use>
-                      </svg>
-                      {/* </div> */}
+                      <div className={s.svg}>
+                        <svg width="17" height="17">
+                          <use href={vvv + '#icon-trash-can'}></use>
+                        </svg>
+                      </div>
                     </td>
                   </tr>
                 );
@@ -57,15 +56,16 @@ const Tablelist = ({ stats, list, type = false, delTrans }) => {
             <caption className={s.summary_head}>Summary</caption>
 
             <tbody className={s.summary_tbody}>
-               {/* eslint-disable-next-line array-callback-return */}
+              {/* eslint-disable-next-line array-callback-return */}
               {month.map((el, i) => {
-                if(monthValues[i]!=='N/A'){
-                return (
-                  <tr key={i}>
-                    <td className={s.summary_td1}>{el}</td>
-                    <td className={s.summary_td2}>{monthValues[i]}</td>
-                  </tr>
-                )}
+                if (monthValues[i] !== 'N/A') {
+                  return (
+                    <tr key={i}>
+                      <td className={s.summary_td1}>{el}</td>
+                      <td className={s.summary_td2}>{monthValues[i]}</td>
+                    </tr>
+                  );
+                }
               })}
             </tbody>
           </table>

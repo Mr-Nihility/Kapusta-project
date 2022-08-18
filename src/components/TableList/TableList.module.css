@@ -36,7 +36,6 @@ table {
 }
 
 .date_td1 {
-  padding: 13px 0 13px 20px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -48,7 +47,6 @@ table {
   border-top: 2px solid #f5f6fb;
 }
 .description_td2 {
-  padding: 13px 0 13px 10px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -60,7 +58,6 @@ table {
   border-top: 2px solid #f5f6fb;
 }
 .category_td3 {
-  padding: 13px 0 13px 5px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -75,7 +72,6 @@ table {
 .summ_td4,
 .expense,
 .income {
-  padding: 13px 0 13px 5px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
@@ -224,9 +220,10 @@ table {
   color: #52555f;
 }
 
-/* .svg {
+.svg {
   border-radius: 50%;
-
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -236,4 +233,4 @@ table {
   cursor: pointer;
 
   background-color: #f2f5fc;
-} */
+}
