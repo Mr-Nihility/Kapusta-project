@@ -4,7 +4,7 @@ import image from '../../images/logo/logo@2x.png';
 //-----------------------------------------------------------//
 export default function Logo() {
   return (
-    <NavLink to="/">
+    <NavLink to="/kapusta-project/">
       <img src={image} alt="logo" width="90" height="31" />
     </NavLink>
   );

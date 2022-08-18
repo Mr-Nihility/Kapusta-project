@@ -66,6 +66,13 @@
   border: 2px solid #f6f7fc;
   border-radius: 0px 16px 16px 0px;
 }
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .amount:focus {
   background-color: #f8faff;
   outline: 1px solid#e2e4ed;
@@ -78,9 +85,8 @@
   border: 2px solid #f6f7fc;
   height: 25px;
 }
-.placeholder:hover{
+.placeholder:hover {
   background-color: #ff751d;
-
 }
 
 .placeholder::selection {
@@ -100,7 +106,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: black;
+  color: #ffffff;
+
   height: 44px;
   width: 136px;
   border: 2px solid #f6f7fc;
@@ -109,14 +116,17 @@
   font-size: 12px;
   line-height: 14px;
   /* padding: 17px 37px; */
-  background: white;
+  /* background: white; */
   border-radius: 16px;
 
+  background-color: #ff751d;
   margin-left: 32px;
+
+  transition: 0.3s;
 }
 .inputBtn:hover {
   color: white;
-  background-color: #ff751d;
+  background-color: #fa6b12;
   border: 2px solid;
 }
 .clearBtn {
@@ -142,11 +152,12 @@
   background: white;
   border-radius: 16px;
   margin-left: 16px;
+
+  transition: 0.3s;
 }
 .clearBtn:hover {
-  color: white;
-  background-color: #ff751d;
-  border: 2px solid;
+  color: #52555f;
+  background-color: #f6f7fc;
 }
 
 .icon {
@@ -196,6 +207,8 @@
   width: 120px;
   border: none;
   border-radius: 16px;
+
+  cursor: pointer;
 }
 .date:focus {
   /* background-color: #f8faff; */

@@ -101,7 +101,7 @@ const options = [
 
                 {engCategory.map((el, i) => {
                   return (
-                    <option 
+                    <option
                       key={i}
                       className={styles.placeholder}
                       value={rCategory && rCategory[i]}
