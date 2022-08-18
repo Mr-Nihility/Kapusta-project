@@ -30,8 +30,12 @@ export default function UserInfo() {
     isLogged && (
       <div className={styles.wrapper}>
         <Avatar
+          style={{
+            fontWeight: 700,
+          }}
           size={32}
-          // fgColor={'#52555F'}
+          fgColor={'#000000'}
+          color={['#F5F6FA']}
           round={true}
           name={email}
         />
