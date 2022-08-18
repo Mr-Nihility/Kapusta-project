@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getIncomeCategories } from 'redux/categories/catrgories-operation';
 import { getIsLogged, getStartBalance } from 'redux/auth/auth-selectors';
 import { getCategoriesIncome } from 'redux/categories/catrgories-selectors';
+import Navigation from 'components/Navigation/Navigation';
 //------------------------------------------------------------------------------------//
 export default function IncomeView() {
   const engCategory = ['salary', 'additional income'];
@@ -51,7 +52,7 @@ export default function IncomeView() {
         onSubmit={onSubmit}
         engCategory={engCategory}
       />
-
+      <Navigation />
       <Tablelist stats={stats} list={incomeArr} delTrans={deleteItem} />
     </div>
   );
