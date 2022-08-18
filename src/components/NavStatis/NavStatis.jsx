@@ -14,8 +14,8 @@ import { useEffect } from 'react';
 export const NavStatis = () => {
 	const [dateNow, setDateNow] = useState(null);
 	const [month, setMonth] = useState('');
-	const [year, setYear] = useState('');
 	const [currentMonth, setCurrentMonth] = useState('');
+	const [year, setYear] = useState('');
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -44,8 +44,10 @@ export const NavStatis = () => {
 
 	const handelBeforeMonth = () => {
 		let m;
-		m = Number(month) - 1;
+		let y = year;
 		let curNumber = '';
+		m = Number(month) - 1;
+		
 		if(curNumber === '') {
 			curNumber = m
 			const num = (Number(curNumber) < 10) ? "0" + curNumber : curNumber;
@@ -53,9 +55,17 @@ export const NavStatis = () => {
 			const a = curNumber - 1;
 			CurrentMonth(monthMas, a)
 		}
+
+		if( m < 1 ) {
+			y =  Number(year) - 1;
+			setYear(y)
+			setMonth('12');
+			CurrentMonth(monthMas, 11);
+		}
 	}
 	const handelNextMonth = () => {
 		let m;
+		let y = year;
 		m = Number(month) + 1;
 		let curNumber = '';
 		if(curNumber === '') {
@@ -63,7 +73,13 @@ export const NavStatis = () => {
 			const num = (Number(curNumber) < 10) ? "0" + curNumber : curNumber;
 			setMonth(num);
 			const a = curNumber - 1;
-			CurrentMonth(monthMas, a)
+			CurrentMonth(monthMas, a);
+		}
+		if( curNumber > 12 ) {
+			y =  Number(year) + 1;
+			setYear(y);
+			setMonth('01')
+			CurrentMonth(monthMas, 0);
 		}
 	}
 
