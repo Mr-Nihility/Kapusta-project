@@ -71,12 +71,13 @@ export default function ExpensesView() {
 
   return (
     <div>
+      <BalancePage />
       <TransactionForm
         engCategory={engCategory}
         rCategory={categoriesExpanses}
         onSubmit={onSubmit}
       />
-      <BalancePage />
+
       <Tablelist
         stats={stats}
         list={expenceArr}

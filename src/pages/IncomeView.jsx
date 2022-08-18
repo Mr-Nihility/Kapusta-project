@@ -45,12 +45,13 @@ export default function IncomeView() {
 
   return (
     <div>
+      <BalancePage />
       <TransactionForm
         rCategory={ruCategory}
         onSubmit={onSubmit}
         engCategory={engCategory}
       />
-      <BalancePage />
+
       <Tablelist stats={stats} list={incomeArr} delTrans={deleteItem} />
     </div>
   );
