@@ -1,6 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:regular,bold,medium,black&subset=latin,latin-ext');
+@import-normalize;
 
-@import-normalize; /* bring in normalize.css styles */
+:root {
+  --main-color: #ffffff;
+  --secondary-color: #f5f6fb;
+  --accent-color: #ff751d;
+  --accent-pale-color: #ffdac0;
+
+  --main-text: #000000;
+  --secondary-text: #52555f;
+  --accent-pale-text: rgba(82, 85, 95, 0.7);
+  --inputs-text: #c7ccdc;
+  --expenses-text: #e7192e;
+  --income-text: #407946;
+}
 
 body {
   margin: 0;
