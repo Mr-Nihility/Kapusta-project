@@ -41,6 +41,8 @@ export const Chart = () => {
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
+    keepAspectRatio: false,
     plugins: {
       legend: {
         position: 'bottom',
@@ -83,6 +85,7 @@ export const Chart = () => {
           color: 'transparent',
         },
         ticks: {
+          padding: 0,
           maxRotation: 0,
           minRotation: 0,
           autoSkip: false,
@@ -116,7 +119,7 @@ export const Chart = () => {
         data: expence.map(el => el.amount),
         backgroundColor: [' #FF751D', '#FFDAC0', '#FFDAC0'],
         borderRadius: 10,
-        barThickness: 38,
+        maxBarThickness: 38,
         barScale: 2,
       },
     ],
@@ -125,7 +128,18 @@ export const Chart = () => {
   return (
     <div className={styles.chartWrapper}>
       <div className={styles.chartContainer}>
-        <Bar options={options} data={data} id="Bar" />
+        <Bar
+          options={options}
+          data={data}
+          id="Bar"
+          style={{
+            display: 'flex',
+            width: '760px',
+            maxWidth: '1034px',
+            height: '360px',
+          }}
+          width={'760px'}
+        />
       </div>
     </div>
   );
