@@ -30,7 +30,7 @@ export const NavStatis = () => {
 	}
 
 	const CurrentMonth = ( monthMas, month ) => {
-			monthMas.map((element, index) => {
+			monthMas.forEach((element, index) => {
 				if(index === month) {
 					setCurrentMonth(element.toUpperCase());
 				}
