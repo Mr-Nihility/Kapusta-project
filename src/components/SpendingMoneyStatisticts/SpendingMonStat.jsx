@@ -16,10 +16,6 @@ export const SpendingMoneyStatisticts = () => {
   const id = nanoid();
   const exCate = Object.entries(expenses);
   const inCate = Object.entries(incomes);
-  exCate.map((element, index) => {
-    console.log(element[1].total);
-    return element[1];
-  });
 
   const handelArrow = () => {
     setArrow(ps => !ps);
