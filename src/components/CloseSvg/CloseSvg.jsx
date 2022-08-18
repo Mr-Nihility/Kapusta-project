@@ -15,7 +15,6 @@ export default function CloseSvg() {
         <path d="M1 1L13 13" stroke="#52555F" strokeWidth="2" />
         <path d="M1 13L13 0.999999" stroke="#52555F" strokeWidth="2" />
       </svg>
-      ;
     </>
   );
 }
