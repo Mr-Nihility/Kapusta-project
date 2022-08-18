@@ -4,6 +4,7 @@ import {
   addExpanses,
   fetchIncome,
   addIncome,
+  deleteTrancaction,
   // newBalance,
 } from './transaction-operations';
 
@@ -13,7 +14,7 @@ const initialState = {
     monthsStats: {},
   },
   income: {
-    income: [], 
+    income: [],
     monthsStats: {},
   },
 
@@ -29,7 +30,7 @@ const transaction = createSlice({
     },
     [addExpanses.fulfilled]: (state, { payload }) => {
       state.expenses.expenses.push(payload.transaction);
-      
+
       //   state.auth.useData.balance = payload.newBalance;
       state.loading = false;
     },
@@ -72,6 +73,9 @@ const transaction = createSlice({
     [fetchIncome.rejected]: (state, _) => {
       state.loading = false;
     },
+    [deleteTrancaction.fulfilled]: (state, action) => {},
+    [deleteTrancaction.pending]: (state, action) => {},
+    [deleteTrancaction.rejected]: (state, action) => {},
     //   [newBalance.fulfilled]: (state, { payload }) => {
     //     state.newBalance = Number(payload.newBalance);
     //     state.loading = false;

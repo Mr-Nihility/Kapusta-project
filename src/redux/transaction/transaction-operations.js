@@ -81,7 +81,7 @@ export const deleteTrancaction = createAsyncThunk(
 
   async (id, { rejectedWithValue }) => {
     try {
-      await axios.delete(`/trancaction/ ${id}`);
+      await axios.delete(`/transaction/${id}`);
       return id;
     } catch (error) {
       return rejectedWithValue(error);
