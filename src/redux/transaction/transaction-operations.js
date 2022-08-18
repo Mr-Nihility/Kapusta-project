@@ -66,30 +66,25 @@ export const getExpansesMonthsOperation = createAsyncThunk(
   'trancaction/getExpansesMonths',
 
   async (date, { rejectedWithValue }) => {
-      try {
-        const{data}=  await axios.get(`/transaction/period-data`, date)
-        console.log(data);
-          return data
-      } catch (error) {
-          return rejectedWithValue(error)
-      }
-
+    try {
+      const { data } = await axios.get(`/transaction/period-data`, date);
+      console.log(data);
+      return data;
+    } catch (error) {
+      return rejectedWithValue(error);
+    }
   }
-
-)
-
+);
 
 export const deleteTrancaction = createAsyncThunk(
-    'trancaction/deleteTrancaction',
+  'trancaction/deleteTrancaction',
 
-    async (id, { rejectedWithValue }) => {
-        try {
-            await axios.delete(`/trancaction/${id}`)
-            return id
-        } catch (error) {
-            return rejectedWithValue(error)
-        }
-
+  async (id, { rejectedWithValue }) => {
+    try {
+      await axios.delete(`/trancaction/ ${id}`);
+      return id;
+    } catch (error) {
+      return rejectedWithValue(error);
     }
-
-)
+  }
+);
