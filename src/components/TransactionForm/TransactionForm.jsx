@@ -3,7 +3,7 @@ import { useState } from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
 import styles from '../TransactionForm/TransactionForm.module.css';
 import * as Yup from 'yup';
-import { Formik, Form, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik';
 // import svg from '../../images/svg-icon-project/symbol-defs.svg'
 // import saa from '../../images/svg-icon-project.svg'
 export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
