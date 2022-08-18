@@ -38,6 +38,11 @@
   transition: 0.4s;
   text-decoration: none;
 }
+.link_btn_report:hover {
+  color: #ff751d;
+  transition: 0.4s;
+  fill: #ff751d;
+}
 
 .link_btn_report {
   transform: translate(-91px, 51px);

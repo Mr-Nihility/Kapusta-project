@@ -17,7 +17,7 @@
 .description {
   color: #c7ccdc;
   padding-left: 20px;
-  height: 35px;
+  height: 44px;
   width: 290px;
   border: 2px solid #f6f7fc;
   border-radius: 16px 0px 0px 0px;
@@ -33,7 +33,7 @@
   -moz-appearance: none;
   -webkit-appearance: none;
   color: #c7ccdc;
-  height: 35px;
+  height: 44px;
   width: 170px;
   border-top: 2px solid #f5f6fb;
   border-bottom: 2px solid #f5f6fb;
@@ -62,7 +62,7 @@
   color: #c7ccdc;
   width: 120px;
   padding-left: 40px;
-  height: 35px;
+  height: 44px;
   border: 2px solid #f6f7fc;
   border-radius: 0px 16px 16px 0px;
 }
@@ -149,10 +149,29 @@
 
 .icon {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 16px;
+  right: 16px;
+  pointer-events: none;
   z-index: 1;
 }
+.icon :hover {
+  fill: #ff751d;
+}
+.iconCalendar {
+  position: absolute;
+  top: 11px;
+  left: 0px;
+  pointer-events: none;
+  z-index: 1;
+}
+.iconCalculator {
+  position: absolute;
+  top: 13px;
+  right: 10px;
+  pointer-events: none;
+  z-index: 1;
+}
+
 .wrapper {
   position: relative;
 }
@@ -160,10 +179,23 @@
 .errorMessage {
   color: #eb5757;
   position: absolute;
-  top: 40px;
+  top: 50px;
   left: 10px;
   display: block;
 }
 .label {
   position: relative;
+}
+
+.date {
+  color: #52555f;
+  padding-left: 32px;
+  height: 44px;
+  width: 120px;
+  border: none;
+  border-radius: 16px;
+}
+.date:focus {
+  /* background-color: #f8faff; */
+  outline: none;
 }

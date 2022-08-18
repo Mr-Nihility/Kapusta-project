@@ -15,9 +15,9 @@ export const Navigation = () => {
             state={location}
             className={styles.link_report}
           >
-            <p> Reports </p>
-            <DiagramSvg className={styles.diagramsvg} />
-          </NavLink>{' '}
+            Reports
+            <DiagramSvg className={styles.link_btn_report} />
+          </NavLink>
         </li>
         <div className={styles.btn_overlap}>
           <li className={styles.link_btn}>
