@@ -35,8 +35,8 @@ export const Chart = () => {
 
   const expenseDataValue = Object.values(expensesData);
 
-  const lol = expenseDataValue.map(item => Object.keys(item));
-  const loll = expenseDataValue.map(item => Object.values(item));
+  const keysItem = expenseDataValue.map(item => Object.keys(item));
+  const valuesItem = expenseDataValue.map(item => Object.values(item));
 
   expenseDataValue.map(item => {
     return console.log(expenseDataValue[0]);
@@ -124,11 +124,11 @@ export const Chart = () => {
   };
 
   const data = {
-    labels: lol[0],
+    labels: keysItem[0],
     datasets: [
       {
         label: 'Dataset 1',
-        data: loll[0],
+        data: valuesItem[0],
         backgroundColor: [' #FF751D', '#FFDAC0', '#FFDAC0'],
         borderRadius: 10,
         maxBarThickness: 38,

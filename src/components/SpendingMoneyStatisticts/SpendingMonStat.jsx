@@ -14,7 +14,7 @@ export const SpendingMoneyStatisticts = () => {
   const [arrow, setArrow] = useState(true);
   const expenses = useSelector(incomeDataSelector);
   const incomes = useSelector(expensesDataSelector);
-  const id = nanoid();
+  // const id = nanoid();
   const exCate = Object.entries(expenses);
   const inCate = Object.entries(incomes);
 
@@ -59,7 +59,8 @@ export const SpendingMoneyStatisticts = () => {
                 {inCate.map(item => {
                   return (
                     <ReportsItemsCard
-                      id={id}
+                      id={nanoid()}
+                      key={nanoid()}
                       total={item[1].total}
                       category={item[0]}
                     />
@@ -71,7 +72,8 @@ export const SpendingMoneyStatisticts = () => {
                 {exCate.map(item => {
                   return (
                     <ReportsItemsCard
-                      id={id}
+                      id={nanoid()}
+                      key={nanoid()}
                       total={item[1].total}
                       category={item[0]}
                     />
