@@ -1,5 +1,6 @@
 import s from './TableList.module.css';
 import vvv from '../../images/svg-icon-project/symbol-defs.svg';
+
 const Tablelist = ({ stats, list, type = false, delTrans }) => {
   const month = Object.keys(stats);
   const monthValues = Object.values(stats);
@@ -8,7 +9,7 @@ const Tablelist = ({ stats, list, type = false, delTrans }) => {
     delTrans(id);
   };
   return (
-    <>
+    <div>
       <div className={s.table_container}>
         <div className={s.table_wrapper}>
           <table className={s.table}>
@@ -71,7 +72,7 @@ const Tablelist = ({ stats, list, type = false, delTrans }) => {
           </table>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
