@@ -31,10 +31,10 @@ export const NavStatis = () => {
 	// 	});
 	// }
 	// CurrentMonth(monthMas, a);
-
+	
 	const dispatch = useDispatch();
-	const data = dispatch(getDataTransaction(`${year}-${month}`));
-
+	dispatch(getDataTransaction(`${year}-${month}`));
+	// const data = 
   return (
     <>
       <div className={Style.topСontainer}>
