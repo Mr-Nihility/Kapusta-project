@@ -11,10 +11,8 @@ import {
 import { Bar } from 'react-chartjs-2';
 import styles from './Chart.module.css';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { getSuccessToken } from 'redux/auth/auth-selectors';
-import { getExpanses } from 'redux/transaction/transaction-operations';
-import { expensesDataSelector } from 'redux/reports/reports-selector';
 
 ChartJS.register(
   ChartDataLabels,
@@ -26,30 +24,27 @@ ChartJS.register(
   Legend
 );
 
-export const Chart = () => {
-  const dispatch = useDispatch();
-
-  const expensesData = useSelector(expensesDataSelector);
-
-  console.log(expensesData);
-
-  const expenseDataValue = Object.values(expensesData);
-
-  const keysItem = expenseDataValue.map(item => Object.keys(item));
-  const valuesItem = expenseDataValue.map(item => Object.values(item));
-
-  expenseDataValue.map(item => {
-    return console.log(expenseDataValue[0]);
-  });
+export const Chart = ({ itemEl }) => {
+  const itemSliceKeys = Object.keys(itemEl[1]).slice(1);
+  const itemSliceValues = Object.values(itemEl[1]).slice(1);
 
   const token = useSelector(getSuccessToken);
+
+  const itemLabels = itemSliceKeys.map(item => {
+    return item;
+  });
+  const itemData = itemSliceValues.map(item => {
+    return item;
+  });
+  console.log(itemData);
+
+  console.log(itemData);
 
   useEffect(() => {
     if (!token) {
       return;
     }
-    dispatch(getExpanses());
-  }, [dispatch, token]);
+  }, [token]);
 
   const options = {
     responsive: true,
@@ -124,11 +119,13 @@ export const Chart = () => {
   };
 
   const data = {
-    labels: keysItem[0],
+    labels: itemLabels,
+    // labels: [],
     datasets: [
       {
         label: 'Dataset 1',
-        data: valuesItem[0],
+        // data: [],
+        data: itemData,
         backgroundColor: [' #FF751D', '#FFDAC0', '#FFDAC0'],
         borderRadius: 10,
         maxBarThickness: 38,

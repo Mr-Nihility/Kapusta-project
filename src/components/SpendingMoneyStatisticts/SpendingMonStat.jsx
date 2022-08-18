@@ -10,11 +10,10 @@ import { ReportsItemsCard } from 'components/ReportsItemsCard/ReportsItemsCard';
 import { nanoid } from 'nanoid';
 import { getSuccessToken } from 'redux/auth/auth-selectors';
 
-export const SpendingMoneyStatisticts = () => {
+export const SpendingMoneyStatisticts = ({ handelClickOnCategory }) => {
   const [arrow, setArrow] = useState(true);
   const expenses = useSelector(incomeDataSelector);
   const incomes = useSelector(expensesDataSelector);
-  // const id = nanoid();
   const exCate = Object.entries(expenses);
   const inCate = Object.entries(incomes);
 
@@ -63,6 +62,8 @@ export const SpendingMoneyStatisticts = () => {
                       key={nanoid()}
                       total={item[1].total}
                       category={item[0]}
+                      item={item}
+                      handelClickOnCategory={handelClickOnCategory}
                     />
                   );
                 })}
@@ -76,6 +77,8 @@ export const SpendingMoneyStatisticts = () => {
                       key={nanoid()}
                       total={item[1].total}
                       category={item[0]}
+                      item={item}
+                      handelClickOnCategory={handelClickOnCategory}
                     />
                   );
                 })}
