@@ -1,8 +1,8 @@
 .chartWrapper {
   position: relative;
   z-index: 1000;
-  width: 1034px;
-  padding: 50px 200px;
+  max-width: 1034px;
+  padding: 20px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 30px;
@@ -12,8 +12,9 @@
 }
 
 .chartContainer {
-  width: 605px;
-
+  /* max-width: 760px; */
+  display: flex;
+  justify-content: center;
   margin-left: auto;
   margin-right: auto;
 }
