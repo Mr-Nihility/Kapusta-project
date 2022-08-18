@@ -3,38 +3,102 @@
 
   justify-content: center;
 }
-.table_wrapper {
+/* .table_wrapper {
   overflow: auto;
   height: 377px;
 
   border-radius: 30px;
-}
+} */
 
-.table_wrapper::-webkit-scrollbar {
+/* .table_wrapper::-webkit-scrollbar {
   width: 7px;
   padding: 0;
 }
 .table_wrapper::-webkit-scrollbar-thumb {
   background-color: #f67300;
   border-radius: 1px;
-}
+} */
 
 table {
   table-layout: fixed;
   max-width: 746px;
-
+  display: block;
   border-collapse: collapse;
-  overflow: scroll;
+
   /* caption-side: unset; */
 }
+.tr:not(:nth-child(1)) {
+}
+.tr {
+  border-bottom: 2px solid #f5f6fb;
+}
+.tr:not(:nth-child(1)) {
+  border-top: 2px solid #f5f6fb;
+}
 
-.btn_delete {
+.tr td {
+  padding: 2px 0 2px 20px;
+  text-align: left;
+}
+.tr td:nth-child(1) {
+  width: 100px;
+}
+
+.tr td:nth-child(2) {
+  width: 265px;
+}
+.tr td:nth-child(3) {
+  width: 175px;
+}
+.tr td:nth-child(4) {
+  width: 110px;
+}
+.tr td:nth-child(5) {
+  padding-right: 30px;
+}
+
+tr th:nth-child(1) {
+  width: 115px;
+}
+tr th:nth-child(2) {
+  /* display: inline-block;
+  margin-left: 50px; */
+}
+tr th:nth-child(3) {
+  /* width: 180px; */
+}
+tr th:nth-child(4) {
+  /* width: 115px; */
+}
+
+.table_thead {
+  position: sticky;
+  top: 0;
+  display: block;
+  background: #f5f6fb;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
 }
 
 .table_tbody {
   border-bottom: 2px solid #f5f6fb;
-
+  border-right: 2px solid #f5f6fb;
+  border-left: 2px solid #f5f6fb;
+  height: 344px;
+  display: block;
+  overflow: auto;
   /* border-radius: 30px; */
+}
+
+.table_tbody::-webkit-scrollbar {
+  width: 7px;
+  padding: 0;
+
+  background-color: #f5f6fb;
+}
+.table_tbody::-webkit-scrollbar-thumb {
+  background-color: #f67300;
+  border-radius: 2px;
 }
 
 .date_td1 {
@@ -47,7 +111,7 @@ table {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   background-color: #ffff;
-  border-top: 2px solid #f5f6fb;
+  /* border-top: 2px solid #f5f6fb; */
 }
 .description_td2 {
   padding: 7px 0 7px 10px;
@@ -59,7 +123,7 @@ table {
   letter-spacing: 0.04em;
   color: #52555f;
   background-color: #ffff;
-  border-top: 2px solid #f5f6fb;
+  /* border-top: 2px solid #f5f6fb; */
 }
 .category_td3 {
   padding: 7px 0 7px 5px;
@@ -72,7 +136,7 @@ table {
   text-align: center;
   color: #52555f;
   background-color: #ffff;
-  border-top: 2px solid #f5f6fb;
+  /* border-top: 2px solid #f5f6fb; */
 }
 .summ_td4,
 .expense,
@@ -87,21 +151,14 @@ table {
   letter-spacing: 0.04em;
 
   background-color: #ffff;
-  border-top: 2px solid #f5f6fb;
+  /* border-top: 2px solid #f5f6fb; */
 }
 
 .expense {
-  color: red;
+  color: #e7192e;
 }
 .income {
   color: #407946;
-}
-
-.table_thead {
-  position: sticky;
-  top: 0;
-
-  background: #f5f6fb;
 }
 
 .table_th1 {

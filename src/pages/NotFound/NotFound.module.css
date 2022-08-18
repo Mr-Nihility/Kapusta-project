@@ -26,16 +26,22 @@
     
   transform: translateY(0);
   margin-top: 6px;
-  width: 270px;
+  /* width: 270px; */
   border-radius: 15px;
   transition-duration: 300ms;
-  
+  height: 44px;
+  width: 136px;
+  border: 2px solid #f6f7fc;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
   
 
-  border: 2px solid #1a4e1d;
+  border: 2px solid #d3e1d4;
   
-  color: black;
-  background-color: rgb(147, 214, 145)
+  color: #d3e1d4;
+  background-color: rgb(40, 117, 38)
 }
 .btn:hover {
     color: black;

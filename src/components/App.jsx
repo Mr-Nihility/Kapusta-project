@@ -16,6 +16,7 @@ import PublicRoute from './PublicRoute/PublicRoute';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import { getSuccessToken } from 'redux/auth/auth-selectors';
 import { MainContainer } from './MainContainer/MainContainer';
+
 //---------------------------------------------------------------//
 export const App = () => {
   const dispatch = useDispatch();

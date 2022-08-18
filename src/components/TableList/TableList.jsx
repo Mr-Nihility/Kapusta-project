@@ -26,7 +26,7 @@ const Tablelist = ({ stats, list, type = false, delTrans }) => {
             <tbody className={s.table_tbody}>
               {list.map(el => {
                 return (
-                  <tr key={el._id} id={el._id}>
+                  <tr className={s.tr} key={el._id} id={el._id}>
                     <td className={s.date_td1}>{el.date}</td>
                     <td className={s.description_td2}>{el.description}</td>
                     <td className={s.category_td3}>{el.category}</td>
