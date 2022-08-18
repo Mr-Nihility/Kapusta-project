@@ -1,20 +1,20 @@
-import s from './TableList.module.css';
-import {
-  getExpenceList,
-  //   getIncome,
-} from 'redux/transaction/transactions-selectors';
+import { nanoid } from 'nanoid';
+import { getExpenceList } from 'redux/transaction/transactions-selectors';
 import { useSelector } from 'react-redux';
+import s from './TableList.module.css';
+// import { deleteTrancaction } from 'redux/transaction/transaction-operations';
 
-// import { TransactionForm } from 'components/TransactionForm/TransactionForm';
-
-const Tablelist = () => {
+const Tablelist = ({ stats }) => {
   const isExpense = useSelector(getExpenceList);
-  //   const isIncome = useSelector(getIncome);
-  
-  console.log(isExpense);
+  const month = Object.keys(stats);
+  const monthValues = Object.values(stats);
+  //   const id = nanoid();
+  //   const dispatch = useDispatch();
+  //   const onDelete = id => {
+  //     dispatch(deleteTrancaction(id));
+  //   };
   return (
     <>
-      {/* <TransactionForm /> */}
       <div className={s.table_container}>
         <div className={s.table_wrapper}>
           <table className={s.table}>
@@ -27,14 +27,20 @@ const Tablelist = () => {
               </tr>
             </thead>
             <tbody className={s.table_tbody}>
-              {isExpense.map((el, i) => {
+              {isExpense.map(el => {
                 return (
-                  <tr key={i}>
+                  <tr key={nanoid()}>
                     <td className={s.date_td1}>{el.date}</td>
                     <td className={s.description_td2}>{el.description}</td>
                     <td className={s.category_td3}>{el.category}</td>
                     <td className={s.summ_td4}>{el.amount}</td>
+                    {/* <td onClick={() => onDelete(id)}>del</td> */}
                   </tr>
+
+                  /* 
+                    <button type="button" onClick={() => onDelete(id)}>
+                      Del
+                    </button> */
                 );
               })}
             </tbody>
@@ -45,14 +51,14 @@ const Tablelist = () => {
             <caption className={s.summary_head}>Summary</caption>
 
             <tbody className={s.summary_tbody}>
-              <tr>
-                <td className={s.summary_td1}>NOVEMBER</td>
-                <td className={s.summary_td2}>200</td>
-              </tr>
-              <tr>
-                <td className={s.summary_td1}>JUNE</td>
-                <td className={s.summary_td2}>20000</td>
-              </tr>
+              {month.map((el, i) => {
+                return (
+                  <tr key={i}>
+                    <td className={s.summary_td1}>{el}</td>
+                    <td className={s.summary_td2}>{monthValues[i]}</td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
