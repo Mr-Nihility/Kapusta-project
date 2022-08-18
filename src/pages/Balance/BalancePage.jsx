@@ -5,7 +5,6 @@ export default function BalancePage() {
   return (
     <>
       <Balance />
-
       <Outlet />
     </>
   );
