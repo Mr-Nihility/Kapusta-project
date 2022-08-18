@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { Icons } from '../../components/Icons/Icons';
 import { Balance } from '../Balance/Balance';
 import { useState } from 'react';
-import { monthMas } from '../Month/Month'
+// import { monthMas } from '../Month/Month'
 // import { useEffect } from 'react';
 
 
@@ -31,7 +31,7 @@ export const NavStatis = () => {
 	// 	});
 	// }
 	// CurrentMonth(monthMas, a);
-	
+
 	const dispatch = useDispatch();
 	dispatch(getDataTransaction(`${year}-${month}`));
 	// const data = 
