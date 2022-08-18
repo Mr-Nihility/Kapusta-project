@@ -7,7 +7,6 @@ import { signIn, logIn, logOut, getCurrentUser } from './auth-operations';
 
 import { newBalance } from 'redux/transaction/transaction-operations';
 import { deleteTrancaction } from 'redux/transaction/transaction-operations';
-import { getDataTransaction } from 'redux/reports/reports-operations';
 ////-------------------------------------------------------------------------------------------//
 const initialState = {
   userData: {
