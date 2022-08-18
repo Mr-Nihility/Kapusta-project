@@ -31,6 +31,8 @@ export const Balance = () => {
     dispatch(newBalance({ newBalance: balance }));
   };
 
+  console.log(typeof balance);
+
   // console.log(
   //   new Intl.NumberFormat('de-DE', {
   //     style: 'currency',
@@ -67,7 +69,7 @@ export const Balance = () => {
           CONFIRM
         </button>
         {balance === '0' && (
-          <BalanceModal show={showModal} close={handleToggleModal} />
+          <BalanceModal onshow={showModal} onclose={handleToggleModal} />
         )}
       </form>
     </>
