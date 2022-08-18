@@ -1,6 +1,6 @@
 .form {
-  margin-left: 91px;
-  padding: 25px;
+  margin: 0 auto;
+  margin-bottom: 60px;
   /* font-family: 'Roboto';
   font-style: normal; */
   font-weight: 400;
@@ -73,8 +73,14 @@
 }
 
 .placeholder {
+  color: red;
   font-size: 15px;
+  border: 2px solid #f6f7fc;
 }
+.placeholder:hover{
+  background-color: #ff751d;
+}
+
 .placeholder::selection {
   background-color: orange;
   margin: 3px 0;

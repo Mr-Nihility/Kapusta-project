@@ -15,7 +15,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getIncomeCategories } from 'redux/categories/catrgories-operation';
 import { getIsLogged, getStartBalance } from 'redux/auth/auth-selectors';
 import { getCategoriesIncome } from 'redux/categories/catrgories-selectors';
-import Navigation from 'components/Navigation/Navigation';
+
+import { ReportBtn } from 'components/ReportBtn/ReportBtn';
+
 //------------------------------------------------------------------------------------//
 export default function IncomeView() {
   const engCategory = ['salary', 'additional income'];
@@ -46,14 +48,29 @@ export default function IncomeView() {
 
   return (
     <div>
+      <ReportBtn />
+
       <BalancePage />
-      <TransactionForm
-        rCategory={ruCategory}
-        onSubmit={onSubmit}
-        engCategory={engCategory}
-      />
-      <Navigation />
-      <Tablelist stats={stats} list={incomeArr} delTrans={deleteItem} />
+      <div
+        className="kek"
+        style={{
+          maxWidth: '1098px',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          padding: '32px 32px 61px 32px',
+          backgroundColor: '#ffffff',
+          boxShadow: '0px 10px 60px rgba(170, 178, 197, 0.2)',
+          borderRadius: '0px 30px 30px 30px',
+        }}
+      >
+        <TransactionForm
+          rCategory={ruCategory}
+          onSubmit={onSubmit}
+          engCategory={engCategory}
+        />
+
+        <Tablelist stats={stats} list={incomeArr} delTrans={deleteItem} />
+      </div>
     </div>
   );
 }

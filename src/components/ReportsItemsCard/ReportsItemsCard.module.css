@@ -6,16 +6,23 @@
 	height: 106px;
 	max-width: 102px;
 	width: auto;
+	margin-right: 20px;
 }
-.item_statSvg {
-
+.item_spend:last-child {
+	margin-right: 0px;
 }
-
-.item_stathUse {
-
+.item_spendSvg {
+	margin-bottom: 6px;
 }
 
 .item_text {
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 1.1;
+	color: #52555F;
+	margin-bottom: 6px;
+}
+.item_textDown {
 	font-weight: 400;
 	font-size: 12px;
 	line-height: 1.1;
