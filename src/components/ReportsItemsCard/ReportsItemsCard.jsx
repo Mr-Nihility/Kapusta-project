@@ -1,17 +1,17 @@
-import Style from './ReportsItemsCard.mpdule.css';
-// import { Icons } from 'components/Icons/Icons';
+import Style from './ReportsItemsCard.module.css';
+import { Icons } from '../Icons/Icons';
 export const ReportsItemsCard = ({total, category, id}) => {
   return (
       <li className={Style.item_spend} key={id}>
-        <p className={Style.item_text}>{total}</p> 
-          {/* <Icons 
-					  name={}
-					  className={}
+        <p className={Style.item_text}>{total + '.00'}</p> 
+          <Icons 
+					  name={category}
+					  className={Style.item_spendSvg}
 					  color="#000000"
-            width=""
-            height=""
-				  /> */}
-        <p className={Style.item_text}>{category}</p>
+            width="56"
+            height="56"
+				  />
+        <p className={Style.item_textDown}>{category}</p>
       </li>
   );
 };
