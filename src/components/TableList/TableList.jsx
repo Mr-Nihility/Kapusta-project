@@ -32,13 +32,10 @@ const Tablelist = ({ stats, list }) => {
                     <td className={s.description_td2}>{el.description}</td>
                     <td className={s.category_td3}>{el.category}</td>
                     <td className={s.summ_td4}>{el.amount}</td>
-                    {/* <td onClick={() => onDelete(id)}>del</td> */}
+                    <td>
+                      <button type="button">Del</button>
+                    </td>
                   </tr>
-
-                  /* 
-                    <button type="button" onClick={() => onDelete(id)}>
-                      Del
-                    </button> */
                 );
               })}
             </tbody>
