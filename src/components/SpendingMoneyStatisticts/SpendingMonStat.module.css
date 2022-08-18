@@ -28,29 +28,7 @@
 .list_spend {
 	margin-top: 0px;
 }
-.item_spend {
-	display: flex;
-	flex-direction: column;
-  align-items: center;
-	list-style: none;
-	height: 106px;
-	max-width: 102px;
-	width: auto;
-}
-.item_statSvg {
 
-}
-
-.item_stathUse {
-
-}
-
-.item_text {
-	font-weight: 400;
-	font-size: 12px;
-	line-height: 1.1;
-	color: #52555F;
-}
 .spend_statPosition {
 	display: flex;
 	align-items: center;
