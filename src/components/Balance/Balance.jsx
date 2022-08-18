@@ -13,7 +13,6 @@ export const Balance = () => {
   const balanceEl = useSelector(getStartBalance);
 
   const handleChange = event => {
-    console.log(event.target);
     const { name, value } = event.target;
 
     switch (name) {
@@ -31,7 +30,7 @@ export const Balance = () => {
     dispatch(newBalance({ newBalance: balance }));
   };
 
-  console.log(typeof balance);
+  // console.log(typeof balance);
 
   // console.log(
   //   new Intl.NumberFormat('de-DE', {
