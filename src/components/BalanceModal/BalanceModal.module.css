@@ -12,7 +12,8 @@
   line-height: 20px;
   background-color: #031634;
   border-radius: 30px;
-  transform: translate(-138px, 53px);
+  transform: translate(16px, 70px);
+  opacity: 0.9;
 }
 .background::before {
   content: 'Hel';
