@@ -16,6 +16,7 @@ import PublicRoute from './PublicRoute/PublicRoute';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import { getSuccessToken } from 'redux/auth/auth-selectors';
 import { MainContainer } from './MainContainer/MainContainer';
+
 //---------------------------------------------------------------//
 export const App = () => {
   const dispatch = useDispatch();
@@ -67,7 +68,14 @@ export const App = () => {
             }
           />
         </Route>
-        <Route path='*' element={<MainContainer><NotFound/></MainContainer>}/>
+        <Route
+          path="*"
+          element={
+            <MainContainer>
+              <NotFound />
+            </MainContainer>
+          }
+        />
       </Routes>
     </>
   );
