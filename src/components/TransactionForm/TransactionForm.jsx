@@ -5,6 +5,7 @@ import styles from '../TransactionForm/TransactionForm.module.css';
 import * as Yup from 'yup';
 import { Formik, Form, Field } from 'formik';
 import svg from '../../images/svg-icon-project/symbol-defs.svg';
+import Select from 'react-select'
 // import saa from '../../images/svg-icon-project.svg';
 export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
   const [date, setDate] = useState(new Date());
@@ -32,9 +33,19 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
       .min(3, 'Must be at least 3 charaters')
       .required('Required'),
   });
-
+//---------------------------
+const options = [
+  { value: 'Продукты', label: 'Products' },
+  { value: 'strawberry', label: 'Strawberry' },
+  { value: 'vanilla', label: 'Vanilla' }
+]
   return (
     <>
+  
+
+
+  <Select options={options} />
+{/* //----------------------------- */}
       <Formik
         initialValues={{
           amount: '',
@@ -78,7 +89,8 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
             </label>
 
             <div className={styles.wrapper}>
-              <select
+            {/* start select /////////////////////////////////////////////////////////////*/}
+              <select                    
                 className={styles.selected}
                 name="category"
                 placeholder="Product category"
@@ -127,6 +139,7 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
               type="button"
               onClick={() => {
                 setDate(new Date());
+                
               }}
             >
               CLEAR

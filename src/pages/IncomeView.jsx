@@ -20,9 +20,9 @@ import { ReportBtn } from 'components/ReportBtn/ReportBtn';
 
 //------------------------------------------------------------------------------------//
 export default function IncomeView() {
+  const dispatch = useDispatch();
   const engCategory = ['salary', 'additional income'];
   const ruCategory = useSelector(getCategoriesIncome);
-  const dispatch = useDispatch();
   const incomeArr = useSelector(getIncomeList);
   const bal = useSelector(getStartBalance);
   const isLog = useSelector(getIsLogged);
