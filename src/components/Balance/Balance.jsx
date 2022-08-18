@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { newBalance } from 'redux/transaction/transaction-operations';
 import { getStartBalance } from 'redux/auth/auth-selectors';
 import BalanceModal from 'components/BalanceModal/BalanceModal';
+
 //----------------------------------------------------------------------------//
 export const Balance = () => {
   const [showModal, setShowModal] = useState(false);
