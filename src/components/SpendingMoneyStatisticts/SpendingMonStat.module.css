@@ -26,7 +26,11 @@
 }
 
 .list_spend {
+	display: flex;
+	flex-wrap: wrap;
 	margin-top: 0px;
+	height: 268px;
+	width: 623px;
 }
 
 .spend_statPosition {
