@@ -1,11 +1,9 @@
 import { nanoid } from 'nanoid';
-import { getExpenceList } from 'redux/transaction/transactions-selectors';
-import { useSelector } from 'react-redux';
+
 import s from './TableList.module.css';
 // import { deleteTrancaction } from 'redux/transaction/transaction-operations';
 
-const Tablelist = ({ stats }) => {
-  const isExpense = useSelector(getExpenceList);
+const Tablelist = ({ stats, list }) => {
   const month = Object.keys(stats);
   const monthValues = Object.values(stats);
   //   const id = nanoid();
@@ -27,20 +25,17 @@ const Tablelist = ({ stats }) => {
               </tr>
             </thead>
             <tbody className={s.table_tbody}>
-              {isExpense.map(el => {
+              {list.map(el => {
                 return (
                   <tr key={nanoid()}>
                     <td className={s.date_td1}>{el.date}</td>
                     <td className={s.description_td2}>{el.description}</td>
                     <td className={s.category_td3}>{el.category}</td>
                     <td className={s.summ_td4}>{el.amount}</td>
-                    {/* <td onClick={() => onDelete(id)}>del</td> */}
+                    <td>
+                      <button type="button">Del</button>
+                    </td>
                   </tr>
-
-                  /* 
-                    <button type="button" onClick={() => onDelete(id)}>
-                      Del
-                    </button> */
                 );
               })}
             </tbody>
