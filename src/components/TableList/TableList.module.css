@@ -6,10 +6,13 @@
 .table_wrapper {
   overflow: auto;
   height: 377px;
+
+  border-radius: 30px;
+  filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.173));
 }
+
 .table_wrapper::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+  width: 17px;
 }
 .table_wrapper::-webkit-scrollbar-thumb {
   background-color: #f67300;
@@ -22,20 +25,21 @@ table {
 
   border-collapse: collapse;
   overflow: scroll;
+
+  border-radius: 30px;
 }
 
 .btn_delete {
 }
 
 .table_tbody {
-  border-left: 2px solid #f5f6fb;
-  border-right: 2px solid #f5f6fb;
   border-bottom: 2px solid #f5f6fb;
 
-  border-radius: 30px;
+  /* border-radius: 30px; */
 }
 
 .date_td1 {
+  padding: 7px 0 7px 20px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -47,6 +51,7 @@ table {
   border-top: 2px solid #f5f6fb;
 }
 .description_td2 {
+  padding: 7px 0 7px 10px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -58,6 +63,7 @@ table {
   border-top: 2px solid #f5f6fb;
 }
 .category_td3 {
+  padding: 7px 0 7px 5px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -72,6 +78,7 @@ table {
 .summ_td4,
 .expense,
 .income {
+  padding: 7px 0 7px 5px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
@@ -139,7 +146,7 @@ table {
 }
 .table_th4 {
   width: 213px;
-  padding: 13px 0 13px 10px;
+  padding: 17px 0 37x 10px;
   text-align: center;
 
   font-family: 'Roboto';

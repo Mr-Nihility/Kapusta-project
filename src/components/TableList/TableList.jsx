@@ -21,6 +21,7 @@ const Tablelist = ({ stats, list, type = false, delTrans }) => {
                 <th className={s.table_th5}></th>
               </tr>
             </thead>
+
             <tbody className={s.table_tbody}>
               {list.map(el => {
                 return (
@@ -33,14 +34,13 @@ const Tablelist = ({ stats, list, type = false, delTrans }) => {
                       {el.amount} грн.
                     </td>
                     <td className={s.date_td1}>
-                      {/* <input
-                        value="del"
-                        className={s.btn_delete}
-                        type="button"
-                        onClick={() => onDelete(el._id)}
-                      /> */}
                       <div className={s.svg}>
-                        <svg width="17" height="17">
+                        <svg
+                          width="17"
+                          height="17"
+                          onClick={() => onDelete(el._id)}
+                          type="button"
+                        >
                           <use href={vvv + '#icon-trash-can'}></use>
                         </svg>
                       </div>
