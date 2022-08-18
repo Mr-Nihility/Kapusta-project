@@ -20,7 +20,7 @@ export const NavStatis = () => {
 
 	useEffect(() => {
 		dispatch(getDataTransaction(`${year}-${month}`)); 
-	}, [month, year])
+	}, [dispatch, month, year])
 
 	if(dateNow === null) {
 		let date = new Date().toLocaleDateString(); // date in format 17.08 2022
@@ -33,7 +33,6 @@ export const NavStatis = () => {
 			monthMas.map((element, index) => {
 				if(index === month) {
 					setCurrentMonth(element.toUpperCase());
-					return;
 				}
 			});
 		}
