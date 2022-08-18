@@ -1,6 +1,9 @@
 .list {
   list-style: none;
 }
+.link_tab {
+  margin-left: 59px;
+}
 
 .link_tab,
 .link_tab_inc {
@@ -11,11 +14,10 @@
   padding-right: 37px;
   padding-top: 20px;
   padding-bottom: 20px;
-  height: 40px;
   background-color: #fefefe;
   color: #000000;
   position: relative;
-  bottom: 40px;
+  top: 0;
   font-family: Roboto;
   font-weight: 700;
   font-size: 12px;
@@ -35,11 +37,6 @@
   color: #ff751d;
   transition: 0.4s;
   text-decoration: none;
-}
-.link_report:hover {
-  fill: #ff751d;
-  transition: 0.4s;
-  color: #ff751d;
 }
 
 .link_btn_report {
@@ -69,9 +66,6 @@
 }
 .btn_overlap {
   display: flex;
-  bottom: 0;
-  left: 0;
-  /* position: absolute; */
 }
 
 .link_tab.active,
