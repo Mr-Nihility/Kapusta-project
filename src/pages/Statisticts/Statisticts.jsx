@@ -3,8 +3,6 @@ import { InfoForBalance } from '../../components/InfoForBalance/InfoForBalance';
 import { SpendingMoneyStatisticts } from '../../components/SpendingMoneyStatisticts/SpendingMonStat';
 import { Chart } from 'components/Chart/Chart';
 import { useState } from 'react';
-import styles from '../../components/SpendingMoneyStatisticts/SpendingMonStat.module.css';
-import { ReportsItemsCard } from 'components/ReportsItemsCard/ReportsItemsCard';
 
 export const Statisticts = () => {
   const [itemEl, setItemEL] = useState([]);
@@ -12,7 +10,6 @@ export const Statisticts = () => {
 
   const handelClickOnCategory = item => {
     setItemEL(item);
-    ReportsItemsCard.addClass('active');
   };
 
   return (

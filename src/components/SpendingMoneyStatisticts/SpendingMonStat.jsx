@@ -28,13 +28,13 @@ export const SpendingMoneyStatisticts = ({ handelClickOnCategory }) => {
       {token && (
         <div className={Style.spend_stat}>
           <div className={Style.spend_statPosition}>
-            <div onClick={handelArrow}>
+            <div className={Style.spend_stat_left} onClick={handelArrow}>
               <Icons
                 name="arrow-left"
                 className="Style.spend_statSvg"
                 color="#ff751d"
-                width="4"
-                height="10"
+                width="6"
+                height="14"
               />
             </div>
             {arrow ? (
@@ -42,13 +42,13 @@ export const SpendingMoneyStatisticts = ({ handelClickOnCategory }) => {
             ) : (
               <p className={Style.spend_statTextBig}>INCOMES</p>
             )}
-            <div onClick={handelArrow}>
+            <div className={Style.spend_stat_right} onClick={handelArrow}>
               <Icons
                 name="arrow-right"
                 className="Style.spend_statSvg"
                 color="#ff751d"
-                width="4"
-                height="10"
+                width="6"
+                height="14"
               />
             </div>
           </div>

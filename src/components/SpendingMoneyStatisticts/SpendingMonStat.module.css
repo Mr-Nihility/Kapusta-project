@@ -30,12 +30,13 @@
 }
 
 .spend_SvgLeft {
-	padding: 0px 10px;
+  padding: 0px 10px;
 }
 .spend_SvgRight {
-	padding: 0px 10px;
+  padding: 0px 10px;
 }
-.active {
-  fill: #ff751d;
-  background-color: #FFDAC0;;
+
+.spend_stat_left,
+.spend_stat_right {
+  padding: 0px 10px;
 }
