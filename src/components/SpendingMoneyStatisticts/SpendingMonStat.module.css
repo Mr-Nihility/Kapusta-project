@@ -41,3 +41,7 @@
   align-items: center;
   margin-bottom: 20px;
 }
+.active {
+  fill: #ff751d;
+  background-color: #FFDAC0;;
+}
