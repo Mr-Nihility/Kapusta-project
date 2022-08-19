@@ -3,19 +3,19 @@ import styles from './Balance.module.css';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { newBalance } from 'redux/transaction/transaction-operations';
-import { getStartBalance } from 'redux/auth/auth-selectors';
+import { getIsFisrtSignIn, getStartBalance } from 'redux/auth/auth-selectors';
 import BalanceModal from 'components/BalanceModal/BalanceModal';
 import { ConfirmationModal } from 'components/ConfirmationModal/ConfirmationModal';
-// import { getIsLogged } from 'redux/auth/auth-selectors';
 
 //----------------------------------------------------------------------------//
 export const Balance = () => {
   const [showModal, setShowModal] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const isFisrtSignIn = useSelector(getIsFisrtSignIn);
+  console.log('isFisrtSignIn', isFisrtSignIn);
   const dispatch = useDispatch();
-  const [balance, setBalance] = useState('');
+  const [balance, setBalance] = useState();
   const balanceEl = useSelector(getStartBalance);
-  //   const isLogged = useSelector(getIsLogged);
 
   const handleChange = event => {
     const { name, value } = event.target;
@@ -85,14 +85,10 @@ export const Balance = () => {
         >
           CONFIRM
         </button>
-
-        {/* {isLogged && (
-          <BalanceModal onshow={showModal} onclose={handleToggleModal} />
-        )} */}
-
-        {balance === '0' && (
+        {isFisrtSignIn && (
           <BalanceModal onshow={showModal} onclose={handleToggleModal} />
         )}
+
         {isModalOpen && (
           <ConfirmationModal
             onSubmit={onSubmit}
