@@ -1,28 +1,12 @@
 import s from './TableList.module.css';
-import { useState } from 'react';
-import vvv from '../../images/svg-icon-project/symbol-defs.svg';
-import { ConfirmationModal } from 'components/ConfirmationModal/ConfirmationModal';
+
+import TableItem from 'components/TableItem/TableItem';
+import { Fragment } from 'react';
 
 const Tablelist = ({ stats, list, type = false, delTrans, categorys }) => {
   const month = Object.keys(stats);
 
   const monthValues = Object.values(stats);
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-
-  const onDelete = id => {
-    delTrans(id);
-    setIsModalOpen(false);
-  };
-
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
 
   return (
     <div>
@@ -42,36 +26,18 @@ const Tablelist = ({ stats, list, type = false, delTrans, categorys }) => {
             <tbody className={s.table_tbody}>
               {list.map(el => {
                 return (
-                  <tr className={s.tr} key={el._id} id={el._id}>
-                    <td className={s.date_td1}>{el.date}</td>
-                    <td className={s.description_td2}>{el.description}</td>
-                    <td className={s.category_td3}>{el.category}</td>
-
-                    <td className={type ? s.expense : s.income}>
-                      {categorys.length > 2 && <span>-</span>}
-                      {el.amount} грн.
-                    </td>
-                    <td className={s.date_td1}>
-                      <div className={s.svg}>
-                        <svg
-                          width="17"
-                          height="17"
-                          onClick={handleOpenModal}
-                          type="button"
-                        >
-                          <use href={vvv + '#icon-trash-can'}></use>
-                        </svg>
-
-                        {isModalOpen && (
-                          <ConfirmationModal
-                            onSubmit={() => onDelete(el._id)}
-                            onClose={handleCloseModal}
-                            title="Are you sure?"
-                          />
-                        )}
-                      </div>
-                    </td>
-                  </tr>
+                  <Fragment key={el._id}>
+                    <TableItem
+                      delTrans={delTrans}
+                      id={el._id}
+                      date={el.date}
+                      description={el.description}
+                      category={el.category}
+                      amount={el.amount}
+                      type={type}
+                      categorys={categorys}
+                    />
+                  </Fragment>
                 );
               })}
             </tbody>
