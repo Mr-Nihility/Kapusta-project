@@ -11,25 +11,28 @@ export function ConfirmationModal({ onClose, title, onSubmit }) {
         onClose();
       }
     };
+
     window.addEventListener('keydown', handleCloseModal);
     return () => window.removeEventListener('keydown', handleCloseModal);
   }, [onClose]);
 
   return ReactDOM.createPortal(
     <>
-      <div className={styles.background}>
-        <p> {title} </p>
+      <div className={styles.backdrop}>
+        <div className={styles.background}>
+          <p> {title} </p>
 
-        <button className={styles.yesBtn} type="button" onClick={onSubmit}>
-          YES
-        </button>
+          <button className={styles.yesBtn} type="button" onClick={onSubmit}>
+            YES
+          </button>
 
-        <button className={styles.noBtn} type="button" onClick={onClose}>
-          NO
-        </button>
-        <button className={styles.closeBtn} onClick={onClose}>
-          <CloseSvg />
-        </button>
+          <button className={styles.noBtn} type="button" onClick={onClose}>
+            NO
+          </button>
+          <button className={styles.closeBtn} onClick={onClose}>
+            <CloseSvg />
+          </button>
+        </div>
       </div>
     </>,
     document.body
