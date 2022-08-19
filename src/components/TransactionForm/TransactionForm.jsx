@@ -33,12 +33,15 @@ console.log(engCategory);
 
   const onClick = evt => {
     if (
+
       evt.target.textContent === 'Product Category' ||
       evt.target.textContent.length > 25
+
     ) {
       setActive(!active);
       return;
     }
+
     setCategory(evt.target.textContent);
   //     rCategory.map((el, i)=>{
       
@@ -55,6 +58,8 @@ console.log(engCategory);
   //   }
   //   setCategory();
   // })
+
+ 
     setActive(!active);
   };
 
@@ -62,6 +67,7 @@ console.log(engCategory);
     amount: Yup.number().min(2).required('Required'),
     description: Yup.string()
       .min(3, 'Must be at least 3 charaters')
+      .max(8, 'Must be no more then 8 charaters')
       .required('Required'),
 
   });
@@ -118,6 +124,7 @@ console.log(engCategory);
               </label>
               {/* Custom select start------------------------------------------------------------ ------------------------------------------------*/}
               <div className={styles.wrapper}>
+
                 <div
                 // {active&&<>(style={{ backgroundColor: "#f8faff"}})</>}
                 
@@ -126,6 +133,7 @@ console.log(engCategory);
                     active ? styles.dropdownSelected : styles.dropdown
                   }
                 >
+
                   {!active ? (
                     <svg
                       className={styles.selectionIcon}
@@ -152,7 +160,9 @@ console.log(engCategory);
                           return (
                             <p
                               key={i}
+
                               
+
                               className={styles.dropdownItem}
                             >
                               {el}
@@ -162,7 +172,9 @@ console.log(engCategory);
                     </div>
                   </div>
                 </div>
+
                 {/* Custom select END------------------------------------------------------------ -----------------------------------*/}
+
                 {/*--------------------------------------------- <select
                   className={styles.selected}
                   name="category"

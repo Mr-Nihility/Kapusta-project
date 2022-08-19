@@ -9,6 +9,7 @@ import { ReactComponent as GoogleIcon } from '../../images/google/google-icon.sv
 
 import styles from './SignInView.module.css';
 import { TextField } from 'components/SignIn/TextField';
+
 //-------------------------------------------------------------------------------//
 
 export const SignInView = () => {
@@ -53,6 +54,8 @@ export const SignInView = () => {
     dispatch(logIn(userToLogIn));
   };
 
+  //-----------------------------------------------//
+
   return (
     <>
       <Formik
@@ -67,10 +70,14 @@ export const SignInView = () => {
             <Form className={styles.form} onChange={handleChange}>
               <p>You can log in with your Google Account:</p>
               <div className={styles.googleBtnWrapper}>
-                <button className={styles.googleBtn}>
+                <a
+                  className={styles.googleBtn}
+                  href="https://kapusta-backend.goit.global/auth/google"
+                >
                   <GoogleIcon />
                   Google
-                </button>
+                </a>
+                {/* <button type="button" id="signInGoogle"></button> */}
               </div>
 
               <p>Or log in using an email and password, after registering:</p>
