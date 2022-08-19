@@ -86,7 +86,7 @@ export const NavStatis = () => {
   return (
     <>
       <div className={Style.topСontainer}>
-        <Link to="/kapusta-project/expenses" className={Style.button_goHome}>
+        <Link className={Style.button_goHome} to="/kapusta-project/expenses">
           <div className={Style.button_goHomeArrow}>
             <Icons
               name="long-arrow-left"
@@ -104,7 +104,7 @@ export const NavStatis = () => {
         <div className={Style.month_switch}>
           <p className={Style.month_switchText}>Current period:</p>
           <div className={Style.month_switchPosition}>
-						<div onClick={handelBeforeMonth} className={Style.month_switchSvg} >
+						<div className={Style.month_switchSvgLeft} onClick={handelBeforeMonth}  >
               <Icons
                 name="arrow-left"
               	className="Style.month_switchSvgLeft"
@@ -114,7 +114,7 @@ export const NavStatis = () => {
             	/>
 						</div>
             <p className={Style.month_switchTextBig}>{currentMonth} {year}</p>
-						<div onClick={handelNextMonth} className={Style.month_switchSvg}>
+						<div className={Style.month_switchSvgRight} onClick={handelNextMonth} >
 							<Icons
               	name="arrow-right"
              	  className="Style.month_switchSvgRight"

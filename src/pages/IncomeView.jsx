@@ -16,7 +16,6 @@ import { getIncomeCategories } from 'redux/categories/catrgories-operation';
 import { getIsLogged, getStartBalance } from 'redux/auth/auth-selectors';
 import { getCategoriesIncome } from 'redux/categories/catrgories-selectors';
 
-import { ReportBtn } from 'components/ReportBtn/ReportBtn';
 
 //------------------------------------------------------------------------------------//
 export default function IncomeView() {
@@ -48,7 +47,6 @@ export default function IncomeView() {
 
   return (
     <div>
-      <ReportBtn />
 
       <BalancePage />
       <div
