@@ -32,20 +32,22 @@
     justify-content: space-between;
     /* overflow: hidden; */
     /* border: 2px solid red; */
-    width: 170px;
-    top: 43px;
-    left: -1px;
-    
-    z-index: 10;
+    /* width: 170px; */
+    top: 42px;
+    left: -2px;
+    border: 2px solid #f5f6fb;
+    z-index: 10; 
 }
 .dropdownItem{
+     
     display: flex;
-    justify-content: center;
+    
+    padding-left: 20px;
     color: #C7CCDC;
     background-color: white;
     /* border: 1px solid #f5f6fb; */
     align-items: center;
-    width:100% ;
+    width:182px ;
     /* background-color: black; */
     height: 33px;
     
