@@ -44,11 +44,13 @@
   outline: transparent;
   border: 1px solid #ff751d;
   background-color: #ffffff;
+  color: #000000;
 }
 .yesBtn {
-  background-color: #ff751d;
-  color: #ffffff;
+  /* background-color: #ff751d; */
+  color: #000000;
 }
+.noBtn:focus,
 .yesBtn:hover,
 .noBtn:hover {
   color: #ffffff;
@@ -60,6 +62,7 @@
 .yesBtn {
   margin-right: 15px;
 }
+
 .closeBtn:hover {
   background-color: #ff751d;
 }

@@ -47,6 +47,7 @@ export default function UserInfo() {
         </button>
         {isModalOpen && (
           <ConfirmationModal
+            isExit={true}
             onSubmit={handlerLogOut}
             onClose={handleCloseModal}
             title="Do you really want to leave?"
