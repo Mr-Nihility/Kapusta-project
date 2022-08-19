@@ -14,7 +14,12 @@
 
   right: 15%;
   top: 6%;
-  transition: 0.4s;
+  transition: 0.3s;
+}
+
+.diagramsvg {
+  fill: #52555f;
+  transition: 0.3s;
 }
 
 .link_report:hover .diagramsvg {

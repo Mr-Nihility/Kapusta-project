@@ -138,14 +138,19 @@ input[type='number']::-webkit-outer-spin-button {
 
   transition: 0.3s;
 }
-.inputBtn:hover {
+.inputBtn:hover:enabled {
   color: white;
+  cursor: pointer;
   background-color: #fa6b12;
   border: 2px solid;
 }
 .inputBtn:disabled {
-  filter: grayscale();
+  cursor: auto;
+  background-color: #eff0f5;
+
+  color: #bcbec5;
 }
+
 .clearBtn {
   padding-bottom: 12px;
   margin-left: 200px;
