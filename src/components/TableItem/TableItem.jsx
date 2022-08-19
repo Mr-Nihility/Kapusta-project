@@ -41,8 +41,8 @@ export default function TableItem({
           {amount} грн.
         </td>
         <td className={s.date_td1}>
-          <div className={s.svg}>
-            <svg width="17" height="17" onClick={handleOpenModal} type="button">
+          <div className={s.svg} onClick={handleOpenModal}>
+            <svg width="17" height="17" type="button">
               <use href={vvv + '#icon-trash-can'}></use>
             </svg>
           </div>
