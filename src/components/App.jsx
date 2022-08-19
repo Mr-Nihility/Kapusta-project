@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { getCurrentUser } from 'redux/auth/auth-operations';
+import { getCurrentUser, googleAuthUser } from 'redux/auth/auth-operations';
 // import { getIsLogged } from 'redux/auth/auth-selectors';
 import { SignInView } from '../pages/SignInView/SignInView';
 // import BalancePage from 'pages/Balance/BalancePage';
 import { NotFound } from 'pages/NotFound/NotFound';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate, useSearchParams } from 'react-router-dom';
 // import { Main } from 'pages/Main';
 import SharedLayout from 'pages/SharedLayout';
 import ExpensesView from 'pages/ExpensesView';
@@ -30,6 +30,21 @@ export const App = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
   //---//
+  const [searchParams, setSearchParmas] = useSearchParams();
+
+  const navigate = useNavigate();
+  // console.log(accessToken, '+', refreshToken, '+', sid);
+
+  useEffect(() => {
+    const accessToken = searchParams.get('accessToken');
+    const refreshToken = searchParams.get('refreshToken');
+    const sid = searchParams.get('sid');
+
+    if (!accessToken) return;
+    dispatch(googleAuthUser({ accessToken, refreshToken, sid }));
+
+    navigate('/kapusta-project/expenses');
+  }, [searchParams, dispatch]);
 
   return (
     <>

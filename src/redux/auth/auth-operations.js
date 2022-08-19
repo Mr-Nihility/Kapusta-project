@@ -56,7 +56,6 @@ export const getCurrentUser = createAsyncThunk(
   async (_, { getState, rejectWithValue }) => {
     const state = getState();
     const sid = state.auth.sid;
-    
 
     if (!sid) {
       return rejectWithValue('error');
@@ -70,9 +69,20 @@ export const getCurrentUser = createAsyncThunk(
     } catch (error) {
       //  console.log(error.response.data.message);
       return rejectWithValue('error');
-     
     }
   }
 );
 
+export const googleAuthUser = createAsyncThunk(
+  'auth/google',
+  async ({ accessToken, refreshToken, sid }) => {
+    tokenAuth.set(accessToken);
 
+    try {
+      const { data } = await axios.get('/user');
+      return { accessToken, refreshToken, sid, data };
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
