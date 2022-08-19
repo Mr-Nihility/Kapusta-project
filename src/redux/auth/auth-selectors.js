@@ -5,3 +5,4 @@ export const getSid = state => state.auth.sid;
 export const getSuccessToken = state => state.auth.accessToken;
 export const getStartBalance = state => state.auth.userData.balance;
 export const getIsFisrtSignIn = state => state.auth.isFisrtSignIn;
+export const getIsLoading = state => state.auth.isLoading;
