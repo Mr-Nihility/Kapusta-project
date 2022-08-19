@@ -99,7 +99,6 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
                     // disabled
                     label="Product category"
                     className={styles.placeholder}
-                    selected
                     styles={{ color: '#C7CCDC' }}
                   >
                     Product category
