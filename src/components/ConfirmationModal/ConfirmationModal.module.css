@@ -49,11 +49,12 @@
   background-color: #ffffff;
   color: #1f1f1f;
 }
-.yesBtn {
+/* .yesBtn {
   background-color: #ff751d;
   color: #ffffff;
-}
-
+} */
+.noBtn:focus,
+.yesBtn:focus,
 .yesBtn:hover,
 .noBtn:hover {
   color: #ffffff;

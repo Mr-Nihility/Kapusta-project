@@ -82,7 +82,7 @@ export const Balance = () => {
           className={styles.button}
           type="button"
           onClick={handleOpenModal}
-          disabled={!balance}
+          disabled={!balance || balance === '0'}
         >
           CONFIRM
         </button>
@@ -92,6 +92,7 @@ export const Balance = () => {
 
         {isModalOpen && (
           <ConfirmationModal
+            isConfirm={true}
             onSubmit={onSubmit}
             onClose={handleCloseModal}
             title="Are you sure?"
