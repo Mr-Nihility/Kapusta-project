@@ -76,15 +76,16 @@ p {
 	font-size: 14px;
 	line-height: 1.1;
 	color: #000000;
-	padding: 0px 5px;
 }
-
 .month_switchSvgLeft {
-	height: 10px;
-	width: 4px;
-	margin-left: 20px;
+	margin-right: 10px;
 }
 .month_switchSvgRight {
-	height: 10px;
-	width: 4px;
+	margin-left: 10px;
+}
+.month_switchSvgLeft {
+	padding: 10px;
+}
+.month_switchSvgRight {
+	padding: 10px;
 }

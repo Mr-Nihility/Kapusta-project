@@ -49,33 +49,31 @@ export const SpendingMoneyStatisticts = () => {
             />
           </div>
         </div>
-        <div>
-          {arrow ? (
-            <ul className={Style.list_spend}>
-              {inCate.map(item => {
-                return (
-                  <ReportsItemsCard
-                    id={id}
-                    total={item[1].total}
-                    category={item[0]}
-                  />
-                );
-              })}
-            </ul>
-          ) : (
-            <ul className={Style.list_spend}>
-              {exCate.map(item => {
-                return (
-                  <ReportsItemsCard
-                    id={id}
-                    total={item[1].total}
-                    category={item[0]}
-                  />
-                );
-              })}
-            </ul>
-          )}
-        </div>
+        {arrow ? (
+          <ul className={Style.list_spend}>
+            {inCate.map(item => {
+              return (
+                <ReportsItemsCard
+                  id={id}
+                  total={item[1].total}
+                  category={item[0]}
+                />
+              );
+            })}
+          </ul>
+        ) : (
+          <ul className={Style.list_spend}>
+            {exCate.map(item => {
+              return (
+                <ReportsItemsCard
+                  id={id}
+                  total={item[1].total}
+                  category={item[0]}
+                />
+              );
+            })}
+          </ul>
+        )}
       </div>
     </>
   );

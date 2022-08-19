@@ -104,23 +104,23 @@ export const NavStatis = () => {
         <div className={Style.month_switch}>
           <p className={Style.month_switchText}>Current period:</p>
           <div className={Style.month_switchPosition}>
-						<div onClick={handelBeforeMonth}>
+						<div onClick={handelBeforeMonth} className={Style.month_switchSvg} >
               <Icons
                 name="arrow-left"
               	className="Style.month_switchSvgLeft"
               	color="#ff751d"
-              	width="4"
-              	height="10"
+              	width="6"
+              	height="14"
             	/>
 						</div>
             <p className={Style.month_switchTextBig}>{currentMonth} {year}</p>
-						<div onClick={handelNextMonth}>
+						<div onClick={handelNextMonth} className={Style.month_switchSvg}>
 							<Icons
               	name="arrow-right"
              	  className="Style.month_switchSvgRight"
               	color="#ff751d"
-              	width="4"
-              	height="10"
+              	width="6"
+              	height="14"
             	/>
 						</div>
           </div>
