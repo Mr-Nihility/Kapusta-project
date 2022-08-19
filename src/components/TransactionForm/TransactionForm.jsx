@@ -28,12 +28,12 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
     evt.target.reset();
   };
 
-  const validate = Yup.object({
-    date: Yup.string().required('Pick date please'),
-    amount: Yup.string().required('Required'),
+  const validate = Yup.object().shape({
+    amount: Yup.number().min(2).required('Required'),
     description: Yup.string()
       .min(3, 'Must be at least 3 charaters')
       .required('Required'),
+    category: Yup.string().required(),
   });
 
   return (
@@ -42,100 +42,115 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
         initialValues={{
           amount: '',
           description: '',
-          date: '',
           category: '',
         }}
         validationSchema={validate}
-        validateOnBlur
       >
-        {({ errors, touched }) => (
-          <Form className={styles.form} onSubmit={handlerSubmit}>
-            <label className={styles.label}>
-              <svg className={styles.iconCalendar} width="20" height="20">
-                <use href={`${svg}#icon-calendar`}></use>
-              </svg>
-              <DatePicker
-                className={styles.date}
-                name="date"
-                dateFormat="yyyy.MM.dd"
-                selected={date}
-                // maxDate={new Date()}
-                onChange={changeDate => {
-                  setDate(changeDate);
-                }}
-              />
-            </label>
+        {({
+          errors,
+          touched,
+          isValid,
+          dirty,
+          handleChange,
+          handleReset,
+          values,
+        }) => {
+          console.log(values);
+          return (
+            <Form className={styles.form} onSubmit={handlerSubmit}>
+              <label className={styles.label}>
+                <svg className={styles.iconCalendar} width="20" height="20">
+                  <use href={`${svg}#icon-calendar`}></use>
+                </svg>
+                <DatePicker
+                  className={styles.date}
+                  name="date"
+                  dateFormat="yyyy.MM.dd"
+                  selected={date}
+                  onChange={changeDate => {
+                    setDate(changeDate);
+                  }}
+                />
+              </label>
 
-            <label className={styles.label}>
-              <Field
-                className={styles.description}
-                name="description"
-                type="text"
-                placeholder="Product description"
-              />
-              {errors.description && touched.description && (
-                <span className={styles.errorMessage}>
-                  {errors.description}
-                </span>
-              )}
-            </label>
+              <label className={styles.label}>
+                <Field
+                  className={styles.description}
+                  name="description"
+                  type="text"
+                  onChange={handleChange}
+                  placeholder="Product description"
+                />
+                {errors.description && touched.description && (
+                  <span className={styles.errorMessage}>
+                    {errors.description}
+                  </span>
+                )}
+              </label>
 
-            <div className={styles.wrapper}>
-              <select
-                className={styles.selected}
-                name="category"
-                placeholder="Product category"
+              <div className={styles.wrapper}>
+                <select
+                  className={styles.selected}
+                  name="category"
+                  onChange={handleChange}
+                  placeholder="Product category"
+                >
+                  <option disabled hidden value="" label="Product category">
+                    Product category
+                  </option>
+
+                  {engCategory.map((el, i) => {
+                    return (
+                      <option
+                        key={i}
+                        className={styles.placeholder}
+                        value={rCategory && rCategory[i]}
+                      >
+                        {el}
+                      </option>
+                    );
+                  })}
+                </select>
+                <svg className={styles.icon} width="15" height="10">
+                  <use href={`${svg}#icon-arrow-to-down`}></use>
+                </svg>
+              </div>
+
+              <label className={styles.label}>
+                <svg className={styles.iconCalculator} width="20" height="20">
+                  <use href={`${svg}#icon-calculator`}></use>
+                </svg>
+                <Field
+                  onChange={handleChange}
+                  className={styles.amount}
+                  name="amount"
+                  type="number"
+                  placeholder="0,00"
+                />
+                {errors.amount && touched.amount && (
+                  <span className={styles.errorMessage}>{errors.amount}</span>
+                )}
+              </label>
+
+              <button
+                className={styles.inputBtn}
+                type="submit"
+                disabled={!isValid || !dirty}
               >
-                <option disabled hidden value="">
-                  Product category
-                </option>
-
-                {engCategory.map((el, i) => {
-                  return (
-                    <option
-                      key={i}
-                      className={styles.placeholder}
-                      value={rCategory && rCategory[i]}
-                    >
-                      {el}
-                    </option>
-                  );
-                })}
-              </select>
-              <svg className={styles.icon} width="15" height="10">
-                <use href={`${svg}#icon-arrow-to-down`}></use>
-              </svg>
-            </div>
-
-            <label className={styles.label}>
-              <svg className={styles.iconCalculator} width="20" height="20">
-                <use href={`${svg}#icon-calculator`}></use>
-              </svg>
-              <Field
-                className={styles.amount}
-                name="amount"
-                type="number"
-                placeholder="0,00"
-              />
-              {errors.amount && touched.amount && (
-                <span className={styles.errorMessage}>{errors.amount}</span>
-              )}
-            </label>
-
-            <button className={styles.inputBtn} type="submit">
-              INPUT
-            </button>
-            <button
-              className={styles.clearBtn}
-              type="button"
-              onClick={() => {
-                setDate(new Date());
-              }}
-            >
-              CLEAR
-            </button>
-          </Form>
-        )}
+                INPUT
+              </button>
+              <button
+                className={styles.clearBtn}
+                type="button"
+                onClick={() => {
+                  handleReset();
+                }}
+              >
+                CLEAR
+              </button>
+            </Form>
+          );
+        }}
       </Formik>
     </>
   );

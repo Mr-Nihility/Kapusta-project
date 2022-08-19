@@ -129,6 +129,9 @@ input[type='number']::-webkit-outer-spin-button {
   background-color: #fa6b12;
   border: 2px solid;
 }
+.inputBtn:disabled {
+  filter: grayscale();
+}
 .clearBtn {
   padding-bottom: 12px;
   margin-left: 200px;
