@@ -78,7 +78,7 @@
   transition: 0.3s;
 }
 
-.button:hover {
+/* .button:hover {
   color: #ffffff;
   background-color: #ed7200;
   border: 2px solid #ed7200;
@@ -86,4 +86,17 @@
 .button:disabled {
   background-color: #52555f;
   color: #ffffff;
+} */
+
+.button:hover:enabled {
+  color: white;
+  cursor: pointer;
+  background-color: #fa6b12;
+  border: 2px solid;
+}
+.button:disabled {
+  cursor: auto;
+  background-color: #f2f5fc;
+
+  color: #bcbec5;
 }

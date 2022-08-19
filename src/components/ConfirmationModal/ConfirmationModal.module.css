@@ -14,10 +14,13 @@
   line-height: 20px;
   background-color: #ffffff;
   border-radius: 30px;
-  border: 1px solid #ff751d;
+
   transform: translate(50%, -38%);
   top: 50%;
+
   right: 50%;
+
+  box-shadow: 10px 10px 30px rgba(82, 85, 95, 0.4);
 }
 
 .backdrop {
@@ -42,36 +45,36 @@
   padding: 15px 50px;
   border-radius: 20px;
   outline: transparent;
-  border: 1px solid #ff751d;
+  border: 2px solid #f5f6fb;
   background-color: #ffffff;
-  color: #000000;
+  color: #1f1f1f;
 }
 .yesBtn {
-  /* background-color: #ff751d; */
-  color: #000000;
+  background-color: #ff751d;
+  color: #ffffff;
 }
-.noBtn:focus,
+
 .yesBtn:hover,
 .noBtn:hover {
   color: #ffffff;
   background-color: #ff751d;
   transition: 0.4s;
   outline: transparent;
-  border: 1px solid #ffffff;
+  border: 2px solid #ffffff;
 }
 .yesBtn {
   margin-right: 15px;
 }
 
 .closeBtn:hover {
-  background-color: #ff751d;
+  background-color: #f5f6fb;
 }
 
 .closeBtn {
   position: absolute;
-  top: 0;
-  right: 0;
-  border-radius: 10px;
+  top: 5px;
+  right: 5px;
+  border-radius: 30px;
   outline: transparent;
   border: none;
   padding-bottom: 5px;
