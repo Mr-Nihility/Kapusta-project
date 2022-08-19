@@ -3,7 +3,7 @@ import styles from './Balance.module.css';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { newBalance } from 'redux/transaction/transaction-operations';
-import { getStartBalance } from 'redux/auth/auth-selectors';
+import { getIsFisrtSignIn, getStartBalance } from 'redux/auth/auth-selectors';
 import BalanceModal from 'components/BalanceModal/BalanceModal';
 import { ConfirmationModal } from 'components/ConfirmationModal/ConfirmationModal';
 
@@ -11,6 +11,8 @@ import { ConfirmationModal } from 'components/ConfirmationModal/ConfirmationModa
 export const Balance = () => {
   const [showModal, setShowModal] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const isFisrtSignIn = useSelector(getIsFisrtSignIn);
+  console.log('isFisrtSignIn', isFisrtSignIn);
   const dispatch = useDispatch();
   const [balance, setBalance] = useState();
   const balanceEl = useSelector(getStartBalance);
@@ -83,7 +85,7 @@ export const Balance = () => {
         >
           CONFIRM
         </button>
-        {balance === '0' && (
+        {isFisrtSignIn && (
           <BalanceModal onshow={showModal} onclose={handleToggleModal} />
         )}
 

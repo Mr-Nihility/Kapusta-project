@@ -19,6 +19,7 @@ const initialState = {
   accessToken: '',
   sid: '',
   isLogged: false,
+  isFisrtSignIn: false,
 };
 
 const authSlice = createSlice({
@@ -31,7 +32,7 @@ const authSlice = createSlice({
       state.accessToken = payload.accessToken;
       state.refreshToken = payload.refreshToken;
       state.sid = payload.sid;
-      // state.firtLoad= true
+      state.isFisrtSignIn = true;
     },
     [logIn.fulfilled]: (state, { payload }) => {
       state.accessToken = payload.accessToken;
@@ -59,7 +60,7 @@ const authSlice = createSlice({
     },
     [newBalance.fulfilled]: (state, { payload }) => {
       state.userData.balance = Number(payload.newBalance);
-      //state.firstLoad= false
+      state.isFisrtSignIn = false;
     },
     [addExpanses.fulfilled]: (state, { payload }) => {
       state.userData.balance = payload.newBalance;
