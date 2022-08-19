@@ -3,7 +3,13 @@ import {
   addExpanses,
   addIncome,
 } from 'redux/transaction/transaction-operations';
-import { signIn, logIn, logOut, getCurrentUser } from './auth-operations';
+import {
+  signIn,
+  logIn,
+  logOut,
+  getCurrentUser,
+  googleAuthUser,
+} from './auth-operations';
 
 import { newBalance } from 'redux/transaction/transaction-operations';
 import { deleteTrancaction } from 'redux/transaction/transaction-operations';
@@ -19,6 +25,7 @@ const initialState = {
   accessToken: '',
   sid: '',
   isLogged: false,
+  isFisrtSignIn: false,
 };
 
 const authSlice = createSlice({
@@ -31,7 +38,7 @@ const authSlice = createSlice({
       state.accessToken = payload.accessToken;
       state.refreshToken = payload.refreshToken;
       state.sid = payload.sid;
-      // state.firtLoad= true
+      state.isFisrtSignIn = true;
     },
     [logIn.fulfilled]: (state, { payload }) => {
       state.accessToken = payload.accessToken;
@@ -59,7 +66,7 @@ const authSlice = createSlice({
     },
     [newBalance.fulfilled]: (state, { payload }) => {
       state.userData.balance = Number(payload.newBalance);
-      //state.firstLoad= false
+      state.isFisrtSignIn = false;
     },
     [addExpanses.fulfilled]: (state, { payload }) => {
       state.userData.balance = payload.newBalance;
@@ -69,6 +76,13 @@ const authSlice = createSlice({
     },
     [deleteTrancaction.fulfilled]: (state, { payload }) => {
       state.userData.balance = payload.newBalance;
+    },
+    [googleAuthUser.fulfilled]: (state, { payload }) => {
+      state.refreshToken = payload.refreshToken;
+      state.accessToken = payload.accessToken;
+      state.sid = payload.sid;
+      state.isLogged = true;
+      state.userData.email = payload.data.email;
     },
   },
 });

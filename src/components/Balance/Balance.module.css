@@ -83,3 +83,7 @@
   background-color: #ed7200;
   border: 2px solid #ed7200;
 }
+.button:disabled {
+  background-color: #52555f;
+  color: #ffffff;
+}

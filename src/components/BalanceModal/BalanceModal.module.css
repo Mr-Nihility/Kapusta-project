@@ -1,9 +1,12 @@
 .background {
   position: absolute;
   z-index: 100;
-  width: 288px;
-  height: 152px;
-  padding: 45px;
+  width: 250px;
+  height: 100px;
+  padding-top: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
   color: #ffffff;
   font-family: 'Roboto';
   font-style: normal;
@@ -12,17 +15,19 @@
   line-height: 20px;
   background-color: #031634;
   border-radius: 30px;
-  transform: translate(-138px, 53px);
+  transform: translate(16px, 70px);
+  opacity: 0.9;
 }
 .background::before {
   content: 'Hel';
   color: #031634;
   display: block;
   z-index: 1000;
-  width: 40px;
-  height: 40px;
+  width: 20px;
+  height: 20px;
   background-color: #031634;
   transform: rotate(133deg);
   position: absolute;
-  top: -10px;
+  top: -8px;
+  left: 22px;
 }

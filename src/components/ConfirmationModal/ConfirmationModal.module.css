@@ -1,31 +1,5 @@
-.yesBtn,
-.noBtn {
-  margin-top: 20px;
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 20px;
-  padding: 15px 50px;
-  border-radius: 20px;
-  outline: transparent;
-  border: 1px solid #ff751d;
-  background-color: #ffffff;
-}
-.yesBtn:hover,
-.noBtn:hover {
-  color: #ffffff;
-  background-color: #ff751d;
-  transition: 0.4s;
-  outline: transparent;
-  border: 1px solid #ffffff;
-}
-
-.closeBtn:hover {
-  background-color: #ff751d;
-}
-
 .background {
+  z-index: 1000;
   position: absolute;
   text-align: center;
   z-index: 100;
@@ -41,10 +15,58 @@
   background-color: #ffffff;
   border-radius: 30px;
   border: 1px solid #ff751d;
-  transform: translate(-33px, 60px);
-  top: 0;
-  right: 0;
+  transform: translate(50%, -38%);
+  top: 50%;
+  right: 50%;
 }
+
+.backdrop {
+  position: fixed;
+  z-index: 110;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100vh;
+  transition: opacity 500ms ease-out 0.2s, visibility 500ms ease-out;
+}
+
+.yesBtn,
+.noBtn {
+  margin-top: 20px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 20px;
+  padding: 15px 50px;
+  border-radius: 20px;
+  outline: transparent;
+  border: 1px solid #ff751d;
+  background-color: #ffffff;
+  color: #000000;
+}
+.yesBtn {
+  /* background-color: #ff751d; */
+  color: #000000;
+}
+.noBtn:focus,
+.yesBtn:hover,
+.noBtn:hover {
+  color: #ffffff;
+  background-color: #ff751d;
+  transition: 0.4s;
+  outline: transparent;
+  border: 1px solid #ffffff;
+}
+.yesBtn {
+  margin-right: 15px;
+}
+
+.closeBtn:hover {
+  background-color: #ff751d;
+}
+
 .closeBtn {
   position: absolute;
   top: 0;
@@ -58,4 +80,14 @@
   padding-right: 10px;
   transform: translate(-7px, 6px);
   background-color: transparent;
+}
+.backdrop {
+  position: fixed;
+  z-index: 110;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100vh;
+  transition: opacity 500ms ease-out 0.2s, visibility 500ms ease-out;
 }

@@ -19,9 +19,9 @@ import { getCategoriesIncome } from 'redux/categories/catrgories-selectors';
 
 //------------------------------------------------------------------------------------//
 export default function IncomeView() {
+  const dispatch = useDispatch();
   const engCategory = ['salary', 'additional income'];
   const ruCategory = useSelector(getCategoriesIncome);
-  const dispatch = useDispatch();
   const incomeArr = useSelector(getIncomeList);
   const bal = useSelector(getStartBalance);
   const isLog = useSelector(getIsLogged);
@@ -67,7 +67,12 @@ export default function IncomeView() {
           engCategory={engCategory}
         />
 
-        <Tablelist stats={stats} list={incomeArr} delTrans={deleteItem} />
+        <Tablelist
+          stats={stats}
+          list={incomeArr}
+          delTrans={deleteItem}
+          categorys={ruCategory}
+        />
       </div>
     </div>
   );
