@@ -41,9 +41,9 @@
   background-color: #ffffff;
   border-radius: 30px;
   border: 1px solid #ff751d;
-  transform: translate(-150%, 80%);
-  top: 0;
-  right: 0;
+  transform: translate(50%, -38%);
+  top: 50%;
+  right: 50%;
 }
 .closeBtn {
   position: absolute;

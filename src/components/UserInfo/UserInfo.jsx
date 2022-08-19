@@ -14,6 +14,7 @@ export default function UserInfo() {
 
   const handlerLogOut = () => {
     dispath(logOut());
+    setIsModalOpen(false);
   };
 
   const [isModalOpen, setIsModalOpen] = useState(false);
