@@ -1,4 +1,3 @@
-import { ReportBtn } from 'components/ReportBtn/ReportBtn';
 import Tablelist from 'components/TableList/TableList';
 import { TransactionForm } from 'components/TransactionForm/TransactionForm';
 import { useEffect } from 'react';
@@ -60,7 +59,6 @@ export default function ExpensesView() {
 
   return (
     <div className="wrap">
-      <ReportBtn />
       <BalancePage />
 
       <div

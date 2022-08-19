@@ -6,8 +6,8 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding-top: 40px;
-  padding-bottom: 48px;
+  /* padding-top: 40px; */
+  /* padding-bottom: 48px; */
 }
 .label {
   display: flex;
@@ -82,4 +82,8 @@
   color: #ffffff;
   background-color: #ed7200;
   border: 2px solid #ed7200;
+}
+.button:disabled {
+  background-color: #52555f;
+  color: #ffffff;
 }
