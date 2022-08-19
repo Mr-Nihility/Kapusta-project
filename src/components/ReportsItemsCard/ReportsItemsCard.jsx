@@ -10,12 +10,15 @@ export const ReportsItemsCard = ({
   handelClickOnCategory,
 }) => {
   const [active, setActive] = useState(false);
-  const [current, setCurrent] = useState(false);
+  // const [current, setCurrent] = useState(false);
   const addActiveClass = id => {
+    const a = false;
     // handelClickOnCategory(item);
-    if (id === id) {
-      setActive(!active);
+    if (!id) {
+      setActive(a);
       // setCurrent(!current);
+    } else {
+      setActive(!a);
     }
 
     // setActive(false);
@@ -29,7 +32,7 @@ export const ReportsItemsCard = ({
   console.log(active);
   return (
     <li
-      className={active && id === id ? Style.active : Style.item_spend}
+      className={active ? Style.active : Style.item_spend}
       key={id}
       onClick={() => {
         handelClickOnCategory(item);
