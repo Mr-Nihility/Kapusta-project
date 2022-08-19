@@ -15,9 +15,22 @@ export const Statisticts = () => {
   return (
     <>
       <NavStatis />
-      <InfoForBalance />
-      <SpendingMoneyStatisticts handelClickOnCategory={handelClickOnCategory} />
-      {itemEl.length && <Chart itemEl={itemEl} />}
+      <div
+        style={{
+          maxWidth: '1034px',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          padding: '32px 32px 61px 32px',
+
+          borderRadius: '0px 30px 30px 30px',
+        }}
+      >
+        <InfoForBalance />
+        <SpendingMoneyStatisticts
+          handelClickOnCategory={handelClickOnCategory}
+        />
+        {!!itemEl.length && <Chart itemEl={itemEl} />}
+      </div>
     </>
   );
 };
