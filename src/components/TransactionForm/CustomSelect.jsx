@@ -3,14 +3,19 @@ import styles from '../TransactionForm/CustomSelect.module.css';
 import svg from '../../images/svg-icon-project/symbol-defs.svg';
 export const CustomSelect = ({ category }) => {
   const [active, setActive] = useState(false);
+
+
   const onClick = evt => {
-   if (evt.target.innerText==='Produt Category') {
+   if (evt.target.innerText==='Product Category') {
     setActive(!active);
     return
    }
    console.log(evt.target.innerText);
     setActive(!active);
   };
+
+
+  
   const onSubmit = evt => {
     evt.preventDefault();
     // console.dir(evt.target.elements.);
@@ -24,8 +29,7 @@ export const CustomSelect = ({ category }) => {
                 <use href={`${svg}#icon-arrow-to-down`}></use>
               </svg>}
       
-        <div  className={styles.dropdownBtn}>
-          Produt Category
+        <div  className={styles.dropdownBtn}>Product Category
           <div className={styles.dropdownContent}>
             {active &&
               category.map((el, i) => {

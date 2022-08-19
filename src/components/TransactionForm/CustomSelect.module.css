@@ -58,8 +58,10 @@
 .selectionIcon{
     position: absolute;
    right: 23px;
+   pointer-events: none;
 }
 .selectionIconRev{
+    pointer-events: none;
     transform: rotate(180deg);
     position: absolute;
    right: 23px;
