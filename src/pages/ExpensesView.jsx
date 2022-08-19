@@ -63,7 +63,6 @@ export default function ExpensesView() {
       <BalancePage />
 
       <div
-        className="kek"
         style={{
           maxWidth: '1098px',
           marginLeft: 'auto',
@@ -85,6 +84,7 @@ export default function ExpensesView() {
           list={expenceArr}
           type={true}
           delTrans={deleteItem}
+          categorys={categoriesExpanses}
         />
       </div>
     </div>
