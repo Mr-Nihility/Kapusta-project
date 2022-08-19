@@ -9,29 +9,34 @@ export const ReportsItemsCard = ({
   item,
   handelClickOnCategory,
 }) => {
-  const [active, setActive] = useState('');
+  const [active, setActive] = useState(false);
+  const [current, setCurrent] = useState(false);
   const addActiveClass = id => {
-    console.log(id);
-
-    // if (e.currentTarget.tagName === 'LI') {
-    //   // e.currentTarget.style.backgroundColor = 'red';
-    //   // classList?.add('active');
-    // }
     // handelClickOnCategory(item);
-    setActive(id);
+    if (id === id) {
+      setActive(!active);
+      // setCurrent(!current);
+    }
+
+    // setActive(false);
+
     //  if(e.target.classList.contains("active")){
     //  }else{
 
     //  }
   };
+
   console.log(active);
   return (
     <li
-      className={Style.item_spend + ' ' + (active === id ? Style.active : '')}
+      className={active && id === id ? Style.active : Style.item_spend}
       key={id}
       onClick={() => {
-        addActiveClass(id);
         handelClickOnCategory(item);
+      }}
+      onMouseDownCapture={e => {
+        console.log(e.target);
+        addActiveClass(id);
       }}
     >
       <p className={Style.item_text}>{total + '.00'}</p>

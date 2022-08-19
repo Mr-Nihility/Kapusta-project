@@ -66,5 +66,16 @@
 }
 
 .active {
-  background-color: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  height: 106px;
+  width: auto;
+  margin-right: 15px;
+  margin-left: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #ffdac0;
 }
