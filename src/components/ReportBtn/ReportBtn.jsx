@@ -1,5 +1,4 @@
 import { NavLink, useLocation } from 'react-router-dom';
-import DiagramSvg from 'components/DiagramSvg/DiagramSvg';
 
 import styles from './ReportBtn.module.css';
 
