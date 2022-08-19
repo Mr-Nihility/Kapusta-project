@@ -16,7 +16,7 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
     evt.preventDefault();
 
     const { date: x, description, amount } = evt.target.elements;
-console.log(evt.target.name);
+    console.log(evt.target.name);
     const date = x.value.replaceAll('.', '-');
 
     onSubmit({
@@ -26,26 +26,27 @@ console.log(evt.target.name);
       date,
     });
     evt.target.reset();
-    setCategory('')
+    setCategory('');
   };
 
   const onClick = evt => {
-    
-    if (evt.target.innerText==='Product Category'||evt.target.innerText.length>20) {
-     setActive(!active);
-     return
+    if (
+      evt.target.innerText === 'Product Category' ||
+      evt.target.innerText.length > 20
+    ) {
+      setActive(!active);
+      return;
     }
-    setCategory(evt.target.innerText)
-    
-     setActive(!active);
-   };
+    setCategory(evt.target.innerText);
 
-
+    setActive(!active);
+  };
 
   const validate = Yup.object().shape({
     amount: Yup.number().min(2).required('Required'),
     description: Yup.string()
       .min(3, 'Must be at least 3 charaters')
+      .max(8, 'Must be no more then 8 charaters')
       .required('Required'),
     // category: Yup.string().required(),
   });
@@ -102,26 +103,43 @@ console.log(evt.target.name);
               </label>
 
               <div className={styles.wrapper}>
-              <div onClick={onClick} className={styles.dropdown}>
-        {!active?(<svg className={styles.selectionIcon} width="15" height="10">
-                <use href={`${svg}#icon-arrow-to-down`}></use>
-              </svg>):<svg className={styles.selectionIconRev} width="15" height="10">
-                <use href={`${svg}#icon-arrow-to-down`}></use>
-              </svg>}
-      
-        <div  className={styles.dropdownBtn}>{category?category:'Product Category'}
-          <div className={styles.dropdownContent}>
-            {active &&
-              rCategory.map((el, i) => {
-                return (
-                  <p key={i} name={el} className={styles.dropdownItem}>
-                    {el}
-                  </p>
-                );
-              })}
-          </div>
-        </div>
-      </div>
+                <div onClick={onClick} className={styles.dropdown}>
+                  {!active ? (
+                    <svg
+                      className={styles.selectionIcon}
+                      width="15"
+                      height="10"
+                    >
+                      <use href={`${svg}#icon-arrow-to-down`}></use>
+                    </svg>
+                  ) : (
+                    <svg
+                      className={styles.selectionIconRev}
+                      width="15"
+                      height="10"
+                    >
+                      <use href={`${svg}#icon-arrow-to-down`}></use>
+                    </svg>
+                  )}
+
+                  <div className={styles.dropdownBtn}>
+                    {category ? category : 'Product Category'}
+                    <div className={styles.dropdownContent}>
+                      {active &&
+                        rCategory.map((el, i) => {
+                          return (
+                            <p
+                              key={i}
+                              name={el}
+                              className={styles.dropdownItem}
+                            >
+                              {el}
+                            </p>
+                          );
+                        })}
+                    </div>
+                  </div>
+                </div>
                 {/*--------------------------------------------- <select
                   className={styles.selected}
                   name="category"
@@ -154,9 +172,6 @@ console.log(evt.target.name);
                 <svg className={styles.icon} width="15" height="10">
                   <use href={`${svg}#icon-arrow-to-down`}></use>
                 </svg> ------------------------------------------------------------start custom select*/}
-
-
-
               </div>
 
               <label className={styles.label}>
