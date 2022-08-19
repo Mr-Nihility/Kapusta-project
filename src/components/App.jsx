@@ -30,7 +30,7 @@ export const App = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
   //---//
-  const [searchParams, setSearchParmas] = useSearchParams();
+  const [searchParams] = useSearchParams();
 
   const navigate = useNavigate();
   // console.log(accessToken, '+', refreshToken, '+', sid);
@@ -44,7 +44,7 @@ export const App = () => {
     dispatch(googleAuthUser({ accessToken, refreshToken, sid }));
 
     navigate('/kapusta-project/expenses');
-  }, [searchParams, dispatch]);
+  }, [searchParams, dispatch, navigate]);
 
   return (
     <>
