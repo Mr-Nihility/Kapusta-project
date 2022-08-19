@@ -1,5 +1,5 @@
 import Style from './ReportsItemsCard.module.css';
-import { Icons } from '../Icons/Icons';
+import { Icons } from '../Icons/IconsForListStatisticts.js';
 import { useState } from 'react';
 
 export const ReportsItemsCard = ({total, category, id}) => {
@@ -21,7 +21,6 @@ export const ReportsItemsCard = ({total, category, id}) => {
 					  name={category}
 					  className={Style.item_spendSvg}
 					  color="#000000"
-            width="56"
             height="56"
 				  />
         <p className={Style.item_textDown}>{category}</p>
