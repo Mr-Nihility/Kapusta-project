@@ -14,6 +14,7 @@ export default function UserInfo() {
 
   const handlerLogOut = () => {
     dispath(logOut());
+    setIsModalOpen(false);
   };
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -46,6 +47,7 @@ export default function UserInfo() {
         </button>
         {isModalOpen && (
           <ConfirmationModal
+            isExit={true}
             onSubmit={handlerLogOut}
             onClose={handleCloseModal}
             title="Do you really want to leave?"
