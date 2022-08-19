@@ -46,13 +46,6 @@
   font-size: 12px;
   line-height: 14px;
 }
-/* 
-.label::after {
-  content: 'UAH';
-  text-align: center;
-  left: 30px;
-  color: #000000;
-} */
 
 .button {
   background-color: transparent;
@@ -80,4 +73,8 @@
   color: #ffffff;
   background-color: #ed7200;
   border: 2px solid #ed7200;
+}
+.button:disabled {
+  background-color: #52555f;
+  color: #ffffff;
 }

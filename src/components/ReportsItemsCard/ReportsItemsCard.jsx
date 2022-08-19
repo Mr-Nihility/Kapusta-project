@@ -22,13 +22,17 @@ export const ReportsItemsCard = ({
       }}
     >
       <p className={Style.item_text}>{total + '.00'}</p>
-      <Icons
-        name={category}
-        className={Style.item_spendSvg}
-        color="#000000"
-        width="56"
-        height="56"
-      />
+      <div className={Style.item_backgroundDiv}>
+        <div className={Style.item_backgroundSvg}> </div>
+        <Icons
+          name={category}
+          className={Style.item_spendSvg}
+          color="#000000"
+          width="56"
+          height="56"
+        />
+      </div>
+
       <p className={Style.item_textDown}>{category}</p>
     </li>
   );

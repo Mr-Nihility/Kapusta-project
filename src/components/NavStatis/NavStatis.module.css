@@ -5,13 +5,15 @@ p {
 .topСontainer {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
 	margin-bottom: 32px;
+	padding-right: 123px;
+	padding-left: 123px;
+	padding-top: 40px;
 }
 
 .button_goHome {
 	display: flex;
-	margin-right: 250px;
 	font-weight: 400;
 	font-size: 12px;
 	line-height: 1.2;
@@ -26,7 +28,6 @@ p {
 .infoForUserBalance {
 	display: flex;
 	align-items: center;
-	margin-right: 214px;
 }
 .textBalance {
 	font-weight: 500;
@@ -76,15 +77,10 @@ p {
 	font-size: 14px;
 	line-height: 1.1;
 	color: #000000;
-	padding: 0px 5px;
 }
-
 .month_switchSvgLeft {
-	height: 10px;
-	width: 4px;
-	margin-left: 20px;
+	padding: 0px 10px;
 }
 .month_switchSvgRight {
-	height: 10px;
-	width: 4px;
+	padding: 0px 10px;
 }

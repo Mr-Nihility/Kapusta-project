@@ -1,7 +1,8 @@
 import { Balance } from 'components/Balance/Balance';
 import Navigation from 'components/Navigation/Navigation';
 import { Outlet } from 'react-router';
-
+import { ReportBtn } from 'components/ReportBtn/ReportBtn';
+import Styles from './BalancePage.module.css'
 export default function BalancePage() {
   return (
     <>
@@ -11,8 +12,10 @@ export default function BalancePage() {
           maxWidth: '1098px',
         }}
       >
-        <Balance />
-
+				<div className={Styles.paddingTop}>
+        	<Balance />
+					<ReportBtn />
+				</div>
         <Navigation />
         <Outlet />
       </div>

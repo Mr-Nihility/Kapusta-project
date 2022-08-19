@@ -82,6 +82,7 @@ export const Balance = () => {
           className={styles.button}
           type="button"
           onClick={handleOpenModal}
+          disabled={!balance}
         >
           CONFIRM
         </button>
