@@ -1,13 +1,13 @@
 import s from './TableList.module.css';
-import vvv from '../../images/svg-icon-project/symbol-defs.svg';
 
-const Tablelist = ({ stats, list, type = false, delTrans }) => {
+import TableItem from 'components/TableItem/TableItem';
+import { Fragment } from 'react';
+
+const Tablelist = ({ stats, list, type = false, delTrans, categorys }) => {
   const month = Object.keys(stats);
+
   const monthValues = Object.values(stats);
 
-  const onDelete = id => {
-    delTrans(id);
-  };
   return (
     <div>
       <div className={s.table_container}>
@@ -26,27 +26,18 @@ const Tablelist = ({ stats, list, type = false, delTrans }) => {
             <tbody className={s.table_tbody}>
               {list.map(el => {
                 return (
-                  <tr className={s.tr} key={el._id} id={el._id}>
-                    <td className={s.date_td1}>{el.date}</td>
-                    <td className={s.description_td2}>{el.description}</td>
-                    <td className={s.category_td3}>{el.category}</td>
-
-                    <td className={type ? s.expense : s.income}>
-                      {el.amount} грн.
-                    </td>
-                    <td className={s.date_td1}>
-                      <div className={s.svg}>
-                        <svg
-                          width="17"
-                          height="17"
-                          onClick={() => onDelete(el._id)}
-                          type="button"
-                        >
-                          <use href={vvv + '#icon-trash-can'}></use>
-                        </svg>
-                      </div>
-                    </td>
-                  </tr>
+                  <Fragment key={el._id}>
+                    <TableItem
+                      delTrans={delTrans}
+                      id={el._id}
+                      date={el.date}
+                      description={el.description}
+                      category={el.category}
+                      amount={el.amount}
+                      type={type}
+                      categorys={categorys}
+                    />
+                  </Fragment>
                 );
               })}
             </tbody>

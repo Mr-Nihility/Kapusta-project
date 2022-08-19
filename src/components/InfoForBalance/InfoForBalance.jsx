@@ -16,7 +16,7 @@ export const InfoForBalance = () => {
           Expenses:
           <span className={Style.text_spentMoney}>- {expenses}.00 грн.</span>
         </p>
-        <div className={Style.decor}></div>
+        {/* <div className={Style.decor}></div> */}
         <p className={Style.textEarned}>
           Income:
           <span className={Style.text_earnedMoney}>+ {income}.00 грн.</span>
