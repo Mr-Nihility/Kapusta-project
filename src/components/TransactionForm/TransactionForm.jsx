@@ -5,35 +5,50 @@ import styles from '../TransactionForm/TransactionForm.module.css';
 import * as Yup from 'yup';
 import { Formik, Form, Field } from 'formik';
 import svg from '../../images/svg-icon-project/symbol-defs.svg';
-
 // import saa from '../../images/svg-icon-project.svg';
 //----------------------------------------------------------------------------//
 
 export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
   const [date, setDate] = useState(new Date());
-
+  const [active, setActive] = useState(false);
+  const [category, setCategory] = useState('');
   const handlerSubmit = evt => {
     evt.preventDefault();
 
-    const { date: x, description, amount, category } = evt.target.elements;
-
+    const { date: x, description, amount } = evt.target.elements;
+    console.log(evt.target.name);
     const date = x.value.replaceAll('.', '-');
 
     onSubmit({
       description: description.value,
-      category: category.value,
+      category: category,
       amount: Number(amount.value),
       date,
     });
     evt.target.reset();
+    setCategory('');
+  };
+
+  const onClick = evt => {
+    if (
+      evt.target.innerText === 'Product Category' ||
+      evt.target.innerText.length > 20
+    ) {
+      setActive(!active);
+      return;
+    }
+    setCategory(evt.target.innerText);
+
+    setActive(!active);
   };
 
   const validate = Yup.object().shape({
     amount: Yup.number().min(2).required('Required'),
     description: Yup.string()
       .min(3, 'Must be at least 3 charaters')
+      .max(8, 'Must be no more then 8 charaters')
       .required('Required'),
-    category: Yup.string().required(),
+    // category: Yup.string().required(),
   });
 
   return (
@@ -88,7 +103,44 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
               </label>
 
               <div className={styles.wrapper}>
-                <select
+                <div onClick={onClick} className={styles.dropdown}>
+                  {!active ? (
+                    <svg
+                      className={styles.selectionIcon}
+                      width="15"
+                      height="10"
+                    >
+                      <use href={`${svg}#icon-arrow-to-down`}></use>
+                    </svg>
+                  ) : (
+                    <svg
+                      className={styles.selectionIconRev}
+                      width="15"
+                      height="10"
+                    >
+                      <use href={`${svg}#icon-arrow-to-down`}></use>
+                    </svg>
+                  )}
+
+                  <div className={styles.dropdownBtn}>
+                    {category ? category : 'Product Category'}
+                    <div className={styles.dropdownContent}>
+                      {active &&
+                        rCategory.map((el, i) => {
+                          return (
+                            <p
+                              key={i}
+                              name={el}
+                              className={styles.dropdownItem}
+                            >
+                              {el}
+                            </p>
+                          );
+                        })}
+                    </div>
+                  </div>
+                </div>
+                {/*--------------------------------------------- <select
                   className={styles.selected}
                   name="category"
                   onChange={handleChange}
@@ -99,7 +151,6 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
                     // disabled
                     label="Product category"
                     className={styles.placeholder}
-                    selected
                     styles={{ color: '#C7CCDC' }}
                   >
                     Product category
@@ -120,7 +171,7 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
 
                 <svg className={styles.icon} width="15" height="10">
                   <use href={`${svg}#icon-arrow-to-down`}></use>
-                </svg>
+                </svg> ------------------------------------------------------------start custom select*/}
               </div>
 
               <label className={styles.label}>

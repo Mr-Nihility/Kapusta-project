@@ -54,6 +54,7 @@ export default function ExpensesView() {
   };
 
   const deleteItem = id => {
+    console.log('View', id);
     dispatch(deleteTrancaction(id));
   };
 

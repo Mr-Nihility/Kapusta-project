@@ -12,6 +12,10 @@
   border: 1px solid #ff751d;
   background-color: #ffffff;
 }
+.yesBtn {
+  background-color: #ff751d;
+  color: #ffffff;
+}
 .yesBtn:hover,
 .noBtn:hover {
   color: #ffffff;
