@@ -1,0 +1,22 @@
+.link_report {
+  text-decoration: none;
+  color: #52555f;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+
+  letter-spacing: 0.2;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  position: absolute;
+
+  right: 15%;
+  top: 6%;
+  transition: 0.4s;
+}
+
+.link_report:hover .diagramsvg {
+  fill: #ff751d;
+}

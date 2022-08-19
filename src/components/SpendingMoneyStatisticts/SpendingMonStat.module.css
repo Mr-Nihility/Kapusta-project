@@ -1,0 +1,40 @@
+.spend_stat {
+	display: flex;
+	flex-direction: column;
+  align-items: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-bottom: 40px;
+}
+
+.spend_statTextBig {
+	padding: 0px 10px;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 1.1;
+	color: #000000;
+}
+
+.spend_statSvg {
+	height: 10px;
+	width: 4px;
+}
+
+.spend_stathUse {
+	height: 10px;
+	width: 4px;
+}
+
+.list_spend {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 0px;
+	height: 268px;
+	width: 623px;
+}
+
+.spend_statPosition {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+}

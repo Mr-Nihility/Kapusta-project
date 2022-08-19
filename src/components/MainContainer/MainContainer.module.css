@@ -1,0 +1,50 @@
+.Container1 {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding-bottom: 50px;
+  background-image: url(./images/Component_1.svg);
+  background-size: 100%, contain;
+  background-repeat: no-repeat;
+  background-position: 0 -56px;
+}
+
+.Container2 {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding-bottom: 50px;
+  background-image: url(./images/Component_2.svg);
+  background-size: 100%, contain;
+  background-repeat: no-repeat;
+  background-position: 0 -56px;
+}
+
+.Fon {
+  position: absolute;
+  max-height: 582px;
+}
+.FonNuts {
+  position: absolute;
+  top: 0;
+  height: auto;
+}
+.Nutsmini {
+  position: absolute;
+  left: 230px;
+  top: 602px;
+  width: 183px;
+  height: 142px;
+}
+.LogoKapusta {
+  position: absolute;
+  left: 230px;
+  width: 377px;
+  height: 139px;
+  top: 308px;
+}
+.FonNutsInAuth {
+  position: absolute;
+  bottom: 0;
+  height: auto;
+}

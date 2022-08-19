@@ -1,0 +1,61 @@
+.yesBtn,
+.noBtn {
+  margin-top: 20px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 20px;
+  padding: 15px 50px;
+  border-radius: 20px;
+  outline: transparent;
+  border: 1px solid #ff751d;
+  background-color: #ffffff;
+}
+.yesBtn:hover,
+.noBtn:hover {
+  color: #ffffff;
+  background-color: #ff751d;
+  transition: 0.4s;
+  outline: transparent;
+  border: 1px solid #ffffff;
+}
+
+.closeBtn:hover {
+  background-color: #ff751d;
+}
+
+.background {
+  position: absolute;
+  text-align: center;
+  z-index: 100;
+  width: 380px;
+  height: 194px;
+  padding: 45px;
+  color: #52555f;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  background-color: #ffffff;
+  border-radius: 30px;
+  border: 1px solid #ff751d;
+  transform: translate(-150%, 80%);
+  top: 0;
+  right: 0;
+}
+.closeBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 10px;
+  outline: transparent;
+  border: none;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  transform: translate(-7px, 6px);
+  background-color: transparent;
+}
