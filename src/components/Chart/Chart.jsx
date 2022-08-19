@@ -66,87 +66,68 @@ export const Chart = ({ itemEl }) => {
         position: 'bottom',
         display: false,
       },
-      title: {
-        display: true,
-        text: '',
-        padding: 2,
-        weight: 'bold',
-        color: '#00325c',
-        font: {
-          size: 13,
-        },
-        align: 'start',
-      },
       datalabels: {
         anchor: 'end',
-        offset: -20,
-        align: 'end',
-        padding: 25,
+        offset: 10,
+        align: 'top',
+        padding: 0,
         display: true,
-        color: 'black',
-        labels: {
-          title: {
-            font: {
-              weight: 'bold',
-            },
-          },
-          value: {
-            color: 'black',
-          },
+        color: '#52555F',
+        font: {
+          size: 10,
+          letterSpacing: '0.02em',
+          lineHeight: 1.2,
         },
       },
     },
     scales: {
-      x: {
-        display: true,
+      xAxes: {
         grid: {
+          drawBorder: false,
+          color: 'transparent',
+        },
+        ticks: { display: false },
+        gridLines: {
+          display: false,
+          drawBorder: false,
+        },
+      },
+      yAxes: {
+        grid: {
+          drawBorder: false,
           color: 'transparent',
         },
         ticks: {
           padding: 0,
-          maxRotation: 0,
-          minRotation: 0,
-          autoSkip: false,
+          mirror: true,
+          labelOffset: -16,
+          color: '#52555F',
+          display: true,
           font: {
-            size: 12,
-            lineHeight: 1.17,
+            size: 10,
+            letterSpacing: '0.02em',
+            lineHeight: 1.2,
           },
         },
-      },
-      y: {
-        grid: {
-          color: '#F5F6FB',
-          lineWidth: 2,
+        gridLines: {
+          display: false,
           drawBorder: false,
-        },
-        display: true,
-        ticks: {
-          font: {
-            size: 0,
-          },
         },
       },
     },
   };
+
   const options = {
     responsive: true,
     maintainAspectRatio: false,
     keepAspectRatio: false,
     plugins: {
       legend: {
-        position: 'bottom',
         display: false,
       },
       title: {
-        display: true,
+        display: false,
         text: '',
-        padding: 2,
-        weight: 'bold',
-        color: '#00325c',
-        font: {
-          size: 13,
-        },
-        align: 'start',
       },
       datalabels: {
         anchor: 'end',
@@ -158,11 +139,9 @@ export const Chart = ({ itemEl }) => {
         labels: {
           title: {
             font: {
-              weight: 'bold',
+              size: 12,
+              color: '#52555F',
             },
-          },
-          value: {
-            color: 'black',
           },
         },
       },
@@ -179,6 +158,7 @@ export const Chart = ({ itemEl }) => {
           minRotation: 0,
           autoSkip: false,
           font: {
+            color: 'red',
             size: 12,
             lineHeight: 1.17,
           },
@@ -214,38 +194,58 @@ export const Chart = ({ itemEl }) => {
     ],
   };
 
+  const dataHorizontal = {
+    labels: itemLabels,
+    datasets: [
+      {
+        label: '',
+        data: itemData,
+        backgroundColor: [' #FF751D', '#FFDAC0', '#FFDAC0'],
+        borderRadius: 10,
+        maxBarThickness: 15,
+        barScale: 2,
+      },
+    ],
+  };
+
   return (
-    <div className={styles.chartWrapper}>
-      <div className={styles.chartContainer}>
-        {widthScreen <= 767 && (
-          <Bar
-            options={optionsHorizontal}
-            data={data}
-            id="Bar"
-            style={{
-              display: 'flex',
-              width: '760px',
-              maxWidth: '1034px',
-              height: '360px',
-            }}
-            width={'760px'}
-          />
-        )}{' '}
-        {widthScreen >= 768 && (
-          <Bar
-            options={options}
-            data={data}
-            id="Bar"
-            style={{
-              display: 'flex',
-              width: '760px',
-              maxWidth: '1034px',
-              height: '360px',
-            }}
-            width={'760px'}
-          />
-        )}
-      </div>
-    </div>
+    <>
+      {widthScreen <= 767 && (
+        <div className={styles.chartWrapper}>
+          <div className={styles.chartContainer}>
+            <Bar
+              options={optionsHorizontal}
+              data={dataHorizontal}
+              id="Bar"
+              style={{
+                display: 'flex',
+                width: '760px',
+                maxWidth: '1034px',
+                height: '360px',
+              }}
+              width={'760px'}
+            />
+          </div>
+        </div>
+      )}
+      {widthScreen >= 768 && (
+        <div className={styles.chartWrapper}>
+          <div className={styles.chartContainer}>
+            <Bar
+              options={options}
+              data={data}
+              id="Bar"
+              style={{
+                display: 'flex',
+                width: '760px',
+                maxWidth: '1034px',
+                height: '360px',
+              }}
+              width={'760px'}
+            />
+          </div>
+        </div>
+      )}
+    </>
   );
 };
