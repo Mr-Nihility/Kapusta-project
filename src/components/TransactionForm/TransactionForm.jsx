@@ -55,7 +55,6 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
           handleReset,
           values,
         }) => {
-          console.log(values);
           return (
             <Form className={styles.form} onSubmit={handlerSubmit}>
               <label className={styles.label}>
@@ -93,9 +92,16 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
                   className={styles.selected}
                   name="category"
                   onChange={handleChange}
-                  placeholder="Product category"
+                  // placeholder="Product category"
                 >
-                  <option disabled hidden value="" label="Product category">
+                  <option
+                    value=""
+                    // disabled
+                    label="Product category"
+                    className={styles.placeholder}
+                    selected
+                    styles={{ color: '#C7CCDC' }}
+                  >
                     Product category
                   </option>
 
@@ -111,6 +117,7 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
                     );
                   })}
                 </select>
+
                 <svg className={styles.icon} width="15" height="10">
                   <use href={`${svg}#icon-arrow-to-down`}></use>
                 </svg>
