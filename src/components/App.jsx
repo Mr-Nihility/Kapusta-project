@@ -16,11 +16,15 @@ import PublicRoute from './PublicRoute/PublicRoute';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import { getSuccessToken } from 'redux/auth/auth-selectors';
 import { MainContainer } from './MainContainer/MainContainer';
+// import { useState } from 'react';
 
 //---------------------------------------------------------------//
 export const App = () => {
   const dispatch = useDispatch();
   const token = useSelector(getSuccessToken);
+  // const [screenWidth, setScreenWidth] = useState('');
+  const screenWidth = '';
+
   useEffect(() => {
     if (!token) {
       return;
@@ -63,7 +67,7 @@ export const App = () => {
             path={'reports'}
             element={
               <PrivateRoute>
-                <ReportView />
+                <ReportView screenWidth={screenWidth} />
               </PrivateRoute>
             }
           />
