@@ -4,7 +4,7 @@ import IconsSVG from '../../svg/symbol-defs-statistic.svg';
 export const Icons = ({name, className, color, width, height }) => {
 
   return(
-    <svg className={`${className}`} fill={color} stroke={color} width={width} height={height}>
+    <svg className={`${className}`} fill={color} width={width} height={height}>
       <use xlinkHref={`${IconsSVG}#icon-${name}`} />
     </svg>
   )
