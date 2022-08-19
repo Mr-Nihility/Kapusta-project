@@ -26,6 +26,7 @@ const initialState = {
   sid: '',
   isLogged: false,
   isFisrtSignIn: false,
+  isLoading: false,
 };
 
 const authSlice = createSlice({
@@ -58,6 +59,10 @@ const authSlice = createSlice({
       state.accessToken = payload.newAccessToken;
       state.sid = payload.newSid;
       state.isLogged = true;
+      state.isLoading = false;
+    },
+    [getCurrentUser.pending]: (state, { payload }) => {
+      state.isLoading = true;
     },
     [getCurrentUser.rejected]: (state, _) => {
       state.refreshToken = '';
@@ -77,12 +82,17 @@ const authSlice = createSlice({
     [deleteTrancaction.fulfilled]: (state, { payload }) => {
       state.userData.balance = payload.newBalance;
     },
+
     [googleAuthUser.fulfilled]: (state, { payload }) => {
       state.refreshToken = payload.refreshToken;
       state.accessToken = payload.accessToken;
       state.sid = payload.sid;
       state.isLogged = true;
       state.userData.email = payload.data.email;
+      state.isLoading = false;
+    },
+    [googleAuthUser.pending]: (state, { payload }) => {
+      state.isLoading = true;
     },
   },
 });
