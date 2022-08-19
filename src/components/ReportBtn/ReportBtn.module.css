@@ -12,11 +12,11 @@
   gap: 10px;
   position: absolute;
 
-  right: 15%;
-  top: 6%;
+  right: 7.5%;
+  top: 51px;
   transition: 0.4s;
 }
 
 .link_report:hover .diagramsvg {
-  fill: #ff751d;
+  fill: orange;
 }

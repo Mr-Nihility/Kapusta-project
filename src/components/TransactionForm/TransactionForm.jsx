@@ -6,26 +6,56 @@ import * as Yup from 'yup';
 import { Formik, Form, Field } from 'formik';
 import svg from '../../images/svg-icon-project/symbol-defs.svg';
 
-// import saa from '../../images/svg-icon-project.svg';
 //----------------------------------------------------------------------------//
 
 export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
   const [date, setDate] = useState(new Date());
+  const [active, setActive] = useState(false);
+  const [category, setCategory] = useState('');
 
   const handlerSubmit = evt => {
     evt.preventDefault();
 
-    const { date: x, description, amount, category } = evt.target.elements;
+    const { date: x, description, amount } = evt.target.elements;
 
     const date = x.value.replaceAll('.', '-');
 
     onSubmit({
       description: description.value,
-      category: category.value,
+      category: category,
       amount: Number(amount.value),
       date,
     });
     evt.target.reset();
+    setCategory('');
+  };
+
+  const onClick = evt => {
+    if (
+      evt.target.textContent === 'Product Category' ||
+      evt.target.textContent.length > 25
+    ) {
+      setActive(!active);
+      return;
+    }
+
+    rCategory.map((el, i) => {
+      if (evt.target.textContent === engCategory[i]) {
+        setCategory(rCategory[i]);
+      }
+      return '';
+    });
+
+    setActive(!active);
+  };
+  const returnEngcategory = () => {
+    let res;
+    rCategory.forEach((el, i) => {
+      if (category === el) {
+        res = engCategory[i];
+      }
+    });
+    return res;
   };
 
   const validate = Yup.object().shape({
@@ -33,9 +63,8 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
     description: Yup.string()
       .min(3, 'Must be at least 3 charaters')
       .required('Required'),
-    category: Yup.string().required(),
   });
-
+  
   return (
     <>
       <Formik
@@ -86,41 +115,45 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
                   </span>
                 )}
               </label>
-
+              {/* Custom select start------------------------------------------------------------ ------------------------------------------------*/}
               <div className={styles.wrapper}>
-                <select
-                  className={styles.selected}
-                  name="category"
-                  onChange={handleChange}
-                  // placeholder="Product category"
+                <div
+                  onClick={onClick}
+                  className={active ? styles.dropdownSelected : styles.dropdown}
                 >
-                  <option
-                    value=""
-                    // disabled
-                    label="Product category"
-                    className={styles.placeholder}
-                    selected
-                    styles={{ color: '#C7CCDC' }}
-                  >
-                    Product category
-                  </option>
+                  {!active ? (
+                    <svg
+                      className={styles.selectionIcon}
+                      width="15"
+                      height="10"
+                    >
+                      <use href={`${svg}#icon-arrow-to-down`}></use>
+                    </svg>
+                  ) : (
+                    <svg
+                      className={styles.selectionIconRev}
+                      width="15"
+                      height="10"
+                    >
+                      <use href={`${svg}#icon-arrow-to-down`}></use>
+                    </svg>
+                  )}
 
-                  {engCategory.map((el, i) => {
-                    return (
-                      <option
-                        key={i}
-                        className={styles.placeholder}
-                        value={rCategory && rCategory[i]}
-                      >
-                        {el}
-                      </option>
-                    );
-                  })}
-                </select>
-
-                <svg className={styles.icon} width="15" height="10">
-                  <use href={`${svg}#icon-arrow-to-down`}></use>
-                </svg>
+                  <div className={styles.dropdownBtn}>
+                    {category ? returnEngcategory() : 'Product Category'}
+                    <div className={styles.dropdownContent}>
+                      {active &&
+                        engCategory.map((el, i) => {
+                          return (
+                            <p key={i} className={styles.dropdownItem}>
+                              {el}
+                            </p>
+                          );
+                        })}
+                    </div>
+                  </div>
+                </div>
+                {/* Custom select END------------------------------------------------------------ -----------------------------------*/}
               </div>
 
               <label className={styles.label}>
@@ -142,7 +175,7 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
               <button
                 className={styles.inputBtn}
                 type="submit"
-                disabled={!isValid || !dirty}
+                disabled={!isValid || !dirty || !category}
               >
                 INPUT
               </button>
