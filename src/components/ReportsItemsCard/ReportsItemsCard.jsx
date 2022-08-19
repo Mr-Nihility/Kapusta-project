@@ -1,5 +1,6 @@
 import Style from './ReportsItemsCard.module.css';
-import { Icons } from '../Icons/Icons';
+import { Icons } from '../Icons/IconsForListStatisticts';
+import { useState } from 'react';
 
 export const ReportsItemsCard = ({
   total,
@@ -8,11 +9,28 @@ export const ReportsItemsCard = ({
   item,
   handelClickOnCategory,
 }) => {
+  const [active, setActive] = useState('');
+  const addActiveClass = id => {
+    console.log(id);
+
+    // if (e.currentTarget.tagName === 'LI') {
+    //   // e.currentTarget.style.backgroundColor = 'red';
+    //   // classList?.add('active');
+    // }
+    // handelClickOnCategory(item);
+    setActive(id);
+    //  if(e.target.classList.contains("active")){
+    //  }else{
+
+    //  }
+  };
+  console.log(active);
   return (
     <li
-      className={Style.item_spend}
+      className={Style.item_spend + ' ' + (active === id ? Style.active : '')}
       key={id}
       onClick={() => {
+        addActiveClass(id);
         handelClickOnCategory(item);
       }}
     >
@@ -22,7 +40,7 @@ export const ReportsItemsCard = ({
         <Icons
           name={category}
           className={Style.item_spendSvg}
-          color="#000000"
+          color="#071F41"
           width="56"
           height="56"
         />
