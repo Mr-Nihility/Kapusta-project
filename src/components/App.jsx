@@ -14,8 +14,9 @@ import IncomeView from 'pages/IncomeView';
 // import Tablelist from './TableList/TableList';
 import PublicRoute from './PublicRoute/PublicRoute';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
-import { getSuccessToken } from 'redux/auth/auth-selectors';
+import { getIsLoading, getSuccessToken } from 'redux/auth/auth-selectors';
 import { MainContainer } from './MainContainer/MainContainer';
+import { LoaderLine } from './Loaders/LoaderLine/LoaderLine';
 
 //---------------------------------------------------------------//
 export const App = () => {
@@ -46,52 +47,58 @@ export const App = () => {
     navigate('/kapusta-project/expenses');
   }, [searchParams, dispatch, navigate]);
 
+  const isLoading = useSelector(getIsLoading);
+
   return (
     <>
-      <Routes>
-        <Route path="/kapusta-project/" element={<SharedLayout />}>
+      {isLoading ? (
+        <LoaderLine />
+      ) : (
+        <Routes>
+          <Route path="/kapusta-project/" element={<SharedLayout />}>
+            <Route
+              index
+              element={
+                <PublicRoute>
+                  <SignInView />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path={'expenses'}
+              element={
+                <PrivateRoute>
+                  <ExpensesView />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path={'income'}
+              element={
+                <PrivateRoute>
+                  <IncomeView />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path={'reports'}
+              element={
+                <PrivateRoute>
+                  <ReportView />
+                </PrivateRoute>
+              }
+            />
+          </Route>
           <Route
-            index
+            path="*"
             element={
-              <PublicRoute>
-                <SignInView />
-              </PublicRoute>
+              <MainContainer>
+                <NotFound />
+              </MainContainer>
             }
           />
-          <Route
-            path={'expenses'}
-            element={
-              <PrivateRoute>
-                <ExpensesView />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path={'income'}
-            element={
-              <PrivateRoute>
-                <IncomeView />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path={'reports'}
-            element={
-              <PrivateRoute>
-                <ReportView />
-              </PrivateRoute>
-            }
-          />
-        </Route>
-        <Route
-          path="*"
-          element={
-            <MainContainer>
-              <NotFound />
-            </MainContainer>
-          }
-        />
-      </Routes>
+        </Routes>
+      )}
     </>
   );
 };
