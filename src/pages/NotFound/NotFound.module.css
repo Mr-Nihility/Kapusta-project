@@ -1,3 +1,5 @@
+
+
 .bg_image {
   position: relative;
   top: 7%;
@@ -10,7 +12,7 @@
 
   box-shadow: inset 2px 2px 5px rgba(212, 217, 209, 0.5),
     1px 1px 5px rgba(255, 255, 255, 1);
-  background-image: url('https://pixabay.com/get/g503bd95c6ee7e656383f6910873f265a9ccdd920b7cdc2f1f89ecea6badee6a35768c0875a80edcaa817004d2690e208df3a87736d3dbbc84700123d18317a02_1920.jpg');
+  background-image: url('../../images/background/kapusta_not.jpg');
 }
 
 .title {
