@@ -12,11 +12,13 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
   const [date, setDate] = useState(new Date());
   const [active, setActive] = useState(false);
   const [category, setCategory] = useState('');
+  console.log(rCategory);
+console.log(engCategory);
   const handlerSubmit = evt => {
     evt.preventDefault();
 
     const { date: x, description, amount } = evt.target.elements;
-console.log(evt.target.name);
+    console.log(evt.target.name);
     const date = x.value.replaceAll('.', '-');
 
     onSubmit({
@@ -26,28 +28,42 @@ console.log(evt.target.name);
       date,
     });
     evt.target.reset();
-    setCategory('')
+    setCategory('');
   };
 
   const onClick = evt => {
-    
-    if (evt.target.innerText==='Product Category'||evt.target.innerText.length>20) {
-     setActive(!active);
-     return
+    if (
+      evt.target.textContent === 'Product Category' ||
+      evt.target.textContent.length > 25
+    ) {
+      setActive(!active);
+      return;
     }
-    setCategory(evt.target.innerText)
-    
-     setActive(!active);
-   };
-
-
+    setCategory(evt.target.textContent);
+  //     rCategory.map((el, i)=>{
+      
+  //       return switch (evt.target.textContent) {
+  //       case 'Products':
+  //       setCategory('')
+  //         break;
+  //         case 'Alcohol':
+  //           break;
+        
+  //     default:
+         
+  //       break;
+  //   }
+  //   setCategory();
+  // })
+    setActive(!active);
+  };
 
   const validate = Yup.object().shape({
     amount: Yup.number().min(2).required('Required'),
     description: Yup.string()
       .min(3, 'Must be at least 3 charaters')
       .required('Required'),
-    // category: Yup.string().required(),
+
   });
 
   return (
@@ -100,28 +116,53 @@ console.log(evt.target.name);
                   </span>
                 )}
               </label>
-
+              {/* Custom select start------------------------------------------------------------ ------------------------------------------------*/}
               <div className={styles.wrapper}>
-              <div onClick={onClick} className={styles.dropdown}>
-        {!active?(<svg className={styles.selectionIcon} width="15" height="10">
-                <use href={`${svg}#icon-arrow-to-down`}></use>
-              </svg>):<svg className={styles.selectionIconRev} width="15" height="10">
-                <use href={`${svg}#icon-arrow-to-down`}></use>
-              </svg>}
-      
-        <div  className={styles.dropdownBtn}>{category?category:'Product Category'}
-          <div className={styles.dropdownContent}>
-            {active &&
-              rCategory.map((el, i) => {
-                return (
-                  <p key={i} name={el} className={styles.dropdownItem}>
-                    {el}
-                  </p>
-                );
-              })}
-          </div>
-        </div>
-      </div>
+                <div
+                // {active&&<>(style={{ backgroundColor: "#f8faff"}})</>}
+                
+                  onClick={onClick}
+                  className={
+                    active ? styles.dropdownSelected : styles.dropdown
+                  }
+                >
+                  {!active ? (
+                    <svg
+                      className={styles.selectionIcon}
+                      width="15"
+                      height="10"
+                    >
+                      <use href={`${svg}#icon-arrow-to-down`}></use>
+                    </svg>
+                  ) : (
+                    <svg
+                      className={styles.selectionIconRev}
+                      width="15"
+                      height="10"
+                    >
+                      <use href={`${svg}#icon-arrow-to-down`}></use>
+                    </svg>
+                  )}
+
+                  <div className={styles.dropdownBtn}>
+                    {category ? category : 'Product Category'}
+                    <div className={styles.dropdownContent}>
+                      {active &&
+                        rCategory.map((el, i) => {
+                          return (
+                            <p
+                              key={i}
+                              
+                              className={styles.dropdownItem}
+                            >
+                              {el}
+                            </p>
+                          );
+                        })}
+                    </div>
+                  </div>
+                </div>
+                {/* Custom select END------------------------------------------------------------ -----------------------------------*/}
                 {/*--------------------------------------------- <select
                   className={styles.selected}
                   name="category"
@@ -154,9 +195,6 @@ console.log(evt.target.name);
                 <svg className={styles.icon} width="15" height="10">
                   <use href={`${svg}#icon-arrow-to-down`}></use>
                 </svg> ------------------------------------------------------------start custom select*/}
-
-
-
               </div>
 
               <label className={styles.label}>
@@ -176,9 +214,10 @@ console.log(evt.target.name);
               </label>
 
               <button
+              
                 className={styles.inputBtn}
                 type="submit"
-                disabled={!isValid || !dirty}
+                disabled={!isValid || !dirty || !category}
               >
                 INPUT
               </button>
