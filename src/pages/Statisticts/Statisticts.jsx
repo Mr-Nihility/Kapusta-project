@@ -4,9 +4,8 @@ import { SpendingMoneyStatisticts } from '../../components/SpendingMoneyStatisti
 import { Chart } from 'components/Chart/Chart';
 import { useState } from 'react';
 
-export const Statisticts = () => {
+export const Statisticts = ({ screenWidth }) => {
   const [itemEl, setItemEL] = useState([]);
-  console.log(itemEl);
 
   const handelClickOnCategory = item => {
     setItemEL(item);
@@ -29,7 +28,7 @@ export const Statisticts = () => {
         <SpendingMoneyStatisticts
           handelClickOnCategory={handelClickOnCategory}
         />
-        {!!itemEl.length && <Chart itemEl={itemEl} />}
+        {!!itemEl.length && <Chart screenWidth={screenWidth} itemEl={itemEl} />}
       </div>
     </>
   );

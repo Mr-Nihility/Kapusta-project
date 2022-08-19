@@ -1,9 +1,9 @@
 import React from 'react';
 import { Statisticts } from './Statisticts/Statisticts';
-export const ReportView = () => {
+export const ReportView = ({ screenWidth }) => {
   return (
     <div>
-      <Statisticts />
+      <Statisticts screenWidth={screenWidth} />
     </div>
   );
 };
