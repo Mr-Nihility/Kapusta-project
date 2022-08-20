@@ -92,3 +92,48 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+/* ---------------------
+MOBILE------------------
+-----------------------*/
+
+@media (max-width: 767px) {
+  .innerWrapperForm {
+    position: relative;
+    display: block;
+    margin-top: 86px;
+  }
+
+  .LogoKapusta {
+    width: 183px;
+    height: 63px;
+    display: block;
+    margin-left: 20px;
+
+    margin-bottom: 50px;
+  }
+
+  .Nutsmini {
+    position: absolute;
+    left: 20px;
+    bottom: 5%;
+    height: 75px;
+    width: 70px;
+    transform: rotate(90deg);
+  }
+
+  .bgColor {
+    position: absolute;
+    background-color: #f5f6fb;
+    background-image: url(./images/kapusta-header-mobile.svg);
+    background-size: 83px;
+    background-repeat: no-repeat;
+
+    background-position: 220px 40px;
+
+    width: 100%;
+    height: 342px;
+
+    border-bottom-left-radius: 130px;
+  }
+}
