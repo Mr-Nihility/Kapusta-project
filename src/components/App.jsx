@@ -17,6 +17,7 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
 import { getIsLoading, getSuccessToken } from 'redux/auth/auth-selectors';
 import { MainContainer } from './MainContainer/MainContainer';
 import { LoaderLine } from './Loaders/LoaderLine/LoaderLine';
+// import Media from 'react-media';
 
 //---------------------------------------------------------------//
 export const App = () => {
