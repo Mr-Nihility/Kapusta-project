@@ -21,7 +21,7 @@ export const ReportsItemsCard = ({
         handelClickOnCategory(item, currentIdItem);
       }}
     >
-      <p className={Style.item_text}>{total + '.00 грн'}</p>
+      <p className={Style.item_text}>{total + '.00'}</p>
 
       <div
         className={
