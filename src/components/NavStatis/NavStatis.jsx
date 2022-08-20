@@ -102,13 +102,13 @@ export const NavStatis = () => {
           <div className={Style.button_goHomeArrow}>
             <Icons
               name="long-arrow-left"
-              className=""
+              className={Style.button_goHomeArrowIcons}
               color="#FF751D"
               width="18"
               height="12"
             />
+						<p className={Style.button_goHomeArrowText}>Main page</p>
           </div>
-				{ widthScreen >= 768 && <p>Main page</p>}
         </Link>
         <div className={Style.infoForUserBalance}>
 					{ widthScreen <= 768 && <ReportsBalance /> }
