@@ -64,7 +64,7 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
       .min(3, 'Must be at least 3 charaters')
       .required('Required'),
   });
-  
+
   return (
     <>
       <Formik
@@ -86,109 +86,125 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
         }) => {
           return (
             <Form className={styles.form} onSubmit={handlerSubmit}>
-              <label className={styles.label}>
-                <svg className={styles.iconCalendar} width="20" height="20">
-                  <use href={`${svg}#icon-calendar`}></use>
-                </svg>
-                <DatePicker
-                  className={styles.date}
-                  name="date"
-                  dateFormat="yyyy.MM.dd"
-                  selected={date}
-                  onChange={changeDate => {
-                    setDate(changeDate);
-                  }}
-                />
-              </label>
+              <div className={styles.inputsWrap}>
+                <label className={styles.label}>
+                  <svg className={styles.iconCalendar} width="20" height="20">
+                    <use href={`${svg}#icon-calendar`}></use>
+                  </svg>
+                  <DatePicker
+                    className={styles.date}
+                    name="date"
+                    dateFormat="yyyy.MM.dd"
+                    selected={date}
+                    onChange={changeDate => {
+                      setDate(changeDate);
+                    }}
+                  />
+                </label>
 
-              <label className={styles.label}>
-                <Field
-                  className={styles.description}
-                  name="description"
-                  type="text"
-                  onChange={handleChange}
-                  placeholder="Product description"
-                />
-                {errors.description && touched.description && (
-                  <span className={styles.errorMessage}>
-                    {errors.description}
-                  </span>
-                )}
-              </label>
-              {/* Custom select start------------------------------------------------------------ ------------------------------------------------*/}
-              <div className={styles.wrapper}>
-                <div
-                  onClick={onClick}
-                  className={active ? styles.dropdownSelected : styles.dropdown}
-                >
-                  {!active ? (
-                    <svg
-                      className={styles.selectionIcon}
-                      width="15"
-                      height="10"
-                    >
-                      <use href={`${svg}#icon-arrow-to-down`}></use>
-                    </svg>
-                  ) : (
-                    <svg
-                      className={styles.selectionIconRev}
-                      width="15"
-                      height="10"
-                    >
-                      <use href={`${svg}#icon-arrow-to-down`}></use>
-                    </svg>
+                <label className={styles.label}>
+                  <Field
+                    className={styles.description}
+                    name="description"
+                    type="text"
+                    onChange={handleChange}
+                    placeholder="Product description"
+                  />
+                  {errors.description && touched.description && (
+                    <span className={styles.errorMessage}>
+                      {errors.description}
+                    </span>
                   )}
+                </label>
+                {/* Custom select start------------------------------------------------------------ ------------------------------------------------*/}
+                <div className={styles.wrapper}>
+                  <div
+                    onClick={onClick}
+                    className={
+                      active ? styles.dropdownSelected : styles.dropdown
+                    }
+                  >
+                    {!active ? (
+                      <svg
+                        className={styles.selectionIcon}
+                        width="15"
+                        height="10"
+                      >
+                        <use href={`${svg}#icon-arrow-to-down`}></use>
+                      </svg>
+                    ) : (
+                      <svg
+                        className={styles.selectionIconRev}
+                        width="15"
+                        height="10"
+                      >
+                        <use href={`${svg}#icon-arrow-to-down`}></use>
+                      </svg>
+                    )}
 
-                  <div className={styles.dropdownBtn}>
-                    {category ? returnEngcategory() : 'Product Category'}
-                    <div className={active?styles.dropdownContent:styles.dropdownContentDisable}>
-                      {active &&
-                        engCategory.map((el, i) => {
-                          return (
-                            <p key={i} className={styles.dropdownItem}>
-                              {el}
-                            </p>
-                          );
-                        })}
+                    <div className={styles.dropdownBtn}>
+                      {category ? returnEngcategory() : 'Product Category'}
+                      <div
+                        className={
+                          active
+                            ? styles.dropdownContent
+                            : styles.dropdownContentDisable
+                        }
+                      >
+                        {active &&
+                          engCategory.map((el, i) => {
+                            return (
+                              <p key={i} className={styles.dropdownItem}>
+                                {el}
+                              </p>
+                            );
+                          })}
+                      </div>
                     </div>
                   </div>
+                  {/* Custom select END------------------------------------------------------------ -----------------------------------*/}
                 </div>
-                {/* Custom select END------------------------------------------------------------ -----------------------------------*/}
+
+                <label className={styles.label}>
+                <div className={styles.calcWrap}>
+                  <svg className={styles.iconCalculator} width="20" height="20">
+                    <use href={`${svg}#icon-calculator`}></use>
+                  </svg>
+
+                  <Field
+                    onChange={handleChange}
+                    className={styles.amount}
+                    name="amount"
+                    type="number"
+                    placeholder="0,00"
+                  />
+                  <div className={styles.calcRightSide}></div>
+                  {errors.amount && touched.amount && (
+                    <span className={styles.errorMessage}>{errors.amount}</span>
+                  )}
+                  </div>
+                </label>
               </div>
 
-              <label className={styles.label}>
-                <svg className={styles.iconCalculator} width="20" height="20">
-                  <use href={`${svg}#icon-calculator`}></use>
-                </svg>
-                <Field
-                  onChange={handleChange}
-                  className={styles.amount}
-                  name="amount"
-                  type="number"
-                  placeholder="0,00"
-                />
-                {errors.amount && touched.amount && (
-                  <span className={styles.errorMessage}>{errors.amount}</span>
-                )}
-              </label>
-
-              <button
-                className={styles.inputBtn}
-                type="submit"
-                disabled={!isValid || !dirty || !category}
-              >
-                INPUT
-              </button>
-              <button
-                className={styles.clearBtn}
-                type="button"
-                onClick={() => {
-                  handleReset();
-                  setCategory('')
-                }}
-              >
-                CLEAR
-              </button>
+              <div className={styles.btnWrap}>
+                <button
+                  className={styles.inputBtn}
+                  type="submit"
+                  disabled={!isValid || !dirty || !category}
+                >
+                  INPUT
+                </button>
+                <button
+                  className={styles.clearBtn}
+                  type="button"
+                  onClick={() => {
+                    handleReset();
+                    setCategory('');
+                  }}
+                >
+                  CLEAR
+                </button>
+              </div>
             </Form>
           );
         }}

@@ -5,6 +5,7 @@ import styles from './UserInfo.module.css';
 import { logOut } from 'redux/auth/auth-operations';
 import { getIsLogged, getUserEmail } from 'redux/auth/auth-selectors';
 import { ConfirmationModal } from 'components/ConfirmationModal/ConfirmationModal';
+import { Icons } from '../Icons/Icons'
 //---------------------------------------------------//
 
 export default function UserInfo() {
@@ -40,11 +41,18 @@ export default function UserInfo() {
           round={true}
           name={email}
         />
-        <p className={styles.text}>{email}</p>
-
-        <button className={styles.btn} type="button" onClick={handleOpenModal}>
-          Exit
-        </button>
+				<p className={styles.text}>{email}</p>
+       	<button className={styles.btn} type="button" onClick={handleOpenModal}>
+         		Exit
+				<span className={styles.svg_iconLogoutDiv} onClick={handleOpenModal}>
+				 <Icons
+						name='logout'
+				  	className={styles.svg_iconLogout}
+						width='16'
+						height='16'
+				 />
+				 </span>
+				</button>
         {isModalOpen && (
           <ConfirmationModal
             isExit={true}
