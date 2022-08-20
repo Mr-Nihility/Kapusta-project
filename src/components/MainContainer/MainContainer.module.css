@@ -17,7 +17,7 @@
 .bgColor {
   position: absolute;
   background-color: #f5f6fb;
-  background-image: url(./images/Component_3.svg);
+  background-image: url(../MainContainer/images/Component_3.svg);
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: 20px 28px;
