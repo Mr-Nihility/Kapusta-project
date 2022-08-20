@@ -17,7 +17,6 @@ export const ReportsItemsCard = ({
       className={active ? Style.active : Style.item_spend}
       id={id}
       onClick={evt => {
-        console.log(evt.currentTarget.id);
         const currentIdItem = evt.currentTarget.id;
         handelClickOnCategory(item, currentIdItem);
       }}
