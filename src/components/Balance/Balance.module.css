@@ -91,3 +91,66 @@
 
   color: #bcbec5;
 }
+@media screen and (min-width: 320px) and (max-width: 767px) {
+.reports_form {
+  background-image: url(../../images/background/bkgd_desktop.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+	align-items: center;
+}
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+	.reports_form {
+		align-items: flex-start;
+		justify-content: center;
+	}
+}
+@media screen and (min-width: 320px) and (max-width: 767px) {
+.reports_label {
+  display: flex;
+  color: #52555f;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.02em;
+  text-align: center;
+  align-items: center;
+	flex-direction: column;
+}
+}
+@media screen and (min-width: 320px) and (max-width: 767px) {
+.reports_inputWraper {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  border-radius: 16px;
+  width: 183px;
+	height: 44px;
+	margin-top: 8px;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+	}
+}
+@media screen and (min-width: 320px) and (max-width: 767px) {
+.reports_input {
+  border: none;
+  background-color: transparent;
+  width: 70px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  outline: none;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+}
+}

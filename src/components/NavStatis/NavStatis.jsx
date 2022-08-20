@@ -108,7 +108,7 @@ export const NavStatis = () => {
               height="12"
             />
           </div>
-        Main page
+				{ widthScreen >= 480 && <p>Main page</p>}
         </Link>
         <div className={Style.infoForUserBalance}>
 					{ widthScreen <= 768 && <ReportsBalance /> }

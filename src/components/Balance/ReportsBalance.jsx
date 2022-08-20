@@ -58,12 +58,12 @@ export const ReportsBalance = () => {
 
   return (
     <>
-      <form className={styles.form} onSubmit={onSubmit}>
-        <label className={styles.label}>
+      <form className={styles.reports_form} onSubmit={onSubmit}>
+        <label className={styles.reports_label}>
           Balance:
-          <div className={styles.inputWraper}>
+          <div className={styles.reports_inputWraper}>
             <input
-              className={styles.input}
+              className={styles.reports_input}
               type="number"
               name="balance"
               value={balance || balanceEl || ''}
