@@ -5,11 +5,11 @@ import { Outlet } from 'react-router-dom';
 //-----------------------------------------------------//
 export default function SharedLayout() {
   return (
-    <div>
+    <>
       <Header />
       <MainContainer>
         <Outlet />
       </MainContainer>
-    </div>
+    </>
   );
 }
