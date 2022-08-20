@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import styles from './Navigation.module.css';
 
-export const Navigation = ({ expenses = '/expenses', income = '/income' }) => {
+export const Navigation = ({ expenses = '', income = 'income' }) => {
   const location = useLocation();
 
   return (

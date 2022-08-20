@@ -47,6 +47,7 @@ const authSlice = createSlice({
       state.sid = payload.sid;
       state.isLogged = true;
       state.userData = payload.userData;
+      state.userData.transactions = payload.userData.transactions;
     },
     [logOut.fulfilled]: (state, { payload }) => {
       state.isLogged = false;

@@ -15,7 +15,7 @@ const Tablelist = ({
   const monthValues = Object.values(stats);
 
   return (
-    <div>
+    <>
       <div className={s.table_container}>
         <div className={s.table_wrapper}>
           <table className={s.table}>
@@ -69,7 +69,7 @@ const Tablelist = ({
           </table>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
