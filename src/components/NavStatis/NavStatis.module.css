@@ -2,16 +2,46 @@ p {
   margin: 0;
   padding: 0;
 }
-.topСontainer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 32px;
-  padding-right: 123px;
-  padding-left: 123px;
-  padding-top: 40px;
 
-  position: relative;
+/* @media screen and (min-width: 320px) and (max-width: 767px) {
+	.topСontainer {
+		background-color: red;
+	}
+} */
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .topСontainer {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+		position: relative;
+    z-index: 1;
+		margin-bottom: 32px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .topСontainer {
+		position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    padding-right: 32px;
+    padding-left: 32px;
+    padding-top: 40px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .topСontainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    padding-right: 123px;
+    padding-left: 123px;
+    padding-top: 40px;
+    position: relative;
+  }
 }
 
 .button_goHome {
@@ -23,14 +53,35 @@ p {
   text-decoration: none;
   color: rgba(82, 85, 95, 0.7);
 }
+@media screen and (min-width: 320px) and (max-width: 767px) {
+.button_goHomeArrow {
+  position: absolute;
+	top: 22px;
+	left: 23px;
+}
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
 .button_goHomeArrow {
   margin-right: 16px;
 }
-
-.infoForUserBalance {
-  display: flex;
-  align-items: center;
 }
+@media screen and (min-width:1280px) {
+.button_goHomeArrow {
+  margin-right: 16px;
+}
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .infoForUserBalance {
+    display: flex;
+    align-items: center;
+  }
+}
+/* @media screen and (min-width:1280px) {
+  .infoForUserBalance {
+    display: flex;
+    align-items: center;
+  }
+} */
 .textBalance {
   font-weight: 500;
   font-size: 12px;
@@ -58,10 +109,28 @@ p {
   border-radius: 16px;
 }
 
+@media screen and (min-width: 320px) and (max-width: 767px) {
 .month_switch {
   display: flex;
   flex-direction: column;
   align-items: center;
+	margin-bottom: 32px;
+	margin-top: 56px;
+}
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+	.month_switch {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}
+@media screen and (min-width:1280px) {
+ .month_switch {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 }
 .month_switchPosition {
   display: flex;
@@ -78,11 +147,14 @@ p {
   font-weight: 700;
   font-size: 14px;
   line-height: 1.1;
+
+  width: 118px;
+  text-align: center;
   color: #000000;
 }
 .month_switchSvgLeft {
-  padding: 0px 10px;
+  padding: 0px 5px;
 }
 .month_switchSvgRight {
-  padding: 0px 10px;
+  padding: 0px 5px;
 }
