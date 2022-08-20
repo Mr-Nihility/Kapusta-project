@@ -1,12 +1,10 @@
 import React from 'react';
-import { useSize } from 'react-use';
+
+import { TransactionForm } from 'components/TransactionForm/TransactionForm';
 export default function FormMobile() {
-  const [i, { width }] = useSize(<div></div>);
-  console.log(width);
   return (
     <div>
-      {i}
-      <div>width: {width}</div>
+      <TransactionForm></TransactionForm>
     </div>
   );
 }

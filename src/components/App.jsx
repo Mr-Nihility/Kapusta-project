@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getCurrentUser, googleAuthUser } from 'redux/auth/auth-operations';
 // import { getIsLogged } from 'redux/auth/auth-selectors';
 import { SignInView } from '../pages/SignInView/SignInView';
@@ -14,13 +14,24 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
 import { getIsLoading, getSuccessToken } from 'redux/auth/auth-selectors';
 import { MainContainer } from './MainContainer/MainContainer';
 import { LoaderLine } from './Loaders/LoaderLine/LoaderLine';
-
+import Media from 'react-media';
 import MainMobile from 'pages/MobileView/MainMobile';
-import FormMobile from 'pages/MobileView/FormMobile';
-// import Media from 'react-media';
+// import FormMobile from 'pages/MobileView/FormMobile';
 
 //---------------------------------------------------------------//
 export const App = () => {
+  const [widthScreen, setWidthScreen] = useState(window.screen.width);
+  useEffect(() => {
+    const doResize = evt => {
+      setWidthScreen(evt.target.outerWidth);
+    };
+    window.addEventListener('resize', doResize);
+    return () => {
+      window.removeEventListener('resize', doResize);
+    };
+  });
+  console.log(widthScreen, widthScreen < 768);
+
   const dispatch = useDispatch();
   const token = useSelector(getSuccessToken);
   useEffect(() => {
@@ -65,46 +76,36 @@ export const App = () => {
                 </PublicRoute>
               }
             />
-            {false ? (
-              <>
-                <Route
-                  path={'expenses'}
-                  element={
-                    <PrivateRoute>
-                      <ExpensesView />
-                    </PrivateRoute>
-                  }
-                />
-                <Route
-                  path={'income'}
-                  element={
-                    <PrivateRoute>
-                      <IncomeView />
-                    </PrivateRoute>
-                  }
-                />
-              </>
-            ) : (
-              <>
-                <Route
-                  path={'main'}
-                  element={
-                    <PrivateRoute>
-                      <MainMobile />
-                    </PrivateRoute>
-                  }
-                />
-                <Route
-                  path={'create-transaction'}
-                  element={
-                    <PrivateRoute>
-                      <FormMobile />
-                    </PrivateRoute>
-                  }
-                />
-              </>
-            )}
-
+            <Route path="main">
+              <Route
+                index
+                element={
+                  <PrivateRoute>
+                    <Media
+                      queries={{
+                        small: '(min-width: 319px)',
+                        medium: '(min-width: 768px)',
+                      }}
+                    >
+                      {({ small, medium }) => (
+                        <>
+                          {small && <MainMobile />}
+                          {medium && <ExpensesView />}
+                        </>
+                      )}
+                    </Media>
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path={'income'}
+                element={
+                  <PrivateRoute>
+                    <IncomeView />
+                  </PrivateRoute>
+                }
+              />
+            </Route>
             <Route
               path={'reports'}
               element={
@@ -114,6 +115,7 @@ export const App = () => {
               }
             />
           </Route>
+
           <Route
             path="*"
             element={
@@ -127,3 +129,18 @@ export const App = () => {
     </>
   );
 };
+/**
+ * 
+ * 
+ *                <Route
+                path="main"
+                element={
+                  <PublicRoute>
+                   
+                  </PublicRoute>
+                }
+              >
+                <Route path={'create-transaction'} element={<FormMobile />} />
+              </Route>
+ * 
+ */
