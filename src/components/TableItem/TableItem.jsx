@@ -20,7 +20,6 @@ export default function TableItem({
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const onDelete = id => {
-    console.log('tableList', id);
     delTrans(id);
     setIsModalOpen(false);
   };

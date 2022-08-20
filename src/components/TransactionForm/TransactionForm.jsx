@@ -141,7 +141,7 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
 
                   <div className={styles.dropdownBtn}>
                     {category ? returnEngcategory() : 'Product Category'}
-                    <div className={styles.dropdownContent}>
+                    <div className={active?styles.dropdownContent:styles.dropdownContentDisable}>
                       {active &&
                         engCategory.map((el, i) => {
                           return (
@@ -184,6 +184,7 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
                 type="button"
                 onClick={() => {
                   handleReset();
+                  setCategory('')
                 }}
               >
                 CLEAR

@@ -1,23 +1,55 @@
 .Container1 {
-  position: relative;
+  /* position: relative; */
   width: 100%;
-  height: 100vh;
-  padding-bottom: 50px;
-  background-image: url(./images/Component_1.svg);
-  background-size: 100%, contain;
-  background-repeat: no-repeat;
-  background-position: 0 -56px;
 }
 
 .Container2 {
   position: relative;
   width: 100%;
-  height: 100vh;
+  /* overflow: hidden; */
   padding-bottom: 50px;
-  background-image: url(./images/Component_2.svg);
-  background-size: 100%, contain;
+  height: calc(100vh - 62px);
+  /* background-image: url(./images/Component_2.svg); */
+  /* background-size: 100%, contain; */
+  /* background-repeat: no-repeat; */
+  /* background-position: 0 -56px; */
+}
+
+.bgImageHomeView {
+  position: absolute;
+  width: 100%;
+
+  left: 0;
+  bottom: -10%;
+  z-index: 0;
+}
+
+.bgColor {
+  position: absolute;
+  background-color: #f5f6fb;
+  background-image: url(./images/Component_3.svg);
+  background-size: 100%;
   background-repeat: no-repeat;
-  background-position: 0 -56px;
+  background-position: 20px 28px;
+
+  width: 100%;
+  height: 526px;
+
+  border-bottom-left-radius: 130px;
+}
+
+.bgColor2 {
+  position: absolute;
+  background-color: #f5f6fb;
+
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 20px 28px;
+
+  width: 100%;
+  height: 526px;
+
+  border-bottom-left-radius: 130px;
 }
 
 .Fon {
@@ -32,19 +64,31 @@
 .Nutsmini {
   position: absolute;
   left: 230px;
-  top: 602px;
+  bottom: 50px;
   width: 183px;
   height: 142px;
 }
 .LogoKapusta {
-  position: absolute;
-  left: 230px;
+  position: relative;
   width: 377px;
   height: 139px;
-  top: 308px;
 }
-.FonNutsInAuth {
-  position: absolute;
+/* .FonNutsInAuth {
   bottom: 0;
   height: auto;
+} */
+
+.innerWrapperForm {
+  /* position: absolute; */
+  max-width: 960px;
+  height: 552px;
+  margin-top: 117px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%); */
+  margin-left: auto;
+  margin-right: auto;
 }
