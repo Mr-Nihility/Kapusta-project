@@ -119,6 +119,7 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
                 {/* Custom select start------------------------------------------------------------ ------------------------------------------------*/}
                 <div className={styles.wrapper}>
                   <div
+                  // style={category&&{ }}
                     onClick={onClick}
                     className={
                       active ? styles.dropdownSelected : styles.dropdown

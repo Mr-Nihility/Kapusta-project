@@ -113,16 +113,7 @@
   }
   .dropdownContentDisable {
     display: none;
-    position: absolute;
-    /* display: flex; */
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-  
-    top: 42px;
-    left: -2px;
-    border: 2px solid #f5f6fb;
-    z-index: 10;
+    
   }
   
   .dropdownContent {
@@ -202,7 +193,7 @@
     font-size: 12px;
     line-height: 14px;
     box-shadow: 1px 2px 5px rgba(170, 178, 197, 0.4);
-border-radius: 16px;
+
 
 background: #F5F6FB;
     border-radius: 16px;
@@ -344,12 +335,7 @@ border-left:  none;
   
   .dropdownContentDisable {
     display: none;
-    position: absolute;
     
-    top: 42px;
-    left: -2px;
-    border: 2px solid #f5f6fb;
-    z-index: 10;
   }
   
   .dropdownContent {
@@ -374,7 +360,7 @@ border-left:  none;
     background-color: white;
     /* border: 1px solid #f5f6fb; */
     align-items: center;
-    width: 182px;
+    width: 100%;
     /* background-color: black; */
     height: 33px;
   }
@@ -548,16 +534,7 @@ border-left:  none;
   }
   .dropdownContentDisable {
     display: none;
-    position: absolute;
-    /* display: flex; */
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-  
-    top: 42px;
-    left: -2px;
-    border: 2px solid #f5f6fb;
-    z-index: 10;
+   
   }
   
   .dropdownContent {
@@ -566,7 +543,7 @@ border-left:  none;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-  
+    width: 182px;
     top: 42px;
     left: -2px;
     border: 2px solid #f5f6fb;
@@ -575,21 +552,21 @@ border-left:  none;
   
   .dropdownItem {
     display: flex;
-  
+  width: 100%;
     padding-left: 20px;
     color: #c7ccdc;
     background-color: white;
     
     align-items: center;
-    width: 182px;
+    
     
     height: 33px;
   }
   .description{
     color: #52555f;
-    width: 280px;
-    border: 2px solid #f6f7fc;
-    border-radius: 0px 16px 16px 0px;
+    
+    
+   
     padding-left: 20px;
     height: 44px;
     width: 290px;
