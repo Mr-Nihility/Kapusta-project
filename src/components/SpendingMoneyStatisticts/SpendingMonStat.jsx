@@ -52,7 +52,7 @@ export const SpendingMoneyStatisticts = ({
           </div>
           <div>
             {arrow ? (
-              <ul className={Style.list_spend}>
+              <tbody className={Style.list_spend}>
                 {inCate.map((item, i) => {
                   return (
                     <ReportsItemsCard
@@ -66,9 +66,9 @@ export const SpendingMoneyStatisticts = ({
                     />
                   );
                 })}
-              </ul>
+              </tbody>
             ) : (
-              <ul className={Style.list_spend}>
+              <tbody className={Style.list_spend}>
                 {!!exCate.length ? (
                   exCate.map((item, i) => {
                     return (
@@ -86,7 +86,7 @@ export const SpendingMoneyStatisticts = ({
                 ) : (
                   <p> No reports</p>
                 )}
-              </ul>
+              </tbody>
             )}
           </div>
         </div>

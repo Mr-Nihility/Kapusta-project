@@ -7,7 +7,7 @@ import svg from '../MainContainer/images/Component_3.svg';
 import Nutsmini from './images/Nutsmini.png';
 import LogoKapustaMobile from './images/Kapusta-mobile-title.svg';
 import FooterKapustaMobile from './images/kapusta-header-mobile.svg';
-
+import LogoKapustaTablet from './images/Kapusta-tablet-title.svg';
 export const MainContainer = ({ children }) => {
   const hasToken = useSelector(getSuccessToken);
   return hasToken ? (
@@ -33,9 +33,15 @@ export const MainContainer = ({ children }) => {
         <picture className={styles.LogoKapusta}>
           <source
             srcset={`${LogoKapusta} 1x`}
-            media="(min-width: 768px)"
+            media="(min-width: 1280px)"
             width="377"
             height="139"
+          />
+          <source
+            srcset={`${LogoKapustaTablet} 1x`}
+            media="(min-width: 768px)"
+            width="306"
+            height="101"
           />
           <source
             srcset={`${LogoKapustaMobile} 1x`}
