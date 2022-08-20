@@ -3,6 +3,7 @@ import styles from './MainContainer.module.css';
 import LogoKapusta from './images/LogoKapusta.png';
 import { useSelector } from 'react-redux';
 import { getSuccessToken } from 'redux/auth/auth-selectors';
+import svg from '../MainContainer/images/Component_3.svg';
 import Nutsmini from './images/Nutsmini.png';
 export const MainContainer = ({ children }) => {
   const hasToken = useSelector(getSuccessToken);
@@ -18,6 +19,8 @@ export const MainContainer = ({ children }) => {
           alt=""
           width="100%"
         /> */}
+        <img src={svg} alt="1" className={styles.bgImageHomeView} />
+        {/* <div className={styles.bgImageHomeView}></div> */}
       </div>
     </>
   ) : (

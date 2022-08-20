@@ -184,7 +184,7 @@ export const Chart = ({ itemEl, arrow }) => {
     labels: itemLabels,
     datasets: [
       {
-        label: 'Dataset 1',
+        label: 'Price',
         data: itemData,
         backgroundColor: [' #FF751D', '#FFDAC0', '#FFDAC0'],
         borderRadius: 10,

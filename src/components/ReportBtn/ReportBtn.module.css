@@ -14,12 +14,14 @@
 
   right: 7.5%;
   top: 51px;
-  transition: 0.4s;
+  transition: 0.3s;
 }
 .diagramsvg {
   fill: currentColor;
+
+  transition: 0.3s;
 }
 
 .link_report:hover .diagramsvg {
-  fill: orange;
+  fill: var(--accent-color);
 }
