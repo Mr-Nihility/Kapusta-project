@@ -11,17 +11,17 @@ export const InfoForBalance = () => {
 
   return (
     <>
-      <div className={Style.Сontainer}>
-        <p className={Style.textSpent}>
-          Expenses:
-          <span className={Style.text_spentMoney}>- {expenses}.00 грн.</span>
-        </p>
-        {/* <div className={Style.decor}></div> */}
-        <p className={Style.textEarned}>
-          Income:
-          <span className={Style.text_earnedMoney}>+ {income}.00 грн.</span>
-        </p>
-      </div>
+      {/* <div className={Style}> */}
+				
+					<tbody className={Style.Сontainer}>
+					<td className={Style.textSpent}>Expenses:
+						<p className={Style.text_spentMoney}>- {expenses}.00 грн.</p>
+					</td>
+					<td className={Style.textEarned}>Income:
+						<p className={Style.text_earnedMoney}>+ {income}.00 грн.</p>
+					</td>
+					</tbody>
+      {/* </div> */}
     </>
   );
 };
