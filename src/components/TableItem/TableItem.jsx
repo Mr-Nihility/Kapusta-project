@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import vvv from '../../images/svg-icon-project/symbol-defs.svg';
 import s from '../TableList/TableList.module.css';
 import { ConfirmationModal } from 'components/ConfirmationModal/ConfirmationModal';
+import { getLoading } from 'redux/transaction/transactions-selectors';
+import { useSelector } from 'react-redux';
+import { LoaderLineTable } from 'components/Loaders/LoaderLine/LoaderLineTable';
 //-----------------------------------------------------//
 export default function TableItem({
   date,
@@ -29,6 +32,8 @@ export default function TableItem({
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
+  const isLoading = useSelector(getLoading);
+  console.log(isLoading);
   return (
     <>
       <tr className={s.tr}>
@@ -48,12 +53,20 @@ export default function TableItem({
           </div>
         </td>
       </tr>
+
       {isModalOpen && (
         <ConfirmationModal
           onSubmit={() => onDelete(id)}
           onClose={handleCloseModal}
           title="Are you sure?"
         />
+      )}
+      {isLoading && (
+        <tr>
+          <td>
+            <LoaderLineTable />
+          </td>
+        </tr>
       )}
     </>
   );

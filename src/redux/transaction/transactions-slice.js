@@ -73,9 +73,15 @@ const transaction = createSlice({
     [fetchIncome.rejected]: (state, _) => {
       state.loading = false;
     },
-    [deleteTrancaction.fulfilled]: (state, action) => {},
-    [deleteTrancaction.pending]: (state, action) => {},
-    [deleteTrancaction.rejected]: (state, action) => {},
+    [deleteTrancaction.fulfilled]: (state, _) => {
+      state.loading = false;
+    },
+    [deleteTrancaction.pending]: (state, _) => {
+      state.loading = true;
+    },
+    [deleteTrancaction.rejected]: (state, _) => {
+      state.loading = false;
+    },
     //   [newBalance.fulfilled]: (state, { payload }) => {
     //     state.newBalance = Number(payload.newBalance);
     //     state.loading = false;
