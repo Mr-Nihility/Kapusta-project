@@ -12,6 +12,7 @@ export const Statisticts = ({ screenWidth }) => {
   const [itemEl, setItemEL] = useState([]);
 
   const [arrow, setArrow] = useState(true);
+
   // const expenses = useSelector(incomeDataSelector);
   // const incomes = useSelector(expensesDataSelector);
   // const exCate = Object.entries(expenses);
@@ -47,9 +48,7 @@ export const Statisticts = ({ screenWidth }) => {
           handelArrow={handelArrow}
           arrow={arrow}
         />
-        {!!itemEl.length && (
-          <Chart  itemEl={itemEl} arrow={arrow} />
-        )}
+        {!!itemEl.length && <Chart itemEl={itemEl} arrow={arrow} />}
       </div>
     </>
   );
