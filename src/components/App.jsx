@@ -8,7 +8,7 @@ import { NotFound } from 'pages/NotFound/NotFound';
 import { Route, Routes, useNavigate, useSearchParams } from 'react-router-dom';
 // import { Main } from 'pages/Main';
 import SharedLayout from 'pages/SharedLayout';
-import ExpensesView from 'pages/ExpensesView';
+import ExpensesView from 'pages/ExpenseView/ExpensesView';
 import { ReportView } from 'pages/ReportView';
 import IncomeView from 'pages/IncomeView';
 // import Tablelist from './TableList/TableList';
