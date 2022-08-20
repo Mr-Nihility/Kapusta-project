@@ -3,20 +3,20 @@ import { useEffect } from 'react';
 import { getCurrentUser, googleAuthUser } from 'redux/auth/auth-operations';
 // import { getIsLogged } from 'redux/auth/auth-selectors';
 import { SignInView } from '../pages/SignInView/SignInView';
-// import BalancePage from 'pages/Balance/BalancePage';
 import { NotFound } from 'pages/NotFound/NotFound';
 import { Route, Routes, useNavigate, useSearchParams } from 'react-router-dom';
-// import { Main } from 'pages/Main';
 import SharedLayout from 'pages/SharedLayout';
 import ExpensesView from 'pages/ExpenseView/ExpensesView';
 import { ReportView } from 'pages/ReportView';
 import IncomeView from 'pages/IncomeView';
-// import Tablelist from './TableList/TableList';
 import PublicRoute from './PublicRoute/PublicRoute';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import { getIsLoading, getSuccessToken } from 'redux/auth/auth-selectors';
 import { MainContainer } from './MainContainer/MainContainer';
 import { LoaderLine } from './Loaders/LoaderLine/LoaderLine';
+import Media from 'react-media';
+import MainMobile from 'pages/MobileView/MainMobile';
+import FormMobile from 'pages/MobileView/FormMobile';
 
 //---------------------------------------------------------------//
 export const App = () => {
@@ -34,7 +34,6 @@ export const App = () => {
   const [searchParams] = useSearchParams();
 
   const navigate = useNavigate();
-  // console.log(accessToken, '+', refreshToken, '+', sid);
 
   useEffect(() => {
     const accessToken = searchParams.get('accessToken');
@@ -64,22 +63,68 @@ export const App = () => {
                 </PublicRoute>
               }
             />
-            <Route
-              path={'expenses'}
-              element={
-                <PrivateRoute>
-                  <ExpensesView />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path={'income'}
-              element={
-                <PrivateRoute>
-                  <IncomeView />
-                </PrivateRoute>
-              }
-            />
+            <Route path="main">
+              <Route
+                index
+                element={
+                  <PrivateRoute>
+                    <Media
+                      queries={{
+                        small: '(max-width: 767px)',
+                        medium: '(min-width: 768px)',
+                      }}
+                    >
+                      {({ small, medium }) => (
+                        <>
+                          {small && <MainMobile />}
+                          {medium && <ExpensesView />}
+                        </>
+                      )}
+                    </Media>
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path={'income'}
+                element={
+                  <PrivateRoute>
+                    <Media
+                      queries={{
+                        small: '(min-width: 319px) and (max-width: 767px)',
+                        medium: '(min-width: 768px)',
+                      }}
+                    >
+                      {({ small, medium }) => (
+                        <>
+                          {small && <NotFound />}
+                          {medium && <IncomeView />}
+                        </>
+                      )}
+                    </Media>
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path={'create-transaction'}
+                element={
+                  <PrivateRoute>
+                    <Media
+                      queries={{
+                        small: '(min-width: 319px) and (max-width: 767px)',
+                        medium: '(min-width: 768px)',
+                      }}
+                    >
+                      {({ small, medium }) => (
+                        <>
+                          {small && <FormMobile />}
+                          {medium && <NotFound />}
+                        </>
+                      )}
+                    </Media>
+                  </PrivateRoute>
+                }
+              />
+            </Route>
             <Route
               path={'reports'}
               element={
@@ -89,6 +134,7 @@ export const App = () => {
               }
             />
           </Route>
+
           <Route
             path="*"
             element={
@@ -102,3 +148,18 @@ export const App = () => {
     </>
   );
 };
+/**
+ * 
+ * 
+ *                <Route
+                path="main"
+                element={
+                  <PublicRoute>
+                   
+                  </PublicRoute>
+                }
+              >
+                
+              </Route>
+ * 
+ */
