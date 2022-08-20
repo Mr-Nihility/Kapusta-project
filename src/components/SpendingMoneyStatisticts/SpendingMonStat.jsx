@@ -53,19 +53,23 @@ export const SpendingMoneyStatisticts = ({
           <div>
             {arrow ? (
               <tbody className={Style.list_spend}>
-                {inCate.map((item, i) => {
-                  return (
-                    <ReportsItemsCard
-                      id={i}
-                      key={i}
-                      currentItem={currentId}
-                      total={item[1].total}
-                      category={item[0]}
-                      item={item}
-                      handelClickOnCategory={handelClickOnCategory}
-                    />
-                  );
-                })}
+                {!!inCate.length ? (
+                  inCate.map((item, i) => {
+                    return (
+                      <ReportsItemsCard
+                        id={i}
+                        key={i}
+                        currentItem={currentId}
+                        total={item[1].total}
+                        category={item[0]}
+                        item={item}
+                        handelClickOnCategory={handelClickOnCategory}
+                      />
+                    );
+                  })
+                ) : (
+                  <p className={Style.list_spendTextNo}> No reports</p>
+                )}
               </tbody>
             ) : (
               <tbody className={Style.list_spend}>
@@ -84,7 +88,7 @@ export const SpendingMoneyStatisticts = ({
                     );
                   })
                 ) : (
-                  <p> No reports</p>
+                  <p className={Style.list_spendTextNo}> No reports</p>
                 )}
               </tbody>
             )}
