@@ -1,86 +1,106 @@
 p {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
-.topСontainer {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	margin-bottom: 32px;
-	padding-right: 123px;
-	padding-left: 123px;
-	padding-top: 40px;
+/* @media screen and (min-width: 320px) and (max-width: 767px) {
+	.topСontainer {
+		background-color: red;
+	}
+} */
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .topСontainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    padding-right: 32px;
+    padding-left: 32px;
+    padding-top: 40px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .topСontainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    padding-right: 123px;
+    padding-left: 123px;
+    padding-top: 40px;
+  }
 }
 
 .button_goHome {
-	display: flex;
-	font-weight: 400;
-	font-size: 12px;
-	line-height: 1.2;
-	letter-spacing: 0.04em;
-	text-decoration: none;
-	color: rgba(82, 85, 95, 0.7);
+  display: flex;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: rgba(82, 85, 95, 0.7);
 }
 .button_goHomeArrow {
-	margin-right: 16px;
+  margin-right: 16px;
 }
 
 .infoForUserBalance {
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
 }
 .textBalance {
-	font-weight: 500;
-	font-size: 12px;
-	line-height: 1.2;	
-	color: rgba(82, 85, 95, 0.7);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.2;
+  color: rgba(82, 85, 95, 0.7);
 }
 
 .button_confirm {
-	width: 125px;
-	height: 44px;
-	padding: 12px 20px;
-	border: 2px solid #FFFFFF;
-	border-radius: 16px;
+  width: 125px;
+  height: 44px;
+  padding: 12px 20px;
+  border: 2px solid #ffffff;
+  border-radius: 16px;
 }
 .span_balance {
-	margin-right: 16px;
-	margin-left: 20px;
-	font-weight: 700;
-	font-size: 12px;
-	line-height: 1.2;	
-	width: 125px;
-	height: 44px;
-	padding: 12px 20px;
-	border: 2px solid #FFFFFF;
-	border-radius: 16px;
+  margin-right: 16px;
+  margin-left: 20px;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.2;
+  width: 125px;
+  height: 44px;
+  padding: 12px 20px;
+  border: 2px solid #ffffff;
+  border-radius: 16px;
 }
 
 .month_switch {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .month_switchPosition {
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
 }
 .month_switchText {
-	margin-bottom: 5px;
-	font-weight: 400;
-	font-size: 12px;
-	line-height: 1.2;
-	color: rgba(82, 85, 95, 0.7);
+  margin-bottom: 5px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.2;
+  color: rgba(82, 85, 95, 0.7);
 }
 .month_switchTextBig {
-	font-weight: 700;
-	font-size: 14px;
-	line-height: 1.1;
-	color: #000000;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.1;
+	width: 118px;
+	text-align: center;
+  color: #000000;
 }
 .month_switchSvgLeft {
-	padding: 0px 10px;
+  padding: 0px 5px;
 }
 .month_switchSvgRight {
-	padding: 0px 10px;
+  padding: 0px 5px;
 }

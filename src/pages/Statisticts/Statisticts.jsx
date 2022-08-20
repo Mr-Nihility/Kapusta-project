@@ -38,7 +38,6 @@ export const Statisticts = () => {
     setItemEl(item);
     setCurrentId(currentIdItem);
   };
-
   return (
     <>
       <NavStatis />
@@ -47,7 +46,7 @@ export const Statisticts = () => {
           maxWidth: '1034px',
           marginLeft: 'auto',
           marginRight: 'auto',
-          padding: '32px 32px 61px 32px',
+          padding: '0px 32px 61px 32px',
           borderRadius: '0px 30px 30px 30px',
         }}
       >
