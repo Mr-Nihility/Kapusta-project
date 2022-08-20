@@ -14,7 +14,7 @@ export default function MainMobile() {
   const deleteItem = id => {
     dispatch(deleteTrancaction(id));
   };
-  console.log(allTransactions, allTransactions?.length);
+
   return (
     <>
       <h1> Ми на мабілє!</h1>
