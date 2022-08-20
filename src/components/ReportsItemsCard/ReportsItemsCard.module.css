@@ -63,12 +63,12 @@
 }
 
 .item_spendSvg {
-  z-index: 1000;
+  z-index: 10;
 }
 
 .item_spendSvgActive {
   fill: #ff751d;
-  z-index: 1000;
+  z-index: 10;
 }
 
 .item_text {
