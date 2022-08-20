@@ -80,3 +80,9 @@
 .spend_stat_right {
   padding: 0px 10px;
 }
+.list_spendTextNo {
+	font-weight: 700;
+  font-size: 14px;
+  line-height: 1.1;
+	padding: 20px 0px;
+}
