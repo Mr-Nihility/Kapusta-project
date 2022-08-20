@@ -16,6 +16,7 @@ import { getIncomeCategories } from 'redux/categories/catrgories-operation';
 import { getIsLogged, getStartBalance } from 'redux/auth/auth-selectors';
 import { getCategoriesIncome } from 'redux/categories/catrgories-selectors';
 
+import styles from './ExpenseView/ExpenseView.module.css';
 //------------------------------------------------------------------------------------//
 export default function IncomeView() {
   const dispatch = useDispatch();
@@ -47,19 +48,7 @@ export default function IncomeView() {
   return (
     <div>
       <BalancePage />
-      <div
-        className="kek"
-        style={{
-          position: 'relative',
-          maxWidth: '1098px',
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          padding: '32px 32px 61px 32px',
-          backgroundColor: '#ffffff',
-          boxShadow: '0px 10px 60px rgba(170, 178, 197, 0.2)',
-          borderRadius: '0px 30px 30px 30px',
-        }}
-      >
+      <div className={styles.expenseViewWrapper}>
         <TransactionForm
           rCategory={ruCategory}
           onSubmit={onSubmit}

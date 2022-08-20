@@ -13,7 +13,7 @@ export const ReportsItemsCard = ({
   const active = Number(currentItem) === Number(id);
 
   return (
-    <li
+    <td
       className={active ? Style.active : Style.item_spend}
       id={id}
       onClick={evt => {
@@ -21,7 +21,7 @@ export const ReportsItemsCard = ({
         handelClickOnCategory(item, currentIdItem);
       }}
     >
-      <p className={Style.item_text}>{total + '.00 грн'}</p>
+      <p className={Style.item_text}>{total + '.00'}</p>
 
       <div
         className={
@@ -37,7 +37,7 @@ export const ReportsItemsCard = ({
       />
 
       <p className={Style.item_text}>{category}</p>
-    </li>
+    </td>
   );
 };
 
