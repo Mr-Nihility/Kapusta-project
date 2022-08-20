@@ -5,6 +5,9 @@ import { useSelector } from 'react-redux';
 import { getSuccessToken } from 'redux/auth/auth-selectors';
 import svg from '../MainContainer/images/Component_3.svg';
 import Nutsmini from './images/Nutsmini.png';
+import LogoKapustaMobile from './images/Kapusta-mobile-title.svg';
+import FooterKapustaMobile from './images/kapusta-header-mobile.svg';
+
 export const MainContainer = ({ children }) => {
   const hasToken = useSelector(getSuccessToken);
   return hasToken ? (
@@ -27,18 +30,31 @@ export const MainContainer = ({ children }) => {
     <>
       <div className={styles.bgColor}></div>
       <div className={styles.innerWrapperForm}>
-        <img
-          className={styles.LogoKapusta}
-          src={LogoKapusta}
-          alt=""
-          width="100%"
-        />
+        <picture className={styles.LogoKapusta}>
+          <source
+            srcset={`${LogoKapusta} 1x`}
+            media="(min-width: 768px)"
+            width="377"
+            height="139"
+          />
+          <source
+            srcset={`${LogoKapustaMobile} 1x`}
+            media="(max-width: 767px)"
+          />
+
+          <img src={LogoKapustaMobile} alt="2" />
+        </picture>
+
         {children}
         {/* <img className={styles.Fon} src={Rectangle} alt="Fon" width="100%" />
           <img className={styles.FonNuts} src={NutsFon} alt="" width="100%" /> */}
       </div>
 
-      <img src={Nutsmini} alt="" className={styles.Nutsmini} />
+      <picture className={styles.Nutsmini}>
+        <source srcSet={Nutsmini} media="(min-width: 768px)" />
+        <source srcSet={FooterKapustaMobile} media="(max-width: 767px)" />
+        <img src={Nutsmini} alt="" className={styles.Nutsmini} />
+      </picture>
     </>
   );
 };
