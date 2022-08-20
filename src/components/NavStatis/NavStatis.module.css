@@ -13,14 +13,14 @@ p {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
-		position: relative;
+    position: relative;
     z-index: 1;
-		margin-bottom: 32px;
+    margin-bottom: 32px;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .topСontainer {
-		position: relative;
+    position: relative;
     z-index: 1;
     display: flex;
     align-items: center;
@@ -41,34 +41,49 @@ p {
     padding-left: 123px;
     padding-top: 40px;
     position: relative;
+		z-index: 1;
+		background-color: #ffffff;
   }
 }
-
-.button_goHome {
-  display: flex;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.2;
-  letter-spacing: 0.04em;
-  text-decoration: none;
-  color: rgba(82, 85, 95, 0.7);
-}
 @media screen and (min-width: 320px) and (max-width: 767px) {
-.button_goHomeArrow {
-  position: absolute;
-	top: 22px;
-	left: 23px;
+  .button_goHomeArrowText {
+    display: none;
+  }
 }
+@media screen and (min-width: 768px) {
+  .button_goHomeArrowText {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    color: rgba(82, 85, 95, 0.7);
+  }
 }
-@media screen and (min-width: 768px) and (max-width: 1279px) {
-.button_goHomeArrow {
-  margin-right: 16px;
+/* @media screen and (min-width: 320px) and (max-width: 767px) {
+  .button_goHome {
+    display: flex;
+  }
+} */
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .button_goHomeArrow {
+    position: absolute;
+    top: 22px;
+    left: 23px;
+  }
 }
+@media screen and (min-width: 768px) {
+  .button_goHomeArrow {
+    display: flex;
+  }
+	.button_goHomeArrowIcons {
+		margin-right: 16px;
+	}
 }
-@media screen and (min-width:1280px) {
-.button_goHomeArrow {
-  margin-right: 16px;
-}
+@media screen and (min-width: 1280px) {
+  .button_goHomeArrow {
+    margin-right: 16px;
+  }
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .infoForUserBalance {
@@ -110,27 +125,27 @@ p {
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
-.month_switch {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-	margin-bottom: 32px;
-	margin-top: 56px;
-}
+  .month_switch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 32px;
+    margin-top: 56px;
+  }
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-	.month_switch {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
+  .month_switch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
-@media screen and (min-width:1280px) {
- .month_switch {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
+@media screen and (min-width: 1280px) {
+  .month_switch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 .month_switchPosition {
   display: flex;
