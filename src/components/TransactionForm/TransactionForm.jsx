@@ -86,7 +86,8 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
         }) => {
           return (
             <Form className={styles.form} onSubmit={handlerSubmit}>
-              <label className={styles.label}>
+             <div className={styles.inputsWrap}>
+               <label className={styles.label}>
                 <svg className={styles.iconCalendar} width="20" height="20">
                   <use href={`${svg}#icon-calendar`}></use>
                 </svg>
@@ -157,6 +158,7 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
               </div>
 
               <label className={styles.label}>
+                <div className=''></div>
                 <svg className={styles.iconCalculator} width="20" height="20">
                   <use href={`${svg}#icon-calculator`}></use>
                 </svg>
@@ -171,7 +173,8 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
                   <span className={styles.errorMessage}>{errors.amount}</span>
                 )}
               </label>
-
+              </div>
+<div className={styles.btnWrap}>
               <button
                 className={styles.inputBtn}
                 type="submit"
@@ -189,6 +192,7 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
               >
                 CLEAR
               </button>
+              </div>
             </Form>
           );
         }}
