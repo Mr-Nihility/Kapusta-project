@@ -1,6 +1,5 @@
 import Style from './ReportsItemsCard.module.css';
 import { Icons } from '../Icons/IconsForListStatisticts';
-import { useState } from 'react';
 
 export const ReportsItemsCard = ({
   total,
@@ -8,26 +7,21 @@ export const ReportsItemsCard = ({
   id,
   item,
   handelClickOnCategory,
-  arrow,
-}) => {
-  const [active, setActive] = useState(false);
 
-  const addActive = () => {
-    setActive(!active);
-  };
+  currentItem,
+}) => {
+  const active = Number(currentItem) === Number(id);
 
   return (
     <li
       className={active ? Style.active : Style.item_spend}
-      key={id}
-      onClick={() => {
-        handelClickOnCategory(item);
-      }}
-      onMouseDown={() => {
-        addActive();
+      id={id}
+      onClick={evt => {
+        const currentIdItem = evt.currentTarget.id;
+        handelClickOnCategory(item, currentIdItem);
       }}
     >
-      <p className={Style.item_text}>{total + '.00'}</p>
+      <p className={Style.item_text}>{total + '.00 грн'}</p>
 
       <div
         className={

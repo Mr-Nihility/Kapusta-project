@@ -1,32 +1,26 @@
 import Style from './SpendingMonStat.module.css';
 import { Icons } from '../../components/Icons/Icons';
 import { useSelector } from 'react-redux';
-import {
-  incomeDataSelector,
-  expensesDataSelector,
-} from 'redux/reports/reports-selector';
+// import {
+//   incomeDataSelector,
+//   expensesDataSelector,
+// } from 'redux/reports/reports-selector';
 // import { useState } from 'react';
 import { ReportsItemsCard } from 'components/ReportsItemsCard/ReportsItemsCard';
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 import { getSuccessToken } from 'redux/auth/auth-selectors';
 
+//-------------------------------------------------------------------------------//
 export const SpendingMoneyStatisticts = ({
   handelClickOnCategory,
   handelArrow,
   arrow,
+  currentId,
+  exCate,
+  inCate,
 }) => {
-  // const [arrow, setArrow] = useState(true);
-  const expenses = useSelector(incomeDataSelector);
-  const incomes = useSelector(expensesDataSelector);
-  const exCate = Object.entries(expenses);
-  const inCate = Object.entries(incomes);
-  // console.log(arrow);
   const token = useSelector(getSuccessToken);
 
-  // const handelArrow = () => {
-  //   setArrow(ps => !ps);
-  // };
-  console.log(arrow);
   return (
     <>
       {token && (
@@ -59,34 +53,39 @@ export const SpendingMoneyStatisticts = ({
           <div>
             {arrow ? (
               <ul className={Style.list_spend}>
-                {inCate.map(item => {
+                {inCate.map((item, i) => {
                   return (
                     <ReportsItemsCard
-                      id={nanoid()}
-                      key={nanoid()}
+                      id={i}
+                      key={i}
+                      currentItem={currentId}
                       total={item[1].total}
                       category={item[0]}
                       item={item}
                       handelClickOnCategory={handelClickOnCategory}
-                      arrow={arrow}
                     />
                   );
                 })}
               </ul>
             ) : (
               <ul className={Style.list_spend}>
-                {exCate.map(item => {
-                  return (
-                    <ReportsItemsCard
-                      id={nanoid()}
-                      key={nanoid()}
-                      total={item[1].total}
-                      category={item[0]}
-                      item={item}
-                      handelClickOnCategory={handelClickOnCategory}
-                    />
-                  );
-                })}
+                {!!exCate.length ? (
+                  exCate.map((item, i) => {
+                    return (
+                      <ReportsItemsCard
+                        id={i}
+                        key={i}
+                        total={item[1].total}
+                        category={item[0]}
+                        currentItem={currentId}
+                        item={item}
+                        handelClickOnCategory={handelClickOnCategory}
+                      />
+                    );
+                  })
+                ) : (
+                  <p> No reports</p>
+                )}
               </ul>
             )}
           </div>
