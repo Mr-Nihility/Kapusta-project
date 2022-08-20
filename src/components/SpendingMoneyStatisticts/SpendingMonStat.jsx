@@ -69,19 +69,23 @@ export const SpendingMoneyStatisticts = ({
               </ul>
             ) : (
               <ul className={Style.list_spend}>
-                {exCate.map((item, i) => {
-                  return (
-                    <ReportsItemsCard
-                      id={i}
-                      key={i}
-                      total={item[1].total}
-                      category={item[0]}
-                      currentItem={currentId}
-                      item={item}
-                      handelClickOnCategory={handelClickOnCategory}
-                    />
-                  );
-                })}
+                {!!exCate.length ? (
+                  exCate.map((item, i) => {
+                    return (
+                      <ReportsItemsCard
+                        id={i}
+                        key={i}
+                        total={item[1].total}
+                        category={item[0]}
+                        currentItem={currentId}
+                        item={item}
+                        handelClickOnCategory={handelClickOnCategory}
+                      />
+                    );
+                  })
+                ) : (
+                  <p> No reports</p>
+                )}
               </ul>
             )}
           </div>
