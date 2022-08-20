@@ -1,6 +1,6 @@
 .link_report {
   text-decoration: none;
-  fill: currentColor;
+  color: #52555f;
   font-family: Roboto;
   font-weight: 500;
   font-size: 12px;
@@ -15,6 +15,9 @@
   right: 7.5%;
   top: 51px;
   transition: 0.4s;
+}
+.diagramsvg {
+  fill: currentColor;
 }
 
 .link_report:hover .diagramsvg {
