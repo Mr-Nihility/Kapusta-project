@@ -14,7 +14,7 @@ export default function FormMobile() {
           height="12"
         />
       </NavLink>
-      <TransactionForm />
+      <TransactionForm isRenderDate={false} />
     </div>
   );
 }

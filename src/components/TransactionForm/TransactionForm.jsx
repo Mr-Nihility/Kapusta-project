@@ -1,17 +1,27 @@
 import { useState } from 'react';
-import DatePicker from 'react-datepicker';
+
 import 'react-datepicker/dist/react-datepicker.css';
 import styles from '../TransactionForm/TransactionForm.module.css';
 import * as Yup from 'yup';
 import { Formik, Form, Field } from 'formik';
 import svg from '../../images/svg-icon-project/symbol-defs.svg';
+import DatePickerComponent from 'components/DatePickerComponent/DatePickerComponent';
 
 //----------------------------------------------------------------------------//
 
-export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
+export const TransactionForm = ({
+  engCategory,
+  rCategory,
+  onSubmit,
+  isRenderDate = true,
+}) => {
   const [date, setDate] = useState(new Date());
   const [active, setActive] = useState(false);
   const [category, setCategory] = useState('');
+
+  const handleChangedate = changeDate => {
+    setDate(changeDate);
+  };
 
   const handlerSubmit = evt => {
     evt.preventDefault();
@@ -87,20 +97,13 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
           return (
             <Form className={styles.form} onSubmit={handlerSubmit}>
               <div className={styles.inputsWrap}>
-                <label className={styles.label}>
-                  <svg className={styles.iconCalendar} width="20" height="20">
-                    <use href={`${svg}#icon-calendar`}></use>
-                  </svg>
-                  <DatePicker
-                    className={styles.date}
+                {isRenderDate && (
+                  <DatePickerComponent
                     name="date"
-                    dateFormat="yyyy.MM.dd"
                     selected={date}
-                    onChange={changeDate => {
-                      setDate(changeDate);
-                    }}
+                    handler={handleChangedate}
                   />
-                </label>
+                )}
 
                 <label className={styles.label}>
                   <Field
@@ -164,24 +167,29 @@ export const TransactionForm = ({ engCategory, rCategory, onSubmit }) => {
                   </div>
                   {/* Custom select END------------------------------------------------------------ -----------------------------------*/}
                 </div>
-
                 <label className={styles.label}>
-                <div className={styles.calcWrap}>
-                  <svg className={styles.iconCalculator} width="20" height="20">
-                    <use href={`${svg}#icon-calculator`}></use>
-                  </svg>
+                  <div className={styles.calcWrap}>
+                    <svg
+                      className={styles.iconCalculator}
+                      width="20"
+                      height="20"
+                    >
+                      <use href={`${svg}#icon-calculator`}></use>
+                    </svg>
 
-                  <Field
-                    onChange={handleChange}
-                    className={styles.amount}
-                    name="amount"
-                    type="number"
-                    placeholder="0,00"
-                  />
-                  <div className={styles.calcRightSide}></div>
-                  {errors.amount && touched.amount && (
-                    <span className={styles.errorMessage}>{errors.amount}</span>
-                  )}
+                    <Field
+                      onChange={handleChange}
+                      className={styles.amount}
+                      name="amount"
+                      type="number"
+                      placeholder="0,00"
+                    />
+                    <div className={styles.calcRightSide}></div>
+                    {errors.amount && touched.amount && (
+                      <span className={styles.errorMessage}>
+                        {errors.amount}
+                      </span>
+                    )}
                   </div>
                 </label>
               </div>
