@@ -21,7 +21,6 @@ export const Statisticts = () => {
   const [arrow, setArrow] = useState(true);
 
   useEffect(() => {
-    console.log(arrow);
     if (arrow) {
       setItemEl(Object.entries(incomes)[0]);
     } else {
