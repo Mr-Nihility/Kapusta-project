@@ -32,7 +32,6 @@ export default function TableItem({
     setIsModalOpen(false);
   };
   const isLoading = useSelector(getLoading);
-  console.log(isLoading);
   return (
     <>
       <tr className={s.tr}>

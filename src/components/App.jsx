@@ -65,7 +65,7 @@ export const App = () => {
                 </PublicRoute>
               }
             />
-            {true ? (
+            {false ? (
               <>
                 <Route
                   path={'expenses'}
