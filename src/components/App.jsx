@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { getCurrentUser, googleAuthUser } from 'redux/auth/auth-operations';
 // import { getIsLogged } from 'redux/auth/auth-selectors';
 import { SignInView } from '../pages/SignInView/SignInView';
@@ -16,22 +16,10 @@ import { MainContainer } from './MainContainer/MainContainer';
 import { LoaderLine } from './Loaders/LoaderLine/LoaderLine';
 import Media from 'react-media';
 import MainMobile from 'pages/MobileView/MainMobile';
-// import FormMobile from 'pages/MobileView/FormMobile';
+import FormMobile from 'pages/MobileView/FormMobile';
 
 //---------------------------------------------------------------//
 export const App = () => {
-  const [widthScreen, setWidthScreen] = useState(window.screen.width);
-  useEffect(() => {
-    const doResize = evt => {
-      setWidthScreen(evt.target.outerWidth);
-    };
-    window.addEventListener('resize', doResize);
-    return () => {
-      window.removeEventListener('resize', doResize);
-    };
-  });
-  console.log(widthScreen, widthScreen < 768);
-
   const dispatch = useDispatch();
   const token = useSelector(getSuccessToken);
   useEffect(() => {
@@ -46,7 +34,6 @@ export const App = () => {
   const [searchParams] = useSearchParams();
 
   const navigate = useNavigate();
-  // console.log(accessToken, '+', refreshToken, '+', sid);
 
   useEffect(() => {
     const accessToken = searchParams.get('accessToken');
@@ -83,7 +70,7 @@ export const App = () => {
                   <PrivateRoute>
                     <Media
                       queries={{
-                        small: '(min-width: 319px)',
+                        small: '(min-width: 319px) and (max-width: 767px)',
                         medium: '(min-width: 768px)',
                       }}
                     >
@@ -101,7 +88,39 @@ export const App = () => {
                 path={'income'}
                 element={
                   <PrivateRoute>
-                    <IncomeView />
+                    <Media
+                      queries={{
+                        small: '(min-width: 319px) and (max-width: 767px)',
+                        medium: '(min-width: 768px)',
+                      }}
+                    >
+                      {({ small, medium }) => (
+                        <>
+                          {small && <NotFound />}
+                          {medium && <IncomeView />}
+                        </>
+                      )}
+                    </Media>
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path={'create-transaction'}
+                element={
+                  <PrivateRoute>
+                    <Media
+                      queries={{
+                        small: '(min-width: 319px) and (max-width: 767px)',
+                        medium: '(min-width: 768px)',
+                      }}
+                    >
+                      {({ small, medium }) => (
+                        <>
+                          {small && <FormMobile />}
+                          {medium && <NotFound />}
+                        </>
+                      )}
+                    </Media>
                   </PrivateRoute>
                 }
               />
@@ -140,7 +159,7 @@ export const App = () => {
                   </PublicRoute>
                 }
               >
-                <Route path={'create-transaction'} element={<FormMobile />} />
+                
               </Route>
  * 
  */
