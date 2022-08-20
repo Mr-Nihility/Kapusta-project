@@ -7,7 +7,7 @@ export const ReportsItemsCard = ({
   id,
   item,
   handelClickOnCategory,
-  arrow,
+
   currentItem,
 }) => {
   const active = Number(currentItem) === Number(id);
@@ -21,9 +21,6 @@ export const ReportsItemsCard = ({
         const currentIdItem = evt.currentTarget.id;
         handelClickOnCategory(item, currentIdItem);
       }}
-      // onMouseDown={() => {
-      //   addActive();
-      // }}
     >
       <p className={Style.item_text}>{total + '.00 грн'}</p>
 

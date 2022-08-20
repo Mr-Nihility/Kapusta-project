@@ -19,17 +19,7 @@ export const SpendingMoneyStatisticts = ({
   exCate,
   inCate,
 }) => {
-  // const [arrow, setArrow] = useState(true);
-  // const expenses = useSelector(incomeDataSelector);
-  // const incomes = useSelector(expensesDataSelector);
-  // const exCate = Object.entries(expenses);
-  // const inCate = Object.entries(incomes);
-
   const token = useSelector(getSuccessToken);
-
-  // const handelArrow = () => {
-  //   setArrow(ps => !ps);
-  // };
 
   return (
     <>
@@ -73,7 +63,6 @@ export const SpendingMoneyStatisticts = ({
                       category={item[0]}
                       item={item}
                       handelClickOnCategory={handelClickOnCategory}
-                      arrow={arrow}
                     />
                   );
                 })}
