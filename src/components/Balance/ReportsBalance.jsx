@@ -2,15 +2,15 @@ import styles from './Balance.module.css';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { newBalance } from 'redux/transaction/transaction-operations';
-import { getIsFisrtSignIn, getStartBalance } from 'redux/auth/auth-selectors';
+import { getStartBalance } from 'redux/auth/auth-selectors';
 // import BalanceModal from 'components/BalanceModal/BalanceModal';
 // import { ConfirmationModal } from 'components/ConfirmationModal/ConfirmationModal';
 
 //----------------------------------------------------------------------------//
 export const ReportsBalance = () => {
-  const [showModal, setShowModal] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const isFisrtSignIn = useSelector(getIsFisrtSignIn);
+  // const [showModal, setShowModal] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
+  // const isFisrtSignIn = useSelector(getIsFisrtSignIn);
 
   const dispatch = useDispatch();
   const [balance, setBalance] = useState();
@@ -32,7 +32,7 @@ export const ReportsBalance = () => {
   const onSubmit = event => {
     event.preventDefault();
     dispatch(newBalance({ newBalance: balance }));
-    setIsModalOpen(false);
+    // setIsModalOpen(false);
   };
 
   // console.log(typeof balance);
@@ -44,17 +44,17 @@ export const ReportsBalance = () => {
   //   }).format(balance)
   // );
 
-  const handleToggleModal = () => {
-    setShowModal(!showModal);
-  };
+  // const handleToggleModal = () => {
+  //   setShowModal(!showModal);
+  // };
 
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-  };
+  // const handleOpenModal = () => {
+  //   setIsModalOpen(true);
+  // };
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
+  // const handleCloseModal = () => {
+  //   setIsModalOpen(false);
+  // };
 
   return (
     <>
