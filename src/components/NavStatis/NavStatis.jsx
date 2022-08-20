@@ -5,6 +5,7 @@ import { getDataTransaction } from '../../redux/reports/reports-operations';
 import { useDispatch } from 'react-redux';
 import { Icons } from '../../components/Icons/Icons';
 import { Balance } from '../Balance/Balance';
+import { ReportsBalance } from '../Balance/ReportsBalance'
 import { useState } from 'react';
 import { monthMas } from '../Month/Month'
 import { useEffect } from 'react';
@@ -16,11 +17,22 @@ export const NavStatis = () => {
 	const [month, setMonth] = useState('');
 	const [currentMonth, setCurrentMonth] = useState('');
 	const [year, setYear] = useState('');
+	const [widthScreen, setWidthScreen] = useState(window.screen.width)
 	const dispatch = useDispatch();
-
+	console.log(widthScreen);
 	useEffect(() => {
 		dispatch(getDataTransaction(`${year}-${month}`)); 
-	}, [dispatch, month, year])
+	}, [dispatch, month, year]);
+
+	useEffect(() => {
+    const doResize = evt => {
+      setWidthScreen(evt.target.outerWidth);
+    };
+    window.addEventListener('resize', doResize);
+    return () => {
+      window.removeEventListener('resize', doResize);
+    };
+  });
 
 	if(dateNow === null) {
 		let date = new Date().toLocaleDateString(); // date in format 17.08 2022
@@ -96,10 +108,11 @@ export const NavStatis = () => {
               height="12"
             />
           </div>
-        Main page
+				{ widthScreen >= 480 && <p>Main page</p>}
         </Link>
         <div className={Style.infoForUserBalance}>
-					<Balance />
+					{ widthScreen <= 768 && <ReportsBalance /> }
+					{ widthScreen > 768 && <Balance /> }
         </div>
         <div className={Style.month_switch}>
           <p className={Style.month_switchText}>Current period:</p>
