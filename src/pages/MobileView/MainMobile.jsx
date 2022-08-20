@@ -8,13 +8,17 @@ import React from 'react';
 export default function MainMobile() {
   return (
     <>
+      <h1> Ми на мабілє!</h1>
       <div className={Styles.paddingTop}>
         <Balance />
         <ReportBtn />
       </div>
 
       <Tablelist />
-      <Navigation />
+      <Navigation
+        expenses={'create-transaction'}
+        income={'create-transaction'}
+      />
     </>
   );
 }
