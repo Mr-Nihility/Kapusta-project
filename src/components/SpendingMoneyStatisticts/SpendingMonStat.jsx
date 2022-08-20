@@ -5,24 +5,28 @@ import {
   incomeDataSelector,
   expensesDataSelector,
 } from 'redux/reports/reports-selector';
-import { useState } from 'react';
+// import { useState } from 'react';
 import { ReportsItemsCard } from 'components/ReportsItemsCard/ReportsItemsCard';
 import { nanoid } from 'nanoid';
 import { getSuccessToken } from 'redux/auth/auth-selectors';
 
-export const SpendingMoneyStatisticts = ({ handelClickOnCategory }) => {
-  const [arrow, setArrow] = useState(true);
+export const SpendingMoneyStatisticts = ({
+  handelClickOnCategory,
+  handelArrow,
+  arrow,
+}) => {
+  // const [arrow, setArrow] = useState(true);
   const expenses = useSelector(incomeDataSelector);
   const incomes = useSelector(expensesDataSelector);
   const exCate = Object.entries(expenses);
   const inCate = Object.entries(incomes);
-
+  // console.log(arrow);
   const token = useSelector(getSuccessToken);
 
-  const handelArrow = () => {
-    setArrow(ps => !ps);
-  };
-
+  // const handelArrow = () => {
+  //   setArrow(ps => !ps);
+  // };
+  console.log(arrow);
   return (
     <>
       {token && (
@@ -64,6 +68,7 @@ export const SpendingMoneyStatisticts = ({ handelClickOnCategory }) => {
                       category={item[0]}
                       item={item}
                       handelClickOnCategory={handelClickOnCategory}
+                      arrow={arrow}
                     />
                   );
                 })}

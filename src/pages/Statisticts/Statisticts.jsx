@@ -3,11 +3,28 @@ import { InfoForBalance } from '../../components/InfoForBalance/InfoForBalance';
 import { SpendingMoneyStatisticts } from '../../components/SpendingMoneyStatisticts/SpendingMonStat';
 import { Chart } from 'components/Chart/Chart';
 import { useState } from 'react';
+// import {
+//   incomeDataSelector,
+//   expensesDataSelector,
+// } from 'redux/reports/reports-selector';
 
 export const Statisticts = ({ screenWidth }) => {
   const [itemEl, setItemEL] = useState([]);
 
+  const [arrow, setArrow] = useState(true);
+  // const expenses = useSelector(incomeDataSelector);
+  // const incomes = useSelector(expensesDataSelector);
+  // const exCate = Object.entries(expenses);
+  // const inCate = Object.entries(incomes);
+  // console.log(arrow);
+  // const token = useSelector(getSuccessToken);
+
+  const handelArrow = () => {
+    setArrow(ps => !ps);
+  };
+
   const handelClickOnCategory = item => {
+    console.log(item);
     setItemEL(item);
   };
 
@@ -27,8 +44,12 @@ export const Statisticts = ({ screenWidth }) => {
         <InfoForBalance />
         <SpendingMoneyStatisticts
           handelClickOnCategory={handelClickOnCategory}
+          handelArrow={handelArrow}
+          arrow={arrow}
         />
-        {!!itemEl.length && <Chart screenWidth={screenWidth} itemEl={itemEl} />}
+        {!!itemEl.length && (
+          <Chart  itemEl={itemEl} arrow={arrow} />
+        )}
       </div>
     </>
   );

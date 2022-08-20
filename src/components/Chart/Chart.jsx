@@ -25,11 +25,11 @@ ChartJS.register(
   Legend
 );
 
-export const Chart = ({ itemEl }) => {
+export const Chart = ({ itemEl, arrow }) => {
   const itemSliceKeys = Object.keys(itemEl[1]).slice(1);
   const itemSliceValues = Object.values(itemEl[1]).slice(1);
 
-  const [widthScreen, setWidthScreen] = useState(0);
+  const [widthScreen, setWidthScreen] = useState(window.screen.width);
 
   const token = useSelector(getSuccessToken);
 
@@ -220,7 +220,7 @@ export const Chart = ({ itemEl }) => {
               style={{
                 display: 'flex',
                 width: '760px',
-                maxWidth: '1034px',
+                // maxWidth: '1034px',
                 height: '360px',
               }}
               width={'760px'}

@@ -1,37 +1,74 @@
 .item_spend {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   list-style: none;
-  height: 106px;
-  width: auto;
-  margin-right: 15px;
-  margin-left: 15px;
+  height: 122px;
+  width: 95px;
+  margin-right: 5px;
+  margin-left: 5px;
   margin-top: 20px;
   margin-bottom: 20px;
+  border-radius: 6px;
 }
-.item_backgroundDiv {
-  position: relative;
-  width: 56px;
-  height: 56px;
-  margin-bottom: 10px;
+
+.item_spend:hover div {
+  background-color: #ffdac0;
 }
+
+.item_spend:focus div {
+  background-color: #ffdac0;
+}
+
+/* .item_spend:active div {
+  background-color: #ffdac0;
+} */
+
+.item_spend:hover svg {
+  fill: #ff751d;
+}
+
+.item_spend:focus svg {
+  fill: #ff751d;
+}
+
+/* .item_spend:active svg {
+  fill: #ff751d;
+} */
 
 .item_backgroundSvg {
   position: absolute;
-  top: 10px;
-  left: 0px;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: #f5f6fb;
   border-radius: 20px;
   width: 52px;
   height: 46px;
+  z-index: 0;
+}
+
+.item_backgroundSvgActive {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: #ffdac0;
+  border-radius: 20px;
+  width: 52px;
+  height: 46px;
+  z-index: 0;
 }
 
 .item_spendSvg {
-  position: absolute;
-  top: 4px;
-  left: 0px;
+  z-index: 1000;
+}
+
+.item_spendSvgActive {
+  fill: #ff751d;
+  z-index: 1000;
 }
 
 .item_text {
@@ -39,32 +76,37 @@
   font-size: 12px;
   line-height: 1.1;
   color: #52555f;
-  margin-bottom: 6px;
-}
-.item_textDown {
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.1;
-  color: #52555f;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  /* margin-bottom: 6px; */
 }
 
-.item_backgroundDiv:focus div,
-.item_backgroundDiv:hover div {
-  background-color: #ffdac0;
-}
-.item_backgroundDiv:focus .item_spendSvg,
-.item_backgroundDiv:hover .item_spendSvg {
-  fill: #ff751d;
-}
-
-.item_spendSvg:active {
-  fill: #ff751d;
-}
-
-.item_backgroundDiv:visited div {
-  background-color: #ffdac0;
+li {
+  position: relative;
 }
 
 .active {
-  background-color: red;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  height: 106px;
+  width: 95px;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  border-radius: 6px;
+}
+.active:hover div {
+  background-color: #ffdac0;
+}
+
+.active:hover svg {
+  fill: #ff751d;
 }
