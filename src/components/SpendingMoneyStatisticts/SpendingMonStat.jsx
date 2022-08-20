@@ -1,25 +1,29 @@
 import Style from './SpendingMonStat.module.css';
 import { Icons } from '../../components/Icons/Icons';
 import { useSelector } from 'react-redux';
-import {
-  incomeDataSelector,
-  expensesDataSelector,
-} from 'redux/reports/reports-selector';
+// import {
+//   incomeDataSelector,
+//   expensesDataSelector,
+// } from 'redux/reports/reports-selector';
 // import { useState } from 'react';
 import { ReportsItemsCard } from 'components/ReportsItemsCard/ReportsItemsCard';
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 import { getSuccessToken } from 'redux/auth/auth-selectors';
 
+//-------------------------------------------------------------------------------//
 export const SpendingMoneyStatisticts = ({
   handelClickOnCategory,
   handelArrow,
   arrow,
+  currentId,
+  exCate,
+  inCate,
 }) => {
   // const [arrow, setArrow] = useState(true);
-  const expenses = useSelector(incomeDataSelector);
-  const incomes = useSelector(expensesDataSelector);
-  const exCate = Object.entries(expenses);
-  const inCate = Object.entries(incomes);
+  // const expenses = useSelector(incomeDataSelector);
+  // const incomes = useSelector(expensesDataSelector);
+  // const exCate = Object.entries(expenses);
+  // const inCate = Object.entries(incomes);
 
   const token = useSelector(getSuccessToken);
 
@@ -59,11 +63,12 @@ export const SpendingMoneyStatisticts = ({
           <div>
             {arrow ? (
               <ul className={Style.list_spend}>
-                {inCate.map(item => {
+                {inCate.map((item, i) => {
                   return (
                     <ReportsItemsCard
-                      id={nanoid()}
-                      key={nanoid()}
+                      id={i}
+                      key={i}
+                      currentItem={currentId}
                       total={item[1].total}
                       category={item[0]}
                       item={item}
@@ -75,13 +80,14 @@ export const SpendingMoneyStatisticts = ({
               </ul>
             ) : (
               <ul className={Style.list_spend}>
-                {exCate.map(item => {
+                {exCate.map((item, i) => {
                   return (
                     <ReportsItemsCard
-                      id={nanoid()}
-                      key={nanoid()}
+                      id={i}
+                      key={i}
                       total={item[1].total}
                       category={item[0]}
+                      currentItem={currentId}
                       item={item}
                       handelClickOnCategory={handelClickOnCategory}
                     />

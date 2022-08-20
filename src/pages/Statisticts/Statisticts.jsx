@@ -3,20 +3,22 @@ import { InfoForBalance } from '../../components/InfoForBalance/InfoForBalance';
 import { SpendingMoneyStatisticts } from '../../components/SpendingMoneyStatisticts/SpendingMonStat';
 import { Chart } from 'components/Chart/Chart';
 import { useState } from 'react';
-// import {
-//   incomeDataSelector,
-//   expensesDataSelector,
-// } from 'redux/reports/reports-selector';
+import { useSelector } from 'react-redux';
+import {
+  incomeDataSelector,
+  expensesDataSelector,
+} from 'redux/reports/reports-selector';
 
 export const Statisticts = ({ screenWidth }) => {
-  const [itemEl, setItemEL] = useState([]);
+  const expenses = useSelector(incomeDataSelector);
+  const incomes = useSelector(expensesDataSelector);
+  const exCate = Object.entries(expenses);
+  const inCate = Object.entries(incomes);
 
+  const [itemEl, setItemEL] = useState(inCate[0]);
+  const [currentId, setCurrentId] = useState(0);
   const [arrow, setArrow] = useState(true);
 
-  // const expenses = useSelector(incomeDataSelector);
-  // const incomes = useSelector(expensesDataSelector);
-  // const exCate = Object.entries(expenses);
-  // const inCate = Object.entries(incomes);
   // console.log(arrow);
   // const token = useSelector(getSuccessToken);
 
@@ -24,8 +26,9 @@ export const Statisticts = ({ screenWidth }) => {
     setArrow(ps => !ps);
   };
 
-  const handelClickOnCategory = item => {
+  const handelClickOnCategory = (item, currentIdItem) => {
     setItemEL(item);
+    setCurrentId(currentIdItem);
   };
 
   return (
@@ -46,8 +49,11 @@ export const Statisticts = ({ screenWidth }) => {
           handelClickOnCategory={handelClickOnCategory}
           handelArrow={handelArrow}
           arrow={arrow}
+          currentId={currentId}
+          exCate={exCate}
+          inCate={inCate}
         />
-        {!!itemEl.length && <Chart itemEl={itemEl} arrow={arrow} />}
+        {!!itemEl?.length && <Chart itemEl={itemEl} arrow={arrow} />}
       </div>
     </>
   );
