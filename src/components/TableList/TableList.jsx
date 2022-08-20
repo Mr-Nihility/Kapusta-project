@@ -3,13 +3,19 @@ import s from './TableList.module.css';
 import TableItem from 'components/TableItem/TableItem';
 import { Fragment } from 'react';
 
-const Tablelist = ({ stats, list, type = false, delTrans, categorys }) => {
+const Tablelist = ({
+  stats = {},
+  list = [],
+  type = false,
+  delTrans = [],
+  categorys,
+}) => {
   const month = Object.keys(stats);
 
   const monthValues = Object.values(stats);
 
   return (
-    <div>
+    <>
       <div className={s.table_container}>
         <div className={s.table_wrapper}>
           <table className={s.table}>
@@ -24,7 +30,7 @@ const Tablelist = ({ stats, list, type = false, delTrans, categorys }) => {
             </thead>
 
             <tbody className={s.table_tbody}>
-              {list.map(el => {
+              {list?.map(el => {
                 return (
                   <Fragment key={el._id}>
                     <TableItem
@@ -49,7 +55,7 @@ const Tablelist = ({ stats, list, type = false, delTrans, categorys }) => {
 
             <tbody className={s.summary_tbody}>
               {/* eslint-disable-next-line array-callback-return */}
-              {month.map((el, i) => {
+              {month?.map((el, i) => {
                 if (monthValues[i] !== 'N/A') {
                   return (
                     <tr key={i}>
@@ -63,7 +69,7 @@ const Tablelist = ({ stats, list, type = false, delTrans, categorys }) => {
           </table>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
