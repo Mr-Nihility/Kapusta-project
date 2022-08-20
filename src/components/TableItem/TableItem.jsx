@@ -56,6 +56,7 @@ export default function TableItem({
 
       {isModalOpen && (
         <ConfirmationModal
+          isExit={true}
           onSubmit={() => onDelete(id)}
           onClose={handleCloseModal}
           title="Are you sure?"

@@ -4,7 +4,13 @@ import ReactDOM from 'react-dom';
 import { useEffect } from 'react';
 import CloseSvg from 'components/CloseSvg/CloseSvg';
 
-export function ConfirmationModal({ onClose, title, onSubmit, isExit }) {
+export function ConfirmationModal({
+  onClose,
+  title,
+  onSubmit,
+  isExit,
+  isConfirm,
+}) {
   useEffect(() => {
     const handleCloseModal = event => {
       if (event.code === 'Escape') {
@@ -22,7 +28,12 @@ export function ConfirmationModal({ onClose, title, onSubmit, isExit }) {
         <div className={styles.background}>
           <p> {title} </p>
 
-          <button className={styles.yesBtn} type="submit" onClick={onSubmit}>
+          <button
+            className={styles.yesBtn}
+            type="submit"
+            onClick={onSubmit}
+            autoFocus={isConfirm && true}
+          >
             YES
           </button>
 
