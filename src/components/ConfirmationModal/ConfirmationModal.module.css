@@ -1,26 +1,42 @@
-.background {
-  z-index: 1000;
-  position: absolute;
-  text-align: center;
-  z-index: 100;
-  width: 380px;
-  height: 194px;
-  padding: 45px;
-  color: #52555f;
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
-  background-color: #ffffff;
-  border-radius: 30px;
+/*@media screen and (min-width: 320px)  and (max-width: 767px) 
+@media screen and (max-width: 767px)
+@media screen and (min-width: 768px)  and (max-width: 1279px) /*  */
+/* @media screen and (min-width: 768px)  and (max-width: 1279px)  
+@media screen and (min-width: 1280px) */
 
-  transform: translate(50%, -38%);
-  top: 50%;
+@media screen and (min-width: 320px) {
+  .background {
+    z-index: 1000;
+    position: absolute;
+    text-align: center;
+    z-index: 100;
+    width: 285px;
+    height: 170px;
+    padding: 35px;
+    color: #52555f;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    background-color: #ffffff;
+    border-radius: 30px;
 
-  right: 50%;
+    transform: translate(50%, -38%);
+    top: 50%;
 
-  box-shadow: 10px 10px 30px rgba(82, 85, 95, 0.4);
+    right: 50%;
+
+    box-shadow: 10px 10px 30px rgba(82, 85, 95, 0.4);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .background {
+    width: 380px;
+    height: 194px;
+    padding: 45px;
+  }
 }
 
 .backdrop {
@@ -33,26 +49,30 @@
   height: 100vh;
   transition: opacity 500ms ease-out 0.2s, visibility 500ms ease-out;
 }
-
-.yesBtn,
-.noBtn {
-  margin-top: 20px;
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 20px;
-  padding: 15px 50px;
-  border-radius: 20px;
-  outline: transparent;
-  border: 2px solid #f5f6fb;
-  background-color: #ffffff;
-  color: #1f1f1f;
+@media screen and (min-width: 320px) {
+  .yesBtn,
+  .noBtn {
+    margin-top: 20px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 20px;
+    padding: 10px 30px;
+    border-radius: 20px;
+    outline: transparent;
+    border: 2px solid #f5f6fb;
+    background-color: #ffffff;
+    color: #1f1f1f;
+  }
 }
-/* .yesBtn {
-  background-color: #ff751d;
-  color: #ffffff;
-} */
+@media screen and (min-width: 768px) {
+  .yesBtn,
+  .noBtn {
+    padding: 15px 50px;
+  }
+}
+
 .noBtn:focus,
 .yesBtn:focus,
 .yesBtn:hover,
