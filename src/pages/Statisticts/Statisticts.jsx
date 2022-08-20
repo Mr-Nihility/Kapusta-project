@@ -8,6 +8,8 @@ import {
   incomeDataSelector,
   expensesDataSelector,
 } from 'redux/reports/reports-selector';
+
+import styles from './Statisticts.module.css';
 //-------------------------------------------------------------------//
 export const Statisticts = () => {
   const expenses = useSelector(incomeDataSelector);
@@ -42,15 +44,7 @@ export const Statisticts = () => {
   return (
     <>
       <NavStatis />
-      <div
-        style={{
-          maxWidth: '1034px',
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          padding: '32px 32px 61px 32px',
-          borderRadius: '0px 30px 30px 30px',
-        }}
-      >
+      <div className={styles.statisticsWrapper}>
         <InfoForBalance />
         <SpendingMoneyStatisticts
           handelClickOnCategory={handelClickOnCategory}

@@ -1,0 +1,31 @@
+/* @media screen and (min-width: 320px) and (max-width: 767px) {
+
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+
+}
+@media screen and (min-width:1280px) {
+
+} */
+/* @media screen and (min-width: 320px) and (max-width: 767px) { */
+	.statisticsWrapper {
+		max-width: 1034px;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0px 32px 61px 32px;
+		border-radius: 0px 30px 30px 30px;
+		position: relative;
+	}
+
+
+/* @media screen and (min-width: 768px) and (max-width: 1279px) { */
+	.statisticsWrapper {
+		max-width: 1034px;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0px 32px 61px 32px;
+		border-radius: 0px 30px 30px 30px;
+		position: relative;
+	}
+
+
