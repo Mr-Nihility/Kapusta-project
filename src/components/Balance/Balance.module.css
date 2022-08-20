@@ -1,12 +1,45 @@
-.form {
-  /* background-image: url(../../images/background/bkgd_desktop.png); */
-  background-repeat: no-repeat;
-  background-size: cover;
-  text-align: center;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
+/*@media screen and (min-width: 320px)  and (max-width: 767px) @media screen and (max-width: 767px)
+@media screen and (min-width: 768px)  and (max-width: 1279px) /*  */
+/* @media screen and (min-width: 768px)  and (max-width: 1279px)  
+@media screen and (min-width: 1280px) */
+
+/*------------------------------------------------*/
+@media screen and (min-width: 320px) {
+  .form {
+    /* background-image: url(../../images/background/bkgd_desktop.png); */
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    padding-left: 32px;
+    padding-right: 32px;
+    text-align: center;
+    align-items: flex-start;
+    justify-content: center;
+  }
 }
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .form {
+    margin-top: 104px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .form {
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 60px;
+    margin-top: 40px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .form {
+    text-align: center;
+    align-items: flex-start;
+    justify-content: center;
+  }
+}
+
 .label {
   display: flex;
   color: #52555f;

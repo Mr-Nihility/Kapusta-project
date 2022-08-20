@@ -62,7 +62,7 @@ export const Balance = () => {
       <form className={styles.form} onSubmit={onSubmit}>
         <label className={styles.label}>
           Balance:
-          <div className={styles.inputWraper}>
+          <div className={styles.mobInputWraper}><div className={styles.inputWraper}>
             <input
               className={styles.input}
               type="number"
@@ -85,7 +85,8 @@ export const Balance = () => {
           disabled={!balance || balance === '0'}
         >
           CONFIRM
-        </button>
+			  </button>
+			
         {isFisrtSignIn && (
           <BalanceModal onshow={showModal} onclose={handleToggleModal} />
         )}
@@ -97,7 +98,8 @@ export const Balance = () => {
             onClose={handleCloseModal}
             title="Are you sure?"
           />
-        )}
+        )} </div>
+          
       </form>
     </>
   );
