@@ -32,19 +32,19 @@ export const MainContainer = ({ children }) => {
       <div className={styles.innerWrapperForm}>
         <picture className={styles.LogoKapusta}>
           <source
-            srcset={`${LogoKapusta} 1x`}
+            srcSet={`${LogoKapusta} 1x`}
             media="(min-width: 1280px)"
             width="377"
             height="139"
           />
           <source
-            srcset={`${LogoKapustaTablet} 1x`}
+            srcSet={`${LogoKapustaTablet} 1x`}
             media="(min-width: 768px)"
             width="306"
             height="101"
           />
           <source
-            srcset={`${LogoKapustaMobile} 1x`}
+            srcSet={`${LogoKapustaMobile} 1x`}
             media="(max-width: 767px)"
           />
 

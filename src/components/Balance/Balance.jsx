@@ -60,7 +60,7 @@ export const Balance = () => {
   return (
     <>
       <form className={styles.form} onSubmit={onSubmit}>
-        <label className={styles.label} for="balance">
+        <label className={styles.label} htmlFor="balance">
           Balance:{' '}
         </label>
         <div className={styles.mobInputWraper}>
