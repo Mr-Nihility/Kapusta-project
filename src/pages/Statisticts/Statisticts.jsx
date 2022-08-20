@@ -25,7 +25,6 @@ export const Statisticts = ({ screenWidth }) => {
   };
 
   const handelClickOnCategory = item => {
-    console.log(item);
     setItemEL(item);
   };
 

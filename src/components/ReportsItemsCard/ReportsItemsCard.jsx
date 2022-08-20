@@ -19,8 +19,9 @@ export const ReportsItemsCard = ({
   return (
     <li
       className={active ? Style.active : Style.item_spend}
-      key={id}
-      onClick={() => {
+      id={id}
+      onClick={evt => {
+        console.log(evt.currentTarget);
         handelClickOnCategory(item);
       }}
       onMouseDown={() => {

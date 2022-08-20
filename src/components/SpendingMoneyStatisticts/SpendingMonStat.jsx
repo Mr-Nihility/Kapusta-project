@@ -20,13 +20,13 @@ export const SpendingMoneyStatisticts = ({
   const incomes = useSelector(expensesDataSelector);
   const exCate = Object.entries(expenses);
   const inCate = Object.entries(incomes);
-  // console.log(arrow);
+
   const token = useSelector(getSuccessToken);
 
   // const handelArrow = () => {
   //   setArrow(ps => !ps);
   // };
-  console.log(arrow);
+
   return (
     <>
       {token && (
