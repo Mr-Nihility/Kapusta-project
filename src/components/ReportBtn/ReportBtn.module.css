@@ -1,4 +1,4 @@
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 270px) {
   .link_report {
     text-decoration: none;
     color: #52555f;
@@ -13,9 +13,9 @@
     position: absolute;
   }
 }
-@media screen and (min-width: 320px) and (max-width: 767px) {
+@media screen and (max-width: 767px) {
   .link_report {
-    right: 50%;
+    right: calc((100% - 320px) / 2 + 320px / 2 - 30px);
     top: 60px;
   }
 }
