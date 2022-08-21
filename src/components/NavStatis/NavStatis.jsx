@@ -17,6 +17,7 @@ export const NavStatis = () => {
   const [year, setYear] = useState('');
   const [widthScreen, setWidthScreen] = useState(window.screen.width);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getDataTransaction(`${year}-${month}`));
   }, [dispatch, month, year]);
@@ -95,7 +96,7 @@ export const NavStatis = () => {
   return (
     <>
       <div className={Style.topСontainer}>
-        <Link className={Style.button_goHome} to="/kapusta-project/expenses">
+        <Link className={Style.button_goHome} to="/kapusta-project/main">
           <div className={Style.button_goHomeArrow}>
             <Icons
               name="long-arrow-left"

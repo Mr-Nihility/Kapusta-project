@@ -27,7 +27,7 @@ export default function IncomeView() {
   const isLog = useSelector(getIsLogged);
 
   const stats = useSelector(getIncomeMonth);
-  console.log(ruCategory);
+
   useEffect(() => {
     console.log('render');
     if (!isLog) {

@@ -11,14 +11,13 @@ export default function TableItem({
   description,
   category,
   amount,
-
   id,
-  type,
-  categorys,
+  type: x,
+  categorys = [],
   delTrans,
 }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const type = category === 'З/П' || category === 'Доп. доход';
   const onDelete = id => {
     delTrans(id);
     setIsModalOpen(false);
@@ -32,7 +31,6 @@ export default function TableItem({
     setIsModalOpen(false);
   };
   const isLoading = useSelector(getLoading);
-  console.log(isLoading);
   return (
     <>
       <tr className={s.tr}>
@@ -40,8 +38,8 @@ export default function TableItem({
         <td className={s.description_td2}>{description}</td>
         <td className={s.category_td3}>{category}</td>
 
-        <td className={type ? s.expense : s.income}>
-          {categorys.length > 2 && <span>-</span>}
+        <td className={!type ? s.expense : s.income}>
+          {categorys?.length > 2 && <span>-</span>}
           {amount} грн.
         </td>
         <td className={s.date_td1}>

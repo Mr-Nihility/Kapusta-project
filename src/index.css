@@ -73,3 +73,6 @@ a:hover {
 .react-datepicker__day--selected:hover {
   background-color: #ff751d;
 }
+.react-datepicker-wrapper {
+  width: auto;
+}
