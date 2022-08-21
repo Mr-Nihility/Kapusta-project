@@ -67,6 +67,8 @@ margin-right: auto;
     margin-top: auto;
     display: flex;
     justify-content: flex-start;
+    max-width: fit-content;
+    padding-right: 419px;
   }
 
   .link_btn {
