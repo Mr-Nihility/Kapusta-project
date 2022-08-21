@@ -6,7 +6,7 @@
     z-index: 100;
   }
   .team__icon {
-    width: 37px;
+    width: 75px;
     border-radius: 50%;
     background-color: transparent;
     animation: rotate 2s linear infinite;
