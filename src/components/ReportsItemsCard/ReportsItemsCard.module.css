@@ -82,12 +82,14 @@
   /* margin-bottom: 6px; */
 }
 
-td {
+.positionTr {
   position: relative;
 }
-
+/* position: absolute;
+top: 0px;
+left: 0px; */
 @media screen and (min-width: 320px) and (max-width: 767px) {
-  td {
+  .positionTr {
     border-bottom: 1px solid #e0e5eb;
   }
 }
@@ -108,7 +110,7 @@ td {
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
-  .active {
+  .positionTr {
     border-bottom: 1px solid #e0e5eb;
   }
 }
