@@ -60,16 +60,17 @@ export const Chart = ({ itemEl }) => {
 
   const optionsHorizontal = {
     indexAxis: 'y',
-    responsive: false,
+    responsive: true,
     maintainAspectRatio: false,
     keepAspectRatio: false,
     elements: {
       bar: {
-        tension: 5,
+        // tension: 2,
       },
     },
     layout: {
       padding: {
+        top: 10,
         right: 30,
       },
     },
@@ -78,6 +79,10 @@ export const Chart = ({ itemEl }) => {
         display: false,
       },
       datalabels: {
+        formatter: function (_, context) {
+          return context.dataset.data[context.dataIndex] + ` грн`;
+        },
+        title: 'qqq',
         anchor: 'end',
         offset: 10,
         align: 'top',
@@ -151,10 +156,12 @@ export const Chart = ({ itemEl }) => {
         text: '',
       },
       datalabels: {
+        formatter: function (_, context) {
+          return context.dataset.data[context.dataIndex] + ` грн`;
+        },
         anchor: 'end',
-        offset: -20,
+        offset: 0,
         align: 'end',
-        padding: { top: 40 },
         display: true,
         color: 'black',
         labels: {
@@ -190,7 +197,6 @@ export const Chart = ({ itemEl }) => {
         min: 0,
         max: maxValue,
         ticks: {
-          stepSize: 10,
           display: false,
         },
         grid: {
@@ -241,17 +247,11 @@ export const Chart = ({ itemEl }) => {
             <Bar
               options={optionsHorizontal}
               data={dataHorizontal}
+              plugins={[ChartDataLabels]}
               id="Bar"
               style={{
-                display: 'flex',
-                justifyContent: 'center',
-                // display: 'flex',
-                // width: '760px',
-                // maxWidth: '1034px',
-                minWidth: '280px',
+                height: `calc(${itemSliceValues.length}*40px)`,
               }}
-              // width={'auto'}
-              // height={'auto'}
             />
           </div>
         </div>
@@ -262,14 +262,12 @@ export const Chart = ({ itemEl }) => {
             <Bar
               options={options}
               data={data}
+              plugins={[ChartDataLabels]}
               id="Bar"
               style={{
                 display: 'flex',
-                // width: '760px',
-                // maxWidth: '1034px',
                 height: '360px',
               }}
-              // width={'760px'}
             />
           </div>
         </div>
