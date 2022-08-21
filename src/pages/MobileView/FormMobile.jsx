@@ -49,7 +49,6 @@ export default function FormMobile() {
 
   //------------------------------------get current date
   const currentDate = useSelector(getCurrentDate);
-  // console.log(currentDate);
 
   //------------------------------------------useeffect
   useEffect(() => {
@@ -76,7 +75,7 @@ export default function FormMobile() {
   };
 
   const nowData = new Date();
-  console.log(nowData);
+
   const [day, setDay] = useState(nowData.getDate());
   if (day.length === 1) {
     setDay(`0${day}`);
@@ -89,7 +88,7 @@ export default function FormMobile() {
   // const month = nowData.getMonth() + 1;
   const year = nowData.getFullYear();
   const dateNow = `${year}-${month}-${day}`;
-  console.log(dateNow);
+
   return (
     <div>
       <p className={styles.text}>

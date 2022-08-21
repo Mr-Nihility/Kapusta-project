@@ -22,21 +22,18 @@ export default function MainMobile() {
   const bal = useSelector(getStartBalance);
   /////
   const currentDate = useSelector(getCurrentDate);
+
   ///////
   const [date, setDate] = useState(new Date());
   const allTransactions = useSelector(getAllTransactions);
   const dispatch = useDispatch();
   ////////
-  const forPicerData = new Date(currentDate);
+  const forPicerData = new Date(currentDate ? currentDate : new Date());
 
-  console.log(forPicerData);
-  console.log(new Date());
-  console.log(forPicerData.getTime());
-  console.log(date.getTime());
   if (date.getTime() !== forPicerData.getTime()) {
     setDate(forPicerData);
   }
-  ////
+
   const deleteItem = id => {
     dispatch(deleteTrancaction(id))
       .unwrap()
@@ -73,7 +70,7 @@ export default function MainMobile() {
         <ReportBtn />
         <DatePickerComponent
           name="date"
-          date={date}
+          date={date ? date : new Date()}
           handler={handleChangedate}
           //////////
 
