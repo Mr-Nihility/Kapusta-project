@@ -17,8 +17,6 @@ import { LoaderLine } from './Loaders/LoaderLine/LoaderLine';
 import Media from 'react-media';
 import MainMobile from 'pages/MobileView/MainMobile';
 import FormMobile from 'pages/MobileView/FormMobile';
-import { ModalTeam } from './ModalTeam/ModalTeam';
-import { ModalBtn } from './ModalBtn/ModalBtn';
 
 //---------------------------------------------------------------//
 export const App = () => {
@@ -147,8 +145,6 @@ export const App = () => {
           />
         </Routes>
       )}
-      {/* <ModalTeam />
-      <ModalBtn /> */}
     </>
   );
 };
