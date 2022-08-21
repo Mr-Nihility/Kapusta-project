@@ -1,8 +1,8 @@
 import Header from 'components/Header/Header';
 import { MainContainer } from 'components/MainContainer/MainContainer';
 import { ModalTeam } from 'components/ModalTeam/ModalTeam';
-import team from '../images/svg-list-icon/teamwork.png';
-import s from '../components/ModalTeam/ModalTeam.module.css';
+import TeamBTN from 'components/TeamBTN/TeamBTN';
+
 import React, { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
@@ -10,6 +10,9 @@ import { Outlet } from 'react-router-dom';
 export default function SharedLayout() {
   const [open, setOpen] = useState(false);
   const closeModal = () => {
+    setOpen(!open);
+  };
+  const toggleModal = () => {
     setOpen(!open);
   };
   useEffect(() => {
@@ -40,17 +43,7 @@ export default function SharedLayout() {
       <MainContainer>
         <Outlet />
         <ModalTeam open={open} handler={closeModal} />
-        <div className={s.btn__container}>
-          <img
-            type="button"
-            src={team}
-            className={s.team__icon}
-            onClick={() => {
-              setOpen(!open);
-            }}
-            alt="1"
-          />
-        </div>
+        <TeamBTN handler={toggleModal} />
       </MainContainer>
     </>
   );
