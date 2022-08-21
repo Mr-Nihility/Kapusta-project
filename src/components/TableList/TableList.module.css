@@ -20,6 +20,21 @@
 /* ======MOBILE====== */
 
 @media screen and (min-width: 319px) and (max-width: 767px) {
+  .table {
+    position: relative;
+    table-layout: fixed;
+    max-width: 746px;
+    display: block;
+    border-collapse: collapse;
+  }
+  .table_wrapper {
+    flex-grow: 1;
+  }
+  .table_container {
+    display: flex;
+
+    justify-content: center;
+  }
   .table_tbody::-webkit-scrollbar-thumb {
     background-color: #f67300;
     border-radius: 2px;
@@ -31,16 +46,18 @@
     background-color: #f5f6fb;
   }
   .table_tbody {
-    width: 282px;
+    min-width: 282px;
+    width: 100%;
+    max-width: 500px;
     height: 120px;
     overflow: auto;
     display: block;
   }
   .tr {
     display: grid;
-    /* grid-auto-flow: row dense; */
-    grid-template-columns: 68px 82px 82px 20px;
-    grid-template-rows: 1fr 1.5fr 1.5fr;
+    /* grid-template-columns: 68px 82px 82px 20px; */
+    grid-template-columns: 1.1fr 1.7fr 1.3fr 0.5fr;
+    grid-template-rows: 1.5fr 1.2fr;
   }
   .date_td1 {
     font-size: 8px;
