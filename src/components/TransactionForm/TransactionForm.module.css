@@ -27,7 +27,6 @@
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .form {
-  
     display: flex;
     font-size: 12px;
     line-height: 14px;
@@ -202,10 +201,10 @@
     flex-direction: row;
   }
   .date {
-    display: none;
+    /* display: none; */
   }
   .iconCalendar {
-    display: none;
+    /* display: none; */
   }
   .iconCalculator {
     position: absolute;

@@ -100,7 +100,7 @@ export const TransactionForm = ({
                 {isRenderDate && (
                   <DatePickerComponent
                     name="date"
-                    selected={date}
+                    date={date}
                     handler={handleChangedate}
                   />
                 )}
@@ -123,7 +123,7 @@ export const TransactionForm = ({
                 {/* Custom select start------------------------------------------------------------ ------------------------------------------------*/}
                 <div className={styles.wrapper}>
                   <div
-                  // style={category&&{ }}
+                    // style={category&&{ }}
                     onClick={onClick}
                     className={
                       active ? styles.dropdownSelected : styles.dropdown

@@ -3,7 +3,7 @@ import Navigation from 'components/Navigation/Navigation';
 import { ReportBtn } from 'components/ReportBtn/ReportBtn';
 import Tablelist from 'components/TableList/TableList';
 import Styles from '../Balance/BalancePage.module.css';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   getAllTransactions,
@@ -13,14 +13,14 @@ import {
 import { deleteTrancaction } from 'redux/transaction/transaction-operations';
 import DatePickerComponent from 'components/DatePickerComponent/DatePickerComponent';
 import { refreshUserInfo } from 'redux/auth/auth-operations';
+import { setDateStore } from 'redux/date/date-slice';
 
 //---------------------------------------------------------------//
 export default function MainMobile() {
   const isLog = useSelector(getIsLogged);
   const bal = useSelector(getStartBalance);
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState(() => new Date());
   const allTransactions = useSelector(getAllTransactions);
-  console.log(allTransactions);
   const dispatch = useDispatch();
 
   const deleteItem = id => {
@@ -32,6 +32,20 @@ export default function MainMobile() {
   };
   const handleChangedate = changeDate => {
     setDate(changeDate);
+
+    const year = changeDate.getFullYear();
+
+    const month =
+      changeDate.getMonth() + 1 < 10
+        ? '0' + (changeDate.getMonth() + 1)
+        : changeDate.getMonth() + 1;
+
+    const day =
+      changeDate.getDate() < 10
+        ? '0' + changeDate.getDate()
+        : changeDate.getDate();
+
+    dispatch(setDateStore(`${year}-${month}-${day}`));
   };
   useEffect(() => {
     if (!isLog) return;
@@ -44,7 +58,7 @@ export default function MainMobile() {
         <ReportBtn />
         <DatePickerComponent
           name="date"
-          selected={date}
+          date={date}
           handler={handleChangedate}
         />
       </div>

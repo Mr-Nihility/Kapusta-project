@@ -8,12 +8,13 @@ const dateSlice = createSlice({
   name: 'date',
   initialState,
   reducers: {
-    setDate(state, action) {
-      state.date = action.payload;
+    setDateStore(state, { payload }) {
+      console.log(payload);
+      state.date = payload;
     },
   },
 });
 
-export const { setDate } = dateSlice.actions;
+export const { setDateStore } = dateSlice.actions;
 
 export default dateSlice.reducer;
