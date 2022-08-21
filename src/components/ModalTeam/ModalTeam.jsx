@@ -200,7 +200,7 @@ export const ModalTeam = ({ open, handler }) => {
                 <img src={vel} alt="1" className={s.img} />
               </div>
               <div className={s.title__container}>
-                <h3 className={s.member__title}>Valentin</h3>
+                <h3 className={s.member__title}>Val</h3>
                 <p className={s.role__text}>Developer</p>
               </div>
               <ul className={s.social__list}>
