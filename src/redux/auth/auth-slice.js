@@ -3,7 +3,14 @@ import {
   addExpanses,
   addIncome,
 } from 'redux/transaction/transaction-operations';
-import { signIn, logIn, logOut, getCurrentUser } from './auth-operations';
+import {
+  signIn,
+  logIn,
+  logOut,
+  getCurrentUser,
+  googleAuthUser,
+  refreshUserInfo,
+} from './auth-operations';
 
 import { newBalance } from 'redux/transaction/transaction-operations';
 import { deleteTrancaction } from 'redux/transaction/transaction-operations';
@@ -19,6 +26,8 @@ const initialState = {
   accessToken: '',
   sid: '',
   isLogged: false,
+  isFisrtSignIn: false,
+  isLoading: false,
 };
 
 const authSlice = createSlice({
@@ -31,7 +40,7 @@ const authSlice = createSlice({
       state.accessToken = payload.accessToken;
       state.refreshToken = payload.refreshToken;
       state.sid = payload.sid;
-      // state.firtLoad= true
+      state.isFisrtSignIn = true;
     },
     [logIn.fulfilled]: (state, { payload }) => {
       state.accessToken = payload.accessToken;
@@ -39,6 +48,7 @@ const authSlice = createSlice({
       state.sid = payload.sid;
       state.isLogged = true;
       state.userData = payload.userData;
+      state.userData.transactions = payload.userData.transactions;
     },
     [logOut.fulfilled]: (state, { payload }) => {
       state.isLogged = false;
@@ -51,6 +61,10 @@ const authSlice = createSlice({
       state.accessToken = payload.newAccessToken;
       state.sid = payload.newSid;
       state.isLogged = true;
+      state.isLoading = false;
+    },
+    [getCurrentUser.pending]: (state, { payload }) => {
+      state.isLoading = true;
     },
     [getCurrentUser.rejected]: (state, _) => {
       state.refreshToken = '';
@@ -59,7 +73,7 @@ const authSlice = createSlice({
     },
     [newBalance.fulfilled]: (state, { payload }) => {
       state.userData.balance = Number(payload.newBalance);
-      //state.firstLoad= false
+      state.isFisrtSignIn = false;
     },
     [addExpanses.fulfilled]: (state, { payload }) => {
       state.userData.balance = payload.newBalance;
@@ -69,6 +83,22 @@ const authSlice = createSlice({
     },
     [deleteTrancaction.fulfilled]: (state, { payload }) => {
       state.userData.balance = payload.newBalance;
+    },
+
+    [googleAuthUser.fulfilled]: (state, { payload }) => {
+      state.refreshToken = payload.refreshToken;
+      state.accessToken = payload.accessToken;
+      state.sid = payload.sid;
+      state.isLogged = true;
+      state.userData.email = payload.data.email;
+      state.isLoading = false;
+    },
+    [googleAuthUser.pending]: (state, _) => {
+      state.isLoading = true;
+    },
+    [refreshUserInfo.fulfilled]: (state, { payload }) => {
+      state.userData.transactions = payload.transactions;
+      state.userData.balance = payload.balance;
     },
   },
 });

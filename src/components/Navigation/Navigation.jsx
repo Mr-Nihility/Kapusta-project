@@ -1,14 +1,14 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import styles from './Navigation.module.css';
 
-export const Navigation = () => {
+export const Navigation = ({ expenses = '', income = 'income' }) => {
   const location = useLocation();
 
   return (
     <ul className={styles.list}>
       <li className={styles.link_btn}>
         <NavLink
-          to="/kapusta-project/expenses"
+          to={`/kapusta-project/main/${expenses}`}
           state={location}
           className={({ isActive }) =>
             isActive
@@ -21,7 +21,7 @@ export const Navigation = () => {
       </li>
       <li className={styles.link_btn}>
         <NavLink
-          to="/kapusta-project/income"
+          to={`/kapusta-project/main/${income}`}
           state={location}
           className={({ isActive }) =>
             isActive

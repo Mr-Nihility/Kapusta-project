@@ -2,28 +2,35 @@ import Style from './NavStatis.module.css';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { getDataTransaction } from '../../redux/reports/reports-operations';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Icons } from '../../components/Icons/Icons';
-import { Balance } from '../Balance/Balance';
+import { RepNewLastBalance } from '../Balance/RepNewLastBalance'
+import { ReportsBalance } from '../Balance/ReportsBalance';
 import { useState } from 'react';
 import { monthMas } from '../Month/Month';
 import { useEffect } from 'react';
-import { getIsLogged } from 'redux/auth/auth-selectors';
 
 export const NavStatis = () => {
   const [dateNow, setDateNow] = useState(null);
   const [month, setMonth] = useState('');
   const [currentMonth, setCurrentMonth] = useState('');
   const [year, setYear] = useState('');
+  const [widthScreen, setWidthScreen] = useState(window.screen.width);
   const dispatch = useDispatch();
-  const isLoged = useSelector(getIsLogged);
 
   useEffect(() => {
-    if (!isLoged) {
-      return;
-    }
     dispatch(getDataTransaction(`${year}-${month}`));
-  }, [dispatch, month, year, isLoged]);
+  }, [dispatch, month, year]);
+
+  useEffect(() => {
+    const doResize = evt => {
+      setWidthScreen(evt.target.outerWidth);
+    };
+    window.addEventListener('resize', doResize);
+    return () => {
+      window.removeEventListener('resize', doResize);
+    };
+  });
 
   if (dateNow === null) {
     let date = new Date().toLocaleDateString(); // date in format 17.08 2022
@@ -89,43 +96,50 @@ export const NavStatis = () => {
   return (
     <>
       <div className={Style.topСontainer}>
-        <Link to="/kapusta-project/expenses" className={Style.button_goHome}>
+        <Link className={Style.button_goHome} to="/kapusta-project/main">
           <div className={Style.button_goHomeArrow}>
             <Icons
               name="long-arrow-left"
-              className=""
+              className={Style.button_goHomeArrowIcons}
               color="#FF751D"
               width="18"
               height="12"
             />
+            <p className={Style.button_goHomeArrowText}>Main page</p>
           </div>
-          Main page
         </Link>
         <div className={Style.infoForUserBalance}>
-          <Balance />
+          {widthScreen <= 768 && <ReportsBalance />}
+          {widthScreen > 768 && <RepNewLastBalance />}
         </div>
         <div className={Style.month_switch}>
           <p className={Style.month_switchText}>Current period:</p>
           <div className={Style.month_switchPosition}>
-            <div onClick={handelBeforeMonth}>
+            <div
+              className={Style.month_switchSvgLeft}
+              onClick={handelBeforeMonth}
+            >
               <Icons
                 name="arrow-left"
                 className="Style.month_switchSvgLeft"
                 color="#ff751d"
-                width="4"
-                height="10"
+                width="6"
+                height="14"
               />
             </div>
             <p className={Style.month_switchTextBig}>
               {currentMonth} {year}
             </p>
-            <div onClick={handelNextMonth}>
+            <div
+              className={Style.month_switchSvgRight}
+              onClick={handelNextMonth}
+            >
               <Icons
                 name="arrow-right"
                 className="Style.month_switchSvgRight"
                 color="#ff751d"
-                width="4"
-                height="10"
+                width="6"
+                height="14"
               />
             </div>
           </div>

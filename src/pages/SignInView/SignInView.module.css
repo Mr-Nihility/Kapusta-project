@@ -1,7 +1,12 @@
+a {
+  text-decoration: none;
+}
+
 .formWrapper {
-  position: absolute;
-  right: 10.65%;
-  top: 173px;
+  /* position: absolute; */
+  position: relative;
+  right: 0;
+  top: 5%;
   z-index: 100;
 
   width: 426px;
@@ -68,7 +73,7 @@
   margin-bottom: 32px;
 
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 
   letter-spacing: 0.02em;
 
@@ -86,8 +91,51 @@
 
   cursor: pointer;
   border-radius: 16px;
+
+  filter: drop-shadow(1px 2px 3px rgba(170, 178, 197, 0.2));
 }
 
 .googleBtn svg {
   margin-right: 10px;
+}
+
+@media (max-width: 767px) {
+  .formWrapper {
+    right: 0;
+    top: 5%;
+    z-index: 100;
+
+    width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #ffffff;
+
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+    border-radius: 30px;
+    /* overflow: hidden; */
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+
+    padding: 40px 20px;
+  }
+
+  .form p:nth-child(1) {
+    width: 222px;
+    text-align: center;
+
+    margin-bottom: 16px;
+  }
+}
+@media (min-width: 768px) {
+  .formWrapper {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .form p:nth-child(1) {
+    text-align: center;
+  }
 }

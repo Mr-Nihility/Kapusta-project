@@ -25,6 +25,9 @@ body {
 
   font-family: 'Roboto', sans-serif;
 }
+.hidden {
+  overflow: hidden;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -54,4 +57,25 @@ a {
 
 a:hover {
   color: #ff751d;
+}
+
+.react-datepicker__day--selected {
+  background-color: #ff751d;
+}
+.react-datepicker__header {
+  background-color: #f5f6fb;
+}
+.react-datepicker {
+  border: 2px solid #f5f6fb;
+  color: #f5f6fb;
+}
+.react-datepicker-popper[data-placement^='bottom']
+  .react-datepicker__triangle::after {
+  border-bottom-color: #f5f6fb;
+}
+.react-datepicker__day--selected:hover {
+  background-color: #ff751d;
+}
+.react-datepicker-wrapper {
+  width: auto;
 }

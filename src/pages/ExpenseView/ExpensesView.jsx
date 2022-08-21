@@ -1,4 +1,3 @@
-import { ReportBtn } from 'components/ReportBtn/ReportBtn';
 import Tablelist from 'components/TableList/TableList';
 import { TransactionForm } from 'components/TransactionForm/TransactionForm';
 import { useEffect } from 'react';
@@ -17,7 +16,10 @@ import {
   getExpenseMonth,
 } from 'redux/transaction/transactions-selectors';
 
-import BalancePage from './Balance/BalancePage';
+import BalancePage from '../Balance/BalancePage';
+
+import styles from './ExpenseView.module.css';
+
 export default function ExpensesView() {
   const stats = useSelector(getExpenseMonth);
 
@@ -54,26 +56,15 @@ export default function ExpensesView() {
   };
 
   const deleteItem = id => {
+    console.log('View', id);
     dispatch(deleteTrancaction(id));
   };
 
   return (
     <div className="wrap">
-      <ReportBtn />
       <BalancePage />
 
-      <div
-        className="kek"
-        style={{
-          maxWidth: '1098px',
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          padding: '32px 32px 61px 32px',
-          backgroundColor: '#ffffff',
-          boxShadow: '0px 10px 60px rgba(170, 178, 197, 0.2)',
-          borderRadius: '0px 30px 30px 30px',
-        }}
-      >
+      <div className={styles.expenseViewWrapper}>
         <TransactionForm
           engCategory={engCategory}
           rCategory={categoriesExpanses}

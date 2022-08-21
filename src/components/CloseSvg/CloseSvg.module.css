@@ -1,6 +1,3 @@
 .closesvg {
-  fill: #52555f;
-}
-.closesvg:hover {
-  fill: #ffffff;
+  stroke: #52555f;
 }
