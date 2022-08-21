@@ -26,23 +26,30 @@ export const TransactionForm = ({
   const handlerSubmit = evt => {
     evt.preventDefault();
 
-    const { date: x, description, amount } = evt.target.elements;
+    if (isRenderDate) {
+      const { date: x, description, amount } = evt.target.elements;
 
-    const date = x.value.replaceAll('.', '-');
+      const date = x.value.replaceAll('.', '-');
+      onSubmit({
+        description: description.value,
+        category: category,
+        amount: Number(amount.value),
+        date,
+      });
+    } else {
+      const { description, amount } = evt.target.elements;
+      onSubmit({
+        description: description.value,
+        category: category,
+        amount: Number(amount.value),
+      });
+    }
 
-    onSubmit({
-      description: description.value,
-      category: category,
-      amount: Number(amount.value),
-      date,
-    });
     evt.target.reset();
     setCategory('');
   };
 
   const onClick = evt => {
-    // console.log('curent target', evt.currentTarget.textContent);
-    console.log('target', evt.target.textContent);
     if (
       evt.target.textContent === 'Product Category' ||
       evt.target.textContent.length > 25

@@ -12,12 +12,12 @@ import {
 import {
   addExpanses,
   addIncome,
-  getExpanses,
 } from 'redux/transaction/transaction-operations';
 import {
   getExpansesCategories,
   getIncomeCategories,
 } from 'redux/categories/catrgories-operation';
+import { useNavigate } from 'react-router-dom';
 //------------------------------------------------//
 const engCategoryExp = [
   'Products',
@@ -36,37 +36,46 @@ const engCategoryInc = ['salary', 'additional income'];
 
 export default function FormMobile() {
   const dispatch = useDispatch();
-  //get location str
+  const navigate = useNavigate();
+
+  //------------------------------------get location str
   const { location } = useParams();
 
-  //getting categories
+  //--------------------------------getting categories
   const categoriesExpanses = useSelector(getCategoriesExpanses);
   const categoriesIncome = useSelector(getCategoriesIncome);
-  console.log(categoriesExpanses);
-  console.log(categoriesIncome);
-  //get current date
+
+  //------------------------------------get current date
   const currentDate = useSelector(getCurrentDate);
   console.log(currentDate);
-  //useeffect
 
+  //------------------------------------------useeffect
   useEffect(() => {
     dispatch(getExpansesCategories());
     dispatch(getIncomeCategories());
   }, [dispatch]);
 
-  // submits
+  // -----------------------------------------------submits
   const onSubmitExp = data => {
-    console.log(data);
-    // dispatch(addExpanses(data));
+    dispatch(addExpanses({ ...data, date: currentDate }))
+      .unwrap()
+      .then(() => {
+        navigate('/kapusta-project/main');
+      });
   };
   const onSubmitInc = data => {
-    console.log(data);
-    // dispatch(addIncome(data));
+    dispatch(addIncome({ ...data, date: currentDate }))
+      .unwrap()
+      .then(() => {
+        navigate('/kapusta-project/main');
+      });
   };
 
   return (
     <div>
-      <p> {`Current date :${currentDate}`}</p>
+      <p style={{ position: 'relative', color: 'currentcolor' }}>
+        {`Current date :${currentDate}`}
+      </p>
 
       <NavLink to="/kapusta-project/main" className={styles.backBtn}>
         <Icons

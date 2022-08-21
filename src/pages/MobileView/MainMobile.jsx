@@ -49,7 +49,8 @@ export default function MainMobile() {
   };
   useEffect(() => {
     if (!isLog) return;
-  }, [bal, isLog]);
+    dispatch(refreshUserInfo());
+  }, [bal, isLog, dispatch]);
 
   return (
     <>
