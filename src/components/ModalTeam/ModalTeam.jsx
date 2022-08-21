@@ -213,7 +213,7 @@ export const ModalTeam = () => {
             <li className={s.list__item}>
               <a
                 className={s.social__link}
-                href="https://www.linkedin.com/feed/"
+                href="https://www.linkedin.com/in/val-belous/"
                 target="blank"
               >
                 <LinkInIcon className={s.linkin} />
@@ -226,14 +226,14 @@ export const ModalTeam = () => {
             <img src={seva} alt="1" className={s.img} />
           </div>
           <div className={s.title__container}>
-            <h3 className={s.member__title}>Lika</h3>
+            <h3 className={s.member__title}>Vsevolod</h3>
             <p className={s.role__text}>Developer</p>
           </div>
           <ul className={s.social__list}>
             <li className={s.list__item}>
               <a
                 className={s.social__link}
-                href="https://github.com/Jasper935"
+                href="https://github.com/VsevolodZharkov"
                 target="blank"
               >
                 <GitHubIcon className={s.github} />
