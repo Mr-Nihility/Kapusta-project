@@ -54,6 +54,8 @@
     height: 120px;
     overflow: auto;
     display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
   .tr {
     display: grid;
