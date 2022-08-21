@@ -1,48 +1,111 @@
-.list {
-  list-style: none;
-  display: flex;
+/* -----------
+MOBILE--------
+------------*/
+@media (max-width: 767px) {
+  .list {
+    list-style: none;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .link_btn {
+    display: flex;
+
+    /* height: 40px; */
+  }
+  .link_tab,
+  .link_tab_inc {
+    padding: 15px 33px;
+    /* padding-bottom: 5px; */
+    text-align: center;
+    text-decoration: none;
+    width: 158px;
+    background-color: #fafbfd;
+
+    color: #000000;
+    position: relative;
+    top: 0;
+
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.17;
+
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .link_tab_inc {
+    padding-left: 43px;
+    padding-right: 43px;
+  }
+
+  .btn_overlap {
+    display: flex;
+  }
+
+  .link_tab.active,
+  .link_tab_inc.active {
+    color: #ff751d;
+
+    background-color: #ffffff;
+  }
+
+  .link_tab:hover {
+    color: #ff751d;
+  }
 }
-.link_btn {
-  display: flex;
-  height: 40px;
-}
 
-.link_tab,
-.link_tab_inc {
-  padding: 15px 36px;
-  padding-bottom: 5px;
-  text-decoration: none;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
+/* -----------
+DESKTOP------
+------------*/
 
-  background-color: #fafbfd;
-  color: #000000;
-  position: relative;
-  top: 0;
+@media (min-width: 1280px) {
+  .list {
+    list-style: none;
+    display: flex;
+  }
+  .link_btn {
+    display: flex;
+    height: 40px;
+  }
 
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 1.17;
+  .link_tab,
+  .link_tab_inc {
+    padding: 15px 36px;
+    padding-bottom: 5px;
+    text-decoration: none;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
 
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
-.link_tab_inc {
-  padding-left: 43px;
-  padding-right: 43px;
-}
+    background-color: #fafbfd;
+    color: #000000;
+    position: relative;
+    top: 0;
 
-.btn_overlap {
-  display: flex;
-}
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.17;
 
-.link_tab.active,
-.link_tab_inc.active {
-  color: #ff751d;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .link_tab_inc {
+    padding-left: 43px;
+    padding-right: 43px;
+  }
 
-  background-color: #ffffff;
-}
+  .btn_overlap {
+    display: flex;
+  }
 
-.link_tab:hover {
-  color: #ff751d;
+  .link_tab.active,
+  .link_tab_inc.active {
+    color: #ff751d;
+
+    background-color: #ffffff;
+  }
+
+  .link_tab:hover {
+    color: #ff751d;
+  }
 }

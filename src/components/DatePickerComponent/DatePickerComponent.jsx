@@ -3,7 +3,7 @@ import styles from '../../components/TransactionForm/TransactionForm.module.css'
 import svg from '../../images/svg-icon-project/symbol-defs.svg';
 //-----------------------------------------------------------------------//
 
-export default function DatePickerComponent({ selected, handler }) {
+export default function DatePickerComponent({ date, handler }) {
   return (
     <label className={styles.label}>
       <svg className={styles.iconCalendar} width="20" height="20">
@@ -13,7 +13,7 @@ export default function DatePickerComponent({ selected, handler }) {
         className={styles.date}
         name="date"
         dateFormat="yyyy.MM.dd"
-        selected={selected}
+        selected={date}
         onChange={handler}
       />
     </label>

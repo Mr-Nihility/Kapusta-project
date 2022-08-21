@@ -43,7 +43,7 @@ export const App = () => {
     if (!accessToken) return;
     dispatch(googleAuthUser({ accessToken, refreshToken, sid }));
 
-    navigate('/kapusta-project/expenses');
+    navigate('/kapusta-project/main');
   }, [searchParams, dispatch, navigate]);
 
   const isLoading = useSelector(getIsLoading);
@@ -105,7 +105,7 @@ export const App = () => {
                 }
               />
               <Route
-                path={'create-transaction'}
+                path={'create/:location'}
                 element={
                   <PrivateRoute>
                     <Media

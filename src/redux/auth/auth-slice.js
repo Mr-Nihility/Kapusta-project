@@ -9,6 +9,7 @@ import {
   logOut,
   getCurrentUser,
   googleAuthUser,
+  refreshUserInfo,
 } from './auth-operations';
 
 import { newBalance } from 'redux/transaction/transaction-operations';
@@ -92,8 +93,12 @@ const authSlice = createSlice({
       state.userData.email = payload.data.email;
       state.isLoading = false;
     },
-    [googleAuthUser.pending]: (state, { payload }) => {
+    [googleAuthUser.pending]: (state, _) => {
       state.isLoading = true;
+    },
+    [refreshUserInfo.fulfilled]: (state, { payload }) => {
+      state.userData.transactions = payload.transactions;
+      state.userData.balance = payload.balance;
     },
   },
 });

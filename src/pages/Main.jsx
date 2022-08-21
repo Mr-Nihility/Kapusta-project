@@ -22,7 +22,7 @@ export const Main = () => {
 
       <BalancePage />
       <Select options={options}  />
-      {/* <TransactionForm /> */}
+     
 
     </div>
   );

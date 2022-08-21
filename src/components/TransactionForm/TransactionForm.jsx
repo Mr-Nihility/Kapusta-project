@@ -26,16 +26,25 @@ export const TransactionForm = ({
   const handlerSubmit = evt => {
     evt.preventDefault();
 
-    const { date: x, description, amount } = evt.target.elements;
+    if (isRenderDate) {
+      const { date: x, description, amount } = evt.target.elements;
 
-    const date = x.value.replaceAll('.', '-');
+      const date = x.value.replaceAll('.', '-');
+      onSubmit({
+        description: description.value,
+        category: category,
+        amount: Number(amount.value),
+        date,
+      });
+    } else {
+      const { description, amount } = evt.target.elements;
+      onSubmit({
+        description: description.value,
+        category: category,
+        amount: Number(amount.value),
+      });
+    }
 
-    onSubmit({
-      description: description.value,
-      category: category,
-      amount: Number(amount.value),
-      date,
-    });
     evt.target.reset();
     setCategory('');
   };
@@ -100,7 +109,7 @@ export const TransactionForm = ({
                 {isRenderDate && (
                   <DatePickerComponent
                     name="date"
-                    selected={date}
+                    date={date}
                     handler={handleChangedate}
                   />
                 )}
@@ -110,6 +119,7 @@ export const TransactionForm = ({
                     className={styles.description}
                     name="description"
                     type="text"
+                    
                     onChange={handleChange}
                     placeholder="Product description"
                   />
@@ -122,6 +132,7 @@ export const TransactionForm = ({
                 {/* Custom select start------------------------------------------------------------ ------------------------------------------------*/}
                 <div className={styles.wrapper}>
                   <div
+                    // style={category&&{ }}
                     onClick={onClick}
                     className={
                       active ? styles.dropdownSelected : styles.dropdown
@@ -198,7 +209,12 @@ export const TransactionForm = ({
                 <button
                   className={styles.inputBtn}
                   type="submit"
-                  disabled={!isValid || !dirty || !category}
+                  disabled={
+                    !isValid ||
+                    !dirty ||
+                    !category ||
+                    values.description.toLowerCase() === 'total'
+                  }
                 >
                   INPUT
                 </button>

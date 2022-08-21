@@ -33,6 +33,22 @@
   .spend_stat {
     margin-bottom: 40px;
   }
+
+  .spend_stat {
+    position: relative;
+    z-index: 1;
+    width: 1034px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 32px;
+    padding-top: 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+    border-radius: 30px;
+    position: relative;
+    z-index: 1;
+  }
 }
 
 .spend_statTextBig {
