@@ -133,7 +133,7 @@ export const Chart = ({ itemEl, arrow }) => {
         anchor: 'end',
         offset: -20,
         align: 'end',
-        padding: 25,
+        padding: { top: 40 },
         display: true,
         color: 'black',
         labels: {
@@ -150,6 +150,7 @@ export const Chart = ({ itemEl, arrow }) => {
       x: {
         display: true,
         grid: {
+          offset: false,
           color: 'transparent',
         },
         ticks: {
@@ -166,15 +167,14 @@ export const Chart = ({ itemEl, arrow }) => {
       },
       y: {
         grid: {
+          offset: false,
           color: '#F5F6FB',
           lineWidth: 2,
           drawBorder: false,
         },
         display: true,
         ticks: {
-          font: {
-            size: 0,
-          },
+          display: false,
         },
       },
     },
@@ -198,7 +198,7 @@ export const Chart = ({ itemEl, arrow }) => {
     labels: itemLabels,
     datasets: [
       {
-        label: '',
+        label: 'Price',
         data: itemData,
         backgroundColor: [' #FF751D', '#FFDAC0', '#FFDAC0'],
         borderRadius: 10,
