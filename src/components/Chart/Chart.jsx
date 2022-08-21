@@ -35,6 +35,8 @@ export const Chart = ({ itemEl }) => {
 
   const token = useSelector(getSuccessToken);
 
+  console.log(itemEl[1]);
+
   useEffect(() => {
     const doResize = evt => {
       setWidthScreen(evt.target.outerWidth);
@@ -52,6 +54,8 @@ export const Chart = ({ itemEl }) => {
     return item;
   });
 
+  // const sortedItemData = itemData.sort((a, b) => a - b);
+
   useEffect(() => {
     if (!token) {
       return;
@@ -63,11 +67,6 @@ export const Chart = ({ itemEl }) => {
     responsive: true,
     maintainAspectRatio: false,
     keepAspectRatio: false,
-    elements: {
-      bar: {
-        // tension: 2,
-      },
-    },
     layout: {
       padding: {
         top: 10,
@@ -82,7 +81,6 @@ export const Chart = ({ itemEl }) => {
         formatter: function (_, context) {
           return context.dataset.data[context.dataIndex] + ` грн`;
         },
-        title: 'qqq',
         anchor: 'end',
         offset: 10,
         align: 'top',
