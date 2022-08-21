@@ -11,8 +11,6 @@ export const InfoForBalance = () => {
 
   return (
     <>
-      {/* <div className={Style}> */}
-
       <tbody className={Style.Сontainer}>
         <td className={Style.textSpent}>
           <p className={Style.textCategory}>Expenses:</p>
@@ -23,7 +21,6 @@ export const InfoForBalance = () => {
           <p className={Style.text_earnedMoney}>+ {income}.00 грн.</p>
         </td>
       </tbody>
-      {/* </div> */}
     </>
   );
 };

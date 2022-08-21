@@ -3,15 +3,9 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { newBalance } from 'redux/transaction/transaction-operations';
 import { getStartBalance } from 'redux/auth/auth-selectors';
-// import BalanceModal from 'components/BalanceModal/BalanceModal';
-// import { ConfirmationModal } from 'components/ConfirmationModal/ConfirmationModal';
 
 //----------------------------------------------------------------------------//
 export const ReportsBalance = () => {
-  // const [showModal, setShowModal] = useState(false);
-  // const [isModalOpen, setIsModalOpen] = useState(false);
-  // const isFisrtSignIn = useSelector(getIsFisrtSignIn);
-
   const dispatch = useDispatch();
   const [balance, setBalance] = useState();
   const balanceEl = useSelector(getStartBalance);
@@ -32,29 +26,7 @@ export const ReportsBalance = () => {
   const onSubmit = event => {
     event.preventDefault();
     dispatch(newBalance({ newBalance: balance }));
-    // setIsModalOpen(false);
   };
-
-  // console.log(typeof balance);
-
-  // console.log(
-  //   new Intl.NumberFormat('de-DE', {
-  //     style: 'currency',
-  //     currency: 'UAH',
-  //   }).format(balance)
-  // );
-
-  // const handleToggleModal = () => {
-  //   setShowModal(!showModal);
-  // };
-
-  // const handleOpenModal = () => {
-  //   setIsModalOpen(true);
-  // };
-
-  // const handleCloseModal = () => {
-  //   setIsModalOpen(false);
-  // };
 
   return (
     <>
@@ -77,26 +49,6 @@ export const ReportsBalance = () => {
             <p>UAH</p>
           </div>
         </label>
-        {/* <button
-          className={styles.button}
-          type="button"
-          onClick={handleOpenModal}
-          disabled={!balance || balance === '0'}
-        >
-          CONFIRM
-        </button> */}
-        {/* {isFisrtSignIn && (
-          <BalanceModal onshow={showModal} onclose={handleToggleModal} />
-        )} */}
-
-        {/* {isModalOpen && (
-          <ConfirmationModal
-            isConfirm={true}
-            onSubmit={onSubmit}
-            onClose={handleCloseModal}
-            title="Are you sure?"
-          />
-        )} */}
       </form>
     </>
   );

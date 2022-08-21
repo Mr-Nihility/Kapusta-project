@@ -9,7 +9,6 @@ import { ReportsBalance } from '../Balance/ReportsBalance';
 import { useState } from 'react';
 import { monthMas } from '../Month/Month';
 import { useEffect } from 'react';
-// import { useEffect } from 'react';
 
 export const NavStatis = () => {
   const [dateNow, setDateNow] = useState(null);
@@ -18,7 +17,7 @@ export const NavStatis = () => {
   const [year, setYear] = useState('');
   const [widthScreen, setWidthScreen] = useState(window.screen.width);
   const dispatch = useDispatch();
-  console.log(widthScreen);
+
   useEffect(() => {
     dispatch(getDataTransaction(`${year}-${month}`));
   }, [dispatch, month, year]);
