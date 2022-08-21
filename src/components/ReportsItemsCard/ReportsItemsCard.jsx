@@ -13,7 +13,7 @@ export const ReportsItemsCard = ({
   const active = Number(currentItem) === Number(id);
 
   return (
-    <tr>
+    <tr className={Style.positionTr}>
       <td
         className={active ? Style.active : Style.item_spend}
         id={id}
