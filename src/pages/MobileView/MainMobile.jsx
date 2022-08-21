@@ -24,7 +24,6 @@ export default function MainMobile() {
 
   return (
     <>
-      <h1> Ми на мабілє!</h1>
       <div className={Styles.paddingTop}>
         <Balance />
         <ReportBtn />

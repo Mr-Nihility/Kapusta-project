@@ -1,13 +1,7 @@
 import Style from './SpendingMonStat.module.css';
 import { Icons } from '../../components/Icons/Icons';
 import { useSelector } from 'react-redux';
-// import {
-//   incomeDataSelector,
-//   expensesDataSelector,
-// } from 'redux/reports/reports-selector';
-// import { useState } from 'react';
 import { ReportsItemsCard } from 'components/ReportsItemsCard/ReportsItemsCard';
-// import { nanoid } from 'nanoid';
 import { getSuccessToken } from 'redux/auth/auth-selectors';
 
 //-------------------------------------------------------------------------------//
@@ -52,45 +46,61 @@ export const SpendingMoneyStatisticts = ({
           </div>
           <div>
             {arrow ? (
-              <tbody className={Style.list_spend}>
-                {!!inCate.length ? (
-                  inCate.map((item, i) => {
-                    return (
-                      <ReportsItemsCard
-                        id={i}
-                        key={i}
-                        currentItem={currentId}
-                        total={item[1].total}
-                        category={item[0]}
-                        item={item}
-                        handelClickOnCategory={handelClickOnCategory}
-                      />
-                    );
-                  })
-                ) : (
-                  <p className={Style.list_spendTextNo}> No reports</p>
-                )}
-              </tbody>
+              <table>
+                <tbody className={Style.list_spend}>
+                  {!!inCate.length ? (
+                    inCate.map((item, i) => {
+                      return (
+                        <ReportsItemsCard
+                          id={i}
+                          key={i}
+                          currentItem={currentId}
+                          total={item[1].total}
+                          category={item[0]}
+                          item={item}
+                          handelClickOnCategory={handelClickOnCategory}
+                        />
+                      );
+                    })
+                  ) : (
+                    <tr>
+                      <td>
+                        <span className={Style.list_spendTextNo}>
+                          No reports
+                        </span>
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
             ) : (
-              <tbody className={Style.list_spend}>
-                {!!exCate.length ? (
-                  exCate.map((item, i) => {
-                    return (
-                      <ReportsItemsCard
-                        id={i}
-                        key={i}
-                        total={item[1].total}
-                        category={item[0]}
-                        currentItem={currentId}
-                        item={item}
-                        handelClickOnCategory={handelClickOnCategory}
-                      />
-                    );
-                  })
-                ) : (
-                  <p className={Style.list_spendTextNo}> No reports</p>
-                )}
-              </tbody>
+              <table>
+                <tbody className={Style.list_spend}>
+                  {!!exCate.length ? (
+                    exCate.map((item, i) => {
+                      return (
+                        <ReportsItemsCard
+                          id={i}
+                          key={i}
+                          total={item[1].total}
+                          category={item[0]}
+                          currentItem={currentId}
+                          item={item}
+                          handelClickOnCategory={handelClickOnCategory}
+                        />
+                      );
+                    })
+                  ) : (
+                    <tr>
+                      <td>
+                        <span className={Style.list_spendTextNo}>
+                          No reports
+                        </span>
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
             )}
           </div>
         </div>

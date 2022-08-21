@@ -3,11 +3,6 @@ p {
   padding: 0;
 }
 
-/* @media screen and (min-width: 320px) and (max-width: 767px) {
-	.topСontainer {
-		background-color: red;
-	}
-} */
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .topСontainer {
     display: flex;
@@ -41,8 +36,8 @@ p {
     padding-left: 123px;
     padding-top: 40px;
     position: relative;
-		z-index: 1;
-		background-color: #ffffff;
+    z-index: 1;
+    background-color: #ffffff;
   }
 }
 @media screen and (min-width: 320px) and (max-width: 767px) {
@@ -60,11 +55,7 @@ p {
     color: rgba(82, 85, 95, 0.7);
   }
 }
-/* @media screen and (min-width: 320px) and (max-width: 767px) {
-  .button_goHome {
-    display: flex;
-  }
-} */
+
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .button_goHomeArrow {
     position: absolute;
@@ -75,28 +66,37 @@ p {
 @media screen and (min-width: 768px) {
   .button_goHomeArrow {
     display: flex;
+    margin-right: 16px;
   }
-	.button_goHomeArrowIcons {
-		margin-right: 16px;
-	}
-}
-@media screen and (min-width: 1280px) {
-  .button_goHomeArrow {
+  .button_goHomeArrowIcons {
     margin-right: 16px;
   }
 }
+
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .infoForUserBalance {
     display: flex;
     align-items: center;
   }
 }
-/* @media screen and (min-width:1280px) {
-  .infoForUserBalance {
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .month_switch {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 32px;
+    margin-top: 56px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .month_switch {
+    display: flex;
+    flex-direction: column;
     align-items: center;
   }
-} */
+}
+
 .textBalance {
   font-weight: 500;
   font-size: 12px;
@@ -124,29 +124,6 @@ p {
   border-radius: 16px;
 }
 
-@media screen and (min-width: 320px) and (max-width: 767px) {
-  .month_switch {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 32px;
-    margin-top: 56px;
-  }
-}
-@media screen and (min-width: 768px) and (max-width: 1279px) {
-  .month_switch {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .month_switch {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-}
 .month_switchPosition {
   display: flex;
   align-items: center;
