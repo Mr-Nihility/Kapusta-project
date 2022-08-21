@@ -148,18 +148,3 @@ export const App = () => {
     </>
   );
 };
-/**
- * 
- * 
- *                <Route
-                path="main"
-                element={
-                  <PublicRoute>
-                   
-                  </PublicRoute>
-                }
-              >
-                
-              </Route>
- * 
- */
