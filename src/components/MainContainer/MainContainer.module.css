@@ -44,6 +44,20 @@ MOBILE------------------
 
     border-bottom-left-radius: 130px;
   }
+
+  .bgColor2 {
+    position: absolute;
+    background-color: #f5f6fb;
+
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 20px 28px;
+
+    width: 100%;
+    height: 320px;
+
+    border-bottom-left-radius: 130px;
+  }
 }
 
 /* ---------------------

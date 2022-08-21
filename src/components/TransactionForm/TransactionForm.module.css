@@ -229,12 +229,16 @@
     flex-direction: row;
   }
   .date {
+    background-color: transparent;
     color: #52555f;
     padding-left: 32px;
     height: 44px;
     width: 120px;
+    font-weight: 900;
+    font-size: 12px;
     border: none;
-    border-radius: 16px;
+    margin-left: 18px;
+    /* border-radius: 16px; */
 
     cursor: pointer;
   }
