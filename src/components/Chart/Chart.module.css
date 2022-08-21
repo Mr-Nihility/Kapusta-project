@@ -2,6 +2,7 @@
   .chartWrapper {
     min-width: 280px;
     margin-top: 20px;
+    padding: 0 20px;
   }
 
   .chartContainer {
