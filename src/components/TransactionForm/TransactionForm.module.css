@@ -27,12 +27,13 @@
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .form {
-  
     display: flex;
     font-size: 12px;
     line-height: 14px;
     letter-spacing: 0.02em;
     flex-direction: column;
+
+    margin-top: 40px;
   }
   .description {
     background-color: transparent;
@@ -196,16 +197,40 @@
     color: #bcbec5;
   }
   .btnWrap {
+    position: relative;
+    z-index: 2;
+
     margin-left: auto;
     margin-right: auto;
     display: flex;
     flex-direction: row;
+
+    margin-top: 100px;
   }
   .date {
-    display: none;
+    background-color: transparent;
+    color: #52555f;
+    /* padding-left: 32px; */
+    height: 44px;
+    width: 80px;
+    font-weight: 900;
+    font-size: 12px;
+    border: none;
+    /* margin-left: 18px; */
+    /* border-radius: 16px; */
+    text-align: center;
+    cursor: pointer;
   }
+
+  .label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
   .iconCalendar {
-    display: none;
+    position: relative;
   }
   .iconCalculator {
     position: absolute;
@@ -213,7 +238,7 @@
     top: 13px;
   }
   .calcWrap {
-    margin-left: 45px;
+    /* margin-left: 45px; */
     display: flex;
 
     flex-direction: row;
@@ -446,7 +471,7 @@
 
 /* DESKT----------------------------------------------------------------- */
 
-@media screen and (min-width: 1280px) {
+@media (min-width: 1280px) {
   .form {
     display: flex;
 
@@ -643,89 +668,88 @@
     pointer-events: none;
     z-index: 1;
   }
-}
+  .selected:focus {
+    background-color: #f8faff;
+    outline: 1px solid#e2e4ed;
+  }
 
-.selected:focus {
-  background-color: #f8faff;
-  outline: 1px solid#e2e4ed;
-}
+  .amount::placeholder {
+    color: #c7ccdc;
+  }
 
-.amount::placeholder {
-  color: #c7ccdc;
-}
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+  .amount:focus {
+    background-color: #f8faff;
+    outline: 1px solid#e2e4ed;
+    /* outline: none; */
+  }
 
-.amount:focus {
-  background-color: #f8faff;
-  outline: 1px solid#e2e4ed;
-  /* outline: none; */
-}
-
-/* .placeholder::-webkit-scrollbar-thumb {
+  /* .placeholder::-webkit-scrollbar-thumb {
   background-color: orange;
   color: #52555f;
   margin: 3px 0;
   font-size: 15px;
 } */
 
-.icon {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  pointer-events: none;
-  z-index: 1;
-}
-.icon :hover {
-  fill: #ff751d;
-}
-.iconCalendar {
-  position: absolute;
-  top: 11px;
-  left: 0px;
-  pointer-events: none;
-  z-index: 1;
-}
+  .icon {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .icon :hover {
+    fill: #ff751d;
+  }
+  .iconCalendar {
+    position: absolute;
+    top: 11px;
+    left: 0px;
+    pointer-events: none;
+    z-index: 1;
+  }
 
-.wrapper {
-  position: relative;
-}
+  .wrapper {
+    position: relative;
+  }
 
-.errorMessage {
-  color: #eb5757;
-  position: absolute;
-  top: 50px;
-  left: 10px;
-  display: block;
-}
-.label {
-  position: relative;
-}
+  .errorMessage {
+    color: #eb5757;
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    display: block;
+  }
+  .label {
+    position: relative;
+  }
 
-.date:focus {
-  /* background-color: #f8faff; */
-  outline: none;
-}
+  .date:focus {
+    /* background-color: #f8faff; */
+    outline: none;
+  }
 
-/* custom select----------------------------------------------------------------
+  /* custom select----------------------------------------------------------------
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
-.dropdownItem:hover {
-  color: black;
-  background-color: #f5f6fb;
-}
-.selectionIcon {
-  position: absolute;
-  right: 23px;
-  pointer-events: none;
-}
-.selectionIconRev {
-  pointer-events: none;
-  transform: rotate(180deg);
-  position: absolute;
-  right: 23px;
+  .dropdownItem:hover {
+    color: black;
+    background-color: #f5f6fb;
+  }
+  .selectionIcon {
+    position: absolute;
+    right: 23px;
+    pointer-events: none;
+  }
+  .selectionIconRev {
+    pointer-events: none;
+    transform: rotate(180deg);
+    position: absolute;
+    right: 23px;
+  }
 }
