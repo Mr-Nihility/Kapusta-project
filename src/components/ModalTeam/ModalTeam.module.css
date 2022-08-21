@@ -42,7 +42,6 @@
   }
 
   .card__wrapper {
-    padding: 40px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -170,6 +169,8 @@
     gap: 28px;
     display: flex;
     align-items: center;
+    justify-content: center;
+    overflow: scroll;
     flex-wrap: wrap;
     background-color: #ffdac0;
     background-size: 100%;
@@ -179,21 +180,19 @@
 
   .card__wrapper {
     margin: 0;
-    padding: 20px 5px 10px 5px;
+    padding: 0 5px 10px 5px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     background-color: rgb(184, 180, 180);
-    width: 150px;
+    max-width: 224px;
     border-radius: 16px;
     outline: 2px solid #ffdac0;
     box-shadow: 10px 7px 12px -7px rgba(0, 0, 0, 0.75);
   }
   .card {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }
   .img {
     border-radius: 16px;
@@ -287,15 +286,21 @@
   }
   .team__container {
     position: absolute;
-    display: block;
-
     top: 50%;
     left: 50%;
-
     width: 100vw;
     height: 100vh;
     transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 60px;
+    background-color: #ffdac0;
+    background-size: 100%;
+    background-repeat: repeat;
 
+    overflow: scroll;
+    padding: 30px;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -326,9 +331,7 @@
   }
 
   .card {
-    width: 150px;
-    height: 150px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     border-radius: 50%;
     background-size: 100%;
     background-repeat: no-repeat;
