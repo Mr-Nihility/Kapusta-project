@@ -132,10 +132,10 @@ export const TransactionForm = ({
                 {/* Custom select start------------------------------------------------------------ ------------------------------------------------*/}
                 <div className={styles.wrapper}>
                   <div
-                    // style={category&&{ }}
+                    // style={category&&{}}
                     onClick={onClick}
                     className={
-                      active ? styles.dropdownSelected : styles.dropdown
+                      category|| active ? styles.dropdownSelected : styles.dropdown
                     }
                   >
                     {!active ? (
