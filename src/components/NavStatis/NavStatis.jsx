@@ -4,7 +4,7 @@ import React from 'react';
 import { getDataTransaction } from '../../redux/reports/reports-operations';
 import { useDispatch } from 'react-redux';
 import { Icons } from '../../components/Icons/Icons';
-import { Balance } from '../Balance/Balance';
+import { RepNewLastBalance } from '../Balance/RepNewLastBalance'
 import { ReportsBalance } from '../Balance/ReportsBalance';
 import { useState } from 'react';
 import { monthMas } from '../Month/Month';
@@ -110,7 +110,7 @@ export const NavStatis = () => {
         </Link>
         <div className={Style.infoForUserBalance}>
           {widthScreen <= 768 && <ReportsBalance />}
-          {widthScreen > 768 && <Balance />}
+          {widthScreen > 768 && <RepNewLastBalance />}
         </div>
         <div className={Style.month_switch}>
           <p className={Style.month_switchText}>Current period:</p>

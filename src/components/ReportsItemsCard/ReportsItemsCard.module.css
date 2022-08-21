@@ -109,12 +109,6 @@ left: 0px; */
   margin-bottom: 20px;
 }
 
-@media screen and (min-width: 320px) and (max-width: 767px) {
-  .positionTr {
-    border-bottom: 1px solid #e0e5eb;
-  }
-}
-
 .active:hover div {
   background-color: #ffdac0;
 }
