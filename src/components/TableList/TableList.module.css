@@ -278,8 +278,6 @@
     /* width: 115px; */
   }
   .table_thead {
-    position: sticky;
-    top: 0;
     display: block;
     background: #f5f6fb;
     border-top-left-radius: 30px;
@@ -473,8 +471,6 @@
     /* width: 115px; */
   }
   .table_thead {
-    position: sticky;
-    top: 0;
     display: block;
     background: #f5f6fb;
     border-top-left-radius: 30px;
