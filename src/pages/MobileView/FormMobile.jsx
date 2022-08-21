@@ -19,6 +19,7 @@ import {
 } from 'redux/categories/catrgories-operation';
 import { useNavigate } from 'react-router-dom';
 //------------------------------------------------//
+//-----------------------------------------------helpers
 const engCategoryExp = [
   'Products',
   'Alcohol',
@@ -73,8 +74,8 @@ export default function FormMobile() {
 
   return (
     <div>
-      <p style={{ position: 'relative', color: 'currentcolor' }}>
-        {`Current date :${currentDate}`}
+      <p className={styles.text}>
+        {`Current date : ${currentDate ? currentDate : 'not selected'}`}
       </p>
 
       <NavLink to="/kapusta-project/main" className={styles.backBtn}>
