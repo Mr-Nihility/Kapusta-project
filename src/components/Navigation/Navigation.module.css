@@ -4,7 +4,7 @@ MOBILE--------
 @media (max-width: 767px) {
   .list {
     list-style: none;
-    margin-top: 2px;
+    margin-top: auto;
     display: flex;
     justify-content: space-between;
   }
