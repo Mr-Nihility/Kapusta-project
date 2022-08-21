@@ -20,7 +20,6 @@ export const ModalTeam = ({ open, handler }) => {
       {open && (
         <div className={s.backdrop}>
           <div className={s.team__container}>
-            {/* <h2 className={s.team__title}>OUR TEAM</h2> */}
             <CloseIcon className={s.close__icon} onClick={handler} />
             <div className={s.card__wrapper}>
               <div className={s.card}>
@@ -73,6 +72,7 @@ export const ModalTeam = ({ open, handler }) => {
                   <a
                     className={s.social__link}
                     href="https://www.linkedin.com/feed/"
+                    target="blank"
                   >
                     <LinkInIcon className={s.linkin} />
                   </a>
@@ -246,6 +246,7 @@ export const ModalTeam = ({ open, handler }) => {
                   <a
                     className={s.social__link}
                     href="https://www.linkedin.com/feed/"
+                    target="blank"
                   >
                     <LinkInIcon className={s.linkin} />
                   </a>
