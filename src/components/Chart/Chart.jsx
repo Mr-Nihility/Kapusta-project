@@ -25,9 +25,11 @@ ChartJS.register(
   Legend
 );
 
-export const Chart = ({ itemEl, arrow }) => {
+export const Chart = ({ itemEl }) => {
   const itemSliceKeys = Object.keys(itemEl[1]).slice(1);
   const itemSliceValues = Object.values(itemEl[1]).slice(1);
+
+  const maxValue = Math.max(...itemSliceValues);
 
   const [widthScreen, setWidthScreen] = useState(window.screen.width);
 
@@ -58,12 +60,21 @@ export const Chart = ({ itemEl, arrow }) => {
 
   const optionsHorizontal = {
     indexAxis: 'y',
-    responsive: true,
+    responsive: false,
     maintainAspectRatio: false,
     keepAspectRatio: false,
+    elements: {
+      bar: {
+        tension: 5,
+      },
+    },
+    layout: {
+      padding: {
+        right: 30,
+      },
+    },
     plugins: {
       legend: {
-        position: 'bottom',
         display: false,
       },
       datalabels: {
@@ -82,11 +93,16 @@ export const Chart = ({ itemEl, arrow }) => {
     },
     scales: {
       xAxes: {
+        min: 0,
+        max: maxValue,
+        ticks: {
+          stepSize: 10,
+          display: false,
+        },
         grid: {
           drawBorder: false,
           color: 'transparent',
         },
-        ticks: { display: false },
         gridLines: {
           display: false,
           drawBorder: false,
@@ -121,6 +137,11 @@ export const Chart = ({ itemEl, arrow }) => {
     responsive: true,
     maintainAspectRatio: false,
     keepAspectRatio: false,
+    layout: {
+      padding: {
+        top: 15,
+      },
+    },
     plugins: {
       legend: {
         display: false,
@@ -166,6 +187,12 @@ export const Chart = ({ itemEl, arrow }) => {
         },
       },
       y: {
+        min: 0,
+        max: maxValue,
+        ticks: {
+          stepSize: 10,
+          display: false,
+        },
         grid: {
           offset: false,
           color: '#F5F6FB',
@@ -173,9 +200,6 @@ export const Chart = ({ itemEl, arrow }) => {
           drawBorder: false,
         },
         display: true,
-        ticks: {
-          display: false,
-        },
       },
     },
   };
@@ -190,6 +214,7 @@ export const Chart = ({ itemEl, arrow }) => {
         borderRadius: 10,
         maxBarThickness: 38,
         barScale: 2,
+        padding: 10,
       },
     ],
   };
@@ -219,11 +244,14 @@ export const Chart = ({ itemEl, arrow }) => {
               id="Bar"
               style={{
                 display: 'flex',
-                width: '760px',
+                justifyContent: 'center',
+                // display: 'flex',
+                // width: '760px',
                 // maxWidth: '1034px',
-                height: '360px',
+                minWidth: '280px',
               }}
-              width={'760px'}
+              // width={'auto'}
+              // height={'auto'}
             />
           </div>
         </div>
@@ -237,11 +265,11 @@ export const Chart = ({ itemEl, arrow }) => {
               id="Bar"
               style={{
                 display: 'flex',
-                width: '760px',
-                maxWidth: '1034px',
+                // width: '760px',
+                // maxWidth: '1034px',
                 height: '360px',
               }}
-              width={'760px'}
+              // width={'760px'}
             />
           </div>
         </div>
