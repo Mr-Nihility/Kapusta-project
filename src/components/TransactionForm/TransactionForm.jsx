@@ -6,8 +6,7 @@ import * as Yup from 'yup';
 import { Formik, Form, Field } from 'formik';
 import svg from '../../images/svg-icon-project/symbol-defs.svg';
 import DatePickerComponent from 'components/DatePickerComponent/DatePickerComponent';
-import { getCurrentDate } from 'redux/date/date-selector';
-import { useSelector } from 'react-redux';
+
 //----------------------------------------------------------------------------//
 
 export const TransactionForm = ({
@@ -135,7 +134,9 @@ export const TransactionForm = ({
                     // style={category&&{}}
                     onClick={onClick}
                     className={
-                      category|| active ? styles.dropdownSelected : styles.dropdown
+                      category || active
+                        ? styles.dropdownSelected
+                        : styles.dropdown
                     }
                   >
                     {!active ? (

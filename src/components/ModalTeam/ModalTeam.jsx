@@ -55,7 +55,7 @@ export const ModalTeam = ({ open, handler }) => {
                 <img src={ira} alt="1" className={s.img} />
               </div>
               <div className={s.title__container}>
-                <h3 className={s.member__title}>Irina</h3>
+                <h3 className={s.member__title}>Iryna</h3>
                 <p className={s.role__text}>Scrum Master</p>
               </div>
               <ul className={s.social__list}>
@@ -71,7 +71,7 @@ export const ModalTeam = ({ open, handler }) => {
                 <li className={s.list__item}>
                   <a
                     className={s.social__link}
-                    href="https://www.linkedin.com/feed/"
+                    href="https://www.linkedin.com/in/iryna-sabinina-7620a5244/"
                     target="blank"
                   >
                     <LinkInIcon className={s.linkin} />
