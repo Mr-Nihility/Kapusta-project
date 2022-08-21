@@ -42,7 +42,7 @@ export default function TableItem({
           {categorys?.length > 2 && <span>-</span>}
           {amount} грн.
         </td>
-        <td className={s.date_td1}>
+        <td className={s.delete}>
           <div className={s.svg} onClick={handleOpenModal}>
             <svg width="17" height="17" type="button">
               <use href={vvv + '#icon-trash-can'}></use>

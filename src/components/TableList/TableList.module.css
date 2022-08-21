@@ -19,13 +19,89 @@
 
 /* ======MOBILE====== */
 
-@media screen and (min-width: 320px) and (max-width: 767px) {
+@media screen and (min-width: 319px) and (max-width: 767px) {
+  .table {
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
+    table-layout: fixed;
+    max-width: 746px;
+    display: block;
+    border-collapse: collapse;
+  }
+  .table_wrapper {
+    flex-grow: 1;
+  }
+  .table_container {
+    display: flex;
+
+    justify-content: center;
+  }
+  .table_tbody::-webkit-scrollbar-thumb {
+    background-color: #f67300;
+    border-radius: 2px;
+  }
+  .table_tbody::-webkit-scrollbar {
+    width: 7px;
+    padding: 0;
+
+    background-color: #f5f6fb;
+  }
   .table_tbody {
-    width: 282px;
+    min-width: 282px;
+    width: 100%;
+    max-width: 500px;
     height: 120px;
     overflow: auto;
+    display: block;
+  }
+  .tr {
+    display: grid;
+    /* grid-template-columns: 68px 82px 82px 20px; */
+    grid-template-columns: 1.6fr 1.7fr 1.3fr 0.5fr;
+    grid-template-rows: 1.5fr 1.2fr;
+  }
+  .date_td1 {
+    font-size: 8px;
+    line-height: 1.12;
+    grid-area: 2 / 1 / 3 / 2;
+  }
+  .description_td2 {
+    border: none;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.17;
+    grid-area: 1 / 1 / 2 / 3;
+  }
+  .category_td3 {
+    font-size: 8px;
+    line-height: 1.12;
+    grid-area: 2 / 2 / 3 / 3;
+  }
+  .income,
+  .expense {
+    font-size: 12px;
+    line-height: 1.17;
+    grid-area: 1 / 3 / 3 / 4;
   }
 
+  .delete {
+    grid-area: 1 / 4 / 3 / 5;
+  }
+
+  .expense {
+    color: #e7192e;
+  }
+  .income {
+    color: #407946;
+  }
+  /* .names- { grid-area: 1 / 1 / 2 / 3; }
+.delete { grid-area: 1 / 4 / 2 / 5; }
+.suum { grid-area: 1 / 3 / 2 / 4; }
+.summ { grid-area: 1 / 3 / 3 / 4; }
+.deletes { grid-area: 1 / 4 / 3 / 5; }
+.date { grid-area: 2 / 2 / 3 / 3; }
+.CATEGORY { grid-area: 2 / 1 / 3 / 2; } */
   .table_thead tr {
     display: none;
   }
