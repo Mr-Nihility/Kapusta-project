@@ -4,6 +4,7 @@ import authReducer from './auth/auth-slice';
 import storage from 'redux-persist/lib/storage';
 import categoriesReducer from './categories/catrgories-slice';
 import reportsReducer from './reports/reports-slice';
+import dateReducer from './date/date-slice';
 //--------------------------------------------------------------------------//
 
 import {
@@ -34,7 +35,8 @@ const store = configureStore({
     auth: persistReducer(persistConfigAuth, authReducer),
     transactions: transactionsReducer,
     categories: categoriesReducer,
-		reports: reportsReducer,
+    reports: reportsReducer,
+    date: dateReducer,
   },
 
   middleware: getDefaultMiddleware({

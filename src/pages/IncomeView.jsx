@@ -29,7 +29,6 @@ export default function IncomeView() {
   const stats = useSelector(getIncomeMonth);
 
   useEffect(() => {
-    console.log('render');
     if (!isLog) {
       return;
     }
