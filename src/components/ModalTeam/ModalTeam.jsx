@@ -1,9 +1,7 @@
-import { useState } from 'react';
 import { ReactComponent as LinkInIcon } from '../../images/svg-list-icon/linkedin.svg';
 import { ReactComponent as GitHubIcon } from '../../images/svg-list-icon/github.svg';
 import { ReactComponent as CloseIcon } from '../../images/svg-list-icon/close.svg';
-
-import team from '../../images/svg-list-icon/teamwork.png';
+import ReactDOM from 'react-dom';
 
 import vova from '../../images/team/vova.jpg';
 import ira from '../../images/team/ira.jpg';
@@ -16,21 +14,14 @@ import seva from '../../images/team/no-avatar.jpeg';
 
 import s from './ModalTeam.module.css';
 
-export const ModalTeam = () => {
-  const [open, setOpen] = useState(false);
-
-  return (
+export const ModalTeam = ({ open, handler }) => {
+  return ReactDOM.createPortal(
     <>
       {open && (
         <div className={s.backdrop}>
           <div className={s.team__container}>
             {/* <h2 className={s.team__title}>OUR TEAM</h2> */}
-            <CloseIcon
-              className={s.close__icon}
-              onClick={() => {
-                setOpen(!open);
-              }}
-            />
+            <CloseIcon className={s.close__icon} onClick={handler} />
             <div className={s.card__wrapper}>
               <div className={s.card}>
                 <img src={vova} alt="1" className={s.img} />
@@ -264,17 +255,7 @@ export const ModalTeam = () => {
           </div>
         </div>
       )}
-      <div className={s.btn__container}>
-        <img
-          type="button"
-          src={team}
-          className={s.team__icon}
-          onClick={() => {
-            setOpen(!open);
-          }}
-          alt="1"
-        />
-      </div>
-    </>
+    </>,
+    document.body
   );
 };
