@@ -3,6 +3,9 @@ MOBILE------------------
 -----------------------*/
 
 @media (max-width: 767px) {
+  .bgImageHomeView {
+    display: none;
+  }
   .innerWrapperForm {
     position: relative;
     display: block;

@@ -1,6 +1,8 @@
 import ReactDatePicker from 'react-datepicker';
 import styles from '../../components/TransactionForm/TransactionForm.module.css';
 import svg from '../../images/svg-icon-project/symbol-defs.svg';
+//-----------------------------------------------------------------------//
+
 export default function DatePickerComponent({ selected, handler }) {
   return (
     <label className={styles.label}>

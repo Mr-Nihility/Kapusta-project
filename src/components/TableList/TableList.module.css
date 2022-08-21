@@ -24,8 +24,16 @@
     width: 282px;
     height: 120px;
     overflow: auto;
+    display: block;
   }
-
+  .table_body tr {
+    display: grid;
+    grid-template-columns: 45px 82px 84px 20px;
+    display: grid;
+    grid-auto-flow: row dense;
+    grid-template-columns: 45px 82px 84px 20px;
+    grid-template-rows: 1fr 1.5fr 1.5fr;
+  }
   .table_thead tr {
     display: none;
   }
