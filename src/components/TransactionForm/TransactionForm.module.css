@@ -75,7 +75,7 @@
 
     border-radius: 0 0 16px 0;
     border: 2px solid #ffffff;
-    color: #c7ccdc;
+    color: #dce0ec;
     margin-bottom: 32px;
   }
   .dropdownSelected {
@@ -210,15 +210,13 @@
   }
   .date {
     background-color: transparent;
-    color: #52555f;
-    /* padding-left: 32px; */
+    color: #71747e;
+    
     height: 44px;
     width: 80px;
     font-weight: 900;
     font-size: 12px;
     border: none;
-    /* margin-left: 18px; */
-    /* border-radius: 16px; */
     text-align: center;
     cursor: pointer;
   }
@@ -250,6 +248,17 @@
     border: 2px solid #ffffff;
     border-radius: 0px 22px 22px 0px;
     border-left: none;
+  }
+  .selectionIcon {
+    position: absolute;
+    right: 23px;
+    pointer-events: none;
+  }
+  .selectionIconRev {
+    pointer-events: none;
+    transform: rotate(180deg);
+    position: absolute;
+    right: 23px;
   }
 }
 
@@ -312,7 +321,7 @@
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
-    color: #c7ccdc;
+    color: #e1e4ee;
 
     border-radius: 0px;
     border-top: 2px solid #f5f6fb;
@@ -468,6 +477,18 @@
     pointer-events: none;
     z-index: 1;
   }
+  .selectionIcon {
+    position: absolute;
+    right: 23px;
+    pointer-events: none;
+  }
+  .selectionIconRev {
+    pointer-events: none;
+    transform: rotate(180deg);
+    position: absolute;
+    right: 23px;
+  }
+
 }
 
 /* DESKT----------------------------------------------------------------- */
@@ -734,14 +755,6 @@
     /* background-color: #f8faff; */
     outline: none;
   }
-
-  /* custom select----------------------------------------------------------------
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
-
-  .dropdownItem:hover {
-    color: black;
-    background-color: #f5f6fb;
-  }
   .selectionIcon {
     position: absolute;
     right: 23px;
@@ -754,3 +767,12 @@
     right: 23px;
   }
 }
+
+  /* custom select----------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+  .dropdownItem:hover {
+    color: black;
+    background-color: #f5f6fb;
+  }
+  
