@@ -4,6 +4,7 @@ import svg from '../../images/svg-icon-project/symbol-defs.svg';
 //-----------------------------------------------------------------------//
 
 export default function DatePickerComponent({ date, handler }) {
+  console.log(date);
   return (
     <label className={styles.label}>
       <svg className={styles.iconCalendar} width="20" height="20">
