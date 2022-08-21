@@ -41,6 +41,8 @@ export const TransactionForm = ({
   };
 
   const onClick = evt => {
+    // console.log('curent target', evt.currentTarget.textContent);
+    console.log('target', evt.target.textContent);
     if (
       evt.target.textContent === 'Product Category' ||
       evt.target.textContent.length > 25

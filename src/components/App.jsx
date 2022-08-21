@@ -105,7 +105,7 @@ export const App = () => {
                 }
               />
               <Route
-                path={'create-expanse'}
+                path={'create/:location'}
                 element={
                   <PrivateRoute>
                     <Media
@@ -124,7 +124,7 @@ export const App = () => {
                   </PrivateRoute>
                 }
               />
-              <Route
+              {/* <Route
                 path={'create-income'}
                 element={
                   <PrivateRoute>
@@ -143,7 +143,7 @@ export const App = () => {
                     </Media>
                   </PrivateRoute>
                 }
-              />
+              /> */}
             </Route>
             <Route
               path={'reports'}

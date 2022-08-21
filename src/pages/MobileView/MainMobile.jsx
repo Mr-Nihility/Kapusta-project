@@ -66,7 +66,7 @@ export default function MainMobile() {
       {!!allTransactions?.length && (
         <Tablelist list={allTransactions} delTrans={deleteItem} />
       )}
-      <Navigation expenses={'create-expanse'} income={'create-income'} />
+      <Navigation expenses={'create/expanse'} income={'create/income'} />
     </>
   );
 }
