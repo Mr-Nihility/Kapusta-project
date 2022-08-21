@@ -1,13 +1,7 @@
 import Style from './SpendingMonStat.module.css';
 import { Icons } from '../../components/Icons/Icons';
 import { useSelector } from 'react-redux';
-// import {
-//   incomeDataSelector,
-//   expensesDataSelector,
-// } from 'redux/reports/reports-selector';
-// import { useState } from 'react';
 import { ReportsItemsCard } from 'components/ReportsItemsCard/ReportsItemsCard';
-// import { nanoid } from 'nanoid';
 import { getSuccessToken } from 'redux/auth/auth-selectors';
 
 //-------------------------------------------------------------------------------//

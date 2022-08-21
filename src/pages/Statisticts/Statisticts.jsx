@@ -8,8 +8,8 @@ import {
   incomeDataSelector,
   expensesDataSelector,
 } from 'redux/reports/reports-selector';
-
 import styles from './Statisticts.module.css';
+
 //-------------------------------------------------------------------//
 export const Statisticts = () => {
   const expenses = useSelector(incomeDataSelector);
