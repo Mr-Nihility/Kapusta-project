@@ -13,31 +13,33 @@ export const ReportsItemsCard = ({
   const active = Number(currentItem) === Number(id);
 
   return (
-    <td
-      className={active ? Style.active : Style.item_spend}
-      id={id}
-      onClick={evt => {
-        const currentIdItem = evt.currentTarget.id;
-        handelClickOnCategory(item, currentIdItem);
-      }}
-    >
-      <p className={Style.item_text}>{total + '.00'}</p>
+    <tr className={Style.positionTr}>
+      <td
+        className={active ? Style.active : Style.item_spend}
+        id={id}
+        onClick={evt => {
+          const currentIdItem = evt.currentTarget.id;
+          handelClickOnCategory(item, currentIdItem);
+        }}
+      >
+        <span className={Style.item_text}>{total + '.00'}</span>
 
-      <div
-        className={
-          active ? Style.item_backgroundSvgActive : Style.item_backgroundSvg
-        }
-      ></div>
-      <Icons
-        name={category}
-        className={active ? Style.item_spendSvgActive : Style.item_spendSvg}
-        color="#071F41"
-        width="56"
-        height="56"
-      />
+        <span
+          className={
+            active ? Style.item_backgroundSvgActive : Style.item_backgroundSvg
+          }
+        ></span>
+        <Icons
+          name={category}
+          className={active ? Style.item_spendSvgActive : Style.item_spendSvg}
+          color="#071F41"
+          width="56"
+          height="56"
+        />
 
-      <p className={Style.item_text}>{category}</p>
-    </td>
+        <span className={Style.item_text}>{category}</span>
+      </td>
+    </tr>
   );
 };
 

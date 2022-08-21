@@ -46,45 +46,61 @@ export const SpendingMoneyStatisticts = ({
           </div>
           <div>
             {arrow ? (
-              <tbody className={Style.list_spend}>
-                {!!inCate.length ? (
-                  inCate.map((item, i) => {
-                    return (
-                      <ReportsItemsCard
-                        id={i}
-                        key={i}
-                        currentItem={currentId}
-                        total={item[1].total}
-                        category={item[0]}
-                        item={item}
-                        handelClickOnCategory={handelClickOnCategory}
-                      />
-                    );
-                  })
-                ) : (
-                  <p className={Style.list_spendTextNo}> No reports</p>
-                )}
-              </tbody>
+              <table>
+                <tbody className={Style.list_spend}>
+                  {!!inCate.length ? (
+                    inCate.map((item, i) => {
+                      return (
+                        <ReportsItemsCard
+                          id={i}
+                          key={i}
+                          currentItem={currentId}
+                          total={item[1].total}
+                          category={item[0]}
+                          item={item}
+                          handelClickOnCategory={handelClickOnCategory}
+                        />
+                      );
+                    })
+                  ) : (
+                    <tr>
+                      <td>
+                        <span className={Style.list_spendTextNo}>
+                          No reports
+                        </span>
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
             ) : (
-              <tbody className={Style.list_spend}>
-                {!!exCate.length ? (
-                  exCate.map((item, i) => {
-                    return (
-                      <ReportsItemsCard
-                        id={i}
-                        key={i}
-                        total={item[1].total}
-                        category={item[0]}
-                        currentItem={currentId}
-                        item={item}
-                        handelClickOnCategory={handelClickOnCategory}
-                      />
-                    );
-                  })
-                ) : (
-                  <p className={Style.list_spendTextNo}> No reports</p>
-                )}
-              </tbody>
+              <table>
+                <tbody className={Style.list_spend}>
+                  {!!exCate.length ? (
+                    exCate.map((item, i) => {
+                      return (
+                        <ReportsItemsCard
+                          id={i}
+                          key={i}
+                          total={item[1].total}
+                          category={item[0]}
+                          currentItem={currentId}
+                          item={item}
+                          handelClickOnCategory={handelClickOnCategory}
+                        />
+                      );
+                    })
+                  ) : (
+                    <tr>
+                      <td>
+                        <span className={Style.list_spendTextNo}>
+                          No reports
+                        </span>
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
             )}
           </div>
         </div>

@@ -39,7 +39,7 @@ export default function TableItem({
         <td className={s.category_td3}>{category}</td>
 
         <td className={!type ? s.expense : s.income}>
-          {categorys?.length > 2 && <span>-</span>}
+          {!type && <span>-</span>}
           {amount} грн.
         </td>
         <td className={s.delete}>
