@@ -208,13 +208,11 @@ DESKTOP------------------
     margin-left: 0;
     margin-bottom: 0;
   }
-  /* .FonNutsInAuth {
-  bottom: 0;
-  height: auto;
-} */
 
   .innerWrapperForm {
-    /* position: absolute; */
+    /* fix */
+    position: static;
+    /* up */
     max-width: 960px;
     height: 552px;
     margin-top: 117px;
