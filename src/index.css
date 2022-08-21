@@ -25,6 +25,9 @@ body {
 
   font-family: 'Roboto', sans-serif;
 }
+.hidden {
+  overflow: hidden;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

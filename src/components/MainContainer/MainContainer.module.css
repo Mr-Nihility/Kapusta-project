@@ -3,6 +3,14 @@ MOBILE------------------
 -----------------------*/
 
 @media (max-width: 767px) {
+  /* 
+  vova
+ */
+  .Container2 {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+  }
   .bgImageHomeView {
     display: none;
   }
@@ -133,7 +141,7 @@ DESKTOP------------------
     width: 100%;
     /* overflow: hidden; */
     padding-bottom: 50px;
-    height: calc(100vh - 62px);
+    /* height: 100vh; */
     /* background-image: url(./images/Component_2.svg); */
     /* background-size: 100%, contain; */
     /* background-repeat: no-repeat; */

@@ -43,7 +43,7 @@ export const App = () => {
     if (!accessToken) return;
     dispatch(googleAuthUser({ accessToken, refreshToken, sid }));
 
-    navigate('/kapusta-project/expenses');
+    navigate('/kapusta-project/main');
   }, [searchParams, dispatch, navigate]);
 
   const isLoading = useSelector(getIsLoading);
@@ -124,26 +124,6 @@ export const App = () => {
                   </PrivateRoute>
                 }
               />
-              {/* <Route
-                path={'create-income'}
-                element={
-                  <PrivateRoute>
-                    <Media
-                      queries={{
-                        small: '(min-width: 319px) and (max-width: 767px)',
-                        medium: '(min-width: 768px)',
-                      }}
-                    >
-                      {({ small, medium }) => (
-                        <>
-                          {small && <FormMobile />}
-                          {medium && <NotFound />}
-                        </>
-                      )}
-                    </Media>
-                  </PrivateRoute>
-                }
-              /> */}
             </Route>
             <Route
               path={'reports'}
