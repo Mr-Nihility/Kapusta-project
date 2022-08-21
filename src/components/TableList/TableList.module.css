@@ -34,7 +34,7 @@
   }
   .table_container {
     display: flex;
-
+    margin-top: 40px;
     justify-content: center;
   }
   .table_tbody::-webkit-scrollbar-thumb {
@@ -54,12 +54,15 @@
     height: 120px;
     overflow: auto;
     display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
   .tr {
     display: grid;
     /* grid-template-columns: 68px 82px 82px 20px; */
     grid-template-columns: 1.6fr 1.7fr 1.3fr 0.5fr;
     grid-template-rows: 1.5fr 1.2fr;
+    align-items: center;
   }
   .date_td1 {
     font-size: 8px;
