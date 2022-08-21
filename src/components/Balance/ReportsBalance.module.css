@@ -4,25 +4,9 @@
 @media screen and (min-width: 1280px) */
 
 /*------------------------------------------------*/
-@media screen and (min-width: 270px) {
-  .form {
-    /* background-image: url(../../images/background/bkgd_desktop.png); */
 
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    padding-left: 32px;
-    padding-right: 32px;
-    text-align: center;
-
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 40px;
-  }
-}
 @media screen and (max-width: 767px) {
   .form {
-    position: relative;
     margin-top: 104px;
     justify-content: center;
   }
@@ -90,7 +74,7 @@
   background-color: transparent;
   width: 125px;
   border: 2px solid #ffffff;
-  /* border-radius: 16px; */
+  border-radius: 16px;
   color: #52555f;
   font-size: 12px;
   line-height: 1.17;
@@ -101,7 +85,7 @@
   padding-bottom: 12px;
   padding-left: 6px;
   padding-right: 6px;
-  /* margin-left: 16px; */
+  margin-left: 16px;
 }
 @media screen and (max-width: 767px) {
   .inputWraper {

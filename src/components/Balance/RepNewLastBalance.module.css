@@ -17,20 +17,16 @@
 
     flex-direction: column;
     align-items: center;
-    margin-bottom: 40px;
   }
 }
 @media screen and (max-width: 767px) {
   .form {
-    position: relative;
     margin-top: 104px;
     justify-content: center;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .form {
-    margin-bottom: 60px;
-    margin-top: 40px;
     flex-direction: row;
     flex-wrap: nowrap;
     align-content: normal;
@@ -44,7 +40,6 @@
     text-align: center;
     align-items: center;
     justify-content: center;
-    margin-bottom: 8px;
   }
 }
 @media screen and (min-width: 270px) and (max-width: 767px) {
@@ -90,7 +85,7 @@
   background-color: transparent;
   width: 125px;
   border: 2px solid #ffffff;
-  /* border-radius: 16px; */
+  border-radius: 16px;
   color: #52555f;
   font-size: 12px;
   line-height: 1.17;
@@ -101,7 +96,7 @@
   padding-bottom: 12px;
   padding-left: 6px;
   padding-right: 6px;
-  /* margin-left: 16px; */
+  margin-left: 16px;
 }
 @media screen and (max-width: 767px) {
   .inputWraper {

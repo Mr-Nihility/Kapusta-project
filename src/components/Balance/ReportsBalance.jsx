@@ -1,4 +1,4 @@
-import styles from './Balance.module.css';
+import styles from './ReportsBalance.module.css';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { newBalance } from 'redux/transaction/transaction-operations';

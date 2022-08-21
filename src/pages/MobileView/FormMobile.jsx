@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Icons } from '../../components/Icons/Icons';
 import { TransactionForm } from 'components/TransactionForm/TransactionForm';
+import styles from './FormMobile.module.css';
 import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentDate } from 'redux/date/date-selector';
@@ -66,7 +67,8 @@ export default function FormMobile() {
   return (
     <div>
       <p> {`Current date :${currentDate}`}</p>
-      <NavLink to="/kapusta-project/main">
+
+      <NavLink to="/kapusta-project/main" className={styles.backBtn}>
         <Icons
           name="long-arrow-left"
           className=""
