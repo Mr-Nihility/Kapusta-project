@@ -110,6 +110,7 @@ export const TransactionForm = ({
                     className={styles.description}
                     name="description"
                     type="text"
+                    // pattern="/^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/"
                     onChange={handleChange}
                     placeholder="Product description"
                   />
@@ -198,7 +199,12 @@ export const TransactionForm = ({
                 <button
                   className={styles.inputBtn}
                   type="submit"
-                  disabled={!isValid || !dirty || !category}
+                  disabled={
+                    !isValid ||
+                    !dirty ||
+                    !category ||
+                    values.description.toLowerCase() === 'total'
+                  }
                 >
                   INPUT
                 </button>
