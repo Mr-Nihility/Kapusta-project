@@ -161,6 +161,7 @@ export const Chart = ({ itemEl }) => {
         },
         anchor: 'end',
         offset: 0,
+        padding: 0,
         align: 'end',
         display: true,
         color: 'black',
