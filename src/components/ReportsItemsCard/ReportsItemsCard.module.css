@@ -39,14 +39,24 @@
 
 .item_backgroundSvg {
   position: absolute;
-  top: 40px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(-50%);
   background-color: #f5f6fb;
   border-radius: 20px;
   width: 52px;
   height: 46px;
   z-index: 0;
+
+  /*   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: #ffdac0;
+  border-radius: 20px;
+  width: 52px;
+  height: 46px;
+  z-index: 0; */
 }
 
 .item_backgroundSvgActive {
