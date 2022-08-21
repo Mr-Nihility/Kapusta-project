@@ -101,10 +101,11 @@
     height: 44px;
     width: 280px;
     border-radius: 0px;
-    border-top: 2px solid #f5f6fb;
-    border-bottom: 2px solid #f5f6fb;
-    /* background-color: rgb(232, 240, 254) */
-    background-color: #f8faff;
+    /* border-top: 2px solid #f5f6fb;
+    border-bottom: 2px solid #f5f6fb; */
+    border: 2px solid #ffffff;
+    background-color: rgb(232, 240, 254);
+    background-color: transparent;
   }
   .dropdownContentDisable {
     display: none;
@@ -117,7 +118,7 @@
     align-items: center;
     justify-content: space-between;
 
-    top: 42px;
+    top: 40px;
     left: -2px;
     border: 2px solid #f5f6fb;
     z-index: 10;
@@ -291,7 +292,7 @@
   }
   .description {
     width: 184px;
-    margin-left: 24px;
+    margin-left: 35px;
     color: #52555f;
 
     border: 2px solid #f6f7fc;
@@ -396,7 +397,7 @@
   }
 
   .btnWrap {
-    padding-right: 45px;
+    padding-right: 15px;
     margin-right: auto;
     margin-left: auto;
     display: flex;
@@ -489,7 +490,7 @@ line-height: 14px;
   .iconCalculator {
     position: absolute;
     top: 45px;
-    right: 60px;
+    right: 50px;
     pointer-events: none;
     z-index: 1;
   }
@@ -578,7 +579,7 @@ line-height: 14px;
     border-radius: 0px;
     border-top: 2px solid #f5f6fb;
     border-bottom: 2px solid #f5f6fb;
-    /* background-color: rgb(232, 240, 254) */
+    
     background-color: #f8faff;
   }
   .dropdownContentDisable {
@@ -595,6 +596,7 @@ line-height: 14px;
     top: 42px;
     left: -2px;
     border: 2px solid #f5f6fb;
+    background-color: #f8faff;
     z-index: 10;
   }
 
@@ -628,7 +630,7 @@ line-height: 14px;
   }
   .inputBtn {
     padding-bottom: 12px;
-    margin-left: 200px;
+    
 
     padding-top: 12px;
 
@@ -649,7 +651,7 @@ line-height: 14px;
     border-radius: 16px;
 
     background-color: #ff751d;
-    margin-left: 32px;
+    margin-left: 45px;
 
     transition: 0.3s;
   }
@@ -788,6 +790,9 @@ line-height: 14px;
     transform: rotate(180deg);
     position: absolute;
     right: 23px;
+  }
+  .dropdownSelected{
+    background-color: #f8faff;
   }
 }
 
