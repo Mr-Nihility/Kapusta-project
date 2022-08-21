@@ -52,7 +52,7 @@ export const logOut = createAsyncThunk('auth/logout', async () => {
 });
 
 export const getCurrentUser = createAsyncThunk(
-  'auth/refresh',
+  'auth/refreshAuth',
   async (_, { getState, rejectWithValue }) => {
     const state = getState();
     const sid = state.auth.sid;
@@ -67,8 +67,7 @@ export const getCurrentUser = createAsyncThunk(
       tokenAuth.set(data.newAccessToken);
       return data;
     } catch (error) {
-      //  console.log(error.response.data.message);
-      return rejectWithValue('error');
+      return rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -81,6 +80,19 @@ export const googleAuthUser = createAsyncThunk(
     try {
       const { data } = await axios.get('/user');
       return { accessToken, refreshToken, sid, data };
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
+export const refreshUserInfo = createAsyncThunk(
+  'auth/refreshUserInfo',
+  async () => {
+    try {
+      const { data } = await axios.get('/user');
+
+      return data;
     } catch (error) {
       console.log(error);
     }

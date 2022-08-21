@@ -105,7 +105,7 @@ export const App = () => {
                 }
               />
               <Route
-                path={'create-transaction'}
+                path={'create/:location'}
                 element={
                   <PrivateRoute>
                     <Media
@@ -124,6 +124,26 @@ export const App = () => {
                   </PrivateRoute>
                 }
               />
+              {/* <Route
+                path={'create-income'}
+                element={
+                  <PrivateRoute>
+                    <Media
+                      queries={{
+                        small: '(min-width: 319px) and (max-width: 767px)',
+                        medium: '(min-width: 768px)',
+                      }}
+                    >
+                      {({ small, medium }) => (
+                        <>
+                          {small && <FormMobile />}
+                          {medium && <NotFound />}
+                        </>
+                      )}
+                    </Media>
+                  </PrivateRoute>
+                }
+              /> */}
             </Route>
             <Route
               path={'reports'}
