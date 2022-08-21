@@ -68,7 +68,7 @@ margin-right: auto;
     display: flex;
     justify-content: flex-start;
     max-width: fit-content;
-    padding-right: 419px;
+    padding-right: 460px;
   }
 
   .link_btn {
@@ -82,10 +82,10 @@ margin-right: auto;
   .link_tab,
   .link_tab_inc {
     padding: 15px 33px;
-    
+    width: 138px;
     text-align: center;
     text-decoration: none;
-    width: 158px;
+    
     background-color: #fafbfd;
 
     color: #000000;
