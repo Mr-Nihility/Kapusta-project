@@ -195,7 +195,7 @@
 }
 .button:disabled {
   cursor: auto;
-  background-color: #f2f5fc;
+  background-color: transparent;
 
   color: #bcbec5;
 }
