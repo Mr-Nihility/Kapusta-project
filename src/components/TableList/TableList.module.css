@@ -161,8 +161,8 @@
     background-color: #f2f5fc;
   }
 
-  .tr:not(:nth-child(1)) {
-  }
+  /* .tr:not(:nth-child(1)) {
+  } */
   .tr {
     font-size: 12px;
     line-height: 1.2;
@@ -267,16 +267,7 @@
   tr th:nth-child(1) {
     width: 115px;
   }
-  tr th:nth-child(2) {
-    /* display: inline-block;
-  margin-left: 50px; */
-  }
-  tr th:nth-child(3) {
-    /* width: 180px; */
-  }
-  tr th:nth-child(4) {
-    /* width: 115px; */
-  }
+
   .table_thead {
     display: block;
     background: #f5f6fb;
@@ -364,8 +355,8 @@
     background-color: #f2f5fc;
   }
 
-  .tr:not(:nth-child(1)) {
-  }
+  /* .tr:not(:nth-child(1)) {
+  } */
   .tr {
     border-bottom: 2px solid #f5f6fb;
   }
@@ -460,16 +451,7 @@
   tr th:nth-child(1) {
     width: 115px;
   }
-  tr th:nth-child(2) {
-    /* display: inline-block;
-  margin-left: 50px; */
-  }
-  tr th:nth-child(3) {
-    /* width: 180px; */
-  }
-  tr th:nth-child(4) {
-    /* width: 115px; */
-  }
+
   .table_thead {
     display: block;
     background: #f5f6fb;

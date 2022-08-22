@@ -119,7 +119,6 @@ export const TransactionForm = ({
                     className={styles.description}
                     name="description"
                     type="text"
-                    
                     onChange={handleChange}
                     placeholder="Product description"
                   />
@@ -135,7 +134,9 @@ export const TransactionForm = ({
                     // style={category&&{}}
                     onClick={onClick}
                     className={
-                      category|| active ? styles.dropdownSelected : styles.dropdown
+                      category || active
+                        ? styles.dropdownSelected
+                        : styles.dropdown
                     }
                   >
                     {!active ? (

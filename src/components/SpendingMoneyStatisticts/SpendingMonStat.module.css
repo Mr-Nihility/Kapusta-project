@@ -90,3 +90,35 @@
   line-height: 1.1;
   padding: 20px 0px;
 }
+
+.example_tr {
+  display: flex;
+  flex-direction: row;
+}
+.imageExample_one,
+.imageExample_two,
+.imageExample_three,
+.imageExample_for {
+  width: 84px;
+  height: 106px;
+  background-size: 100% content;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.imageExample_one {
+  background-image: url(../ExsampleReports/k\ -\ 4.png);
+}
+
+.imageExample_two {
+  background-image: url(../ExsampleReports/k\ -\ 5.png);
+}
+
+.imageExample_three {
+  background-image: url(../ExsampleReports/k\ -\ 7.png);
+}
+.imageExample_for {
+  background-image: url(../ExsampleReports/k\ -\ 9.png);
+}
