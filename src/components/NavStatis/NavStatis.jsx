@@ -4,7 +4,7 @@ import React from 'react';
 import { getDataTransaction } from '../../redux/reports/reports-operations';
 import { useDispatch } from 'react-redux';
 import { Icons } from '../../components/Icons/Icons';
-import { RepNewLastBalance } from '../Balance/RepNewLastBalance'
+import { RepNewLastBalance } from '../Balance/RepNewLastBalance';
 import { ReportsBalance } from '../Balance/ReportsBalance';
 import { useState } from 'react';
 import { monthMas } from '../Month/Month';
@@ -96,7 +96,7 @@ export const NavStatis = () => {
   return (
     <>
       <div className={Style.topСontainer}>
-        <Link className={Style.button_goHome} to="/kapusta-project/main">
+        <Link className={Style.button_goHome} to="/main">
           <div className={Style.button_goHomeArrow}>
             <Icons
               name="long-arrow-left"

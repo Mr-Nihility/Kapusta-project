@@ -6,11 +6,7 @@ export const ReportBtn = () => {
   const location = useLocation();
   return (
     <>
-      <NavLink
-        to="/kapusta-project/reports"
-        state={location}
-        className={styles.link_report}
-      >
+      <NavLink to="/reports" state={location} className={styles.link_report}>
         Reports
         <svg
           className={styles.diagramsvg}

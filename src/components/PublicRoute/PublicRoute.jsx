@@ -8,9 +8,5 @@ import { getSuccessToken } from 'redux/auth/auth-selectors';
 export default function PublicRoute({ children }) {
   const accountToken = useSelector(getSuccessToken);
 
-  return !accountToken ? (
-    children
-  ) : (
-    <Navigate to="/kapusta-project/main"></Navigate>
-  );
+  return !accountToken ? children : <Navigate to="/main"></Navigate>;
 }

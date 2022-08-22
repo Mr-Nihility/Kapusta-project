@@ -8,7 +8,7 @@ export const Navigation = ({ expenses = '', income = 'income' }) => {
     <ul className={styles.list}>
       <li className={styles.link_btn}>
         <NavLink
-          to={`/kapusta-project/main/${expenses}`}
+          to={`/main/${expenses}`}
           state={location}
           className={({ isActive }) =>
             isActive
@@ -21,7 +21,7 @@ export const Navigation = ({ expenses = '', income = 'income' }) => {
       </li>
       <li className={styles.link_btn}>
         <NavLink
-          to={`/kapusta-project/main/${income}`}
+          to={`/main/${income}`}
           state={location}
           className={({ isActive }) =>
             isActive

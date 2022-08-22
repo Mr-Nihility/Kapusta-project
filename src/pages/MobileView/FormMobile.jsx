@@ -63,14 +63,14 @@ export default function FormMobile() {
     )
       .unwrap()
       .then(() => {
-        navigate('/kapusta-project/main');
+        navigate('/main');
       });
   };
   const onSubmitInc = data => {
     dispatch(addIncome({ ...data, date: currentDate ? currentDate : dateNow }))
       .unwrap()
       .then(() => {
-        navigate('/kapusta-project/main');
+        navigate('/main');
       });
   };
 
@@ -95,7 +95,7 @@ export default function FormMobile() {
         {`Current date : ${currentDate ? currentDate : dateNow}`}
       </p>
 
-      <NavLink to="/kapusta-project/main" className={styles.backBtn}>
+      <NavLink to="/main" className={styles.backBtn}>
         <Icons
           name="long-arrow-left"
           className=""

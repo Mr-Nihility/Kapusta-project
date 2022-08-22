@@ -49,7 +49,7 @@ export const App = () => {
     if (!accessToken) return;
     dispatch(googleAuthUser({ accessToken, refreshToken, sid }));
 
-    navigate('/kapusta-project/main');
+    navigate('/main');
   }, [searchParams, dispatch, navigate]);
 
   const isLoading = useSelector(getIsLoading);
@@ -60,7 +60,7 @@ export const App = () => {
         <LoaderLine />
       ) : (
         <Routes>
-          <Route path="/kapusta-project/" element={<SharedLayout />}>
+          <Route path="/" element={<SharedLayout />}>
             <Route
               index
               element={
@@ -102,7 +102,7 @@ export const App = () => {
                     >
                       {({ small, medium }) => (
                         <>
-                          {small && <Navigate to="/kapusta-project/main" />}
+                          {small && <Navigate to="/main" />}
                           {medium && <IncomeView />}
                         </>
                       )}
@@ -123,7 +123,7 @@ export const App = () => {
                       {({ small, medium }) => (
                         <>
                           {small && <FormMobile />}
-                          {medium && <Navigate to="/kapusta-project/main" />}
+                          {medium && <Navigate to="/main" />}
                         </>
                       )}
                     </Media>
