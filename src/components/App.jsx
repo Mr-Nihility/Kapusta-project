@@ -4,7 +4,13 @@ import { getCurrentUser, googleAuthUser } from 'redux/auth/auth-operations';
 // import { getIsLogged } from 'redux/auth/auth-selectors';
 import { SignInView } from '../pages/SignInView/SignInView';
 import { NotFound } from 'pages/NotFound/NotFound';
-import { Route, Routes, useNavigate, useSearchParams } from 'react-router-dom';
+import {
+  Navigate,
+  Route,
+  Routes,
+  useNavigate,
+  useSearchParams,
+} from 'react-router-dom';
 import SharedLayout from 'pages/SharedLayout';
 import ExpensesView from 'pages/ExpenseView/ExpensesView';
 import { ReportView } from 'pages/ReportView';
@@ -96,7 +102,7 @@ export const App = () => {
                     >
                       {({ small, medium }) => (
                         <>
-                          {small && <NotFound />}
+                          {small && <Navigate to="/kapusta-project/main" />}
                           {medium && <IncomeView />}
                         </>
                       )}
@@ -117,7 +123,7 @@ export const App = () => {
                       {({ small, medium }) => (
                         <>
                           {small && <FormMobile />}
-                          {medium && <NotFound />}
+                          {medium && <Navigate to="/kapusta-project/main" />}
                         </>
                       )}
                     </Media>
