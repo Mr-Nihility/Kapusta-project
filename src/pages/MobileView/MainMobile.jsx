@@ -14,14 +14,25 @@ import { deleteTrancaction } from 'redux/transaction/transaction-operations';
 import DatePickerComponent from 'components/DatePickerComponent/DatePickerComponent';
 import { refreshUserInfo } from 'redux/auth/auth-operations';
 import { setDateStore } from 'redux/date/date-slice';
+import { getCurrentDate } from 'redux/date/date-selector';
 
 //---------------------------------------------------------------//
 export default function MainMobile() {
   const isLog = useSelector(getIsLogged);
   const bal = useSelector(getStartBalance);
-  const [date, setDate] = useState(() => new Date());
+  /////
+  const currentDate = useSelector(getCurrentDate);
+
+  ///////
+  const [date, setDate] = useState(new Date());
   const allTransactions = useSelector(getAllTransactions);
   const dispatch = useDispatch();
+  ////////
+  const forPicerData = new Date(currentDate ? currentDate : new Date());
+
+  if (date.getTime() !== forPicerData.getTime()) {
+    setDate(forPicerData);
+  }
 
   const deleteItem = id => {
     dispatch(deleteTrancaction(id))
@@ -59,8 +70,11 @@ export default function MainMobile() {
         <ReportBtn />
         <DatePickerComponent
           name="date"
-          date={date}
+          date={date ? date : new Date()}
           handler={handleChangedate}
+          //////////
+
+          ////
         />
       </div>
 
