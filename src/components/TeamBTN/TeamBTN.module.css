@@ -9,7 +9,14 @@
     width: 75px;
     border-radius: 50%;
     background-color: transparent;
-    animation: rotate 2s linear infinite;
+
+    transition: 0.3s;
+
+    transform: scale(0.8);
+  }
+
+  .team__icon:hover {
+    transform: scale(1);
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
@@ -26,8 +33,15 @@
     z-index: 300;
     width: 35px;
     border-radius: 50%;
-    animation: rotate 2s linear infinite;
+    transition: 0.3s;
     background-color: transparent;
+    transition: 0.3s;
+
+    transform: scale(1.1);
+  }
+
+  .team__icon:hover {
+    transform: scale(1.2);
   }
 }
 
@@ -49,10 +63,14 @@
     border-radius: 50%;
 
     background-color: transparent;
-    animation: rotate 2s linear infinite;
+    transition: 0.3s;
+  }
+
+  .team__icon:hover {
+    transform: scale(1.1);
   }
 }
-@keyframes rotate {
+/* @keyframes rotate {
   0% {
     transform: rotate(0deg);
     box-shadow: 0 0 0 0 #ff751d;
@@ -71,4 +89,4 @@
     transform: rotate(360deg);
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
   }
-}
+} */
