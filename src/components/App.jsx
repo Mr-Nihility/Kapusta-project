@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getCurrentUser, googleAuthUser } from 'redux/auth/auth-operations';
-// import { getIsLogged } from 'redux/auth/auth-selectors';
-import { SignInView } from '../pages/SignInView/SignInView';
-import { NotFound } from 'pages/NotFound/NotFound';
+import { lazy, Suspense } from 'react';
+// import SignInView from '../pages/SignInView/SignInView';
+// import { NotFound } from 'pages/NotFound/NotFound';
 import {
   Navigate,
   Route,
@@ -12,17 +12,26 @@ import {
   useSearchParams,
 } from 'react-router-dom';
 import SharedLayout from 'pages/SharedLayout';
-import ExpensesView from 'pages/ExpenseView/ExpensesView';
-import { ReportView } from 'pages/ReportView';
-import IncomeView from 'pages/IncomeView';
+// import ExpensesView from 'pages/ExpenseView/ExpensesView';
+// import  ReportView  from 'pages/ReportView';
+// import IncomeView from 'pages/IncomeView';
 import PublicRoute from './PublicRoute/PublicRoute';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import { getIsLoading, getSuccessToken } from 'redux/auth/auth-selectors';
 import { MainContainer } from './MainContainer/MainContainer';
 import { LoaderLine } from './Loaders/LoaderLine/LoaderLine';
 import Media from 'react-media';
-import MainMobile from 'pages/MobileView/MainMobile';
-import FormMobile from 'pages/MobileView/FormMobile';
+// import MainMobile from 'pages/MobileView/MainMobile';
+// import FormMobile from 'pages/MobileView/FormMobile';
+//----------------------------------------------------------------------//
+
+const NotFound = lazy(() => import('pages/NotFound/NotFound'));
+const MainMobile = lazy(() => import('pages/MobileView/MainMobile'));
+const FormMobile = lazy(() => import('pages/MobileView/FormMobile'));
+const SignInView = lazy(() => import('../pages/SignInView/SignInView'));
+const IncomeView = lazy(() => import('pages/IncomeView'));
+const ExpensesView = lazy(() => import('pages/ExpenseView/ExpensesView'));
+const ReportView = lazy(() => import('pages/ReportView'));
 
 //---------------------------------------------------------------//
 export const App = () => {
@@ -65,7 +74,9 @@ export const App = () => {
               index
               element={
                 <PublicRoute>
-                  <SignInView />
+                  <Suspense fallback={<LoaderLine />}>
+                    <SignInView />
+                  </Suspense>
                 </PublicRoute>
               }
             />
@@ -82,8 +93,16 @@ export const App = () => {
                     >
                       {({ small, medium }) => (
                         <>
-                          {small && <MainMobile />}
-                          {medium && <ExpensesView />}
+                          {small && (
+                            <Suspense fallback={<LoaderLine />}>
+                              <MainMobile />
+                            </Suspense>
+                          )}
+                          {medium && (
+                            <Suspense fallback={<LoaderLine />}>
+                              <ExpensesView />
+                            </Suspense>
+                          )}
                         </>
                       )}
                     </Media>
@@ -103,7 +122,11 @@ export const App = () => {
                       {({ small, medium }) => (
                         <>
                           {small && <Navigate to="/kapusta-project/main" />}
-                          {medium && <IncomeView />}
+                          {medium && (
+                            <Suspense fallback={<LoaderLine />}>
+                              <IncomeView />
+                            </Suspense>
+                          )}
                         </>
                       )}
                     </Media>
@@ -122,7 +145,11 @@ export const App = () => {
                     >
                       {({ small, medium }) => (
                         <>
-                          {small && <FormMobile />}
+                          {small && (
+                            <Suspense fallback={<LoaderLine />}>
+                              <FormMobile />
+                            </Suspense>
+                          )}
                           {medium && <Navigate to="/kapusta-project/main" />}
                         </>
                       )}
@@ -135,7 +162,9 @@ export const App = () => {
               path={'reports'}
               element={
                 <PrivateRoute>
-                  <ReportView />
+                  <Suspense fallback={<LoaderLine />}>
+                    <ReportView />
+                  </Suspense>
                 </PrivateRoute>
               }
             />
@@ -144,9 +173,11 @@ export const App = () => {
           <Route
             path="*"
             element={
-              <MainContainer>
-                <NotFound />
-              </MainContainer>
+              <Suspense fallback={<LoaderLine />}>
+                <MainContainer>
+                  <NotFound />
+                </MainContainer>
+              </Suspense>
             }
           />
         </Routes>

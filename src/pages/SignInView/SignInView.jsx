@@ -12,7 +12,7 @@ import { TextField } from 'components/SignIn/TextField';
 
 //-------------------------------------------------------------------------------//
 
-export const SignInView = () => {
+export default function SignInView() {
   const dispatch = useDispatch();
 
   const [email, setEmail] = useState('');
@@ -122,4 +122,4 @@ export const SignInView = () => {
         </form> */}
     </>
   );
-};
+}
