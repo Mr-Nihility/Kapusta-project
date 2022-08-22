@@ -30,9 +30,15 @@ export const SpendingMoneyStatisticts = ({
               />
             </div>
             {arrow ? (
-              <p className={Style.spend_statTextBig}>EXPENSES</p>
-            ) : (
+              exCate.length ? (
+                <p className={Style.spend_statTextBig}>EXPENSES</p>
+              ) : (
+                <span className={Style.list_spendTextNo}>Exsample reports</span>
+              )
+            ) : inCate.length ? (
               <p className={Style.spend_statTextBig}>INCOMES</p>
+            ) : (
+              <span className={Style.list_spendTextNo}>Exsample reports</span>
             )}
             <div className={Style.spend_stat_right} onClick={handelArrow}>
               <Icons
@@ -63,13 +69,14 @@ export const SpendingMoneyStatisticts = ({
                       );
                     })
                   ) : (
-                    <tr>
-                      <td>
-                        <span className={Style.list_spendTextNo}>
-                          No reports
-                        </span>
-                      </td>
-                    </tr>
+                    <>
+                      <tr className={Style.example_tr}>
+                        <td className={Style.imageExample_one}></td>
+                        <td className={Style.imageExample_two}></td>
+                        <td className={Style.imageExample_three}></td>
+                        <td className={Style.imageExample_for}></td>
+                      </tr>
+                    </>
                   )}
                 </tbody>
               </table>
@@ -91,12 +98,11 @@ export const SpendingMoneyStatisticts = ({
                       );
                     })
                   ) : (
-                    <tr>
-                      <td>
-                        <span className={Style.list_spendTextNo}>
-                          No reports
-                        </span>
-                      </td>
+                    <tr className={Style.example_tr}>
+                      <td className={Style.imageExample_one}></td>
+                      <td className={Style.imageExample_two}></td>
+                      <td className={Style.imageExample_three}></td>
+                      <td className={Style.imageExample_for}></td>
                     </tr>
                   )}
                 </tbody>
