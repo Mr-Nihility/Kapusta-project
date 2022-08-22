@@ -30,22 +30,32 @@ const Tablelist = ({
             </thead>
 
             <tbody className={s.table_tbody}>
-              {list?.map(el => {
-                return (
-                  <Fragment key={el._id}>
-                    <TableItem
-                      delTrans={delTrans}
-                      id={el._id}
-                      date={el.date}
-                      description={el.description}
-                      category={el.category}
-                      amount={el.amount}
-                      type={type}
-                      categorys={categorys}
-                    />
-                  </Fragment>
-                );
-              })}
+              {list.length ? (
+                list.map(el => {
+                  return (
+                    <Fragment key={el._id}>
+                      <TableItem
+                        delTrans={delTrans}
+                        id={el._id}
+                        date={el.date}
+                        description={el.description}
+                        category={el.category}
+                        amount={el.amount}
+                        type={type}
+                        categorys={categorys}
+                      />
+                    </Fragment>
+                  );
+                })
+              ) : (
+                <tr className={s.noTransactionsLabel}>
+                  {type ? (
+                    <td>There is no expenses yet</td>
+                  ) : (
+                    <td>There is no incomes yet</td>
+                  )}
+                </tr>
+              )}
             </tbody>
           </table>
         </div>

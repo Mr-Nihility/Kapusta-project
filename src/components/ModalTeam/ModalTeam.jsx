@@ -23,7 +23,13 @@ export const ModalTeam = ({ open, handler }) => {
             <CloseIcon className={s.close__icon} onClick={handler} />
             <div className={s.card__wrapper}>
               <div className={s.card}>
-                <img src={vova} alt="1" className={s.img} />
+                <img
+                  src={vova}
+                  alt="1"
+                  className={s.img}
+                  width="260"
+                  height="260"
+                />
               </div>
               <div className={s.title__container}>
                 <h3 className={s.member__title}>Volodymyr</h3>
@@ -52,7 +58,13 @@ export const ModalTeam = ({ open, handler }) => {
             </div>
             <div className={s.card__wrapper}>
               <div className={s.card}>
-                <img src={ira} alt="1" className={s.img} />
+                <img
+                  src={ira}
+                  alt="1"
+                  className={s.img}
+                  width="260"
+                  height="260"
+                />
               </div>
               <div className={s.title__container}>
                 <h3 className={s.member__title}>Iryna</h3>
@@ -81,7 +93,13 @@ export const ModalTeam = ({ open, handler }) => {
             </div>
             <div className={s.card__wrapper}>
               <div className={s.card}>
-                <img src={lika} alt="1" className={s.img} />
+                <img
+                  src={lika}
+                  alt="1"
+                  className={s.img}
+                  width="260"
+                  height="260"
+                />
               </div>
               <div className={s.title__container}>
                 <h3 className={s.member__title}>Lika</h3>
@@ -110,7 +128,13 @@ export const ModalTeam = ({ open, handler }) => {
             </div>
             <div className={s.card__wrapper}>
               <div className={s.card}>
-                <img src={roma} alt="1" className={s.img} />
+                <img
+                  src={roma}
+                  alt="1"
+                  className={s.img}
+                  width="260"
+                  height="260"
+                />
               </div>
               <div className={s.title__container}>
                 <h3 className={s.member__title}>Roman</h3>
@@ -139,7 +163,13 @@ export const ModalTeam = ({ open, handler }) => {
             </div>
             <div className={s.card__wrapper}>
               <div className={s.card}>
-                <img src={sanya} alt="1" className={s.img} />
+                <img
+                  src={sanya}
+                  alt="1"
+                  className={s.img}
+                  width="260"
+                  height="260"
+                />
               </div>
               <div className={s.title__container}>
                 <h3 className={s.member__title}>Alexandr</h3>
@@ -168,7 +198,13 @@ export const ModalTeam = ({ open, handler }) => {
             </div>
             <div className={s.card__wrapper}>
               <div className={s.card}>
-                <img src={vanya} alt="1" className={s.img} />
+                <img
+                  src={vanya}
+                  alt="1"
+                  className={s.img}
+                  width="260"
+                  height="260"
+                />
               </div>
               <div className={s.title__container}>
                 <h3 className={s.member__title}>Ivan</h3>
@@ -197,7 +233,13 @@ export const ModalTeam = ({ open, handler }) => {
             </div>
             <div className={s.card__wrapper}>
               <div className={s.card}>
-                <img src={vel} alt="1" className={s.img} />
+                <img
+                  src={vel}
+                  alt="1"
+                  className={s.img}
+                  width="260"
+                  height="260"
+                />
               </div>
               <div className={s.title__container}>
                 <h3 className={s.member__title}>Val</h3>
@@ -226,7 +268,13 @@ export const ModalTeam = ({ open, handler }) => {
             </div>
             <div className={s.card__wrapper}>
               <div className={s.card}>
-                <img src={seva} alt="1" className={s.img} />
+                <img
+                  src={seva}
+                  alt="1"
+                  className={s.img}
+                  width="260"
+                  height="260"
+                />
               </div>
               <div className={s.title__container}>
                 <h3 className={s.member__title}>Vsevolod</h3>
