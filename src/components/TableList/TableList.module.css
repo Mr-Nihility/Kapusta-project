@@ -338,6 +338,15 @@
     background: #f5f6fb;
     color: #52555f;
   }
+
+  .noTransactionsLabel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+
+    font-weight: 700;
+  }
 }
 @media screen and (min-width: 1280px) {
   .svg {
