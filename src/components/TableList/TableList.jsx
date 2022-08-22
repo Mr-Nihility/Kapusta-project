@@ -75,6 +75,11 @@ const Tablelist = ({
                   );
                 }
               })}
+              {monthValues.every(el => el === 'N/A') && (
+                <tr className={s.noSummary}>
+                  <td>No summary yet</td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>
