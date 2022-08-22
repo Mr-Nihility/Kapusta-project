@@ -5,7 +5,7 @@ import style from './Logo.module.css';
 //-----------------------------------------------------------//
 export default function Logo() {
   return (
-    <NavLink className={style.logo} to="/kapusta-project/">
+    <NavLink className={style.logo} to="/">
       <img src={image} alt="logo" width="90" height="31" />
     </NavLink>
   );

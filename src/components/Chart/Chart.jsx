@@ -35,8 +35,6 @@ export const Chart = ({ itemEl }) => {
 
   const token = useSelector(getSuccessToken);
 
-  console.log(itemEl[1]);
-
   useEffect(() => {
     const doResize = evt => {
       setWidthScreen(evt.target.outerWidth);
