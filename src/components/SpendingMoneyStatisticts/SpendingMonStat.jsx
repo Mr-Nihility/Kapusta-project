@@ -29,16 +29,17 @@ export const SpendingMoneyStatisticts = ({
                 height="14"
               />
             </div>
+
             {arrow ? (
-              exCate.length ? (
+              inCate[0] ? (
                 <p className={Style.spend_statTextBig}>EXPENSES</p>
               ) : (
-                <span className={Style.list_spendTextNo}>Exsample reports</span>
+                <span className={Style.list_spendTextNo}>REPORTS EXAMPLE</span>
               )
-            ) : inCate.length ? (
+            ) : exCate[0] ? (
               <p className={Style.spend_statTextBig}>INCOMES</p>
             ) : (
-              <span className={Style.list_spendTextNo}>Exsample reports</span>
+              <span className={Style.list_spendTextNo}>REPORTS EXAMPLE</span>
             )}
             <div className={Style.spend_stat_right} onClick={handelArrow}>
               <Icons
