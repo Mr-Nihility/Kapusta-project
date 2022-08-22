@@ -122,6 +122,8 @@
   }
   .table_wrapper {
     margin-bottom: 40px;
+    box-shadow: 0px 10px 60px rgb(170 178 197 / 20%);
+    border-radius: 30px 30px 0 0;
   }
   .summary_wrapper {
     margin-left: 0;
@@ -337,6 +339,15 @@
     text-transform: uppercase;
     background: #f5f6fb;
     color: #52555f;
+  }
+
+  .noTransactionsLabel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+
+    font-weight: 700;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -605,5 +616,24 @@
   }
   .income {
     color: #407946;
+  }
+
+  .noTransactionsLabel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    color: #bcbec5;
+    font-weight: 700;
+  }
+
+  .noSummary {
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    color: #bcbec5;
+    transform: translate(-50%);
+    font-size: 12px;
+    font-weight: 700;
   }
 }

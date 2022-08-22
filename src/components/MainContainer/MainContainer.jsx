@@ -8,6 +8,9 @@ import Nutsmini from './images/Nutsmini.png';
 import LogoKapustaMobile from './images/Kapusta-mobile-title.svg';
 import FooterKapustaMobile from './images/kapusta-header-mobile.svg';
 import LogoKapustaTablet from './images/Kapusta-tablet-title.svg';
+
+import footerKapustaDesktop from '../MainContainer/images/Component_4.svg';
+
 export const MainContainer = ({ children }) => {
   const hasToken = useSelector(getSuccessToken);
   return hasToken ? (
@@ -22,7 +25,11 @@ export const MainContainer = ({ children }) => {
           alt=""
           width="100%"
         /> */}
-        <img src={svg} alt="1" className={styles.bgImageHomeView} />
+        <picture>
+          <source srcSet={footerKapustaDesktop} />
+          <img src={svg} alt="1" className={styles.bgImageHomeView} />
+        </picture>
+
         {/* <div className={styles.bgImageHomeView}></div> */}
       </div>
     </>

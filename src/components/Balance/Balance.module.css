@@ -68,6 +68,14 @@
 @media screen and (min-width: 768px) {
   .label {
     margin-right: 20px;
+
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.17;
+
+    letter-spacing: 0.02em;
+
+    color: rgba(82, 85, 95, 0.7);
   }
 }
 .mobInputWraper {
@@ -214,7 +222,7 @@
   .reports_form {
     align-items: flex-start;
     justify-content: center;
-		margin-bottom: 0px;
+    margin-bottom: 0px;
   }
 }
 @media screen and (min-width: 320px) and (max-width: 767px) {

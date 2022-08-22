@@ -151,6 +151,8 @@ DESKTOP------------------
   .bgImageHomeView {
     position: absolute;
     width: 100%;
+    display: block;
+    background-repeat: no-repeat;
 
     left: 0;
     bottom: -10%;
