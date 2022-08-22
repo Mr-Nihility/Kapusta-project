@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/kapusta-project/static/css/main.05736df5.css",
-    "main.js": "/kapusta-project/static/js/main.115b4e4e.js",
+    "main.css": "/kapusta-project/static/css/main.80f6a3b5.css",
+    "main.js": "/kapusta-project/static/js/main.eff8c8e5.js",
     "static/media/backgroun-modal.png": "/kapusta-project/static/media/backgroun-modal.543e58983d102926af03.png",
     "static/media/kapusta_not.jpg": "/kapusta-project/static/media/kapusta_not.334e3b053b17ccdec09a.jpg",
     "static/media/lika.jpg": "/kapusta-project/static/media/lika.398e2d63732c56a7ba77.jpg",
@@ -25,11 +25,11 @@
     "static/media/close.svg": "/kapusta-project/static/media/close.989157f15aeb319063d7e4d262165362.svg",
     "index.html": "/kapusta-project/index.html",
     "static/media/linkedin.svg": "/kapusta-project/static/media/linkedin.c14e26e694b97cf8bf062ed3d7aed7d0.svg",
-    "main.05736df5.css.map": "/kapusta-project/static/css/main.05736df5.css.map",
-    "main.115b4e4e.js.map": "/kapusta-project/static/js/main.115b4e4e.js.map"
+    "main.80f6a3b5.css.map": "/kapusta-project/static/css/main.80f6a3b5.css.map",
+    "main.eff8c8e5.js.map": "/kapusta-project/static/js/main.eff8c8e5.js.map"
   },
   "entrypoints": [
-    "static/css/main.05736df5.css",
-    "static/js/main.115b4e4e.js"
+    "static/css/main.80f6a3b5.css",
+    "static/js/main.eff8c8e5.js"
   ]
 }
