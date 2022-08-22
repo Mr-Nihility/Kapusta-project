@@ -18,6 +18,7 @@ import {
   getIncomeCategories,
 } from 'redux/categories/catrgories-operation';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 //------------------------------------------------//
 //-----------------------------------------------helpers
 const engCategoryExp = [
@@ -48,7 +49,6 @@ export default function FormMobile() {
 
   //------------------------------------get current date
   const currentDate = useSelector(getCurrentDate);
-  console.log(currentDate);
 
   //------------------------------------------useeffect
   useEffect(() => {
@@ -58,24 +58,41 @@ export default function FormMobile() {
 
   // -----------------------------------------------submits
   const onSubmitExp = data => {
-    dispatch(addExpanses({ ...data, date: currentDate }))
+    dispatch(
+      addExpanses({ ...data, date: currentDate ? currentDate : dateNow })
+    )
       .unwrap()
       .then(() => {
         navigate('/kapusta-project/main');
       });
   };
   const onSubmitInc = data => {
-    dispatch(addIncome({ ...data, date: currentDate }))
+    dispatch(addIncome({ ...data, date: currentDate ? currentDate : dateNow }))
       .unwrap()
       .then(() => {
         navigate('/kapusta-project/main');
       });
   };
 
+  const nowData = new Date();
+
+  const [day, setDay] = useState(nowData.getDate());
+  if (day.length === 1) {
+    setDay(`0${day}`);
+  }
+  const [month, setMonth] = useState(`${nowData.getMonth() + 1}`);
+  if (month.length === 1) {
+    setMonth(`0${month}`);
+  }
+
+  // const month = nowData.getMonth() + 1;
+  const year = nowData.getFullYear();
+  const dateNow = `${year}-${month}-${day}`;
+
   return (
     <div>
       <p className={styles.text}>
-        {`Current date : ${currentDate ? currentDate : 'not selected'}`}
+        {`Current date : ${currentDate ? currentDate : dateNow}`}
       </p>
 
       <NavLink to="/kapusta-project/main" className={styles.backBtn}>

@@ -70,7 +70,7 @@ export const App = () => {
                   <PrivateRoute>
                     <Media
                       queries={{
-                        small: '(max-width: 767px)',
+                        small: '(max-width: 767.92px)',
                         medium: '(min-width: 768px)',
                       }}
                     >
@@ -90,7 +90,7 @@ export const App = () => {
                   <PrivateRoute>
                     <Media
                       queries={{
-                        small: '(min-width: 319px) and (max-width: 767px)',
+                        small: '(min-width: 319px) and (max-width: 767.92px)',
                         medium: '(min-width: 768px)',
                       }}
                     >
@@ -110,7 +110,7 @@ export const App = () => {
                   <PrivateRoute>
                     <Media
                       queries={{
-                        small: '(min-width: 319px) and (max-width: 767px)',
+                        small: '(min-width: 319px) and (max-width: 767.92px)',
                         medium: '(min-width: 768px)',
                       }}
                     >

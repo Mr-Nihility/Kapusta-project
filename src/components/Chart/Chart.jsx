@@ -25,13 +25,17 @@ ChartJS.register(
   Legend
 );
 
-export const Chart = ({ itemEl, arrow }) => {
+export const Chart = ({ itemEl }) => {
   const itemSliceKeys = Object.keys(itemEl[1]).slice(1);
   const itemSliceValues = Object.values(itemEl[1]).slice(1);
+
+  const maxValue = Math.max(...itemSliceValues);
 
   const [widthScreen, setWidthScreen] = useState(window.screen.width);
 
   const token = useSelector(getSuccessToken);
+
+  console.log(itemEl[1]);
 
   useEffect(() => {
     const doResize = evt => {
@@ -50,6 +54,8 @@ export const Chart = ({ itemEl, arrow }) => {
     return item;
   });
 
+  // const sortedItemData = itemData.sort((a, b) => a - b);
+
   useEffect(() => {
     if (!token) {
       return;
@@ -61,12 +67,20 @@ export const Chart = ({ itemEl, arrow }) => {
     responsive: true,
     maintainAspectRatio: false,
     keepAspectRatio: false,
+    layout: {
+      padding: {
+        top: 10,
+        right: 30,
+      },
+    },
     plugins: {
       legend: {
-        position: 'bottom',
         display: false,
       },
       datalabels: {
+        formatter: function (_, context) {
+          return context.dataset.data[context.dataIndex] + ` грн`;
+        },
         anchor: 'end',
         offset: 10,
         align: 'top',
@@ -82,11 +96,16 @@ export const Chart = ({ itemEl, arrow }) => {
     },
     scales: {
       xAxes: {
+        min: 0,
+        max: maxValue,
+        ticks: {
+          stepSize: 10,
+          display: false,
+        },
         grid: {
           drawBorder: false,
           color: 'transparent',
         },
-        ticks: { display: false },
         gridLines: {
           display: false,
           drawBorder: false,
@@ -121,6 +140,11 @@ export const Chart = ({ itemEl, arrow }) => {
     responsive: true,
     maintainAspectRatio: false,
     keepAspectRatio: false,
+    layout: {
+      padding: {
+        top: 15,
+      },
+    },
     plugins: {
       legend: {
         display: false,
@@ -130,10 +154,13 @@ export const Chart = ({ itemEl, arrow }) => {
         text: '',
       },
       datalabels: {
+        formatter: function (_, context) {
+          return context.dataset.data[context.dataIndex] + ` грн`;
+        },
         anchor: 'end',
-        offset: -20,
+        offset: 0,
+        padding: 0,
         align: 'end',
-        padding: 25,
         display: true,
         color: 'black',
         labels: {
@@ -150,6 +177,7 @@ export const Chart = ({ itemEl, arrow }) => {
       x: {
         display: true,
         grid: {
+          offset: false,
           color: 'transparent',
         },
         ticks: {
@@ -165,17 +193,18 @@ export const Chart = ({ itemEl, arrow }) => {
         },
       },
       y: {
+        min: 0,
+        max: maxValue,
+        ticks: {
+          display: false,
+        },
         grid: {
+          offset: false,
           color: '#F5F6FB',
           lineWidth: 2,
           drawBorder: false,
         },
         display: true,
-        ticks: {
-          font: {
-            size: 0,
-          },
-        },
       },
     },
   };
@@ -190,6 +219,7 @@ export const Chart = ({ itemEl, arrow }) => {
         borderRadius: 10,
         maxBarThickness: 38,
         barScale: 2,
+        padding: 10,
       },
     ],
   };
@@ -198,7 +228,7 @@ export const Chart = ({ itemEl, arrow }) => {
     labels: itemLabels,
     datasets: [
       {
-        label: '',
+        label: 'Price',
         data: itemData,
         backgroundColor: [' #FF751D', '#FFDAC0', '#FFDAC0'],
         borderRadius: 10,
@@ -216,14 +246,11 @@ export const Chart = ({ itemEl, arrow }) => {
             <Bar
               options={optionsHorizontal}
               data={dataHorizontal}
+              plugins={[ChartDataLabels]}
               id="Bar"
               style={{
-                display: 'flex',
-                width: '760px',
-                // maxWidth: '1034px',
-                height: '360px',
+                height: `calc(${itemSliceValues.length}*40px)`,
               }}
-              width={'760px'}
             />
           </div>
         </div>
@@ -234,14 +261,12 @@ export const Chart = ({ itemEl, arrow }) => {
             <Bar
               options={options}
               data={data}
+              plugins={[ChartDataLabels]}
               id="Bar"
               style={{
                 display: 'flex',
-                width: '760px',
-                maxWidth: '1034px',
                 height: '360px',
               }}
-              width={'760px'}
             />
           </div>
         </div>
